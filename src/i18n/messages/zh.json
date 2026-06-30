@@ -1646,5 +1646,12 @@
         ]
       }
     ]
+  },
+  "theme": {
+    "light": "浅色主题",
+    "dark": "深色主题",
+    "switchToLight": "切换到浅色主题",
+    "switchToDark": "切换到深色主题",
+    "currentTheme": "当前主题：{theme}"
   }
 }

@@ -1646,5 +1646,12 @@
         ]
       }
     ]
+  },
+  "theme": {
+    "light": "Jasny motyw",
+    "dark": "Ciemny motyw",
+    "switchToLight": "Włącz jasny motyw",
+    "switchToDark": "Włącz ciemny motyw",
+    "currentTheme": "Aktualny motyw: {theme}"
   }
 }

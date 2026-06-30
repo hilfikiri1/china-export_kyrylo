@@ -35,20 +35,20 @@ export function LanguageSwitcher({
         {messages.common.language}
       </label>
       <div className="flex items-center gap-1.5">
-        <Globe2 className="h-4 w-4 shrink-0 text-white/50" aria-hidden />
+        <Globe2 className="h-4 w-4 shrink-0 text-text-muted" aria-hidden />
         <select
           id={`lang-select-${variant}`}
           value={pathname.split("/")[1]}
           onChange={(e) => handleChange(e.target.value as Locale)}
           className={cn(
-            "cursor-pointer appearance-none rounded-md border border-white/15 bg-navy/80 py-1.5 pl-2 pr-7 text-sm text-white/80",
+            "cursor-pointer appearance-none rounded-md border border-border-subtle bg-surface-secondary py-1.5 pl-2 pr-7 text-sm text-text-secondary",
             "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-light",
             variant === "mobile" && "w-full",
           )}
           aria-label={messages.common.language}
         >
           {locales.map((locale) => (
-            <option key={locale} value={locale} className="bg-navy text-white">
+            <option key={locale} value={locale}>
               {localeLabels[locale]}
             </option>
           ))}

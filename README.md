@@ -1,5 +1,17 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## Experimental theme switcher (Phase 1)
+
+The site supports an optional light/dark theme switcher controlled by a public feature flag.
+
+1. Copy `.env.example` to `.env.local`
+2. Set `NEXT_PUBLIC_ENABLE_THEME_SWITCHER=true` to enable the toggle in the header
+3. When disabled or unset, the default dark theme is used with no empty header space
+
+User preference is stored in `localStorage` under the key `bbs-theme` and persists across page loads and locale changes.
+
+Semantic design tokens live in `src/app/globals.css` under `[data-theme="dark"]` and `[data-theme="light"]`.
+
 ## Getting Started
 
 First, run the development server:
