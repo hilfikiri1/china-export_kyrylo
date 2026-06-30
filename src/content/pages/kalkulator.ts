@@ -3,14 +3,14 @@ import type { DedicatedPageContent } from "./types";
 export const kalkulatorPage: DedicatedPageContent = {
   id: "kalkulator",
   meta: {
-    title: "Kalkulator importu — B&BS Poland",
+    title: "Kalkulator kosztu importu z Chin — Buy & Bring Solutions",
     description:
-      "Orientacyjny kalkulator importu z Chin: transport, cło, VAT i koszt dostawy do Polski. Narzędzie planistyczne B&BS Poland.",
+      "Oblicz orientacyjny koszt zakupu, transportu, cła i podatku VAT. Wynik ma charakter informacyjny.",
   },
   hero: {
-    eyebrow: "Narzędzia · B&BS Poland",
-    title: "Orientacyjny kalkulator importu z Chin",
-    lead: "Oszacuj pełny koszt importu — fracht, cło, VAT i obsługę celną — zanim wyślesz zapytanie. Wynik ma charakter orientacyjny i nie stanowi oferty handlowej.",
+    eyebrow: "Narzędzia · Buy & Bring Solutions",
+    title: "Kalkulator kosztu importu z Chin",
+    lead: "Oblicz orientacyjny koszt zakupu, transportu, cła i podatku VAT. Wynik ma charakter informacyjny i nie stanowi oferty handlowej ani porady podatkowej.",
   },
   sections: [
     {

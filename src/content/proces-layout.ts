@@ -28,6 +28,15 @@ export type ProcesStat = {
   label: string;
 };
 
+const themes: ProcesStepTheme[] = [
+  { accent: "#dbaa47", glow: "rgba(219,170,71,0.12)", glowBorder: "rgba(219,170,71,0.28)" },
+  { accent: "#4ade80", glow: "rgba(74,222,128,0.12)", glowBorder: "rgba(74,222,128,0.28)" },
+  { accent: "#60a5fa", glow: "rgba(96,165,250,0.12)", glowBorder: "rgba(96,165,250,0.28)" },
+  { accent: "#a78bfa", glow: "rgba(167,139,250,0.12)", glowBorder: "rgba(167,139,250,0.28)" },
+  { accent: "#22d3ee", glow: "rgba(34,211,238,0.12)", glowBorder: "rgba(34,211,238,0.28)" },
+  { accent: "#f472b6", glow: "rgba(244,114,182,0.12)", glowBorder: "rgba(244,114,182,0.28)" },
+];
+
 export const procesLayout = {
   hero: {
     eyebrow: procesPage.hero.eyebrow,
@@ -35,102 +44,78 @@ export const procesLayout = {
     titleAccent: "krok po kroku",
     lead: procesPage.hero.lead,
     stats: [
-      { value: "120+", label: "wysyłek miesięcznie" },
-      { value: "12+", label: "lat doświadczenia" },
-      { value: "4,9", label: "średnia ocena klientów" },
+      { value: "17 lat", label: "doświadczenia z Chinami" },
+      { value: "275+", label: "obsłużonych klientów" },
+      { value: "110+", label: "dostarczonych kontenerów" },
     ] satisfies ProcesStat[],
   },
   steps: [
     {
       num: "01",
       icon: "file-text",
-      theme: {
-        accent: "#dbaa47",
-        glow: "rgba(219,170,71,0.12)",
-        glowBorder: "rgba(219,170,71,0.28)",
-      },
-      title: "Brief i wycena",
-      tagline: "Od pomysłu do oferty w 48 godzin",
-      body: "Opisujesz produkt, a my przygotowujemy szczegółową wycenę z analizą chińskiego rynku dostawców. Żadnych ukrytych kosztów, żadnych zobowiązań.",
-      bullets: [
-        "Darmowa konsultacja i analiza produktu",
-        "Porównanie 3–5 zweryfikowanych fabryk",
-        "Pełna kalkulacja z logistyką i cłami",
-      ],
+      theme: themes[0],
+      title: "Brief i specyfikacja",
+      tagline: "Produkt, wymagania i kraj docelowy",
+      body:
+        "Poznajemy produkt, jego zastosowanie, wymagania techniczne, planowaną ilość, budżet, termin oraz kraj docelowy.",
+      bullets: ["produkt i zastosowanie", "wymagania techniczne", "ilość, budżet i termin"],
     },
     {
       num: "02",
       icon: "search",
-      theme: {
-        accent: "#4ade80",
-        glow: "rgba(74,222,128,0.12)",
-        glowBorder: "rgba(74,222,128,0.28)",
-      },
-      title: "Weryfikacja dostawców",
-      tagline: "Transparentność na każdym etapie",
-      body: "Każdy dostawca przechodzi wieloetapową weryfikację — od sprawdzenia rejestracji firmy po fizyczny audyt zakładu produkcyjnego.",
-      bullets: [
-        "Audyt fabryki z dokumentacją fotograficzną",
-        "Weryfikacja historii eksportu i referencji",
-        "Negocjacje warunków i zabezpieczenie kontraktu",
-      ],
+      theme: themes[1],
+      title: "Wyszukiwanie i porównanie producentów",
+      tagline: "Oferty, MOQ i warunki handlowe",
+      body:
+        "Wyszukujemy odpowiednie fabryki, zbieramy oferty oraz porównujemy konfiguracje, ceny, terminy produkcji, MOQ i warunki handlowe.",
+      bullets: ["wyszukiwanie producentów", "porównanie ofert", "analiza MOQ i terminów"],
     },
     {
       num: "03",
-      icon: "clipboard-list",
-      theme: {
-        accent: "#60a5fa",
-        glow: "rgba(96,165,250,0.12)",
-        glowBorder: "rgba(96,165,250,0.28)",
-      },
-      title: "Zamówienie i produkcja",
-      tagline: "Nadzór przez cały cykl wytwarzania",
-      body: "Składamy zamówienie i monitorujemy każdy etap produkcji. Cotygodniowe raporty ze zdjęciami bezpośrednio z fabryki — zawsze wiesz, co się dzieje.",
-      bullets: [
-        "Stały kontakt z fabryką w Twoim imieniu",
-        "Cotygodniowe raporty postępu ze zdjęciami",
-        "Zarządzanie próbkami i zatwierdzeniami",
-      ],
+      icon: "shield-check",
+      theme: themes[2],
+      title: "Weryfikacja fabryki i próbek",
+      tagline: "Dokumenty, próbki lub audyt według potrzeb",
+      body:
+        "Sprawdzamy producenta, dokumentację, możliwości produkcyjne oraz — gdy jest to potrzebne — organizujemy próbki, wideoweryfikację lub audyt.",
+      bullets: ["weryfikacja dokumentów", "próbki lub wideoweryfikacja", "audyt jako osobny zakres"],
     },
     {
       num: "04",
-      icon: "shield-check",
-      theme: {
-        accent: "#a78bfa",
-        glow: "rgba(167,139,250,0.12)",
-        glowBorder: "rgba(167,139,250,0.28)",
-      },
-      title: "Kontrola jakości",
-      tagline: "Zero kompromisów przed wysyłką",
-      body: "Przed wysyłką każda partia przechodzi rygorystyczną inspekcję przez naszych inspektorów na miejscu w Chinach. Nic nie jedzie bez Twojej zgody.",
-      bullets: [
-        "Inspekcja 100% lub próbkowanie statystyczne",
-        "Szczegółowy raport z pomiarami i zdjęciami",
-        "Prawo weta — Ty decydujesz o każdej wysyłce",
-      ],
+      icon: "clipboard-list",
+      theme: themes[3],
+      title: "Zamówienie i nadzór nad produkcją",
+      tagline: "Uzgodnienia i komunikacja z producentem",
+      body:
+        "Pomagamy uzgodnić specyfikację, warunki płatności, harmonogram i sposób odbioru. Koordynujemy komunikację z producentem podczas realizacji zamówienia.",
+      bullets: ["specyfikacja i płatności", "harmonogram", "koordynacja komunikacji"],
     },
     {
       num: "05",
+      icon: "shield-check",
+      theme: themes[4],
+      title: "Kontrola jakości i dokumentów",
+      tagline: "Sprawdzenie zgodności przed wysyłką",
+      body:
+        "Sprawdzamy zgodność towaru z ustaleniami, ilość, opakowanie, oznakowanie, działanie oraz dostępne dokumenty przed wysyłką.",
+      bullets: ["towar i ilość", "opakowanie i oznakowanie", "dostępne dokumenty"],
+    },
+    {
+      num: "06",
       icon: "truck",
-      theme: {
-        accent: "#22d3ee",
-        glow: "rgba(34,211,238,0.12)",
-        glowBorder: "rgba(34,211,238,0.28)",
-      },
-      title: "Transport i odprawa celna",
-      tagline: "Towar prosto do Twojego magazynu",
-      body: "Organizujemy transport morski lub lotniczy, obsługujemy pełną odprawę celną i dowozimy towar bezpośrednio pod wskazany adres.",
-      bullets: [
-        "Transport morski LCL/FCL lub lotniczy",
-        "Pełna obsługa celna i dokumentacja importowa",
-        "Śledzenie przesyłki w czasie rzeczywistym",
-      ],
+      theme: themes[5],
+      title: "Transport, odprawa i dostawa",
+      tagline: "Eksport z Chin i dostawa pod adres",
+      body:
+        "Organizujemy eksport z Chin, fracht, odprawę celną i dostawę pod wskazany adres w Polsce, Ukrainie lub innym kraju europejskim.",
+      bullets: ["eksport i fracht", "odprawa celna", "dostawa końcowa"],
     },
   ] satisfies ProcesStep[],
   cta: {
-    eyebrow: "Gotowy na swój pierwszy import?",
-    title: "Zacznij bez ryzyka",
-    body: "Pierwsza konsultacja i wycena są bezpłatne. Zero zobowiązań.",
+    eyebrow: "Gotowy na kolejny krok?",
+    title: "Opisz swój projekt importowy",
+    body:
+      "Napisz, czego szukasz i na jakim etapie potrzebujesz wsparcia. Dobierzemy zakres współpracy do projektu.",
     ...procesPage.cta,
   },
 } as const;

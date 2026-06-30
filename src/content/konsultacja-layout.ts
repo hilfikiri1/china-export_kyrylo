@@ -1,4 +1,5 @@
 import { konsultacjaPage } from "@/content/pages/konsultacja";
+import { serviceScopeOptions } from "@/content/kontakt-layout";
 
 export type KonsultacjaStat = {
   value: string;
@@ -19,41 +20,39 @@ export type KonsultacjaTopicOption = {
 export const konsultacjaLayout = {
   meta: konsultacjaPage.meta,
   hero: {
-    badge: "Bezpłatna · 30 min",
-    titleLead: "Umów konsultację",
-    titleAccent: "bez zobowiązań",
+    badge: "Kontakt",
+    titleLead: "Umów bezpłatną konsultację",
+    titleAccent: "dla projektu importowego",
     lead: konsultacjaPage.hero.lead,
     stats: [
-      { value: "30 min", label: "Czas rozmowy" },
-      { value: "Online", label: "Zoom / Meet / telefon" },
+      { value: "Projekt", label: "Zakres rozmowy" },
+      { value: "Online", label: "Telefon / Meet / WhatsApp" },
       { value: "0 zł", label: "Bez opłat wstępnych" },
     ] satisfies KonsultacjaStat[],
   },
   agenda: {
-    title: "Jak wygląda rozmowa",
+    title: "Co ustalimy",
     intro: konsultacjaPage.sections[0]?.body ?? "",
     steps: [
       {
         num: "01",
-        title: "Analiza produktu",
-        description: "Analiza produktu i wymagań rynku UE",
+        title: "Produkt i wymagania",
+        description: "Omówimy produkt, ilość, kraj docelowy i najważniejsze wymagania.",
       },
       {
         num: "02",
-        title: "Ocena ryzyk",
-        description:
-          "Ocena ryzyk — dostawca, certyfikaty, logistyka",
+        title: "Zakres wsparcia",
+        description: "Ustalimy, czy potrzebujesz całego procesu, czy wybranego etapu.",
       },
       {
         num: "03",
-        title: "Rekomendacja planu",
-        description:
-          "Rekomendacja modułów i orientacyjny harmonogram",
+        title: "Dane do wyceny",
+        description: "Wskażemy, jakie informacje są potrzebne do dalszej analizy.",
       },
       {
         num: "04",
-        title: "Pytania i koszty",
-        description: "Odpowiedzi na pytania o proces i koszty",
+        title: "Kolejne kroki",
+        description: "Skontaktujemy się, aby potwierdzić rozmowę i zaproponować następny etap.",
       },
     ] satisfies KonsultacjaAgendaStep[],
     facilitator: {
@@ -62,31 +61,25 @@ export const konsultacjaLayout = {
     },
   },
   form: {
-    title: "Zarezerwuj termin",
+    title: "Poproś o kontakt",
     description:
-      "Podaj dane kontaktowe i temat rozmowy — odezwiemy się, aby ustalić dogodny termin.",
-    topicLabel: "Temat konsultacji",
-    topicOptions: [
-      { value: "sourcing", label: "Wyszukiwanie dostawcy" },
-      { value: "audit", label: "Audyt fabryki" },
-      { value: "qc", label: "Kontrola jakości" },
-      { value: "logistics", label: "Logistyka i transport" },
-      { value: "full", label: "Pełny proces importu" },
-    ] satisfies KonsultacjaTopicOption[],
-    notesLabel: "Krótki opis (opcjonalnie)",
-    notesPlaceholder: "Czego dotyczy projekt?",
-    submitLabel: "Umów konsultację",
-    footnote: "Wolisz napisać zamiast rozmawiać?",
-    footnoteLink: { label: "Wyślij zapytanie", href: "/kontakt" },
+      "Podaj dane kontaktowe, preferowany termin i krótki opis projektu. Skontaktujemy się, aby potwierdzić rozmowę.",
+    topicLabel: "Kategoria projektu",
+    topicOptions: serviceScopeOptions satisfies KonsultacjaTopicOption[],
+    notesLabel: "Krótki opis projektu",
+    notesPlaceholder: "Produkt, ilość, kraj dostawy, preferowany termin kontaktu...",
+    submitLabel: "Poproś o kontakt",
+    footnote: "Wolisz wysłać pełniejsze zapytanie?",
+    footnoteLink: { label: "Opisz projekt", href: "/kontakt" },
     success: {
-      title: "Dziękujemy — termin w drodze",
+      title: "Dziękujemy — skontaktujemy się",
       description:
-        "Otrzymaliśmy zgłoszenie. Skontaktujemy się w ciągu 24 godzin roboczych, aby ustalić termin konsultacji.",
+        "Otrzymaliśmy zgłoszenie. Skontaktujemy się, aby potwierdzić rozmowę.",
     },
   },
   footerCta: {
     label: "Zobacz proces importu",
     href: "/proces",
-    hint: "Poznaj pełną ścieżkę współpracy — od briefu po dostawę door-to-door.",
+    hint: "Poznaj pełną ścieżkę współpracy — od briefu po dostawę.",
   },
 } as const;

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#0B1320"/>
+  <circle cx="960" cy="120" r="260" fill="#dbaa47" opacity=".12"/>
+  <circle cx="160" cy="560" r="220" fill="#38bdf8" opacity=".10"/>
+  <text x="90" y="235" fill="#dbaa47" font-family="Arial, sans-serif" font-size="42" font-weight="700">Buy &amp; Bring Solutions</text>
+  <text x="90" y="325" fill="#ffffff" font-family="Arial, sans-serif" font-size="66" font-weight="700">Import z Chin dla firm</text>
+  <text x="90" y="390" fill="#cbd5e1" font-family="Arial, sans-serif" font-size="30">Sourcing · Kontrola jako[ci · Transport · Odprawa</text>
+  <rect x="90" y="455" width="280" height="68" rx="18" fill="#dbaa47"/>
+  <text x="130" y="499" fill="#ffffff" font-family="Arial, sans-serif" font-size="25" font-weight="700">B&amp;BS Poland</text>
+</svg>

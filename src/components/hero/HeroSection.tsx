@@ -6,14 +6,17 @@ import { HeroCTAs } from "@/components/hero/HeroCTAs";
 import { HeroFlowOverlay } from "@/components/hero/HeroFlowOverlay";
 import { TrustStrip } from "@/components/hero/TrustStrip";
 import { useMotionConfig, viewportOnce } from "@/lib/motion";
+import { getHomeContent } from "@/content/home";
+import type { Locale } from "@/i18n/config";
 
-export function HeroSection() {
+export function HeroSection({ locale = "pl" }: { locale?: Locale }) {
   const { fadeUp, headerTransition } = useMotionConfig();
+  const content = getHomeContent(locale).hero;
 
   return (
     <section
       className="relative flex min-h-screen flex-col overflow-hidden"
-      aria-label="Strona główna"
+      aria-label={content.ariaLabel}
     >
       <HeroBackground />
       <HeroFlowOverlay className="z-[2]" />
@@ -28,15 +31,13 @@ export function HeroSection() {
           transition={headerTransition}
         >
           <p className="mb-4 inline-flex items-center rounded-full border border-accent-light/30 bg-accent-light/10 px-4 py-1.5 text-xs font-medium uppercase tracking-widest text-accent-light">
-            Import z Chin · Polska &amp; Europa
+            {content.eyebrow}
           </p>
           <h1 className="track-text mx-auto max-w-4xl text-4xl font-bold leading-tight tracking-tight text-gray-100 sm:text-5xl lg:text-[2.75rem] lg:leading-tight xl:text-6xl">
-            Znajdujemy, weryfikujemy i dostarczamy Twoje towary z Chin do
-            Polski.
+            {content.title}
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-gray-300/80 sm:text-xl">
-            Od wyszukiwania dostawców i audytów fabryk po odprawę celną i
-            dostawę door-to-door.
+            {content.lead}
           </p>
         </motion.header>
 
@@ -53,10 +54,10 @@ export function HeroSection() {
           variants={fadeUp}
           transition={headerTransition}
         >
-          <HeroCTAs className="items-center" />
+          <HeroCTAs className="items-center" content={content} locale={locale} />
           <div className="mt-10 pt-2">
             <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-gray-400">
-              Dlaczego nam zaufać
+              {content.trustHeading}
             </p>
             <TrustStrip />
           </div>

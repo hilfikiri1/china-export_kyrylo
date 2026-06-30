@@ -28,7 +28,7 @@ export async function generateMetadata({
   const content = getPageContentByServiceSlug(slug);
 
   if (!content) {
-    return { title: "Usługa nie znaleziona — China Export" };
+    return { title: "Usługa nie znaleziona — Buy & Bring Solutions" };
   }
 
   return {

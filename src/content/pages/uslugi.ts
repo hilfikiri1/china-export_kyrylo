@@ -3,28 +3,28 @@ import type { DedicatedPageContent } from "./types";
 export const uslugiPage: DedicatedPageContent = {
   id: "uslugi",
   meta: {
-    title: "Usługi modułowe — China Export",
+    title: "Usługi dopasowane do etapu projektu — Buy & Bring Solutions",
     description:
-      "Każdy etap importu jako osobna usługa — sourcing, audyty, QC, spedycja i dostawa door-to-door. Wybierz moduły, których potrzebujesz.",
+      "Możemy przeprowadzić cały proces importu albo wesprzeć Cię tylko na wybranym etapie: sourcing, weryfikacja, kontrola jakości, konsolidacja, transport i odprawa.",
   },
   hero: {
-    eyebrow: "Usługi modułowe",
-    title: "Kupujesz dokładnie to, czego potrzebujesz",
-    lead: "Nie musisz wykupywać pełnego pakietu end-to-end. Każdy etap mapy współpracy działa jako samodzielny moduł — od wyszukiwania dostawcy po dostawę pod Twój adres.",
+    eyebrow: "Usługi",
+    title: "Usługi dopasowane do etapu Twojego projektu",
+    lead: "Możemy przeprowadzić cały proces importu albo wesprzeć Cię tylko na wybranym etapie.",
   },
   sections: [
     {
-      title: "Jak wybrać moduły",
-      body: "Jeśli masz już dostawcę — potrzebujesz może tylko QC i spedycji. Jeśli zaczynasz od zera — zaczynamy od sourcingu i audytu. Na konsultacji pomożemy dobrać minimalny, sensowny zakres.",
+      title: "Jak wybrać zakres",
+      body: "Jeśli masz już producenta, możesz potrzebować tylko kontroli jakości, konsolidacji lub transportu. Jeśli zaczynasz od zera, zaczniemy od wyszukiwania i porównania producentów.",
       bullets: [
-        "Przed produkcją — sourcing, audyty, QC, OEM",
-        "Logistyka — płatności, konsolidacja, fracht",
-        "Dostawa w UE — odprawa celna, door-to-door",
+        "przed produkcją — sourcing, weryfikacja, próbki, Private Label",
+        "logistyka — konsolidacja, dokumentacja, eksport",
+        "dostawa — transport, odprawa celna i dostawa końcowa",
       ],
     },
   ],
   cta: {
-    primary: { label: "Wyślij zapytanie", href: "/kontakt" },
+    primary: { label: "Opisz projekt", href: "/kontakt" },
     secondary: { label: "Umów konsultację", href: "/konsultacja" },
   },
 };

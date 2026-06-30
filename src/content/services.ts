@@ -5,7 +5,6 @@ import {
   Search,
   ShieldCheck,
   Ship,
-  Stamp,
   Tag,
   Truck,
   type LucideIcon,
@@ -28,31 +27,30 @@ export type ServiceModule = {
   scope: string;
   icon: LucideIcon;
   phase: ServicePhaseId;
-  /** Optional link to a related roadmap stage */
   roadmapStageId?: string;
-  /** URL slug for dedicated service page */
   slug?: string;
+  clientReceives?: string[];
 };
 
 export const servicePhases: ServicePhase[] = [
   {
     id: "pre-production",
     label: "Przed produkcją",
-    description: "Od wyszukiwania dostawcy po kontrolę jakości i OEM.",
+    description: "Sourcing, weryfikacja producenta, próbki, Private Label i kontrola jakości.",
     icon: Search,
     gridClassName: "grid gap-4 sm:grid-cols-2 lg:gap-6",
   },
   {
     id: "logistics",
-    label: "Logistyka",
-    description: "Od fabryki do portu — płatności, konsolidacja i fracht.",
+    label: "Eksport i logistyka",
+    description: "Dokumentacja, konsolidacja, płatności według ustaleń i przygotowanie wysyłki.",
     icon: Ship,
     gridClassName: "grid gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6",
   },
   {
     id: "delivery",
-    label: "Dostawa w UE",
-    description: "Odprawa celna i dostawa pod wskazany adres.",
+    label: "Transport i odprawa",
+    description: "Fracht, odprawa celna, koszty po stronie importu i dostawa końcowa.",
     icon: Truck,
     gridClassName: "grid gap-4 sm:grid-cols-2 lg:gap-6",
     panelClassName: "mx-auto max-w-3xl",
@@ -62,85 +60,86 @@ export const servicePhases: ServicePhase[] = [
 export const serviceModules: ServiceModule[] = [
   {
     id: "sourcing",
-    title: "Sourcing i negocjacje",
+    title: "Wyszukiwanie producentów i organizacja zakupu",
     scope:
-      "Identyfikacja fabryk, zbieranie i porównywanie ofert oraz negocjacja warunków handlowych.",
+      "Wyszukujemy producentów, zbieramy i porównujemy oferty, analizujemy MOQ, terminy, konfiguracje oraz warunki płatności i dostawy.",
     icon: Search,
     phase: "pre-production",
     roadmapStageId: "sourcing",
     slug: "wyszukiwanie-dostawcow",
+    clientReceives: [
+      "shortlist producentów",
+      "porównanie ofert",
+      "informacje o MOQ i terminach",
+      "ocenę mocnych stron i ryzyk",
+      "rekomendację kolejnych kroków",
+    ],
   },
   {
     id: "verification",
-    title: "Weryfikacja dostawców i audyty",
+    title: "Weryfikacja dostawców i audyty fabryk",
     scope:
-      "Sprawdzenie prawne, weryfikacje wideo na żywo, przegląd dokumentów, ocena mocy produkcyjnych oraz fizyczne wizyty w fabryce.",
+      "Sprawdzamy dane rejestrowe, zakres działalności, możliwości produkcyjne, dokumentację i zgodność fabryki z wymaganiami projektu.",
     icon: ShieldCheck,
     phase: "pre-production",
-    roadmapStageId: "audit",
+    roadmapStageId: "verification",
     slug: "audyty-fabryk",
+    clientReceives: [
+      "zdalną weryfikację dokumentów",
+      "wideoweryfikację na żywo, gdy jest potrzebna",
+      "audyt fizyczny jako osobny zakres projektu",
+    ],
   },
   {
     id: "qc",
-    title: "Kontrola jakości (QC)",
+    title: "Kontrola jakości towarów",
     scope:
-      "Inspekcja towaru, weryfikacja ilości i komponentów, pomiary wymiarowe, ocena opakowania oraz testy funkcjonalne.",
+      "Organizujemy kontrolę jakości na podstawie uzgodnionej specyfikacji, checklisty, próbek referencyjnych i wymagań klienta.",
     icon: ClipboardCheck,
     phase: "pre-production",
-    roadmapStageId: "production",
+    roadmapStageId: "quality",
     slug: "kontrola-jakosci",
+    clientReceives: [
+      "kontrolę przed rozpoczęciem produkcji",
+      "kontrolę w trakcie produkcji",
+      "inspekcję przed wysyłką",
+      "nadzór nad załadunkiem kontenera",
+    ],
   },
   {
     id: "oem",
-    title: "OEM / Private Label",
+    title: "Produkcja pod marką własną — Private Label i OEM",
     scope:
-      "Opakowania na zamówienie, etykietowanie, umieszczenie logo, tłumaczenie lub tworzenie instrukcji oraz adaptacja produktu pod normy europejskie.",
+      "Pomagamy dostosować produkt, logo, opakowanie, etykiety i instrukcję do wymagań marki oraz rynku docelowego. Pomagamy zweryfikować dostępność dokumentów producenta i wymagania rynku docelowego.",
     icon: Tag,
     phase: "pre-production",
   },
   {
     id: "payment-export",
-    title: "Płatności i zarządzanie eksportem",
+    title: "Koordynacja płatności i eksportu z Chin",
     scope:
-      "Bezpieczne, zgodne struktury płatności oraz obsługa dokumentacji eksportowej po stronie chińskiej.",
+      "Koordynujemy dokumentację handlową i eksportową oraz uzgodniony model współpracy z producentem.",
     icon: FileText,
     phase: "logistics",
-    roadmapStageId: "export",
+    roadmapStageId: "quality",
   },
   {
     id: "consolidation",
-    title: "Konsolidacja ładunków",
+    title: "Konsolidacja towarów od wielu producentów",
     scope:
-      "Odbiór towarów z wielu fabryk, magazynowanie, łączenie przesyłek w jeden kontener i przeopakowanie.",
+      "Organizujemy odbiór towarów z kilku fabryk, magazynowanie, kontrolę kompletności, przeładunek i przygotowanie wspólnej wysyłki.",
     icon: Package,
     phase: "logistics",
   },
   {
     id: "freight",
-    title: "Spedycja i transport",
+    title: "Transport, odprawa celna i dostawa",
     scope:
-      "Optymalizacja trasy, rezerwacja frachtu, transport multimodalny oraz śledzenie ładunku w czasie rzeczywistym.",
+      "Dobieramy sposób transportu, koordynujemy fracht, dokumentację, odprawę celną oraz dostawę końcową: FCL, LCL, kolej, transport lotniczy, drogowy i rozwiązania multimodalne.",
     icon: Ship,
-    phase: "logistics",
-    roadmapStageId: "freight",
-    slug: "spedycja-i-logistyka",
-  },
-  {
-    id: "customs",
-    title: "Wsparcie odprawy celnej",
-    scope:
-      "Przygotowanie zgodnej dokumentacji taryfowej, klasyfikacja kodów HS oraz koordynacja z brokerami celnymi.",
-    icon: Stamp,
-    phase: "delivery",
-  },
-  {
-    id: "delivery",
-    title: "Dostawa door-to-door",
-    scope:
-      "Logistyka last mile — dostawa ładunku prosto pod wskazany adres w Polsce lub Europie.",
-    icon: Truck,
     phase: "delivery",
     roadmapStageId: "delivery",
+    slug: "spedycja-i-logistyka",
   },
 ];
 

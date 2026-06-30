@@ -1,8 +1,11 @@
 "use client";
 
 import { useCallback, useEffect, useId, useState } from "react";
+import Link from "next/link";
 import { FieldHelp, HelpTooltip, ResultHelp } from "@/components/forms/FieldHelp";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { getMessages } from "@/i18n/messages";
+import { localizePath, type Locale } from "@/i18n/config";
 import {
   calculatorFormIntro,
   fieldHelp,
@@ -63,12 +66,13 @@ function BreakdownRow({
   );
 }
 
-export function ImportCalculator() {
+export function ImportCalculator({ locale = "pl" }: { locale?: Locale }) {
   const insuranceId = useId();
   const [input, setInput] = useState<CalculatorInput>(defaultInput);
   const [result, setResult] = useState<CalculatorOutput | null>(null);
   const [rateDate, setRateDate] = useState(TARIFF_LAST_UPDATED);
   const [ratesSource, setRatesSource] = useState<"nbp" | "manual">("manual");
+  const messages = getMessages(locale);
 
   useEffect(() => {
     let cancelled = false;
@@ -132,22 +136,22 @@ export function ImportCalculator() {
           <header className="flex flex-col items-start justify-between gap-5 border-b border-white/10 px-[18px] py-6 sm:flex-row sm:items-end sm:px-[30px]">
             <div>
               <h2 className="text-[28px] leading-[1.12] font-semibold text-white">
-                Orientacyjny kalkulator importu z Chin
+                {messages.calculator.title}
               </h2>
               <p className="mt-2 text-sm text-white/70">
-                Transport, cło, VAT i koszt dostawy do Polski
+                {messages.calculator.lead}
               </p>
-              <p className="mt-1 text-xs text-accent-light">B&amp;BS Poland</p>
+              <p className="mt-1 text-xs text-accent-light">Buy &amp; Bring Solutions</p>
             </div>
             <div className="rounded-full border border-white/20 px-3 py-2 text-xs whitespace-normal text-white/60 sm:whitespace-nowrap">
-              Dane planistyczne: {formatRateDate(rateDate)} · wynik nie jest ofertą
+              {formatRateDate(rateDate)} · {messages.calculator.disclaimer}
               {ratesSource === "nbp" ? " · kursy NBP" : ""}
             </div>
           </header>
 
           <div className="grid lg:grid-cols-[minmax(0,1.02fr)_minmax(380px,0.98fr)]">
             <section className="border-b border-white/10 px-[18px] py-6 lg:border-r lg:border-b-0 sm:px-[30px]">
-              <h3 className="text-xl text-white">Dane przesyłki</h3>
+              <h3 className="text-xl text-white">{messages.calculator.shipmentData}</h3>
               <p className="mb-[18px] mt-1.5 text-xs leading-snug text-white/50">
                 {calculatorFormIntro}
               </p>
@@ -525,6 +529,15 @@ export function ImportCalculator() {
                     pokazywana osobno, ponieważ dla czynnego podatnika może podlegać
                     rozliczeniu.
                   </p>
+                  <Link
+                    href={localizePath(
+                      `/kontakt?source=calculator&goods=${encodeURIComponent(String(input.goods))}&currency=${input.currency}&mode=${input.mode}&incoterm=${input.incoterm}`,
+                      locale,
+                    )}
+                    className="mt-5 inline-flex w-full items-center justify-center rounded-lg border border-accent-light/20 bg-accent-light px-4 py-3 text-sm font-semibold text-white shadow-lg shadow-accent-light/25 transition-colors hover:bg-[#dbaa47]"
+                  >
+                    {messages.calculator.verifyCta}
+                  </Link>
                 </div>
               )}
             </section>

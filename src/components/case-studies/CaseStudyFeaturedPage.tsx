@@ -25,7 +25,9 @@ export function CaseStudyFeaturedPage({
 }: CaseStudyFeaturedPageProps) {
   const [imageError, setImageError] = useState(false);
   const category = getCategoryById(caseStudy.categoryId);
-  const year = new Date(caseStudy.publishedAt).getFullYear();
+  const year = caseStudy.publishedAt
+    ? new Date(caseStudy.publishedAt).getFullYear()
+    : null;
 
   return (
     <article
@@ -67,14 +69,16 @@ export function CaseStudyFeaturedPage({
               {category.label}
             </span>
           )}
-          <span className="text-sm text-white/50">{year}</span>
+          {year && <span className="text-sm text-white/50">{year}</span>}
         </div>
 
         <div>
-          <p className="mb-3 flex items-center gap-1.5 text-sm font-medium tracking-widest text-white/60 uppercase">
-            <MapPin className="h-3.5 w-3.5 text-accent-light" aria-hidden />
-            {caseStudy.destinationCountry}
-          </p>
+          {caseStudy.destinationCountry && (
+            <p className="mb-3 flex items-center gap-1.5 text-sm font-medium tracking-widest text-white/60 uppercase">
+              <MapPin className="h-3.5 w-3.5 text-accent-light" aria-hidden />
+              {caseStudy.destinationCountry}
+            </p>
+          )}
 
           <h2 className="mb-6 max-w-3xl text-3xl leading-tight font-semibold text-white sm:text-4xl lg:text-5xl">
             {caseStudy.title}
@@ -82,9 +86,11 @@ export function CaseStudyFeaturedPage({
 
           <div className="flex flex-wrap items-end justify-between gap-6">
             <div>
-              <p className="text-2xl leading-none font-bold text-accent-light sm:text-4xl">
-                {caseStudy.destinationCountry}
-              </p>
+              {caseStudy.destinationCountry && (
+                <p className="text-2xl leading-none font-bold text-accent-light sm:text-4xl">
+                  {caseStudy.destinationCountry}
+                </p>
+              )}
               <p className="mt-1 max-w-md text-xs tracking-wide text-white/50 uppercase">
                 {outcomeSnippet(caseStudy.outcome)}
               </p>

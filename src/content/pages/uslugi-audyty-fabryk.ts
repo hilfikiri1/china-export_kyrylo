@@ -3,7 +3,7 @@ import type { DedicatedPageContent } from "./types";
 export const audytyFabrykPage: DedicatedPageContent = {
   id: "uslugi-audyty-fabryk",
   meta: {
-    title: "Audyty fabryk — China Export",
+    title: "Weryfikacja dostawców i audyty fabryk — Buy & Bring Solutions",
     description:
       "Weryfikacja dostawców i audyty fabryk w Chinach — wizyta na miejscu, ocena mocy produkcyjnych i raport z rekomendacją.",
   },

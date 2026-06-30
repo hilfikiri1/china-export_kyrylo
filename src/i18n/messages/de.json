@@ -1,0 +1,50 @@
+{
+  "common": {
+    "home": "Startseite",
+    "readMore": "Details ansehen",
+    "sendInquiry": "Projekt beschreiben",
+    "requestHelp": "Unterstützung für diesen Schritt?",
+    "previousSlide": "Vorherige Folie",
+    "nextSlide": "Nächste Folie",
+    "projectCountOne": "1 Projekt",
+    "projectCountFew": "{{count}} Projekte",
+    "projectCountMany": "{{count}} Projekte",
+    "noCases": "Für diese Kategorie sind noch keine Projekte vorhanden."
+  },
+  "brand": {
+    "eyebrow": "Buy & Bring Solutions · Europa — China",
+    "copyright": "Alle Rechte vorbehalten."
+  },
+  "forms": {
+    "name": "Vor- und Nachname",
+    "company": "Firmenname",
+    "email": "E-Mail",
+    "phone": "Telefon / WhatsApp",
+    "country": "Land",
+    "deliveryCity": "Lieferort oder Postleitzahl",
+    "product": "Produkt oder Maschinentyp",
+    "quantity": "Geplante Menge",
+    "budget": "Budget",
+    "deadline": "Gewünschter Termin",
+    "scope": "Benötigte Unterstützung",
+    "message": "Projektbeschreibung",
+    "productLink": "Produktlink",
+    "consent": "Ich stimme der Kontaktaufnahme zu meiner Anfrage zu und akzeptiere die in der Datenschutzerklärung beschriebenen Regeln zur Datenverarbeitung.",
+    "submit": "Anfrage senden",
+    "submitAgain": "Weitere Anfrage senden",
+    "successTitle": "Vielen Dank für Ihre Anfrage",
+    "successText": "Wir haben Ihre Nachricht erhalten und melden uns, um die nächsten Schritte zu besprechen.",
+    "errorTitle": "Formular konnte nicht gesendet werden",
+    "errorText": "Bitte versuchen Sie es später erneut oder schreiben Sie direkt an contact@buybringsolutions.com.",
+    "required": "Dieses Feld ist erforderlich.",
+    "invalidEmail": "Bitte geben Sie eine gültige E-Mail-Adresse ein.",
+    "privacyPolicy": "Datenschutzerklärung"
+  },
+  "calculator": {
+    "title": "Importkostenrechner für China",
+    "lead": "Berechnen Sie grob Einkaufswert, Transport, Zoll und Einfuhrumsatzsteuer. Das Ergebnis dient nur zur Orientierung und ist weder Angebot noch steuerliche Beratung.",
+    "shipmentData": "Sendungsdaten",
+    "disclaimer": "Orientierungswert — für eine belastbare Frachtrate werden vollständige Frachtdaten und die Lieferadresse benötigt.",
+    "verifyCta": "Daten zur Prüfung senden"
+  }
+}

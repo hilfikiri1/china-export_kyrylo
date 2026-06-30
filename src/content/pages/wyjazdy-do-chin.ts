@@ -3,7 +3,7 @@ import type { DedicatedPageContent } from "./types";
 export const wyjazdyDoChinPage: DedicatedPageContent = {
   id: "wyjazdy-do-chin",
   meta: {
-    title: "Wyjazdy do Chin — China Export",
+    title: "Wsparcie wizyt biznesowych w Chinach — Buy & Bring Solutions",
     description:
       "Zorganizowane wyjazdy biznesowe do Chin — wizyty w fabrykach, tłumaczenie na miejscu i wsparcie podczas negocjacji.",
   },

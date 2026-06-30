@@ -7,8 +7,16 @@ import { RoadmapBackground } from "@/components/roadmap/RoadmapBackground";
 import { RoadmapStagePanel } from "@/components/roadmap/RoadmapStagePanel";
 import { RoadmapTrack } from "@/components/roadmap/RoadmapTrack";
 import { useRoadmapScrub } from "@/components/roadmap/useRoadmapScrub";
+import { getHomeContent } from "@/content/home";
+import type { Locale } from "@/i18n/config";
 
-export function CooperationRoadmap({ embedded = false }: { embedded?: boolean }) {
+export function CooperationRoadmap({
+  embedded = false,
+  locale = "pl",
+}: {
+  embedded?: boolean;
+  locale?: Locale;
+}) {
   const {
     progress,
     activeIndex,
@@ -21,6 +29,7 @@ export function CooperationRoadmap({ embedded = false }: { embedded?: boolean })
     handlePointerUp,
     handleKeyDown,
   } = useRoadmapScrub();
+  const content = getHomeContent(locale);
 
   return (
     <section
@@ -38,16 +47,16 @@ export function CooperationRoadmap({ embedded = false }: { embedded?: boolean })
             {!embedded && (
               <>
                 <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-accent-light">
-                  Mapa współpracy
+                  {content.processEyebrow}
                 </p>
                 <h2
                   id="roadmap-heading"
                   className="text-2xl font-bold text-white sm:text-3xl"
                 >
-                  Twój import krok po kroku
+                  {content.processTitle}
                 </h2>
                 <p className="mt-2 max-w-lg text-sm text-white/70">
-                  Interaktywna ścieżka — od briefu po dostawę pod Twój adres.
+                  {content.processLead}
                 </p>
               </>
             )}

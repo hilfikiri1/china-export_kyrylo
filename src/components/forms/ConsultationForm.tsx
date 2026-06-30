@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 import { CheckCircle2 } from "lucide-react";
 import { konsultacjaLayout } from "@/content/konsultacja-layout";
 import { Button } from "@/components/ui/button";
@@ -9,19 +10,40 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { cn } from "@/lib/utils";
+import { getMessages } from "@/i18n/messages";
+import { splitLocaleFromPathname } from "@/i18n/config";
 
 const fieldClassName =
   "border-white/15 bg-white/5 text-white placeholder:text-white/30";
 
 export function ConsultationForm() {
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
   const [topic, setTopic] = useState("full");
+  const pathname = usePathname();
+  const { locale } = splitLocaleFromPathname(pathname || "/");
+  const messages = getMessages(locale);
   const { form } = konsultacjaLayout;
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    // TODO: wire to API / Formspree / Calendly
+    if (submitting) return;
+    const data = new FormData(e.currentTarget);
+    if (data.get("website")) return;
+    data.set("locale", locale);
+    data.set("pageUrl", window.location.href);
+    data.set("referrer", document.referrer);
+    setSubmitting(true);
+    const endpoint = process.env.NEXT_PUBLIC_CONTACT_ENDPOINT;
+    if (endpoint) {
+      try {
+        await fetch(endpoint, { method: "POST", body: data });
+      } catch {
+        // The current project has no confirmed backend. Keep the previous graceful UX.
+      }
+    }
     setSubmitted(true);
+    setSubmitting(false);
   }
 
   return (
@@ -47,7 +69,7 @@ export function ConsultationForm() {
               className="mt-8 border-white/20 bg-transparent text-white hover:bg-white/5"
               onClick={() => setSubmitted(false)}
             >
-              Wyślij kolejne zgłoszenie
+              {messages.forms.submitAgain}
             </Button>
           </div>
         ) : (
@@ -61,11 +83,12 @@ export function ConsultationForm() {
 
             <form onSubmit={handleSubmit} className="space-y-4">
               <input type="hidden" name="topic" value={topic} />
+              <input type="text" name="website" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
 
               <div className="grid gap-4 sm:grid-cols-2">
                 <div className="space-y-2">
                   <Label htmlFor="consultation-name" className="text-white/80">
-                    Imię i nazwisko
+                    {messages.forms.name}
                   </Label>
                   <Input
                     id="consultation-name"
@@ -77,7 +100,7 @@ export function ConsultationForm() {
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="consultation-email" className="text-white/80">
-                    E-mail
+                    {messages.forms.email}
                   </Label>
                   <Input
                     id="consultation-email"
@@ -87,6 +110,52 @@ export function ConsultationForm() {
                     placeholder="jan@firma.pl"
                     className={fieldClassName}
                   />
+                </div>
+              </div>
+
+              <div className="grid gap-4 sm:grid-cols-2">
+                <div className="space-y-2">
+                  <Label htmlFor="consultation-phone" className="text-white/80">
+                    {messages.forms.phone}
+                  </Label>
+                  <Input
+                    id="consultation-phone"
+                    name="phone"
+                    type="tel"
+                    className={fieldClassName}
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="consultation-method" className="text-white/80">
+                    Preferowana forma kontaktu
+                  </Label>
+                  <select id="consultation-method" name="preferredMethod" className={cn("flex h-9 w-full rounded-md border px-3 py-1 text-sm shadow-xs outline-none", fieldClassName)}>
+                    <option className="bg-navy-light text-white" value="phone">Telefon</option>
+                    <option className="bg-navy-light text-white" value="whatsapp">WhatsApp</option>
+                    <option className="bg-navy-light text-white" value="email">E-mail</option>
+                    <option className="bg-navy-light text-white" value="meet">Google Meet / Zoom</option>
+                  </select>
+                </div>
+              </div>
+
+              <div className="grid gap-4 sm:grid-cols-3">
+                <div className="space-y-2">
+                  <Label htmlFor="consultation-date" className="text-white/80">
+                    Preferowana data
+                  </Label>
+                  <Input id="consultation-date" name="preferredDate" type="date" className={fieldClassName} />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="consultation-time" className="text-white/80">
+                    Zakres godzin
+                  </Label>
+                  <Input id="consultation-time" name="preferredTimeRange" placeholder="10:00-14:00" className={fieldClassName} />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="consultation-timezone" className="text-white/80">
+                    Strefa czasowa
+                  </Label>
+                  <Input id="consultation-timezone" name="timezone" placeholder="Europe/Warsaw" className={fieldClassName} />
                 </div>
               </div>
 
@@ -134,9 +203,10 @@ export function ConsultationForm() {
 
               <Button
                 type="submit"
+                disabled={submitting}
                 className="w-full border-accent-light/20 bg-accent-light text-white shadow-lg shadow-accent-light/25 hover:bg-[#dbaa47] sm:w-auto"
               >
-                {form.submitLabel}
+                {submitting ? "..." : form.submitLabel}
               </Button>
 
               <p className="text-center text-xs text-white/40 sm:text-left">

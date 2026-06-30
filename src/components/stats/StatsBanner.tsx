@@ -1,6 +1,9 @@
-import { companyStats } from "@/content/company-stats";
+import { getStatistics } from "@/content/statistics";
+import type { Locale } from "@/i18n/config";
 
-export function StatsBanner() {
+export function StatsBanner({ locale = "pl" }: { locale?: Locale }) {
+  const companyStats = getStatistics(locale);
+
   return (
     <section
       className="stats-banner relative w-full border-y border-white/10 bg-surface-elevated"

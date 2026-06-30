@@ -3,38 +3,36 @@ import type { DedicatedPageContent } from "./types";
 export const zespolWChinachPage: DedicatedPageContent = {
   id: "zespol-w-chinach",
   meta: {
-    title: "Zespół w Chinach — China Export",
+    title: "Działamy na miejscu w Chinach — Buy & Bring Solutions",
     description:
-      "Lokalny zespół China Export w Chinach — sourcing, audyty fabryk, kontrola jakości i koordynacja produkcji na miejscu.",
+      "Wsparcie operacyjne B&BS w Foshan: sourcing, komunikacja z producentami, kontrole, konsolidacja i przygotowanie wysyłek.",
   },
   hero: {
-    eyebrow: "My w Chinach",
-    title: "Twój zespół na miejscu — nie zdalny pośrednik",
-    lead: "14 osób w trzech miastach Chin. Mówimy mandaryńsko, znamy lokalny rynek i reprezentujemy Twoje interesy przy stole negocjacyjnym.",
+    eyebrow: "Chiny",
+    title: "Działamy na miejscu w Chinach",
+    lead:
+      "Zespół Buy & Bring Solutions w Chinach wspiera wyszukiwanie producentów, komunikację z fabrykami, organizację kontroli, konsolidację oraz przygotowanie wysyłek.",
   },
   sections: [
     {
-      title: "Kto jest w zespole",
-      body: "Zespół terenowy to specjaliści ds. sourcingu, inżynierowie QC, koordynatorzy logistyczni i tłumacze techniczni. Każdy projekt ma przypisanego opiekuna, który raportuje bezpośrednio do biura w Warszawie.",
+      title: "Wsparcie operacyjne w Foshan",
+      body:
+        "Nasze operacje w Chinach są koordynowane z Foshan w prowincji Guangdong. W zależności od rodzaju projektu angażujemy odpowiednich specjalistów technicznych i inspekcyjnych.",
       bullets: [
-        "Sourcing i negocjacje — identyfikacja i weryfikacja fabryk",
-        "Inżynierowie QC — inspekcje na linii produkcyjnej",
-        "Logistyka — odbiór z fabryki, magazyn, konsolidacja",
-        "Tłumacze techniczni — specyfikacje, umowy, raporty",
-      ],
-    },
-    {
-      title: "Gdzie działamy",
-      body: "Biura terenowe w Shenzhen (elektronika i hardware), Yiwu (towary konsumenckie i małe serie) oraz Ningbo (logistyka morska i region produkcji OEM). Wybór bazy zależy od branży i lokalizacji dostawców.",
-      bullets: [
-        "Shenzhen — elektronika, komponenty, hardware",
-        "Yiwu — handel hurtowy, małe serie, próbki",
-        "Ningbo — port morski, OEM, duże wolumeny",
+        "kontakt i negocjacje z producentami",
+        "zbieranie ofert i danych technicznych",
+        "wizyty w fabrykach",
+        "organizacja inspekcji",
+        "raporty fotograficzne i wideo",
+        "konsolidacja",
+        "kontrola załadunku",
+        "dokumentacja eksportowa",
+        "wsparcie klientów podczas wizyt biznesowych w Chinach",
       ],
     },
   ],
   cta: {
-    primary: { label: "Poznaj nasz zespół", href: "/kontakt" },
-    secondary: { label: "Wyjazdy biznesowe do Chin", href: "/wyjazdy-do-chin" },
+    primary: { label: "Umów konsultację", href: "/konsultacja" },
+    secondary: { label: "Opisz projekt", href: "/kontakt" },
   },
 };

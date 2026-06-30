@@ -1,0 +1,50 @@
+{
+  "common": {
+    "home": "首页",
+    "readMore": "查看详情",
+    "sendInquiry": "描述项目",
+    "requestHelp": "需要此阶段的支持？",
+    "previousSlide": "上一张",
+    "nextSlide": "下一张",
+    "projectCountOne": "1 个项目",
+    "projectCountFew": "{{count}} 个项目",
+    "projectCountMany": "{{count}} 个项目",
+    "noCases": "该类别暂无案例。"
+  },
+  "brand": {
+    "eyebrow": "Buy & Bring Solutions · 欧洲 — 中国",
+    "copyright": "版权所有。"
+  },
+  "forms": {
+    "name": "姓名",
+    "company": "公司名称",
+    "email": "电子邮箱",
+    "phone": "电话 / WhatsApp",
+    "country": "国家",
+    "deliveryCity": "交付城市或邮编",
+    "product": "产品或设备类型",
+    "quantity": "计划数量",
+    "budget": "预算",
+    "deadline": "期望时间",
+    "scope": "所需支持范围",
+    "message": "项目描述",
+    "productLink": "产品链接",
+    "consent": "我同意就本次询盘被联系，并接受隐私政策中说明的数据处理规则。",
+    "submit": "发送询盘",
+    "submitAgain": "发送新的询盘",
+    "successTitle": "感谢您的询盘",
+    "successText": "我们已收到您的信息，并会联系您讨论下一步。",
+    "errorTitle": "表单无法发送",
+    "errorText": "请稍后再试，或直接发送邮件至 contact@buybringsolutions.com。",
+    "required": "此字段为必填项。",
+    "invalidEmail": "请输入有效的电子邮箱地址。",
+    "privacyPolicy": "隐私政策"
+  },
+  "calculator": {
+    "title": "中国进口成本计算器",
+    "lead": "估算采购、运输、关税和增值税成本。结果仅供参考，不构成商业报价或税务建议。",
+    "shipmentData": "货物数据",
+    "disclaimer": "结果为估算值。准确运费需要完整货物信息和目的地地址。",
+    "verifyCta": "发送数据进行核算"
+  }
+}

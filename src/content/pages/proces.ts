@@ -3,37 +3,30 @@ import type { DedicatedPageContent } from "./types";
 export const procesPage: DedicatedPageContent = {
   id: "proces",
   meta: {
-    title: "Proces importu — China Export",
+    title: "Proces importu — Buy & Bring Solutions",
     description:
-      "Poznaj pełną ścieżkę importu z Chin — od briefu i weryfikacji dostawcy po fracht, odprawę celną i dostawę door-to-door.",
+      "Sześć etapów importu z Chin: brief, sourcing, weryfikacja producenta, produkcja, kontrola jakości, transport, odprawa i dostawa.",
   },
   hero: {
-    eyebrow: "Mapa współpracy",
+    eyebrow: "Jak pracujemy",
     title: "Import z Chin krok po kroku",
-    lead: "Każdy projekt przechodzi przez przewidywalne etapy. Wiesz, co dzieje się teraz, co będzie dalej i kto za to odpowiada — po stronie polskiej i chińskiej.",
+    lead:
+      "Porządkujemy cały proces — od pierwszej specyfikacji produktu po kontrolę jakości, odprawę celną i dostawę do magazynu.",
   },
   sections: [
     {
-      title: "Od briefu do pierwszej wyceny",
-      body: "Zaczynamy od krótkiego briefu: produkt, wolumen, budżet i harmonogram. Na tej podstawie proponujemy zakres — pełny import end-to-end albo wybrane moduły. Pierwsza wycena i plan działania trafiają do Ciebie zwykle w ciągu 48 godzin roboczych.",
+      title: "Proces dopasowany do projektu",
+      body:
+        "Nie każdy import wymaga tego samego zakresu. Możesz zlecić cały proces albo wybrane etapy, takie jak weryfikacja producenta, kontrola jakości, konsolidacja lub transport.",
       bullets: [
-        "Analiza produktu i wymagań rynku UE",
-        "Wstępna ocena ryzyk i harmonogramu",
-        "Propozycja modułów i transparentny kosztorys",
-      ],
-    },
-    {
-      title: "Transparentność na każdym etapie",
-      body: "Nie znikamy między etapami. Po każdym kroku otrzymujesz raport, zdjęcia lub dokumenty — w zależności od fazy. Możesz wejść w proces w dowolnym momencie albo powierzyć nam całość.",
-      bullets: [
-        "Stały opiekun projektu po stronie PL",
-        "Zespół operacyjny na miejscu w Chinach",
-        "Raporty i aktualizacje w uzgodnionym rytmie",
+        "jasny zakres i odpowiedzialności",
+        "komunikacja z producentem",
+        "kontrola jakości według uzgodnionej specyfikacji",
       ],
     },
   ],
   cta: {
-    primary: { label: "Wyślij zapytanie", href: "/kontakt" },
+    primary: { label: "Opisz swój projekt", href: "/kontakt" },
     secondary: { label: "Umów konsultację", href: "/konsultacja" },
   },
 };

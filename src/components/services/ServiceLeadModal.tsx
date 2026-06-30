@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { getServiceById } from "@/content/services";
 import { Button } from "@/components/ui/button";
@@ -30,12 +30,6 @@ export function ServiceLeadModal({
   const [submitted, setSubmitted] = useState(false);
   const prefersReducedMotion = useReducedMotion();
 
-  useEffect(() => {
-    if (!open) {
-      setSubmitted(false);
-    }
-  }, [open]);
-
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     // TODO: wire to API / Formspree / email service
@@ -43,7 +37,13 @@ export function ServiceLeadModal({
   }
 
   return (
-    <Dialog open={open} onOpenChange={onOpenChange}>
+    <Dialog
+      open={open}
+      onOpenChange={(nextOpen) => {
+        if (!nextOpen) setSubmitted(false);
+        onOpenChange(nextOpen);
+      }}
+    >
       <DialogContent className="border-white/10 bg-navy-light text-white ring-white/10 sm:max-w-lg">
         {submitted ? (
           <div className="py-4 text-center">
@@ -52,7 +52,7 @@ export function ServiceLeadModal({
                 Dziękujemy za zapytanie
               </DialogTitle>
               <DialogDescription className="text-white/60">
-                Skontaktujemy się w ciągu 24 godzin roboczych w sprawie usługi:{" "}
+                Skontaktujemy się w sprawie usługi:{" "}
                 <span className="font-medium text-accent-light">
                   {service?.title}
                 </span>
@@ -153,7 +153,7 @@ export function ServiceLeadModal({
                     id="lead-phone"
                     name="phone"
                     type="tel"
-                    placeholder="+48 000 000 000"
+                    placeholder="+48 783 232 971"
                     className="border-white/15 bg-white/5 text-white placeholder:text-white/30"
                   />
                 </div>

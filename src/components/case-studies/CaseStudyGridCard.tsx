@@ -25,7 +25,9 @@ export function CaseStudyGridCard({
 }: CaseStudyGridCardProps) {
   const [imageError, setImageError] = useState(false);
   const category = getCategoryById(caseStudy.categoryId);
-  const year = new Date(caseStudy.publishedAt).getFullYear();
+  const year = caseStudy.publishedAt
+    ? new Date(caseStudy.publishedAt).getFullYear()
+    : null;
 
   return (
     <article
@@ -73,11 +75,17 @@ export function CaseStudyGridCard({
 
       <div className="flex flex-1 flex-col gap-2 pt-5 pb-2">
         <div className="flex items-center justify-between gap-2">
-          <span className="flex items-center gap-1 text-xs tracking-widest text-white/50 uppercase">
-            <MapPin className="h-3 w-3 shrink-0 text-accent-light" aria-hidden />
-            {caseStudy.destinationCountry}
-          </span>
-          <span className="text-xs text-white/40">{year}</span>
+          {caseStudy.destinationCountry ? (
+            <span className="flex items-center gap-1 text-xs tracking-widest text-white/50 uppercase">
+              <MapPin className="h-3 w-3 shrink-0 text-accent-light" aria-hidden />
+              {caseStudy.destinationCountry}
+            </span>
+          ) : (
+            <span className="text-xs tracking-widest text-white/50 uppercase">
+              {caseStudy.category}
+            </span>
+          )}
+          {year && <span className="text-xs text-white/40">{year}</span>}
         </div>
 
         <h3 className="line-clamp-2 text-lg leading-snug font-semibold text-white">
@@ -85,9 +93,11 @@ export function CaseStudyGridCard({
         </h3>
 
         <div className="mt-auto flex items-baseline gap-2 border-t border-white/10 pt-3">
-          <span className="text-lg font-bold text-accent-light">
-            {caseStudy.destinationCountry}
-          </span>
+          {caseStudy.destinationCountry && (
+            <span className="text-lg font-bold text-accent-light">
+              {caseStudy.destinationCountry}
+            </span>
+          )}
           <span className="line-clamp-1 text-xs text-white/50">
             {outcomeSnippet(caseStudy.outcome)}
           </span>

@@ -1,0 +1,50 @@
+{
+  "common": {
+    "home": "Strona główna",
+    "readMore": "Zobacz szczegóły",
+    "sendInquiry": "Opisz projekt",
+    "requestHelp": "Pomoc na tym etapie?",
+    "previousSlide": "Poprzedni slajd",
+    "nextSlide": "Następny slajd",
+    "projectCountOne": "1 projekt",
+    "projectCountFew": "{{count}} projekty",
+    "projectCountMany": "{{count}} projektów",
+    "noCases": "Brak realizacji w tej kategorii."
+  },
+  "brand": {
+    "eyebrow": "Buy & Bring Solutions · Polska — Chiny",
+    "copyright": "Wszelkie prawa zastrzeżone."
+  },
+  "forms": {
+    "name": "Imię i nazwisko",
+    "company": "Nazwa firmy",
+    "email": "E-mail",
+    "phone": "Telefon / WhatsApp",
+    "country": "Kraj",
+    "deliveryCity": "Miasto lub kod pocztowy dostawy",
+    "product": "Produkt lub rodzaj maszyny",
+    "quantity": "Planowana ilość",
+    "budget": "Budżet",
+    "deadline": "Oczekiwany termin",
+    "scope": "Zakres potrzebnej pomocy",
+    "message": "Opis projektu",
+    "productLink": "Link do produktu",
+    "consent": "Wyrażam zgodę na kontakt w sprawie zapytania i akceptuję zasady przetwarzania danych opisane w polityce prywatności.",
+    "submit": "Wyślij zapytanie",
+    "submitAgain": "Wyślij kolejne zapytanie",
+    "successTitle": "Dziękujemy za zapytanie",
+    "successText": "Otrzymaliśmy Twoją wiadomość. Skontaktujemy się, aby omówić kolejne kroki.",
+    "errorTitle": "Nie można wysłać formularza",
+    "errorText": "Spróbuj ponownie później lub napisz bezpośrednio na contact@buybringsolutions.com.",
+    "required": "To pole jest wymagane.",
+    "invalidEmail": "Podaj poprawny adres e-mail.",
+    "privacyPolicy": "polityce prywatności"
+  },
+  "calculator": {
+    "title": "Kalkulator kosztu importu z Chin",
+    "lead": "Oblicz orientacyjny koszt zakupu, transportu, cła i podatku VAT. Wynik ma charakter informacyjny i nie stanowi oferty handlowej ani porady podatkowej.",
+    "shipmentData": "Dane przesyłki",
+    "disclaimer": "Wynik orientacyjny — do wyceny frachtu potrzebne są pełne dane ładunku i adres dostawy.",
+    "verifyCta": "Prześlij dane do weryfikacji"
+  }
+}

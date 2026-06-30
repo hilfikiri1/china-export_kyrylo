@@ -17,7 +17,7 @@ export const aboutGridHero: AboutGridPanel = {
   description:
     "Lokalny zespół na miejscu — od weryfikacji dostawców po koordynację produkcji i wysyłki.",
   image: "/image/china_office.jpg",
-  imageAlt: "Biuro i zespół China Export w Chinach",
+  imageAlt: "Wsparcie operacyjne Buy & Bring Solutions w Chinach",
 };
 
 export function getAboutPanelById(id: string): AboutGridPanel | undefined {

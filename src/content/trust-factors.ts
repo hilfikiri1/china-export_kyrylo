@@ -1,8 +1,9 @@
 import {
   Building2,
+  ClipboardCheck,
   Eye,
   MapPin,
-  ShieldCheck,
+  Settings2,
   Truck,
   type LucideIcon,
 } from "lucide-react";
@@ -16,38 +17,45 @@ export type TrustFactor = {
 
 export const trustFactors: TrustFactor[] = [
   {
-    id: "local-entity",
-    icon: Building2,
-    label: "Podmiot lokalny w Chinach",
-    description:
-      "Zarejestrowana firma działająca lokalnie — legalne faktury i umowy.",
-  },
-  {
-    id: "on-ground",
+    id: "china-operations",
     icon: MapPin,
-    label: "Obecność na miejscu",
+    label: "Działamy na miejscu w Chinach",
     description:
-      "Fizyczny zespół w Chinach z możliwością bezpośrednich wizyt w fabrykach.",
+      "Nasz zespół operacyjny w Foshan kontaktuje się z producentami, koordynuje zamówienia oraz organizuje kontrole i wysyłki.",
   },
   {
-    id: "pre-audit",
+    id: "supplier-verification",
     icon: Eye,
-    label: "Audyty przed produkcją",
+    label: "Weryfikujemy producentów",
     description:
-      "Weryfikacja producenta przed jakąkolwiek płatnością lub startem produkcji.",
+      "Sprawdzamy dane firmy, możliwości produkcyjne, dokumentację oraz zgodność oferty z wymaganiami projektu.",
   },
   {
-    id: "qa",
-    icon: ShieldCheck,
-    label: "Kontrola jakości",
+    id: "quality-control",
+    icon: ClipboardCheck,
+    label: "Kontrolujemy towar przed wysyłką",
     description:
-      "Ścisłe inspekcje QA przed ostateczną płatnością i wysyłką towaru.",
+      "W zależności od projektu organizujemy kontrolę przedprodukcyjną, kontrolę w trakcie produkcji lub inspekcję przed wysyłką.",
   },
   {
-    id: "e2e",
+    id: "logistics",
     icon: Truck,
-    label: "Logistyka end-to-end",
+    label: "Organizujemy dostawę od fabryki do magazynu",
     description:
-      "Kompletny spedycja i obsługa frachtu prosto pod wskazany adres klienta.",
+      "Koordynujemy eksport, transport morski, kolejowy, lotniczy lub drogowy, odprawę celną i dostawę końcową.",
+  },
+  {
+    id: "flexible",
+    icon: Settings2,
+    label: "Pełny proces lub wybrana usługa",
+    description:
+      "Możesz zlecić nam kompleksową obsługę albo tylko wyszukanie producenta, kontrolę jakości, konsolidację lub transport.",
+  },
+  {
+    id: "b2b",
+    icon: Building2,
+    label: "Pracujemy z firmami B2B",
+    description:
+      "Wspieramy importerów, producentów, firmy handlowe i zespoły rozwijające produkty pod marką własną.",
   },
 ];

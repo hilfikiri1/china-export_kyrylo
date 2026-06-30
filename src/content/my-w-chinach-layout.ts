@@ -1,4 +1,5 @@
 import type { FeaturedStepsContent } from "@/content/pages/types";
+import { companyConfig } from "@/config/company";
 
 export type MyWChinachHighlight = {
   value: string;
@@ -16,112 +17,90 @@ export type MyWChinachPillar = {
 
 export const myWChinachLayout = {
   meta: {
-    title: "My w Chinach — China Export",
+    title: "Działamy na miejscu w Chinach — Buy & Bring Solutions",
     description:
-      "Lokalny zespół China Export w Chinach — sourcing, kontrola jakości na miejscu, wyjazdy biznesowe i koordynacja produkcji.",
+      "Wsparcie operacyjne B&BS w Foshan: sourcing, komunikacja z producentami, kontrole, konsolidacja i przygotowanie wysyłek.",
   },
   hero: {
-    eyebrow: "My w Chinach",
-    title: "Twój zespół na miejscu — nie zdalny pośrednik",
-    lead: "14 osób w trzech miastach Chin. Od weryfikacji dostawców po inspekcje QA i organizację wizyt w fabrykach — reprezentujemy Twoje interesy przy stole negocjacyjnym.",
+    eyebrow: "Działamy na miejscu w Chinach",
+    title: "Wsparcie operacyjne w Foshan — bliżej producentów i procesu realizacji",
+    lead:
+      "Zespół Buy & Bring Solutions w Chinach wspiera wyszukiwanie producentów, komunikację z fabrykami, organizację kontroli, konsolidację oraz przygotowanie wysyłek.",
     image: "/image/plane_shipment.jpg",
-    imageAlt: "Logistyka i operacje na miejscu w Chinach",
+    imageAlt: "Operacje importowe i wysyłki z Chin",
   },
   highlights: [
-    { value: "14", label: "Osób w zespole terenowym" },
-    { value: "3", label: "Miasta operacyjne" },
-    { value: "PL/EN/CN", label: "Języki zespołu" },
-    { value: "Na miejscu", label: "Inspekcje i audyty QA" },
+    { value: "Foshan", label: "Koordynacja operacji w Chinach" },
+    { value: "Guangdong", label: "Prowincja operacyjna" },
+    { value: "PL/UK/RU/CN", label: "Komunikacja w kilku językach" },
+    { value: "Projektowo", label: "Dobór specjalistów do branży" },
   ] satisfies MyWChinachHighlight[],
   pillars: [
     {
-      id: "zespol",
-      title: "Zespół w Chinach",
-      body: "Lokalny zespół na miejscu — od weryfikacji dostawców po koordynację produkcji i wysyłki. Każdy projekt ma przypisanego opiekuna, który raportuje bezpośrednio do biura w Warszawie.",
+      id: "operacje",
+      title: "Kontakt i negocjacje z producentami",
+      body:
+        "Wspieramy zbieranie ofert, danych technicznych i warunków handlowych bezpośrednio od producentów w Chinach.",
       bullets: [
-        "Sourcing i negocjacje — identyfikacja i weryfikacja fabryk",
-        "Inżynierowie QC — inspekcje na linii produkcyjnej",
-        "Logistyka — odbiór z fabryki, magazyn, konsolidacja",
-        "Tłumacze techniczni — specyfikacje, umowy, raporty",
+        "kontakt i negocjacje z producentami",
+        "zbieranie ofert i danych technicznych",
+        "weryfikacja podstawowych dokumentów",
+        "koordynacja komunikacji w trakcie projektu",
       ],
       image: "/image/china_office.jpg",
-      imageAlt: "Biuro i zespół China Export w Chinach",
+      imageAlt: "Wsparcie operacyjne Buy & Bring Solutions w Chinach",
     },
     {
-      id: "kontrola-jakosci",
-      title: "Kontrola jakości i dokumentacja",
-      body: "Inspekcje QA, raporty z kontroli, certyfikaty i pełna dokumentacja zgodna z wymogami importu do UE — wykonywane przez nasz zespół na miejscu, przed wysyłką.",
+      id: "kontrole",
+      title: "Kontrole, wizyty i raporty",
+      body:
+        "Organizujemy wizyty w fabrykach, inspekcje, raporty fotograficzne i wideo oraz kontrolę załadunku, jeśli wymaga tego projekt.",
       bullets: [
-        "Inspekcje pre-shipment i inline na linii produkcyjnej",
-        "Raporty fotograficzne i wideo z kontroli",
-        "Certyfikaty, deklaracje zgodności i dokumentacja celna",
-        "Weryfikacja opakowań, etykiet i specyfikacji pod rynek UE",
+        "wizyty w fabrykach",
+        "organizacja inspekcji",
+        "raporty fotograficzne i wideo",
+        "kontrola załadunku",
       ],
       image: "/image/quality_control.jpg",
-      imageAlt: "Kontrola jakości towarów przed wysyłką z Chin",
+      imageAlt: "Kontrola jakości i raportowanie w Chinach",
     },
     {
-      id: "wyjazdy",
-      title: "Wyjazdy biznesowe do Chin",
-      body: "Organizujemy wizyty w fabrykach, tłumaczenia na miejscu i wsparcie podczas negocjacji z dostawcami — z konkretnym programem, nie na ślepo.",
+      id: "wysylki",
+      title: "Konsolidacja i przygotowanie wysyłek",
+      body:
+        "Koordynujemy konsolidację towarów, dokumentację eksportową oraz wsparcie klientów podczas wizyt biznesowych w Chinach.",
       bullets: [
-        "Shortlist fabryk i potwierdzone terminy wizyt przed wylotem",
-        "Tłumaczenie techniczne podczas rozmów i inspekcji hali",
-        "Transport lokalny między fabrykami i wspólne podsumowania",
-        "Raport porównawczy po powrocie z rekomendacjami",
+        "konsolidacja towarów",
+        "dokumentacja eksportowa",
+        "przygotowanie wspólnej wysyłki",
+        "wsparcie klientów podczas wizyt biznesowych w Chinach",
       ],
-      image: "/image/business_trips.jpg",
-      imageAlt: "Transport lotniczy — wyjazdy biznesowe do Chin",
+      image: "/image/cargo_conteiners.jpg",
+      imageAlt: "Konsolidacja i przygotowanie wysyłek z Chin",
     },
   ] satisfies MyWChinachPillar[],
   locations: {
-    sectionTitle: "Gdzie działamy",
+    sectionTitle: "Adres operacyjny w Chinach",
     sectionLead:
-      "Biura terenowe w trzech regionach Chin. Wybór bazy zależy od branży i lokalizacji dostawców.",
+      "W zależności od rodzaju projektu angażujemy odpowiednich specjalistów technicznych i inspekcyjnych.",
     steps: [
       {
-        id: "shenzhen",
-        tabLabel: "Shenzhen",
-        title: "Shenzhen — elektronika i hardware",
-        body: "Centrum elektroniki i komponentów. Idealna baza dla projektów hardware, IoT, akcesoriów elektronicznych i produkcji OEM w regionie Pearl River Delta.",
+        id: "foshan",
+        tabLabel: "Foshan",
+        title: "Foshan, Guangdong",
+        body: companyConfig.addresses.china,
         bullets: [
-          "Elektronika, komponenty, urządzenia IoT",
-          "Hardware i akcesoria mobilne",
-          "Szybkie prototypowanie i małe serie",
-        ],
-        image: "/image/quality_control.jpg",
-        imageAlt: "Region Shenzhen — elektronika i produkcja OEM",
-      },
-      {
-        id: "yiwu",
-        tabLabel: "Yiwu",
-        title: "Yiwu — handel hurtowy i małe serie",
-        body: "Największy hub handlu hurtowego w Chinach. Sprawdzamy dostawców towarów konsumenckich, gadżetów i produktów na małe serie lub próbki.",
-        bullets: [
-          "Towary konsumenckie i gadżety",
-          "Małe serie i próbki przed produkcją",
-          "Konsolidacja dostaw z wielu kategorii",
+          "koordynacja operacyjna",
+          "kontakt z producentami",
+          "organizacja kontroli i wysyłek",
         ],
         image: "/image/china_office.jpg",
-        imageAlt: "Region Yiwu — handel hurtowy i małe serie",
-      },
-      {
-        id: "ningbo",
-        tabLabel: "Ningbo",
-        title: "Ningbo — port morski i duże wolumeny",
-        body: "Kluczowy port morski i region produkcji OEM. Koordynujemy logistykę, kontrolę jakości i wysyłki kontenerowe dla większych wolumenów.",
-        bullets: [
-          "Port morski i wysyłki FCL/LCL",
-          "Produkcja OEM i duże serie",
-          "Koordynacja magazynowa i konsolidacja",
-        ],
-        image: "/image/cargo_conteiners.jpg",
-        imageAlt: "Region Ningbo — logistyka morska i produkcja OEM",
+        imageAlt: "Adres operacyjny Buy & Bring Solutions w Foshan",
       },
     ],
   } satisfies FeaturedStepsContent,
   cta: {
     primary: { label: "Umów konsultację", href: "/konsultacja" },
-    secondary: { label: "Wyślij zapytanie", href: "/kontakt" },
+    secondary: { label: "Opisz projekt", href: "/kontakt" },
   },
 } as const;
