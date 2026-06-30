@@ -1,0 +1,316 @@
+{
+  "meta": { "name": "中文" },
+  "language": {
+    "label": "语言",
+    "switcherAria": "选择语言"
+  },
+  "nav": {
+    "home": "首页",
+    "uslugiAll": "服务",
+    "proces": "工作流程",
+    "oNas": "关于我们",
+    "realizacje": "案例",
+    "chiny": "扎根中国",
+    "kalkulator": "计算器",
+    "konsultacja": "预约咨询",
+    "kontakt": "联系我们",
+    "sourcing": "供应商寻源",
+    "verification": "工厂核查与审核",
+    "qc": "质量控制",
+    "freight": "运输与清关",
+    "group": {
+      "company": "公司",
+      "services": "服务",
+      "tools": "工具"
+    }
+  },
+  "cta": {
+    "describeProject": "描述您的项目",
+    "describeProjectLong": "描述您的项目",
+    "bookConsultation": "预约咨询",
+    "calculator": "估算进口成本",
+    "requestContact": "请求联系",
+    "sendInquiry": "发送询盘",
+    "helpAtStage": "本阶段的支持"
+  },
+  "common": {
+    "readMore": "了解更多",
+    "close": "关闭",
+    "menuOpen": "打开菜单",
+    "menuClose": "关闭菜单",
+    "loading": "加载中…",
+    "backHome": "返回首页",
+    "whatsapp": "WhatsApp",
+    "email": "电子邮件",
+    "phone": "电话"
+  },
+  "country": {
+    "pl": "波兰",
+    "ua": "乌克兰",
+    "cn": "中国"
+  },
+  "address": {
+    "ua": "乌克兰地址",
+    "cn": "中国地址"
+  },
+  "footer": {
+    "descriptor": "面向企业的中国进口、寻源与生产服务。",
+    "servicesTitle": "服务",
+    "pagesTitle": "页面",
+    "contactTitle": "联系方式",
+    "legalTitle": "法律信息",
+    "rights": "版权所有。",
+    "privacy": "隐私政策",
+    "cookies": "Cookie 政策",
+    "terms": "使用条款",
+    "calculatorDisclaimer": "计算器免责声明"
+  },
+  "cookie": {
+    "message": "我们使用必要的 Cookie 以确保网站正常运行。只有在您同意后，我们才会启用分析和营销类 Cookie。",
+    "accept": "全部接受",
+    "essential": "仅必要",
+    "privacyLink": "隐私政策"
+  },
+  "notFound": {
+    "title": "页面未找到",
+    "description": "您查找的页面不存在或已被移动。",
+    "cta": "返回首页"
+  },
+  "error": {
+    "title": "出现了问题",
+    "description": "发生了意外错误，请稍后重试。",
+    "retry": "重试"
+  },
+  "hero": {
+    "eyebrow": "Buy & Bring Solutions · 波兰 — 中国",
+    "title": "面向企业的中国进口——从可靠工厂直达您的仓库",
+    "paragraph": "我们寻找并核实工厂，管控生产与质量，并安排出口、运输、清关以及到波兰和其他欧洲国家的配送。",
+    "supporting": "您可以将整个流程交给我们，也可以只委托其中某一个环节。",
+    "trustLabel": "企业为何信赖我们"
+  },
+  "stats": {
+    "experience": { "value": "17 年", "label": "与中国合作的经验" },
+    "clients": { "value": "275+", "label": "服务过的客户" },
+    "containers": { "value": "110+", "label": "已交付的集装箱" },
+    "foshan": { "value": "佛山", "label": "在中国当地的运营与支持" }
+  },
+  "trust": {
+    "heading": "企业为何选择 Buy & Bring Solutions",
+    "cards": [
+      {
+        "id": "local-operations",
+        "title": "我们扎根中国当地",
+        "description": "我们位于佛山的运营团队与工厂沟通、协调订单，并安排检验和发货。"
+      },
+      {
+        "id": "verification",
+        "title": "我们核实工厂",
+        "description": "我们核查公司资料、生产能力、相关文件，以及报价是否符合项目要求。"
+      },
+      {
+        "id": "quality",
+        "title": "我们在发货前检验货物",
+        "description": "根据项目情况，我们安排产前检验、生产中检验或装运前检验。"
+      },
+      {
+        "id": "logistics",
+        "title": "我们安排从工厂到仓库的配送",
+        "description": "我们协调出口、海运、铁路、空运或公路运输、清关以及最终配送。"
+      },
+      {
+        "id": "flexible",
+        "title": "全流程或单项服务",
+        "description": "您可以委托我们提供一站式服务，也可以仅委托工厂寻源、质量控制、拼柜或运输。"
+      }
+    ]
+  },
+  "sections": {
+    "servicesHeading": "贴合项目阶段的服务",
+    "servicesLead": "我们既能完成整个进口流程，也能仅在某一选定阶段为您提供支持。",
+    "processHeading": "从中国进口的流程",
+    "processLead": "六个阶段——从需求沟通到交付。我们负责整个流程或其中某一环节。",
+    "casesHeading": "精选案例",
+    "casesLead": "我们为客户完成的项目示例。",
+    "industriesHeading": "产品类别与行业",
+    "industriesLead": "我们服务于广泛的产品和行业。以下是最常见的类别。",
+    "industriesClosing": "没有看到您的类别？描述一下产品——我们会核实生产与交付的可行性。",
+    "aboutHeading": "我们扎根中国当地"
+  },
+  "breadcrumbs": {
+    "home": "首页",
+    "uslugi": "服务"
+  },
+  "form": {
+    "labels": {
+      "name": "姓名",
+      "company": "公司名称",
+      "email": "电子邮件",
+      "phone": "电话 / WhatsApp",
+      "country": "国家",
+      "city": "收货城市或邮编",
+      "product": "产品或设备类型",
+      "quantity": "计划数量",
+      "budget": "预算",
+      "deadline": "期望交期",
+      "scope": "所需协助范围",
+      "message": "项目说明",
+      "productLink": "产品链接",
+      "contactMethod": "首选联系方式",
+      "preferredDate": "首选日期",
+      "preferredTime": "首选时间段",
+      "timezone": "时区"
+    },
+    "placeholders": {
+      "name": "张三",
+      "company": "公司名称",
+      "email": "name@company.com",
+      "phone": "+86 000 0000 0000",
+      "message": "产品、数量、时间安排、所需服务范围…",
+      "notes": "请简要说明项目内容…"
+    },
+    "scopeOptions": {
+      "sourcing": "工厂寻源",
+      "verification": "工厂核查或审核",
+      "qc": "质量控制",
+      "oem": "Private Label / OEM",
+      "consolidation": "拼柜",
+      "freight": "运输与清关",
+      "full": "一站式进口服务",
+      "other": "其他"
+    },
+    "contactMethodOptions": {
+      "email": "电子邮件",
+      "phone": "电话",
+      "whatsapp": "WhatsApp"
+    },
+    "consent": "我同意为联系及制定方案之目的处理我的数据。",
+    "consentLink": "隐私政策",
+    "submit": "发送询盘",
+    "submitting": "发送中…",
+    "sendAnother": "再发送一个询盘",
+    "validation": {
+      "required": "此字段为必填项。",
+      "email": "请输入有效的电子邮件地址。",
+      "consent": "提交表单前请先同意。"
+    },
+    "success": {
+      "title": "感谢您！",
+      "description": "我们会尽快与您联系，商讨项目细节。"
+    },
+    "error": {
+      "title": "表单发送失败",
+      "description": "请稍后重试，或直接通过电子邮件联系我们。"
+    }
+  },
+  "contactPage": {
+    "heading": "请告诉我们您的项目",
+    "supporting": "您在一开始提供的信息越多，我们就能越快评估项目并准备后续步骤。"
+  },
+  "consultationPage": {
+    "heading": "预约免费咨询",
+    "supporting": "请简要描述您的项目，并提供方便联系的时间。我们将与您联系以确认沟通。",
+    "cta": "请求联系"
+  },
+  "calculator": {
+    "title": "中国进口成本计算器",
+    "supporting": "估算采购、运输、关税和增值税的大致成本。结果仅供参考，不构成商业报价或税务建议。",
+    "subtitle": "运输、关税、增值税和配送成本",
+    "planningBadge": "参考数据：{date} · 结果不构成报价",
+    "ratesNbp": " · NBP 汇率",
+    "shipmentData": "货运信息",
+    "fields": {
+      "goods": "货物价值",
+      "currency": "货物币种",
+      "mode": "运输方式",
+      "cbm": "体积（立方米）",
+      "kg": "毛重（公斤）",
+      "incoterm": "贸易术语",
+      "cnCodes": "CN 编码数量",
+      "duty": "关税税率",
+      "customDuty": "自定义税率（%）",
+      "usdPln": "USD/PLN 汇率",
+      "eurPln": "EUR/PLN 汇率"
+    },
+    "modes": {
+      "sea20": "海运 – 20 英尺集装箱",
+      "sea40": "海运 – 40 英尺集装箱",
+      "sea40hc": "海运 – 40 HC 集装箱",
+      "sealcl": "海运 – 拼箱",
+      "rail20": "铁路 – 20 英尺集装箱",
+      "rail40": "铁路 – 40 HQ 集装箱",
+      "raillcl": "铁路 – 拼箱",
+      "air": "空运"
+    },
+    "duty": {
+      "unknown": "不确定 – 显示 0/5/10%",
+      "custom": "其他"
+    },
+    "insuranceCif": "保险已含在 CIF 价值中",
+    "insuranceAdd": "增加保险 0.5%（最低 50 USD）",
+    "insuranceLabel": "保险",
+    "calculate": "估算大致成本",
+    "ratesNote": "费率仅为示例，需要定期更新。计算器不会自动处理危险品、电池、化工品、食品、消费税或反倾销税。",
+    "resultTitle": "结果",
+    "empty": "填写数据并点击“计算”。",
+    "totalCash": "进口所需资金（含增值税）",
+    "rangeLabel": "在此关税税率下的区间：{low} – {high} · {days}",
+    "landed": "到岸成本（不含增值税）",
+    "transport": "运输",
+    "cifFreight": "国际运费已含在 CIF 价值中",
+    "rows": {
+      "goods": "货物价值",
+      "transport": "运输",
+      "transportLocal": "运输（本地）",
+      "insurance": "保险",
+      "customsValue": "完税价格",
+      "dutyRate": "关税 {rate}%",
+      "vat": "进口增值税 23%",
+      "broker": "报关行"
+    },
+    "scenarios": {
+      "duty": "关税",
+      "landed": "到岸（不含增值税）",
+      "totalCash": "含增值税资金"
+    },
+    "resultNote": "增值税 23%。关税取决于 CN/TARIC 编码。报关费：250 PLN + 每个额外 CN 编码 20 PLN。运输区间：±15%。增值税金额单独列示，因为对一般纳税人而言可能可以抵扣。",
+    "transferCta": "将数据发送以供核实"
+  },
+  "seo": {
+    "home": {
+      "title": "面向企业的中国进口 | Buy & Bring Solutions",
+      "description": "工厂寻源与核查、质量控制、自有品牌生产、运输、清关，以及从中国到波兰和欧洲的配送。"
+    },
+    "uslugi": {
+      "title": "中国进口服务",
+      "description": "模块化服务：工厂寻源、工厂审核、质量控制、自有品牌、拼柜、运输与清关。"
+    },
+    "proces": {
+      "title": "工作流程——中国进口流程",
+      "description": "中国进口的六个阶段：需求沟通、工厂寻源、核查、生产监督、质量控制以及运输与配送。"
+    },
+    "realizacje": {
+      "title": "案例——进口项目",
+      "description": "Buy & Bring Solutions 精选项目：自有品牌、电池技术、拼柜、工业机械以及在中国的寻源。"
+    },
+    "oNas": {
+      "title": "关于我们 — Buy & Bring Solutions",
+      "description": "我们连接欧洲企业与中国工厂。为企业提供工厂寻源、质量控制和从中国发货的服务。"
+    },
+    "chiny": {
+      "title": "我们扎根中国当地",
+      "description": "佛山的运营支持：与工厂联系、检验、拼柜、装柜监督以及出口单证。"
+    },
+    "kalkulator": {
+      "title": "中国进口成本计算器",
+      "description": "估算从中国进口的大致成本：采购、运输、关税和增值税。结果仅供参考。"
+    },
+    "konsultacja": {
+      "title": "预约免费咨询",
+      "description": "描述您的进口项目并提供方便联系的时间。我们将与您联系以确认沟通。"
+    },
+    "kontakt": {
+      "title": "联系我们 — Buy & Bring Solutions",
+      "description": "联系 Buy & Bring Solutions。我们在波兰、乌克兰和中国提供支持。请描述您的进口项目。"
+    }
+  }
+}

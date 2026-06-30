@@ -1,55 +1,76 @@
+/**
+ * Navigation structure.
+ *
+ * `href` values are locale-independent internal slugs (no locale prefix). The
+ * locale prefix is added at render time via `localeHref()`. Visible labels are
+ * translation keys resolved from the i18n "nav" namespace.
+ */
+
 export type NavItem = {
   href: string;
-  label: string;
-  description?: string;
+  labelKey: string;
+  descriptionKey?: string;
   serviceId?: string;
 };
-export type NavGroup = { label: string; items: NavItem[] };
+
+export type NavGroup = { labelKey: string; items: NavItem[] };
 
 export const navGroups: NavGroup[] = [
   {
-    label: "Firma",
+    labelKey: "nav.group.company",
     items: [
-      { href: "/proces", label: "Proces" },
-      { href: "/o-nas", label: "O nas" },
-      { href: "/realizacje", label: "Realizacje" },
-      { href: "/zespol-w-chinach", label: "My w Chinach" },
+      { href: "/proces", labelKey: "nav.proces" },
+      { href: "/o-nas", labelKey: "nav.oNas" },
+      { href: "/realizacje", labelKey: "nav.realizacje" },
+      { href: "/zespol-w-chinach", labelKey: "nav.chiny" },
     ],
   },
   {
-    label: "Usługi",
+    labelKey: "nav.group.services",
     items: [
-      { href: "/uslugi", label: "Usługi modułowe" },
+      { href: "/uslugi", labelKey: "nav.uslugiAll" },
       {
         href: "/uslugi/wyszukiwanie-dostawcow",
-        label: "Wyszukiwanie dostawców",
+        labelKey: "nav.sourcing",
         serviceId: "sourcing",
       },
       {
         href: "/uslugi/audyty-fabryk",
-        label: "Audyty fabryk",
+        labelKey: "nav.verification",
         serviceId: "verification",
       },
       {
         href: "/uslugi/kontrola-jakosci",
-        label: "Kontrola jakości",
+        labelKey: "nav.qc",
         serviceId: "qc",
       },
       {
         href: "/uslugi/spedycja-i-logistyka",
-        label: "Spedycja i logistyka",
+        labelKey: "nav.freight",
         serviceId: "freight",
       },
     ],
   },
   {
-    label: "Narzędzia",
+    labelKey: "nav.group.tools",
     items: [
-      { href: "/kalkulator", label: "Kalkulator importu" },
-      { href: "/konsultacja", label: "Umów konsultację" },
-      { href: "/kontakt", label: "Kontakt" },
+      { href: "/kalkulator", labelKey: "nav.kalkulator" },
+      { href: "/konsultacja", labelKey: "nav.konsultacja" },
+      { href: "/kontakt", labelKey: "nav.kontakt" },
     ],
   },
 ];
 
-export const ctaLink = { href: "/kontakt", label: "Wyślij zapytanie" };
+/** Flat list of the primary navigation links (used for mobile + footer). */
+export const primaryNav: NavItem[] = [
+  { href: "/", labelKey: "nav.home" },
+  { href: "/uslugi", labelKey: "nav.uslugiAll" },
+  { href: "/proces", labelKey: "nav.proces" },
+  { href: "/realizacje", labelKey: "nav.realizacje" },
+  { href: "/o-nas", labelKey: "nav.oNas" },
+  { href: "/zespol-w-chinach", labelKey: "nav.chiny" },
+  { href: "/kalkulator", labelKey: "nav.kalkulator" },
+  { href: "/kontakt", labelKey: "nav.kontakt" },
+];
+
+export const ctaLink = { href: "/kontakt", labelKey: "cta.describeProject" };

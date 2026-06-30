@@ -1,47 +1,53 @@
-import { LogisticsBackdrop } from "@/components/backgrounds/LogisticsBackdrop";
-import { navGroups } from "@/config/navigation";
-import Link from "next/link";
+"use client";
 
-const footerLinkClassName =
+import Link from "next/link";
+import { LogisticsBackdrop } from "@/components/backgrounds/LogisticsBackdrop";
+import { BrandLogo } from "@/components/layout/BrandLogo";
+import { navGroups } from "@/config/navigation";
+import { company } from "@/config/company";
+import { contactEmail, getPrimaryPhone } from "@/config/contacts";
+import { useLocale, useT } from "@/i18n/LocaleProvider";
+import { localeHref } from "@/i18n/routing";
+
+const linkClass =
   "text-white/60 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-light focus-visible:ring-offset-2 focus-visible:ring-offset-navy";
 
-const footerServices =
-  navGroups.find((group) => group.label === "Usługi")?.items.filter(
-    (item) => item.serviceId,
-  ) ?? [];
+const servicesGroup = navGroups.find((g) => g.labelKey === "nav.group.services");
+const companyGroup = navGroups.find((g) => g.labelKey === "nav.group.company");
 
-const footerPages =
-  navGroups.find((group) => group.label === "Narzędzia")?.items ?? [];
+const legalLinks = [
+  { href: "/polityka-prywatnosci", key: "footer.privacy" },
+  { href: "/polityka-cookies", key: "footer.cookies" },
+  { href: "/regulamin", key: "footer.terms" },
+];
 
 export function Footer() {
+  const locale = useLocale();
+  const t = useT();
+  const phone = getPrimaryPhone(locale);
+  const year = new Date().getFullYear();
+
   return (
     <footer className="relative z-10 overflow-hidden border-t border-white/10 bg-navy py-12">
       <LogisticsBackdrop variant="footer" />
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           <div>
-            <div className="mb-4 flex items-center gap-2">
-              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-accent text-sm font-bold text-white">
-                CN
-              </div>
-              <span className="text-sm font-semibold text-white">
-                China Export
-              </span>
-            </div>
+            <BrandLogo className="mb-4" />
             <p className="text-sm leading-relaxed text-white/50">
-              Import towarów, maszyn i materiałów z Chin do Polski i Europy.
+              {t("footer.descriptor")}
             </p>
           </div>
 
           <div>
             <h3 className="mb-3 text-xs font-semibold uppercase tracking-widest text-white/40">
-              Usługi
+              {t("footer.servicesTitle")}
             </h3>
             <ul className="space-y-2 text-sm">
-              {footerServices.map((item) => (
+              {(servicesGroup?.items ?? []).map((item) => (
                 <li key={item.href}>
-                  <Link href={item.href} className={footerLinkClassName}>
-                    {item.label}
+                  <Link href={localeHref(locale, item.href)} className={linkClass}>
+                    {t(item.labelKey)}
                   </Link>
                 </li>
               ))}
@@ -50,44 +56,58 @@ export function Footer() {
 
           <div>
             <h3 className="mb-3 text-xs font-semibold uppercase tracking-widest text-white/40">
-              Strony
+              {t("footer.pagesTitle")}
             </h3>
             <ul className="space-y-2 text-sm">
-              {footerPages.map((item) => (
+              {(companyGroup?.items ?? []).map((item) => (
                 <li key={item.href}>
-                  <Link href={item.href} className={footerLinkClassName}>
-                    {item.label}
+                  <Link href={localeHref(locale, item.href)} className={linkClass}>
+                    {t(item.labelKey)}
                   </Link>
                 </li>
               ))}
+              <li>
+                <Link href={localeHref(locale, "/kontakt")} className={linkClass}>
+                  {t("nav.kontakt")}
+                </Link>
+              </li>
             </ul>
           </div>
 
           <div>
             <h3 className="mb-3 text-xs font-semibold uppercase tracking-widest text-white/40">
-              Kontakt
+              {t("footer.contactTitle")}
             </h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <a
-                  href="mailto:kontakt@china-export.pl"
-                  className={footerLinkClassName}
-                >
-                  kontakt@china-export.pl
+                <a href={`mailto:${contactEmail}`} className={linkClass}>
+                  {contactEmail}
                 </a>
               </li>
               <li>
-                <a href="tel:+48000000000" className={footerLinkClassName}>
-                  +48 000 000 000
+                <a href={`tel:${phone.tel}`} className={linkClass}>
+                  {phone.display}
+                  <span className="sr-only"> ({t(phone.countryLabelKey)})</span>
                 </a>
               </li>
-              <li className="text-white/60">Warszawa, Polska</li>
+              <li className="text-white/60">{company.chinaPresence}</li>
             </ul>
           </div>
         </div>
 
-        <div className="mt-10 border-t border-white/10 pt-6 text-center text-xs text-white/30">
-          © {new Date().getFullYear()} China Export. Wszelkie prawa zastrzeżone.
+        <div className="mt-10 flex flex-col items-center gap-4 border-t border-white/10 pt-6 text-xs text-white/30 sm:flex-row sm:justify-between">
+          <p>
+            © {year} {company.name}. {t("footer.rights")}
+          </p>
+          <ul className="flex flex-wrap items-center gap-x-4 gap-y-2">
+            {legalLinks.map((item) => (
+              <li key={item.href}>
+                <Link href={localeHref(locale, item.href)} className={linkClass}>
+                  {t(item.key)}
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </footer>

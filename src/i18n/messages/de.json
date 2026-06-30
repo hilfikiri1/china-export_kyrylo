@@ -1,0 +1,316 @@
+{
+  "meta": { "name": "Deutsch" },
+  "language": {
+    "label": "Sprache",
+    "switcherAria": "Sprache auswählen"
+  },
+  "nav": {
+    "home": "Startseite",
+    "uslugiAll": "Leistungen",
+    "proces": "So arbeiten wir",
+    "oNas": "Über uns",
+    "realizacje": "Referenzen",
+    "chiny": "Vor Ort in China",
+    "kalkulator": "Rechner",
+    "konsultacja": "Beratung vereinbaren",
+    "kontakt": "Kontakt",
+    "sourcing": "Herstellersuche",
+    "verification": "Lieferantenprüfung & Audits",
+    "qc": "Qualitätskontrolle",
+    "freight": "Transport & Zollabwicklung",
+    "group": {
+      "company": "Unternehmen",
+      "services": "Leistungen",
+      "tools": "Tools"
+    }
+  },
+  "cta": {
+    "describeProject": "Projekt beschreiben",
+    "describeProjectLong": "Beschreiben Sie Ihr Projekt",
+    "bookConsultation": "Beratung vereinbaren",
+    "calculator": "Ungefähre Importkosten berechnen",
+    "requestContact": "Rückruf anfordern",
+    "sendInquiry": "Anfrage senden",
+    "helpAtStage": "Unterstützung in dieser Phase"
+  },
+  "common": {
+    "readMore": "Mehr erfahren",
+    "close": "Schließen",
+    "menuOpen": "Menü öffnen",
+    "menuClose": "Menü schließen",
+    "loading": "Wird geladen…",
+    "backHome": "Zur Startseite",
+    "whatsapp": "WhatsApp",
+    "email": "E-Mail",
+    "phone": "Telefon"
+  },
+  "country": {
+    "pl": "Polen",
+    "ua": "Ukraine",
+    "cn": "China"
+  },
+  "address": {
+    "ua": "Adresse in der Ukraine",
+    "cn": "Adresse in China"
+  },
+  "footer": {
+    "descriptor": "Import, Sourcing und Produktion in China für Unternehmen.",
+    "servicesTitle": "Leistungen",
+    "pagesTitle": "Seiten",
+    "contactTitle": "Kontakt",
+    "legalTitle": "Rechtliche Informationen",
+    "rights": "Alle Rechte vorbehalten.",
+    "privacy": "Datenschutzerklärung",
+    "cookies": "Cookie-Richtlinie",
+    "terms": "Nutzungsbedingungen",
+    "calculatorDisclaimer": "Hinweis zum Rechner"
+  },
+  "cookie": {
+    "message": "Wir verwenden notwendige Cookies, damit die Website korrekt funktioniert. Analyse- und Marketing-Cookies aktivieren wir erst nach Ihrer Einwilligung.",
+    "accept": "Alle akzeptieren",
+    "essential": "Nur notwendige",
+    "privacyLink": "Datenschutzerklärung"
+  },
+  "notFound": {
+    "title": "Seite nicht gefunden",
+    "description": "Die gesuchte Seite existiert nicht oder wurde verschoben.",
+    "cta": "Zur Startseite"
+  },
+  "error": {
+    "title": "Etwas ist schiefgelaufen",
+    "description": "Ein unerwarteter Fehler ist aufgetreten. Bitte versuchen Sie es später erneut.",
+    "retry": "Erneut versuchen"
+  },
+  "hero": {
+    "eyebrow": "Buy & Bring Solutions · Polen — China",
+    "title": "Import aus China für Unternehmen — vom geprüften Hersteller bis in Ihr Lager",
+    "paragraph": "Wir finden und prüfen Hersteller, kontrollieren Produktion und Qualität und organisieren Export, Transport, Zollabwicklung sowie Lieferung nach Polen und in andere europäische Länder.",
+    "supporting": "Sie können uns den gesamten Prozess anvertrauen oder nur eine einzelne Phase beauftragen.",
+    "trustLabel": "Warum Unternehmen uns vertrauen"
+  },
+  "stats": {
+    "experience": { "value": "17 Jahre", "label": "Erfahrung in der Zusammenarbeit mit China" },
+    "clients": { "value": "275+", "label": "betreute Kunden" },
+    "containers": { "value": "110+", "label": "gelieferte Container" },
+    "foshan": { "value": "Foshan", "label": "Betrieb und Unterstützung vor Ort in China" }
+  },
+  "trust": {
+    "heading": "Warum Unternehmen sich für Buy & Bring Solutions entscheiden",
+    "cards": [
+      {
+        "id": "local-operations",
+        "title": "Wir sind vor Ort in China aktiv",
+        "description": "Unser operatives Team in Foshan steht mit Herstellern in Kontakt, koordiniert Bestellungen und organisiert Prüfungen und Versand."
+      },
+      {
+        "id": "verification",
+        "title": "Wir prüfen Hersteller",
+        "description": "Wir prüfen Unternehmensdaten, Produktionskapazitäten, Dokumentation und die Übereinstimmung des Angebots mit den Projektanforderungen."
+      },
+      {
+        "id": "quality",
+        "title": "Wir kontrollieren die Ware vor dem Versand",
+        "description": "Je nach Projekt organisieren wir eine Vorproduktionsprüfung, eine Prüfung während der Produktion oder eine Inspektion vor dem Versand."
+      },
+      {
+        "id": "logistics",
+        "title": "Wir organisieren die Lieferung vom Werk bis ins Lager",
+        "description": "Wir koordinieren Export, See-, Bahn-, Luft- oder Straßentransport, Zollabwicklung und die finale Zustellung."
+      },
+      {
+        "id": "flexible",
+        "title": "Gesamtprozess oder einzelne Leistung",
+        "description": "Sie können uns die Komplettabwicklung übertragen oder nur Herstellersuche, Qualitätskontrolle, Konsolidierung oder Transport."
+      }
+    ]
+  },
+  "sections": {
+    "servicesHeading": "Leistungen, abgestimmt auf die Phase Ihres Projekts",
+    "servicesLead": "Wir können den gesamten Importprozess durchführen oder Sie nur in einer ausgewählten Phase unterstützen.",
+    "processHeading": "So läuft der Import aus China ab",
+    "processLead": "Sechs Phasen — vom Briefing bis zur Lieferung. Wir führen den gesamten Prozess oder einen Teil davon.",
+    "casesHeading": "Ausgewählte Referenzen",
+    "casesLead": "Beispiele für Projekte, die wir für unsere Kunden umgesetzt haben.",
+    "industriesHeading": "Produktkategorien und Branchen",
+    "industriesLead": "Wir arbeiten mit einem breiten Spektrum an Produkten und Branchen. Nachfolgend die häufigsten Kategorien.",
+    "industriesClosing": "Ihre Kategorie ist nicht dabei? Beschreiben Sie das Produkt — wir prüfen die Möglichkeiten für Produktion und Lieferung.",
+    "aboutHeading": "Wir sind vor Ort in China aktiv"
+  },
+  "breadcrumbs": {
+    "home": "Startseite",
+    "uslugi": "Leistungen"
+  },
+  "form": {
+    "labels": {
+      "name": "Vor- und Nachname",
+      "company": "Firmenname",
+      "email": "E-Mail",
+      "phone": "Telefon / WhatsApp",
+      "country": "Land",
+      "city": "Stadt oder Postleitzahl der Lieferung",
+      "product": "Produkt oder Maschinentyp",
+      "quantity": "Geplante Menge",
+      "budget": "Budget",
+      "deadline": "Gewünschter Termin",
+      "scope": "Umfang der benötigten Unterstützung",
+      "message": "Projektbeschreibung",
+      "productLink": "Link zum Produkt",
+      "contactMethod": "Bevorzugte Kontaktart",
+      "preferredDate": "Bevorzugter Termin",
+      "preferredTime": "Bevorzugter Zeitraum",
+      "timezone": "Zeitzone"
+    },
+    "placeholders": {
+      "name": "Max Mustermann",
+      "company": "Firmenname",
+      "email": "max@firma.de",
+      "phone": "+49 000 0000000",
+      "message": "Produkt, Menge, Zeitplan, gewünschter Leistungsumfang…",
+      "notes": "Beschreiben Sie kurz, worum es im Projekt geht…"
+    },
+    "scopeOptions": {
+      "sourcing": "Herstellersuche",
+      "verification": "Prüfung oder Audit der Fabrik",
+      "qc": "Qualitätskontrolle",
+      "oem": "Private Label / OEM",
+      "consolidation": "Konsolidierung",
+      "freight": "Transport und Zollabwicklung",
+      "full": "Komplette Importabwicklung",
+      "other": "Sonstiges"
+    },
+    "contactMethodOptions": {
+      "email": "E-Mail",
+      "phone": "Telefon",
+      "whatsapp": "WhatsApp"
+    },
+    "consent": "Ich willige in die Verarbeitung meiner Daten zur Kontaktaufnahme und Angebotserstellung ein.",
+    "consentLink": "Datenschutzerklärung",
+    "submit": "Anfrage senden",
+    "submitting": "Wird gesendet…",
+    "sendAnother": "Weitere Anfrage senden",
+    "validation": {
+      "required": "Dieses Feld ist erforderlich.",
+      "email": "Bitte geben Sie eine gültige E-Mail-Adresse ein.",
+      "consent": "Um das Formular zu senden, müssen Sie einwilligen."
+    },
+    "success": {
+      "title": "Vielen Dank!",
+      "description": "Wir melden uns in Kürze bei Ihnen, um das Projekt zu besprechen."
+    },
+    "error": {
+      "title": "Formular konnte nicht gesendet werden",
+      "description": "Bitte versuchen Sie es später erneut oder schreiben Sie uns direkt per E-Mail."
+    }
+  },
+  "contactPage": {
+    "heading": "Erzählen Sie uns von Ihrem Projekt",
+    "supporting": "Je mehr Informationen wir zu Beginn erhalten, desto schneller können wir das Projekt bewerten und die nächsten Schritte vorbereiten."
+  },
+  "consultationPage": {
+    "heading": "Kostenlose Beratung vereinbaren",
+    "supporting": "Beschreiben Sie kurz Ihr Projekt und nennen Sie einen passenden Kontaktzeitpunkt. Wir melden uns, um das Gespräch zu bestätigen.",
+    "cta": "Rückruf anfordern"
+  },
+  "calculator": {
+    "title": "Rechner für Importkosten aus China",
+    "supporting": "Berechnen Sie die ungefähren Kosten für Einkauf, Transport, Zoll und Mehrwertsteuer. Das Ergebnis ist unverbindlich und stellt weder ein Angebot noch eine Steuerberatung dar.",
+    "subtitle": "Transport, Zoll, MwSt. und Lieferkosten",
+    "planningBadge": "Planungsdaten: {date} · Ergebnis ist kein Angebot",
+    "ratesNbp": " · NBP-Kurse",
+    "shipmentData": "Sendungsdaten",
+    "fields": {
+      "goods": "Warenwert",
+      "currency": "Währung der Ware",
+      "mode": "Transportart",
+      "cbm": "Volumen (m³)",
+      "kg": "Bruttogewicht (kg)",
+      "incoterm": "Incoterm",
+      "cnCodes": "Anzahl der CN-Codes",
+      "duty": "Zollsatz",
+      "customDuty": "Eigener Satz (%)",
+      "usdPln": "Kurs USD/PLN",
+      "eurPln": "Kurs EUR/PLN"
+    },
+    "modes": {
+      "sea20": "See – Container 20 ft",
+      "sea40": "See – Container 40 ft",
+      "sea40hc": "See – Container 40 HC",
+      "sealcl": "See – LCL",
+      "rail20": "Bahn – Container 20 ft",
+      "rail40": "Bahn – Container 40 HQ",
+      "raillcl": "Bahn – LCL",
+      "air": "Luft"
+    },
+    "duty": {
+      "unknown": "Unbekannt – 0/5/10% anzeigen",
+      "custom": "Andere"
+    },
+    "insuranceCif": "Versicherung im CIF-Wert enthalten",
+    "insuranceAdd": "Versicherung 0,5% hinzufügen (min. 50 USD)",
+    "insuranceLabel": "Versicherung",
+    "calculate": "Ungefähre Kosten berechnen",
+    "ratesNote": "Die Sätze sind beispielhaft und müssen regelmäßig aktualisiert werden. Der Rechner berücksichtigt nicht automatisch Gefahrgut, Batterien, Chemie, Lebensmittel, Verbrauchsteuer oder Antidumpingzölle.",
+    "resultTitle": "Ergebnis",
+    "empty": "Daten eingeben und auf „Berechnen“ klicken.",
+    "totalCash": "Beim Import erforderliche Mittel (inkl. MwSt.)",
+    "rangeLabel": "Bereich bei diesem Zollsatz: {low} – {high} · {days}",
+    "landed": "Landed-Kosten ohne MwSt.",
+    "transport": "Transport",
+    "cifFreight": "Internationale Fracht im CIF-Wert enthalten",
+    "rows": {
+      "goods": "Warenwert",
+      "transport": "Transport",
+      "transportLocal": "Transport (lokal)",
+      "insurance": "Versicherung",
+      "customsValue": "Zollwert",
+      "dutyRate": "Zoll {rate}%",
+      "vat": "Einfuhr-MwSt. 23%",
+      "broker": "Zollagentur"
+    },
+    "scenarios": {
+      "duty": "Zoll",
+      "landed": "Landed ohne MwSt.",
+      "totalCash": "Mittel inkl. MwSt."
+    },
+    "resultNote": "MwSt. 23%. Der Zoll hängt vom CN/TARIC-Code ab. Zollabwicklung des Brokers: 250 PLN + 20 PLN je zusätzlichem CN-Code. Transportbereich: ±15%. Der MwSt.-Betrag wird gesondert ausgewiesen, da er für vorsteuerabzugsberechtigte Unternehmen abziehbar sein kann.",
+    "transferCta": "Daten zur Prüfung senden"
+  },
+  "seo": {
+    "home": {
+      "title": "Import aus China für Unternehmen | Buy & Bring Solutions",
+      "description": "Herstellersuche und -prüfung, Qualitätskontrolle, Eigenmarkenproduktion, Transport, Zollabwicklung und Lieferung aus China nach Polen und Europa."
+    },
+    "uslugi": {
+      "title": "Importdienstleistungen aus China",
+      "description": "Modulare Leistungen: Herstellersuche, Fabrikaudits, Qualitätskontrolle, Private Label, Konsolidierung, Transport und Zollabwicklung."
+    },
+    "proces": {
+      "title": "So arbeiten wir — der Importprozess aus China",
+      "description": "Sechs Phasen des Imports aus China: Briefing, Herstellersuche, Prüfung, Produktionsüberwachung, Qualitätskontrolle sowie Transport und Lieferung."
+    },
+    "realizacje": {
+      "title": "Referenzen — Importprojekte",
+      "description": "Ausgewählte Projekte von Buy & Bring Solutions: Private Label, Batterietechnologien, Konsolidierung, Industriemaschinen und Sourcing in China."
+    },
+    "oNas": {
+      "title": "Über uns — Buy & Bring Solutions",
+      "description": "Wir verbinden europäische Unternehmen mit Herstellern in China. Herstellersuche, Qualitätskontrolle und Lieferungen aus China für Unternehmen."
+    },
+    "chiny": {
+      "title": "Wir sind vor Ort in China aktiv",
+      "description": "Operative Unterstützung in Foshan: Kontakt mit Herstellern, Inspektionen, Konsolidierung, Verladekontrolle und Exportdokumentation."
+    },
+    "kalkulator": {
+      "title": "Rechner für Importkosten aus China",
+      "description": "Berechnen Sie die ungefähren Importkosten aus China: Einkauf, Transport, Zoll und MwSt. Das Ergebnis ist unverbindlich."
+    },
+    "konsultacja": {
+      "title": "Kostenlose Beratung vereinbaren",
+      "description": "Beschreiben Sie Ihr Importprojekt und nennen Sie einen passenden Kontaktzeitpunkt. Wir melden uns, um das Gespräch zu bestätigen."
+    },
+    "kontakt": {
+      "title": "Kontakt — Buy & Bring Solutions",
+      "description": "Kontaktieren Sie Buy & Bring Solutions. Unterstützung in Polen, der Ukraine und China. Beschreiben Sie Ihr Importprojekt."
+    }
+  }
+}

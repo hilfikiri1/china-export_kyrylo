@@ -1,0 +1,318 @@
+{
+  "meta": { "name": "Polski" },
+  "language": {
+    "label": "Język",
+    "switcherAria": "Wybierz język"
+  },
+  "nav": {
+    "home": "Strona główna",
+    "uslugiAll": "Usługi",
+    "proces": "Jak pracujemy",
+    "oNas": "O nas",
+    "realizacje": "Realizacje",
+    "chiny": "Działamy w Chinach",
+    "kalkulator": "Kalkulator",
+    "konsultacja": "Umów konsultację",
+    "kontakt": "Kontakt",
+    "sourcing": "Wyszukiwanie producentów",
+    "verification": "Weryfikacja i audyty fabryk",
+    "qc": "Kontrola jakości",
+    "freight": "Transport i odprawa celna",
+    "group": {
+      "company": "Firma",
+      "services": "Usługi",
+      "tools": "Narzędzia"
+    }
+  },
+  "cta": {
+    "describeProject": "Opisz projekt",
+    "describeProjectLong": "Opisz swój projekt",
+    "bookConsultation": "Umów konsultację",
+    "calculator": "Oblicz orientacyjny koszt importu",
+    "requestContact": "Poproś o kontakt",
+    "sendInquiry": "Wyślij zapytanie",
+    "helpAtStage": "Pomoc na tym etapie"
+  },
+  "common": {
+    "readMore": "Dowiedz się więcej",
+    "close": "Zamknij",
+    "menuOpen": "Otwórz menu",
+    "menuClose": "Zamknij menu",
+    "loading": "Ładowanie…",
+    "backHome": "Wróć na stronę główną",
+    "whatsapp": "WhatsApp",
+    "email": "E-mail",
+    "phone": "Telefon",
+    "prevSlide": "Poprzedni slajd",
+    "nextSlide": "Następny slajd"
+  },
+  "country": {
+    "pl": "Polska",
+    "ua": "Ukraina",
+    "cn": "Chiny"
+  },
+  "address": {
+    "ua": "Adres w Ukrainie",
+    "cn": "Adres w Chinach"
+  },
+  "footer": {
+    "descriptor": "Import, sourcing i produkcja w Chinach dla firm.",
+    "servicesTitle": "Usługi",
+    "pagesTitle": "Strony",
+    "contactTitle": "Kontakt",
+    "legalTitle": "Informacje prawne",
+    "rights": "Wszelkie prawa zastrzeżone.",
+    "privacy": "Polityka prywatności",
+    "cookies": "Polityka cookies",
+    "terms": "Regulamin",
+    "calculatorDisclaimer": "Zastrzeżenie kalkulatora"
+  },
+  "cookie": {
+    "message": "Używamy niezbędnych plików cookies, aby strona działała poprawnie. Pliki analityczne i marketingowe uruchamiamy dopiero po Twojej zgodzie.",
+    "accept": "Akceptuję wszystkie",
+    "essential": "Tylko niezbędne",
+    "privacyLink": "Polityka prywatności"
+  },
+  "notFound": {
+    "title": "Nie znaleziono strony",
+    "description": "Strona, której szukasz, nie istnieje lub została przeniesiona.",
+    "cta": "Wróć na stronę główną"
+  },
+  "error": {
+    "title": "Coś poszło nie tak",
+    "description": "Wystąpił nieoczekiwany błąd. Spróbuj ponownie później.",
+    "retry": "Spróbuj ponownie"
+  },
+  "hero": {
+    "eyebrow": "Buy & Bring Solutions · Polska — Chiny",
+    "title": "Import z Chin dla firm — od sprawdzonego producenta do Twojego magazynu",
+    "paragraph": "Wyszukujemy i weryfikujemy producentów, kontrolujemy produkcję i jakość, organizujemy eksport, transport, odprawę celną oraz dostawę do Polski i innych krajów Europy.",
+    "supporting": "Możesz powierzyć nam cały proces albo zlecić tylko wybrany etap.",
+    "trustLabel": "Dlaczego firmy nam ufają"
+  },
+  "stats": {
+    "experience": { "value": "17 lat", "label": "doświadczenia we współpracy z Chinami" },
+    "clients": { "value": "275+", "label": "obsłużonych klientów" },
+    "containers": { "value": "110+", "label": "dostarczonych kontenerów" },
+    "foshan": { "value": "Foshan", "label": "operacje i wsparcie na miejscu w Chinach" }
+  },
+  "trust": {
+    "heading": "Dlaczego firmy wybierają Buy & Bring Solutions",
+    "cards": [
+      {
+        "id": "local-operations",
+        "title": "Działamy na miejscu w Chinach",
+        "description": "Nasz zespół operacyjny w Foshan kontaktuje się z producentami, koordynuje zamówienia oraz organizuje kontrole i wysyłki."
+      },
+      {
+        "id": "verification",
+        "title": "Weryfikujemy producentów",
+        "description": "Sprawdzamy dane firmy, możliwości produkcyjne, dokumentację oraz zgodność oferty z wymaganiami projektu."
+      },
+      {
+        "id": "quality",
+        "title": "Kontrolujemy towar przed wysyłką",
+        "description": "W zależności od projektu organizujemy kontrolę przedprodukcyjną, kontrolę w trakcie produkcji lub inspekcję przed wysyłką."
+      },
+      {
+        "id": "logistics",
+        "title": "Organizujemy dostawę od fabryki do magazynu",
+        "description": "Koordynujemy eksport, transport morski, kolejowy, lotniczy lub drogowy, odprawę celną i dostawę końcową."
+      },
+      {
+        "id": "flexible",
+        "title": "Pełny proces lub wybrana usługa",
+        "description": "Możesz zlecić nam kompleksową obsługę albo tylko wyszukanie producenta, kontrolę jakości, konsolidację lub transport."
+      }
+    ]
+  },
+  "sections": {
+    "servicesHeading": "Usługi dopasowane do etapu Twojego projektu",
+    "servicesLead": "Możemy przeprowadzić cały proces importu albo wesprzeć Cię tylko na wybranym etapie.",
+    "processHeading": "Jak przebiega import z Chin",
+    "processLead": "Sześć etapów — od briefu po dostawę. Prowadzimy cały proces lub wybrany fragment.",
+    "casesHeading": "Wybrane realizacje",
+    "casesLead": "Przykłady projektów zrealizowanych dla naszych klientów.",
+    "industriesHeading": "Kategorie produktów i branże",
+    "industriesLead": "Pracujemy z szerokim zakresem produktów i branż. Poniżej najczęstsze kategorie.",
+    "industriesClosing": "Nie widzisz swojej kategorii? Opisz produkt — sprawdzimy możliwości produkcji i dostawy.",
+    "aboutHeading": "Działamy na miejscu w Chinach"
+  },
+  "breadcrumbs": {
+    "home": "Strona główna",
+    "uslugi": "Usługi"
+  },
+  "form": {
+    "labels": {
+      "name": "Imię i nazwisko",
+      "company": "Nazwa firmy",
+      "email": "E-mail",
+      "phone": "Telefon / WhatsApp",
+      "country": "Kraj",
+      "city": "Miasto lub kod pocztowy dostawy",
+      "product": "Produkt lub rodzaj maszyny",
+      "quantity": "Planowana ilość",
+      "budget": "Budżet",
+      "deadline": "Oczekiwany termin",
+      "scope": "Zakres potrzebnej pomocy",
+      "message": "Opis projektu",
+      "productLink": "Link do produktu",
+      "contactMethod": "Preferowana forma kontaktu",
+      "preferredDate": "Preferowany termin",
+      "preferredTime": "Preferowany przedział godzin",
+      "timezone": "Strefa czasowa"
+    },
+    "placeholders": {
+      "name": "Jan Kowalski",
+      "company": "Nazwa firmy",
+      "email": "jan@firma.pl",
+      "phone": "+48 600 000 000",
+      "message": "Produkt, ilość, harmonogram, preferowany zakres usług…",
+      "notes": "Opisz krótko, czego dotyczy projekt…"
+    },
+    "scopeOptions": {
+      "sourcing": "Wyszukiwanie producenta",
+      "verification": "Weryfikacja lub audyt fabryki",
+      "qc": "Kontrola jakości",
+      "oem": "Private Label / OEM",
+      "consolidation": "Konsolidacja",
+      "freight": "Transport i odprawa",
+      "full": "Kompleksowa obsługa importu",
+      "other": "Inne"
+    },
+    "contactMethodOptions": {
+      "email": "E-mail",
+      "phone": "Telefon",
+      "whatsapp": "WhatsApp"
+    },
+    "consent": "Wyrażam zgodę na przetwarzanie danych w celu kontaktu i przygotowania oferty.",
+    "consentLink": "Polityka prywatności",
+    "submit": "Wyślij zapytanie",
+    "submitting": "Wysyłanie…",
+    "sendAnother": "Wyślij kolejne zapytanie",
+    "validation": {
+      "required": "To pole jest wymagane.",
+      "email": "Podaj poprawny adres e-mail.",
+      "consent": "Aby wysłać formularz, musisz wyrazić zgodę."
+    },
+    "success": {
+      "title": "Dziękujemy!",
+      "description": "Skontaktujemy się z Tobą wkrótce, aby omówić projekt."
+    },
+    "error": {
+      "title": "Nie udało się wysłać formularza",
+      "description": "Spróbuj ponownie później lub napisz do nas bezpośrednio na e-mail."
+    }
+  },
+  "contactPage": {
+    "heading": "Opowiedz nam o swoim projekcie",
+    "supporting": "Im więcej informacji otrzymamy na początku, tym szybciej będziemy mogli ocenić projekt i przygotować kolejne kroki."
+  },
+  "consultationPage": {
+    "heading": "Umów bezpłatną konsultację",
+    "supporting": "Opisz krótko swój projekt i wskaż dogodny termin kontaktu. Skontaktujemy się z Tobą, aby potwierdzić rozmowę.",
+    "cta": "Poproś o kontakt"
+  },
+  "calculator": {
+    "title": "Kalkulator kosztu importu z Chin",
+    "supporting": "Oblicz orientacyjny koszt zakupu, transportu, cła i podatku VAT. Wynik ma charakter informacyjny i nie stanowi oferty handlowej ani porady podatkowej.",
+    "subtitle": "Transport, cło, VAT i koszt dostawy do Polski",
+    "planningBadge": "Dane planistyczne: {date} · wynik nie jest ofertą",
+    "ratesNbp": " · kursy NBP",
+    "shipmentData": "Dane przesyłki",
+    "fields": {
+      "goods": "Wartość towaru",
+      "currency": "Waluta towaru",
+      "mode": "Sposób transportu",
+      "cbm": "Objętość (m³)",
+      "kg": "Waga brutto (kg)",
+      "incoterm": "Incoterm",
+      "cnCodes": "Liczba kodów CN",
+      "duty": "Stawka cła",
+      "customDuty": "Własna stawka (%)",
+      "usdPln": "Kurs USD/PLN",
+      "eurPln": "Kurs EUR/PLN"
+    },
+    "modes": {
+      "sea20": "Morze – kontener 20 ft",
+      "sea40": "Morze – kontener 40 ft",
+      "sea40hc": "Morze – kontener 40 HC",
+      "sealcl": "Morze – LCL",
+      "rail20": "Kolej – kontener 20 ft",
+      "rail40": "Kolej – kontener 40 HQ",
+      "raillcl": "Kolej – LCL",
+      "air": "Lotniczy"
+    },
+    "duty": {
+      "unknown": "Nie znam – pokaż 0/5/10%",
+      "custom": "Inna"
+    },
+    "insuranceCif": "Ubezpieczenie wliczone w wartość CIF",
+    "insuranceAdd": "Dodać ubezpieczenie 0,5% (min. 50 USD)",
+    "insuranceLabel": "Ubezpieczenie",
+    "calculate": "Oblicz orientacyjny koszt",
+    "ratesNote": "Stawki są przykładowe i wymagają regularnej aktualizacji. Kalkulator nie obsługuje automatycznie towarów niebezpiecznych, baterii, chemii, żywności, akcyzy ani ceł antydumpingowych.",
+    "resultTitle": "Wynik",
+    "empty": "Uzupełnij dane i kliknij „Oblicz”.",
+    "totalCash": "Środki potrzebne przy imporcie (z VAT)",
+    "rangeLabel": "Zakres przy tej stawce cła: {low} – {high} · {days}",
+    "landed": "Koszt landed bez VAT",
+    "transport": "Transport",
+    "cifFreight": "Międzynarodowy fracht wliczony w wartość CIF",
+    "rows": {
+      "goods": "Wartość towaru",
+      "transport": "Transport",
+      "transportLocal": "Transport (lokalny PL)",
+      "insurance": "Ubezpieczenie",
+      "customsValue": "Wartość celna",
+      "dutyRate": "Cło {rate}%",
+      "vat": "VAT importowy 23%",
+      "broker": "Agencja celna"
+    },
+    "scenarios": {
+      "duty": "Cło",
+      "landed": "Landed bez VAT",
+      "totalCash": "Środki z VAT"
+    },
+    "resultNote": "VAT 23%. Cło zależy od kodu CN/TARIC. Odprawa brokera: 250 PLN + 20 PLN za dodatkowy kod CN. Zakres transportu: ±15%. Wartość VAT jest pokazywana osobno, ponieważ dla czynnego podatnika może podlegać rozliczeniu.",
+    "transferCta": "Prześlij dane do weryfikacji"
+  },
+  "seo": {
+    "home": {
+      "title": "Import z Chin dla firm | Buy & Bring Solutions",
+      "description": "Wyszukiwanie i weryfikacja producentów, kontrola jakości, produkcja pod marką własną, transport, odprawa celna i dostawa z Chin do Polski i Europy."
+    },
+    "uslugi": {
+      "title": "Usługi importowe z Chin",
+      "description": "Modułowe usługi: wyszukiwanie producentów, audyty fabryk, kontrola jakości, Private Label, konsolidacja, transport i odprawa celna."
+    },
+    "proces": {
+      "title": "Jak pracujemy — proces importu z Chin",
+      "description": "Sześć etapów importu z Chin: brief, wyszukiwanie producentów, weryfikacja, nadzór nad produkcją, kontrola jakości oraz transport i dostawa."
+    },
+    "realizacje": {
+      "title": "Realizacje — projekty importowe",
+      "description": "Wybrane projekty Buy & Bring Solutions: Private Label, technologie akumulatorowe, konsolidacja, maszyny przemysłowe i sourcing w Chinach."
+    },
+    "oNas": {
+      "title": "O nas — Buy & Bring Solutions",
+      "description": "Łączymy europejskie firmy z producentami w Chinach. Wyszukiwanie producentów, kontrola jakości i dostawy z Chin dla firm."
+    },
+    "chiny": {
+      "title": "Działamy na miejscu w Chinach",
+      "description": "Wsparcie operacyjne w Foshan: kontakt z producentami, inspekcje, konsolidacja, kontrola załadunku i dokumentacja eksportowa."
+    },
+    "kalkulator": {
+      "title": "Kalkulator kosztu importu z Chin",
+      "description": "Oblicz orientacyjny koszt importu z Chin: zakup, transport, cło i VAT. Wynik ma charakter informacyjny."
+    },
+    "konsultacja": {
+      "title": "Umów bezpłatną konsultację",
+      "description": "Opisz swój projekt importowy i wskaż dogodny termin kontaktu. Skontaktujemy się, aby potwierdzić rozmowę."
+    },
+    "kontakt": {
+      "title": "Kontakt — Buy & Bring Solutions",
+      "description": "Skontaktuj się z Buy & Bring Solutions. Wsparcie w Polsce, Ukrainie i Chinach. Opisz swój projekt importowy."
+    }
+  }
+}

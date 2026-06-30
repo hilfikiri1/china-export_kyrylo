@@ -1,6 +1,7 @@
 "use client";
 
-import { trustFactors } from "@/content/trust-factors";
+import { MapPin, ShieldCheck, Eye, Truck, Layers, type LucideIcon } from "lucide-react";
+import { useT } from "@/i18n/LocaleProvider";
 import { Card, CardContent } from "@/components/ui/card";
 import {
   Carousel,
@@ -13,7 +14,19 @@ import {
 const navButtonClass =
   "static inset-auto left-auto right-auto top-auto my-0 shrink-0 translate-x-0 translate-y-0 size-9 border-white/20 bg-white/10 text-white hover:bg-white/20 hover:text-white disabled:opacity-30";
 
+const trustIcons: Record<string, LucideIcon> = {
+  "local-operations": MapPin,
+  verification: ShieldCheck,
+  quality: Eye,
+  logistics: Truck,
+  flexible: Layers,
+};
+
+type TrustCard = { id: string; title: string; description: string };
+
 export function TrustStrip() {
+  const t = useT();
+  const cards = (t.raw("trust.cards") as TrustCard[] | undefined) ?? [];
   return (
     <Carousel
       opts={{
@@ -25,16 +38,16 @@ export function TrustStrip() {
       <div className="flex items-center gap-2 sm:gap-3">
         <CarouselPrevious
           variant="outline"
-          aria-label="Poprzedni slajd"
+          aria-label={t("common.prevSlide")}
           className={navButtonClass}
         />
 
         <CarouselContent className="-ml-3 min-w-0 flex-1">
-          {trustFactors.map((factor) => {
-            const Icon = factor.icon;
+          {cards.map((card) => {
+            const Icon = trustIcons[card.id] ?? ShieldCheck;
             return (
               <CarouselItem
-                key={factor.id}
+                key={card.id}
                 className="basis-full pl-3 sm:basis-1/2 lg:basis-1/3 xl:basis-1/4"
               >
                 <div className="p-1">
@@ -44,10 +57,10 @@ export function TrustStrip() {
                         <Icon className="h-5 w-5" aria-hidden />
                       </div>
                       <p className="text-sm font-semibold leading-snug">
-                        {factor.label}
+                        {card.title}
                       </p>
                       <p className="text-xs leading-relaxed text-white/60">
-                        {factor.description}
+                        {card.description}
                       </p>
                     </CardContent>
                   </Card>
@@ -59,7 +72,7 @@ export function TrustStrip() {
 
         <CarouselNext
           variant="outline"
-          aria-label="Następny slajd"
+          aria-label={t("common.nextSlide")}
           className={navButtonClass}
         />
       </div>

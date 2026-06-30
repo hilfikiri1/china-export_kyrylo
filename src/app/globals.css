@@ -101,7 +101,16 @@ html {
 }
 
 body {
-  font-family: var(--font-jakarta), system-ui, sans-serif;
+  font-family: var(--font-jakarta), var(--font-sans), system-ui,
+    "Noto Sans SC", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei",
+    sans-serif;
+}
+
+:lang(zh) {
+  /* Slightly looser tracking improves CJK legibility at small sizes */
+  letter-spacing: 0;
+  word-break: normal;
+  overflow-wrap: anywhere;
 }
 
 @media (prefers-reduced-motion: reduce) {
