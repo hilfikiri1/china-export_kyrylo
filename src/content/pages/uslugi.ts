@@ -3,7 +3,7 @@ import type { DedicatedPageContent } from "./types";
 export const uslugiPage: DedicatedPageContent = {
   id: "uslugi",
   meta: {
-    title: "Usługi modułowe — China Export",
+    title: "Usługi modułowe — Buy & Bring Solutions",
     description:
       "Każdy etap importu jako osobna usługa — sourcing, audyty, QC, spedycja i dostawa door-to-door. Wybierz moduły, których potrzebujesz.",
   },

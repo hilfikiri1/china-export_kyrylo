@@ -1,0 +1,272 @@
+{
+  "common": {
+    "brand": "Buy & Bring Solutions",
+    "brandShort": "B&BS",
+    "brandRegional": "B&BS Poland",
+    "home": "Strona główna",
+    "services": "Usługi",
+    "process": "Jak pracujemy",
+    "cases": "Realizacje",
+    "about": "O nas",
+    "china": "Działamy w Chinach",
+    "calculator": "Kalkulator",
+    "contact": "Kontakt",
+    "consultation": "Konsultacja",
+    "describeProject": "Opisz projekt",
+    "describeYourProject": "Opisz swój projekt",
+    "bookConsultation": "Umów konsultację",
+    "calculateImport": "Oblicz orientacyjny koszt importu",
+    "sendInquiry": "Wyślij zapytanie",
+    "learnMore": "Dowiedz się więcej",
+    "viewAll": "Zobacz wszystkie",
+    "close": "Zamknij",
+    "openMenu": "Otwórz menu",
+    "closeMenu": "Zamknij menu",
+    "previousSlide": "Poprzedni slajd",
+    "nextSlide": "Następny slajd",
+    "language": "Język",
+    "loading": "Ładowanie…",
+    "error": "Wystąpił błąd",
+    "tryAgain": "Spróbuj ponownie",
+    "ok": "OK",
+    "required": "Pole wymagane",
+    "optional": "Opcjonalne",
+    "privacyConsent": "Wyrażam zgodę na przetwarzanie danych osobowych zgodnie z",
+    "privacyPolicy": "polityką prywatności",
+    "cookiePolicy": "polityka cookies",
+    "terms": "regulamin",
+    "calculatorDisclaimer": "zastrzeżenie kalkulatora",
+    "footerPages": "Strony",
+    "footerServices": "Usługi",
+    "footerContact": "Kontakt",
+    "footerLegal": "Informacje prawne",
+    "email": "E-mail",
+    "phone": "Telefon",
+    "whatsapp": "WhatsApp",
+    "allRightsReserved": "Wszelkie prawa zastrzeżone.",
+    "modularServices": "Usługi modułowe",
+    "importCalculator": "Kalkulator importu",
+    "bookConsultationNav": "Umów konsultację",
+    "company": "Firma",
+    "tools": "Narzędzia",
+    "helpAtThisStage": "Pomoc na tym etapie?",
+    "submitForVerification": "Prześlij dane do weryfikacji",
+    "requestContact": "Poproś o kontakt",
+    "sendAnotherInquiry": "Wyślij kolejne zapytanie"
+  },
+  "nav": {
+    "home": "Strona główna",
+    "services": "Usługi",
+    "process": "Jak pracujemy",
+    "cases": "Realizacje",
+    "about": "O nas",
+    "china": "Działamy w Chinach",
+    "calculator": "Kalkulator",
+    "contact": "Kontakt",
+    "cta": "Opisz projekt"
+  },
+  "hero": {
+    "eyebrow": "Buy & Bring Solutions · Polska — Chiny",
+    "title": "Import z Chin dla firm — od sprawdzonego producenta do Twojego magazynu",
+    "paragraph": "Wyszukujemy i weryfikujemy producentów, kontrolujemy produkcję i jakość, organizujemy eksport, transport, odprawę celną oraz dostawę do Polski i innych krajów Europy.",
+    "supporting": "Możesz powierzyć nam cały proces albo zlecić tylko wybrany etap.",
+    "trustHeading": "Dlaczego firmy wybierają Buy & Bring Solutions",
+    "ariaLabel": "Strona główna"
+  },
+  "stats": {
+    "experienceValue": "17 lat",
+    "experienceLabel": "doświadczenia we współpracy z Chinami",
+    "clientsValue": "275+",
+    "clientsLabel": "obsłużonych klientów",
+    "containersValue": "110+",
+    "containersLabel": "dostarczonych kontenerów",
+    "foshanValue": "Foshan",
+    "foshanLabel": "operacje i wsparcie na miejscu w Chinach",
+    "ariaLabel": "Kluczowe wskaźniki firmy"
+  },
+  "trust": {
+    "localChina": {
+      "title": "Działamy na miejscu w Chinach",
+      "description": "Nasz zespół operacyjny w Foshan kontaktuje się z producentami, koordynuje zamówienia oraz organizuje kontrole i wysyłki."
+    },
+    "verification": {
+      "title": "Weryfikujemy producentów",
+      "description": "Sprawdzamy dane firmy, możliwości produkcyjne, dokumentację oraz zgodność oferty z wymaganiami projektu."
+    },
+    "quality": {
+      "title": "Kontrolujemy towar przed wysyłką",
+      "description": "W zależności od projektu organizujemy kontrolę przedprodukcyjną, kontrolę w trakcie produkcji lub inspekcję przed wysyłką."
+    },
+    "logistics": {
+      "title": "Organizujemy dostawę od fabryki do magazynu",
+      "description": "Koordynujemy eksport, transport morski, kolejowy, lotniczy lub drogowy, odprawę celną i dostawę końcową."
+    },
+    "flexible": {
+      "title": "Pełny proces lub wybrana usługa",
+      "description": "Możesz zlecić nam kompleksową obsługę albo tylko wyszukanie producenta, kontrolę jakości, konsolidację lub transport."
+    }
+  },
+  "services": {
+    "heading": "Usługi dopasowane do etapu Twojego projektu",
+    "supporting": "Możemy przeprowadzić cały proces importu albo wesprzeć Cię tylko na wybranym etapie.",
+    "phasePreProduction": "Przed produkcją",
+    "phaseLogistics": "Logistyka",
+    "phaseDelivery": "Dostawa w UE",
+    "sourcing": {
+      "title": "Wyszukiwanie producentów i organizacja zakupu",
+      "description": "Wyszukujemy producentów, zbieramy i porównujemy oferty, analizujemy MOQ, terminy, konfiguracje oraz warunki płatności i dostawy.",
+      "deliverables": ["shortlist producentów", "porównanie ofert", "informacje o MOQ i terminach", "ocenę mocnych stron i ryzyk", "rekomendację kolejnych kroków"]
+    },
+    "verification": {
+      "title": "Weryfikacja dostawców i audyty fabryk",
+      "description": "Sprawdzamy dane rejestrowe, zakres działalności, możliwości produkcyjne, dokumentację i zgodność fabryki z wymaganiami projektu."
+    },
+    "qc": {
+      "title": "Kontrola jakości towarów",
+      "description": "Organizujemy kontrolę jakości na podstawie uzgodnionej specyfikacji, checklisty, próbek referencyjnych i wymagań klienta."
+    },
+    "oem": {
+      "title": "Produkcja pod marką własną — Private Label i OEM",
+      "description": "Pomagamy dostosować produkt, logo, opakowanie, etykiety i instrukcję do wymagań marki oraz rynku docelowego."
+    },
+    "export": {
+      "title": "Koordynacja płatności i eksportu z Chin",
+      "description": "Koordynujemy dokumentację handlową i eksportową oraz uzgodniony model współpracy z producentem."
+    },
+    "consolidation": {
+      "title": "Konsolidacja towarów od wielu producentów",
+      "description": "Organizujemy odbiór towarów z kilku fabryk, magazynowanie, kontrolę kompletności, przeładunek i przygotowanie wspólnej wysyłki."
+    },
+    "freight": {
+      "title": "Transport, odprawa celna i dostawa",
+      "description": "Dobieramy sposób transportu, koordynujemy fracht, dokumentację, odprawę celną oraz dostawę końcową."
+    }
+  },
+  "industries": {
+    "heading": "Branże i kategorie produktów",
+    "closing": "Nie widzisz swojej kategorii? Opisz produkt — sprawdzimy możliwości produkcji i dostawy."
+  },
+  "process": {
+    "heading": "Jak przebiega import z Chin",
+    "step1": { "title": "Brief i specyfikacja", "description": "Poznajemy produkt, jego zastosowanie, wymagania techniczne, planowaną ilość, budżet, termin oraz kraj docelowy." },
+    "step2": { "title": "Wyszukiwanie i porównanie producentów", "description": "Wyszukujemy odpowiednie fabryki, zbieramy oferty oraz porównujemy konfiguracje, ceny, terminy produkcji, MOQ i warunki handlowe." },
+    "step3": { "title": "Weryfikacja fabryki i próbek", "description": "Sprawdzamy producenta, dokumentację, możliwości produkcyjne oraz — gdy jest to potrzebne — organizujemy próbki, wideoweryfikację lub audyt." },
+    "step4": { "title": "Zamówienie i nadzór nad produkcją", "description": "Pomagamy uzgodnić specyfikację, warunki płatności, harmonogram i sposób odbioru. Koordynujemy komunikację z producentem podczas realizacji zamówienia." },
+    "step5": { "title": "Kontrola jakości i dokumentów", "description": "Sprawdzamy zgodność towaru z ustaleniami, ilość, opakowanie, oznakowanie, działanie oraz dostępne dokumenty przed wysyłką." },
+    "step6": { "title": "Transport, odprawa i dostawa", "description": "Organizujemy eksport z Chin, fracht, odprawę celną i dostawę pod wskazany adres w Polsce, Ukrainie lub innym kraju europejskim." }
+  },
+  "about": {
+    "heading": "Łączymy europejskie firmy z producentami w Chinach",
+    "intro": "Buy & Bring Solutions wspiera firmy w wyszukiwaniu producentów, organizacji produkcji, kontroli jakości i dostawach z Chin. Łączymy bezpośrednią pracę z chińskimi fabrykami z obsługą klientów w Europie i Ukrainie.",
+    "mission": "Naszym celem jest ograniczenie ryzyka, uporządkowanie komunikacji z producentem i przeprowadzenie klienta przez cały proces — od specyfikacji i wyboru fabryki po kontrolę, transport i dostawę.",
+    "experience": "Zespół Buy & Bring Solutions posiada 17 lat doświadczenia we współpracy z Chinami.",
+    "operations": "Nasze operacje w Chinach są koordynowane z Foshan w prowincji Guangdong."
+  },
+  "china": {
+    "pageTitle": "Działamy na miejscu w Chinach",
+    "heading": "Wsparcie operacyjne w Foshan — bliżej producentów i procesu realizacji",
+    "intro": "Zespół Buy & Bring Solutions w Chinach wspiera wyszukiwanie producentów, komunikację z fabrykami, organizację kontroli, konsolidację oraz przygotowanie wysyłek.",
+    "specialistsNote": "W zależności od rodzaju projektu angażujemy odpowiednich specjalistów technicznych i inspekcyjnych."
+  },
+  "contact": {
+    "heading": "Opowiedz nam o swoim projekcie",
+    "supporting": "Im więcej informacji otrzymamy na początku, tym szybciej będziemy mogli ocenić projekt i przygotować kolejne kroki.",
+    "formTitle": "Wyślij zapytanie",
+    "formDescription": "Opisz projekt — odpowiemy z propozycją zakresu i kolejnych kroków.",
+    "name": "Imię i nazwisko",
+    "company": "Nazwa firmy",
+    "email": "E-mail",
+    "phone": "Telefon / WhatsApp",
+    "country": "Kraj",
+    "city": "Miasto lub kod pocztowy dostawy",
+    "product": "Produkt lub rodzaj maszyny",
+    "quantity": "Planowana ilość",
+    "budget": "Budżet",
+    "deadline": "Oczekiwany termin",
+    "scope": "Zakres potrzebnej pomocy",
+    "description": "Opis projektu",
+    "productLink": "Link do produktu",
+    "submit": "Wyślij zapytanie",
+    "successTitle": "Dziękujemy za zapytanie",
+    "successDescription": "Otrzymaliśmy Twoją wiadomość. Skontaktujemy się wkrótce z propozycją dalszych kroków.",
+    "errorTitle": "Nie udało się wysłać formularza",
+    "errorDescription": "Spróbuj ponownie później lub skontaktuj się z nami bezpośrednio.",
+    "scopeOptions": {
+      "sourcing": "Wyszukiwanie producenta",
+      "audit": "Weryfikacja lub audyt fabryki",
+      "qc": "Kontrola jakości",
+      "oem": "Private Label / OEM",
+      "consolidation": "Konsolidacja",
+      "freight": "Transport i odprawa",
+      "full": "Kompleksowa obsługa importu",
+      "other": "Inne"
+    }
+  },
+  "consultation": {
+    "heading": "Umów bezpłatną konsultację",
+    "text": "Opisz krótko swój projekt i wskaż dogodny termin kontaktu. Skontaktujemy się z Tobą, aby potwierdzić rozmowę.",
+    "cta": "Poproś o kontakt",
+    "preferredContact": "Preferowana forma kontaktu",
+    "preferredDate": "Preferowana data",
+    "preferredTime": "Preferowany przedział czasowy",
+    "timezone": "Strefa czasowa",
+    "projectCategory": "Kategoria projektu",
+    "shortDescription": "Krótki opis projektu"
+  },
+  "calculator": {
+    "title": "Kalkulator kosztu importu z Chin",
+    "supporting": "Oblicz orientacyjny koszt zakupu, transportu, cła i podatku VAT. Wynik ma charakter informacyjny i nie stanowi oferty handlowej ani porady podatkowej.",
+    "productValue": "Wartość towaru",
+    "currency": "Waluta",
+    "incoterm": "Incoterm",
+    "originCosts": "Koszty po stronie Chin",
+    "freight": "Fracht",
+    "insurance": "Ubezpieczenie",
+    "customsValue": "Wartość celna",
+    "dutyRate": "Stawka cła",
+    "customsHandling": "Obsługa celna",
+    "brokerCost": "Koszt brokera celnego",
+    "importVat": "VAT importowy",
+    "terminalCharges": "Opłaty terminalowe",
+    "finalDelivery": "Dostawa końcowa",
+    "serviceCost": "Koszt usługi B&BS (opcjonalnie)",
+    "units": "Liczba sztuk",
+    "landedPerUnit": "Szacunkowy koszt jednostkowy",
+    "grossWeight": "Waga brutto",
+    "volume": "Objętość (m³)",
+    "packages": "Liczba paczek",
+    "dimensions": "Wymiary",
+    "destinationCountry": "Kraj docelowy",
+    "destinationPostcode": "Kod pocztowy",
+    "transportMode": "Sposób transportu",
+    "calculate": "Oblicz",
+    "ratesSource": "Kursy z dnia",
+    "manualRates": "Kursy wprowadzone ręcznie",
+    "disclaimer": "Wynik ma charakter orientacyjny i nie stanowi oferty handlowej.",
+    "freightNote": "Dokładna wycena frachtu wymaga wagi, objętości, adresu załadunku i miejsca dostawy."
+  },
+  "cases": {
+    "heading": "Realizacje",
+    "viewCase": "Zobacz realizację",
+    "category": "Kategoria",
+    "scope": "Zakres prac",
+    "result": "Rezultat",
+    "challenge": "Wyzwanie",
+    "requirements": "Wymagania"
+  },
+  "seo": {
+    "homeTitle": "Import z Chin dla firm | Buy & Bring Solutions",
+    "homeDescription": "Wyszukiwanie i weryfikacja producentów, kontrola jakości, produkcja pod marką własną, transport, odprawa celna i dostawa z Chin do Polski i Europy."
+  },
+  "cookie": {
+    "message": "Ta strona używa plików cookie w celach niezbędnych do działania oraz — za Twoją zgodą — analitycznych.",
+    "accept": "Akceptuję",
+    "reject": "Tylko niezbędne",
+    "settings": "Ustawienia"
+  },
+  "forms": {
+    "validationRequired": "To pole jest wymagane",
+    "validationEmail": "Podaj prawidłowy adres e-mail",
+    "validationPhone": "Podaj prawidłowy numer telefonu"
+  }
+}

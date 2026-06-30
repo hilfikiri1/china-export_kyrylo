@@ -1,16 +1,19 @@
+"use client";
+
 import Link from "next/link";
 import { ArrowRight, Building2, Mail, Phone } from "lucide-react";
 import type { KontaktChannel } from "@/content/kontakt-layout";
-import { kontaktLayout } from "@/content/kontakt-layout";
-
-const channelIcons = {
-  email: Mail,
-  phone: Phone,
-  office: Building2,
-} as const;
+import { getKontaktLayout } from "@/content/kontakt-layout";
+import { useLocale } from "@/i18n/LocaleProvider";
+import { localizedPath } from "@/i18n/routing";
 
 function ContactChannelCard({ channel }: { channel: KontaktChannel }) {
-  const Icon = channelIcons[channel.id as keyof typeof channelIcons] ?? Mail;
+  const Icon =
+    channel.id === "email"
+      ? Mail
+      : channel.id.startsWith("phone")
+        ? Phone
+        : Building2;
   const inner = (
     <>
       <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-accent-light/15 text-accent-light">
@@ -44,8 +47,9 @@ function ContactChannelCard({ channel }: { channel: KontaktChannel }) {
 }
 
 export function KontaktSidebar() {
+  const { locale, messages } = useLocale();
   const { hero, guidance, highlights, channels, consultationLink } =
-    kontaktLayout;
+    getKontaktLayout(locale, messages);
 
   return (
     <div className="space-y-10">
@@ -108,10 +112,10 @@ export function KontaktSidebar() {
         <p className="text-sm font-medium text-white">{consultationLink.label}</p>
         <p className="mt-1 text-sm text-white/55">{consultationLink.hint}</p>
         <Link
-          href={consultationLink.href}
+          href={localizedPath(locale, consultationLink.href)}
           className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-accent-light transition-colors hover:text-[#dbaa47]"
         >
-          Umów konsultację
+          {messages.common.bookConsultationNav}
           <ArrowRight className="h-4 w-4" aria-hidden />
         </Link>
       </div>

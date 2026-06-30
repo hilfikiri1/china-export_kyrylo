@@ -1,6 +1,13 @@
 "use client";
 
-import { trustFactors } from "@/content/trust-factors";
+import {
+  Building2,
+  Eye,
+  MapPin,
+  ShieldCheck,
+  Truck,
+  type LucideIcon,
+} from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import {
   Carousel,
@@ -9,11 +16,54 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import { useMessages } from "@/i18n/LocaleProvider";
 
 const navButtonClass =
   "static inset-auto left-auto right-auto top-auto my-0 shrink-0 translate-x-0 translate-y-0 size-9 border-white/20 bg-white/10 text-white hover:bg-white/20 hover:text-white disabled:opacity-30";
 
+type TrustCard = {
+  id: string;
+  icon: LucideIcon;
+  title: string;
+  description: string;
+};
+
 export function TrustStrip() {
+  const messages = useMessages();
+
+  const trustFactors: TrustCard[] = [
+    {
+      id: "local-china",
+      icon: MapPin,
+      title: messages.trust.localChina.title,
+      description: messages.trust.localChina.description,
+    },
+    {
+      id: "verification",
+      icon: Eye,
+      title: messages.trust.verification.title,
+      description: messages.trust.verification.description,
+    },
+    {
+      id: "quality",
+      icon: ShieldCheck,
+      title: messages.trust.quality.title,
+      description: messages.trust.quality.description,
+    },
+    {
+      id: "logistics",
+      icon: Truck,
+      title: messages.trust.logistics.title,
+      description: messages.trust.logistics.description,
+    },
+    {
+      id: "flexible",
+      icon: Building2,
+      title: messages.trust.flexible.title,
+      description: messages.trust.flexible.description,
+    },
+  ];
+
   return (
     <Carousel
       opts={{
@@ -25,7 +75,7 @@ export function TrustStrip() {
       <div className="flex items-center gap-2 sm:gap-3">
         <CarouselPrevious
           variant="outline"
-          aria-label="Poprzedni slajd"
+          aria-label={messages.common.previousSlide}
           className={navButtonClass}
         />
 
@@ -44,7 +94,7 @@ export function TrustStrip() {
                         <Icon className="h-5 w-5" aria-hidden />
                       </div>
                       <p className="text-sm font-semibold leading-snug">
-                        {factor.label}
+                        {factor.title}
                       </p>
                       <p className="text-xs leading-relaxed text-white/60">
                         {factor.description}
@@ -59,7 +109,7 @@ export function TrustStrip() {
 
         <CarouselNext
           variant="outline"
-          aria-label="Następny slajd"
+          aria-label={messages.common.nextSlide}
           className={navButtonClass}
         />
       </div>

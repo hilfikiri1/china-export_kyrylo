@@ -1,6 +1,12 @@
-import { trustFactors } from "@/content/trust-factors";
+"use client";
+
+import { getTrustFactors } from "@/content/trust-factors";
+import { useMessages } from "@/i18n/LocaleProvider";
 
 export function PageTrustGrid() {
+  const messages = useMessages();
+  const trustFactors = getTrustFactors(messages);
+
   return (
     <div className="mx-auto max-w-4xl px-4 pb-8 sm:px-6 lg:px-8">
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">

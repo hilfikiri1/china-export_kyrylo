@@ -1,11 +1,13 @@
 import {
   Building2,
   Eye,
+  Layers,
   MapPin,
   ShieldCheck,
   Truck,
   type LucideIcon,
 } from "lucide-react";
+import type { Messages } from "@/i18n/get-dictionary";
 
 export type TrustFactor = {
   id: string;
@@ -14,40 +16,76 @@ export type TrustFactor = {
   description: string;
 };
 
+export function getTrustFactors(messages: Messages): TrustFactor[] {
+  return [
+    {
+      id: "local-china",
+      icon: MapPin,
+      label: messages.trust.localChina.title,
+      description: messages.trust.localChina.description,
+    },
+    {
+      id: "verification",
+      icon: Eye,
+      label: messages.trust.verification.title,
+      description: messages.trust.verification.description,
+    },
+    {
+      id: "quality",
+      icon: ShieldCheck,
+      label: messages.trust.quality.title,
+      description: messages.trust.quality.description,
+    },
+    {
+      id: "logistics",
+      icon: Truck,
+      label: messages.trust.logistics.title,
+      description: messages.trust.logistics.description,
+    },
+    {
+      id: "flexible",
+      icon: Layers,
+      label: messages.trust.flexible.title,
+      description: messages.trust.flexible.description,
+    },
+  ];
+}
+
+/** @deprecated Use getTrustFactors(messages) instead */
 export const trustFactors: TrustFactor[] = [
   {
-    id: "local-entity",
-    icon: Building2,
-    label: "Podmiot lokalny w Chinach",
-    description:
-      "Zarejestrowana firma działająca lokalnie — legalne faktury i umowy.",
-  },
-  {
-    id: "on-ground",
+    id: "local-china",
     icon: MapPin,
-    label: "Obecność na miejscu",
+    label: "Działamy na miejscu w Chinach",
     description:
-      "Fizyczny zespół w Chinach z możliwością bezpośrednich wizyt w fabrykach.",
+      "Nasz zespół operacyjny w Foshan kontaktuje się z producentami, koordynuje zamówienia oraz organizuje kontrole i wysyłki.",
   },
   {
-    id: "pre-audit",
+    id: "verification",
     icon: Eye,
-    label: "Audyty przed produkcją",
+    label: "Weryfikujemy producentów",
     description:
-      "Weryfikacja producenta przed jakąkolwiek płatnością lub startem produkcji.",
+      "Sprawdzamy dane firmy, możliwości produkcyjne, dokumentację oraz zgodność oferty z wymaganiami projektu.",
   },
   {
-    id: "qa",
+    id: "quality",
     icon: ShieldCheck,
-    label: "Kontrola jakości",
+    label: "Kontrolujemy towar przed wysyłką",
     description:
-      "Ścisłe inspekcje QA przed ostateczną płatnością i wysyłką towaru.",
+      "W zależności od projektu organizujemy kontrolę przedprodukcyjną, kontrolę w trakcie produkcji lub inspekcję przed wysyłką.",
   },
   {
-    id: "e2e",
+    id: "logistics",
     icon: Truck,
-    label: "Logistyka end-to-end",
+    label: "Organizujemy dostawę od fabryki do magazynu",
     description:
-      "Kompletny spedycja i obsługa frachtu prosto pod wskazany adres klienta.",
+      "Koordynujemy eksport, transport morski, kolejowy, lotniczy lub drogowy, odprawę celną i dostawę końcową.",
+  },
+  {
+    id: "flexible",
+    icon: Building2,
+    label: "Pełny proces lub wybrana usługa",
+    description:
+      "Możesz zlecić nam kompleksową obsługę albo tylko wyszukanie producenta, kontrolę jakości, konsolidację lub transport.",
   },
 ];

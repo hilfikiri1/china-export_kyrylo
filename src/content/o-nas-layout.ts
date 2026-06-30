@@ -1,4 +1,5 @@
 import { oNasPage } from "@/content/pages/o-nas";
+import { statistics } from "@/content/statistics";
 
 export type ONasValueIcon = "layers" | "shield-check" | "file-check";
 
@@ -9,6 +10,8 @@ export type ONasHighlight = {
   numericValue: number;
   suffix: string;
   decimal?: boolean;
+  /** When true, display `value` directly instead of count-up animation */
+  raw?: boolean;
 };
 
 export type ONasValueCard = {
@@ -32,32 +35,32 @@ export const oNasLayout = {
   highlights: [
     {
       label: "Lat doświadczenia",
-      value: "12+",
-      mono: "OD 2012",
-      numericValue: 12,
+      value: `${statistics.experience.value}+`,
+      mono: "DOŚWIADCZENIE",
+      numericValue: Number(statistics.experience.value),
       suffix: "+",
     },
     {
-      label: "Wysyłek miesięcznie",
-      value: "120+",
-      mono: "OPERACJE",
-      numericValue: 120,
+      label: statistics.clients.label.pl,
+      value: statistics.clients.value,
+      mono: "KLIENCI",
+      numericValue: 275,
       suffix: "+",
     },
     {
-      label: "Średnia ocena",
-      value: "4,9",
-      mono: "OCENY KLIENTÓW",
-      numericValue: 4.9,
+      label: statistics.containers.label.pl,
+      value: statistics.containers.value,
+      mono: "KONTENERY",
+      numericValue: 110,
+      suffix: "+",
+    },
+    {
+      label: statistics.foshan.label.pl,
+      value: statistics.foshan.value,
+      mono: "CHINY",
+      numericValue: 0,
       suffix: "",
-      decimal: true,
-    },
-    {
-      label: "Zweryfikowanych opinii",
-      value: "240+",
-      mono: "RECENZJE",
-      numericValue: 240,
-      suffix: "+",
+      raw: true,
     },
   ] satisfies ONasHighlight[],
   story: {
@@ -65,7 +68,7 @@ export const oNasLayout = {
     ...oNasPage.sections[0],
     image: "/image/quality_control.jpg",
     imageAlt: "Kontrola jakości towarów przed wysyłką z Chin",
-    accentValue: "12+",
+    accentValue: statistics.experience.value,
     accentLabel: "LAT",
   },
   values: {

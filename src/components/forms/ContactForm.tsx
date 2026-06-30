@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import { CheckCircle2 } from "lucide-react";
-import { kontaktLayout } from "@/content/kontakt-layout";
+import { getKontaktLayout } from "@/content/kontakt-layout";
+import { useLocale } from "@/i18n/LocaleProvider";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -14,7 +15,8 @@ const fieldClassName =
 
 export function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
-  const { form } = kontaktLayout;
+  const { locale, messages } = useLocale();
+  const { form } = getKontaktLayout(locale, messages);
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();

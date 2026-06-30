@@ -1,4 +1,5 @@
 import { procesPage } from "@/content/pages/proces";
+import { statistics } from "@/content/statistics";
 
 export type ProcesStepIcon =
   | "file-text"
@@ -35,9 +36,9 @@ export const procesLayout = {
     titleAccent: "krok po kroku",
     lead: procesPage.hero.lead,
     stats: [
-      { value: "120+", label: "wysyłek miesięcznie" },
-      { value: "12+", label: "lat doświadczenia" },
-      { value: "4,9", label: "średnia ocena klientów" },
+      { value: `${statistics.experience.value}+`, label: "lat doświadczenia" },
+      { value: statistics.clients.value, label: "obsłużonych klientów" },
+      { value: statistics.containers.value, label: "dostarczonych kontenerów" },
     ] satisfies ProcesStat[],
   },
   steps: [

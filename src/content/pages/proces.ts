@@ -3,7 +3,7 @@ import type { DedicatedPageContent } from "./types";
 export const procesPage: DedicatedPageContent = {
   id: "proces",
   meta: {
-    title: "Proces importu — China Export",
+    title: "Proces importu — Buy & Bring Solutions",
     description:
       "Poznaj pełną ścieżkę importu z Chin — od briefu i weryfikacji dostawcy po fracht, odprawę celną i dostawę door-to-door.",
   },

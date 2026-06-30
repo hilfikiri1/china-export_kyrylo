@@ -3,9 +3,9 @@
 import { useState } from "react";
 import Image from "next/image";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { MapPin, CheckCircle2 } from "lucide-react";
-import type { CaseStudy } from "@/content/case-studies";
-import { getCategoryById } from "@/content/case-studies";
+import { CheckCircle2 } from "lucide-react";
+import type { LocalizedCaseStudy } from "@/components/case-studies/CaseStudyFeaturedPage";
+import { useMessages } from "@/i18n/LocaleProvider";
 import {
   Dialog,
   DialogContent,
@@ -15,7 +15,7 @@ import {
 import { cn } from "@/lib/utils";
 
 type CaseStudyDetailModalProps = {
-  caseStudy: CaseStudy | null;
+  caseStudy: LocalizedCaseStudy | null;
   open: boolean;
   onOpenChange: (open: boolean) => void;
 };
@@ -61,7 +61,7 @@ export function CaseStudyDetailModal({
   onOpenChange,
 }: CaseStudyDetailModalProps) {
   const prefersReducedMotion = useReducedMotion();
-  const category = caseStudy ? getCategoryById(caseStudy.categoryId) : null;
+  const messages = useMessages();
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
@@ -75,78 +75,66 @@ export function CaseStudyDetailModal({
               transition={{ duration: prefersReducedMotion ? 0.1 : 0.25 }}
             >
               <DialogHeader className="text-left">
-                {category && (
-                  <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-accent-light">
-                    {category.label}
-                  </p>
-                )}
+                <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-accent-light">
+                  {caseStudy.category}
+                </p>
                 <DialogTitle className="text-xl font-bold text-white sm:text-2xl">
                   {caseStudy.title}
                 </DialogTitle>
-                <p className="flex items-center gap-1.5 text-sm text-white/60">
-                  <MapPin className="h-4 w-4 text-accent-light" aria-hidden />
-                  Kraj dostawy: {caseStudy.destinationCountry}
-                </p>
               </DialogHeader>
 
-              <div className="mt-6 space-y-6">
-                <section>
-                  <h3 className="mb-2 text-sm font-semibold uppercase tracking-wider text-white/50">
-                    Wyzwanie klienta
-                  </h3>
-                  <p className="text-sm leading-relaxed text-white/80">
-                    {caseStudy.challenge}
-                  </p>
-                  <p className="mt-2 text-xs text-white/40">
-                    Szczegóły poufne — bez danych identyfikujących klienta.
-                  </p>
-                </section>
+              <p className="mt-4 text-sm leading-relaxed text-white/70">
+                {caseStudy.summary}
+              </p>
 
-                <section>
-                  <h3 className="mb-2 text-sm font-semibold uppercase tracking-wider text-white/50">
-                    Nasz zakres prac
+              {caseStudy.challenge && (
+                <div className="mt-6">
+                  <h3 className="text-sm font-semibold text-white">
+                    {messages.cases.challenge}
                   </h3>
-                  <ul className="space-y-2">
-                    {caseStudy.scope.map((item) => (
-                      <li
-                        key={item}
-                        className="flex items-start gap-2 text-sm text-white/80"
-                      >
-                        <CheckCircle2
-                          className="mt-0.5 h-4 w-4 shrink-0 text-accent-light"
-                          aria-hidden
-                        />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </section>
+                  <p className="mt-2 text-sm text-white/60">{caseStudy.challenge}</p>
+                </div>
+              )}
 
-                <section>
-                  <h3 className="mb-2 text-sm font-semibold uppercase tracking-wider text-white/50">
-                    Rezultat
-                  </h3>
-                  <p className="text-sm leading-relaxed text-white/80">
-                    {caseStudy.outcome}
-                  </p>
-                </section>
-
-                <section>
-                  <h3 className="mb-3 text-sm font-semibold uppercase tracking-wider text-white/50">
-                    Galeria
-                  </h3>
-                  <div className="grid gap-3 sm:grid-cols-2">
-                    {caseStudy.gallery.map((image) => (
-                      <div
-                        key={image.src}
-                        className="relative aspect-[4/3] overflow-hidden rounded-lg border border-white/10"
-                      >
-                        <GalleryImage src={image.src} alt={image.alt} />
-                      </div>
-                    ))}
-                  </div>
-                </section>
+              <div className="mt-6">
+                <h3 className="text-sm font-semibold text-white">
+                  {messages.cases.scope}
+                </h3>
+                <ul className="mt-3 space-y-2">
+                  {caseStudy.scope.map((item) => (
+                    <li
+                      key={item}
+                      className="flex gap-2 text-sm text-white/70"
+                    >
+                      <CheckCircle2
+                        className="mt-0.5 h-4 w-4 shrink-0 text-accent-light"
+                        aria-hidden
+                      />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
               </div>
+
+              <div className="mt-6 rounded-lg border border-white/10 bg-white/5 p-4">
+                <h3 className="text-sm font-semibold text-white">
+                  {messages.cases.result}
+                </h3>
+                <p className="mt-2 text-sm text-white/70">{caseStudy.result}</p>
+              </div>
+
+              {caseStudy.gallery.length > 0 && (
+                <div className="mt-6 grid grid-cols-2 gap-3">
+                  {caseStudy.gallery.map((img) => (
+                    <div
+                      key={img.src}
+                      className="relative aspect-[4/3] overflow-hidden rounded-lg"
+                    >
+                      <GalleryImage src={img.src} alt={img.alt} />
+                    </div>
+                  ))}
+                </div>
+              )}
             </motion.div>
           </AnimatePresence>
         )}

@@ -13,9 +13,11 @@ function StatCard({
 }) {
   const count = useCountUp(stat.numericValue, 1800, animate, stat.decimal);
 
-  const displayValue = stat.decimal
-    ? count.toFixed(1).replace(".", ",")
-    : String(count);
+  const displayValue = stat.raw
+    ? stat.value
+    : stat.decimal
+      ? count.toFixed(1).replace(".", ",")
+      : String(count);
 
   return (
     <div className="border-l border-white/10 py-2 pl-6">
@@ -24,7 +26,7 @@ function StatCard({
       </div>
       <div className="text-4xl font-bold leading-none tracking-tight text-white sm:text-5xl lg:text-6xl">
         {displayValue}
-        {stat.suffix}
+        {!stat.raw && stat.suffix}
       </div>
       <div className="mt-2 text-sm font-medium text-white/55">{stat.label}</div>
     </div>

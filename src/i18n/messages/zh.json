@@ -1,0 +1,272 @@
+{
+  "common": {
+    "brand": "Buy & Bring Solutions",
+    "brandShort": "B&BS",
+    "brandRegional": "B&BS",
+    "home": "首页",
+    "services": "服务",
+    "process": "工作流程",
+    "cases": "案例",
+    "about": "关于我们",
+    "china": "中国业务",
+    "calculator": "计算器",
+    "contact": "联系我们",
+    "consultation": "咨询预约",
+    "describeProject": "描述项目",
+    "describeYourProject": "描述您的项目",
+    "bookConsultation": "预约咨询",
+    "calculateImport": "估算进口成本",
+    "sendInquiry": "发送询盘",
+    "learnMore": "了解更多",
+    "viewAll": "查看全部",
+    "close": "关闭",
+    "openMenu": "打开菜单",
+    "closeMenu": "关闭菜单",
+    "previousSlide": "上一张",
+    "nextSlide": "下一张",
+    "language": "语言",
+    "loading": "加载中…",
+    "error": "发生错误",
+    "tryAgain": "重试",
+    "ok": "确定",
+    "required": "必填项",
+    "optional": "选填",
+    "privacyConsent": "我同意按照",
+    "privacyPolicy": "隐私政策",
+    "cookiePolicy": "Cookie 政策",
+    "terms": "使用条款",
+    "calculatorDisclaimer": "计算器免责声明",
+    "footerPages": "页面",
+    "footerServices": "服务",
+    "footerContact": "联系方式",
+    "footerLegal": "法律信息",
+    "email": "电子邮箱",
+    "phone": "电话",
+    "whatsapp": "WhatsApp",
+    "allRightsReserved": "版权所有。",
+    "modularServices": "模块化服务",
+    "importCalculator": "进口成本计算器",
+    "bookConsultationNav": "预约咨询",
+    "company": "公司",
+    "tools": "工具",
+    "helpAtThisStage": "此阶段需要帮助？",
+    "submitForVerification": "提交资料审核",
+    "requestContact": "请求联系",
+    "sendAnotherInquiry": "再次发送询盘"
+  },
+  "nav": {
+    "home": "首页",
+    "services": "服务",
+    "process": "工作流程",
+    "cases": "案例",
+    "about": "关于我们",
+    "china": "中国业务",
+    "calculator": "计算器",
+    "contact": "联系我们",
+    "cta": "描述项目"
+  },
+  "hero": {
+    "eyebrow": "Buy & Bring Solutions · 波兰 — 中国",
+    "title": "企业中国进口服务 — 从可靠生产商到您的仓库",
+    "paragraph": "我们筛选并审核生产商，监控生产与质量，组织出口、运输、清关，以及配送至波兰、乌克兰及其他欧洲国家。",
+    "supporting": "您可以将整个流程委托给我们，也可以仅委托其中某一环节。",
+    "trustHeading": "企业选择 Buy & Bring Solutions 的原因",
+    "ariaLabel": "首页"
+  },
+  "stats": {
+    "experienceValue": "17 年",
+    "experienceLabel": "对华合作经验",
+    "clientsValue": "275+",
+    "clientsLabel": "服务客户",
+    "containersValue": "110+",
+    "containersLabel": "交付集装箱",
+    "foshanValue": "佛山",
+    "foshanLabel": "中国本地运营与支持",
+    "ariaLabel": "公司关键数据"
+  },
+  "trust": {
+    "localChina": {
+      "title": "中国本地团队",
+      "description": "我们在佛山的运营团队直接对接生产商，协调订单，并组织检验与发货。"
+    },
+    "verification": {
+      "title": "生产商审核",
+      "description": "我们核查企业信息、生产能力、资质文件，以及报价是否符合项目要求。"
+    },
+    "quality": {
+      "title": "发货前质量把控",
+      "description": "根据项目需要，我们安排产前检验、生产过程检验或出货前检验。"
+    },
+    "logistics": {
+      "title": "工厂到仓库全程物流",
+      "description": "我们协调出口、海运、铁路、空运或公路运输、清关及末端配送。"
+    },
+    "flexible": {
+      "title": "全流程或单项服务",
+      "description": "您可委托我们提供全程服务，也可仅委托寻源、质检、集货或运输等单项服务。"
+    }
+  },
+  "services": {
+    "heading": "按项目阶段匹配的服务",
+    "supporting": "我们可以承接完整进口流程，也可仅在您需要的环节提供支持。",
+    "phasePreProduction": "生产前",
+    "phaseLogistics": "物流",
+    "phaseDelivery": "欧盟配送",
+    "sourcing": {
+      "title": "生产商寻源与采购组织",
+      "description": "我们筛选生产商，收集并对比报价，分析 MOQ、交期、配置，以及付款与交货条件。",
+      "deliverables": ["生产商候选名单", "报价对比", "MOQ 与交期信息", "优势与风险评估", "后续步骤建议"]
+    },
+    "verification": {
+      "title": "供应商审核与工厂审计",
+      "description": "我们核查注册信息、经营范围、生产能力、资质文件，以及工厂是否符合项目要求。"
+    },
+    "qc": {
+      "title": "货物质量检验",
+      "description": "我们依据确认的规格、检查清单、参考样品及客户要求组织质量检验。"
+    },
+    "oem": {
+      "title": "自有品牌生产 — Private Label 与 OEM",
+      "description": "我们协助调整产品、标识、包装、标签及说明书，以符合品牌及目标市场要求。"
+    },
+    "export": {
+      "title": "付款与出口协调",
+      "description": "我们协调贸易及出口单证，以及与生产商确认的合作模式。"
+    },
+    "consolidation": {
+      "title": "多生产商货物集货",
+      "description": "我们组织从多家工厂提货、仓储、完整性检查、换装及合并发货准备。"
+    },
+    "freight": {
+      "title": "运输、清关与配送",
+      "description": "我们选择运输方式，协调运费、单证、清关及末端配送。"
+    }
+  },
+  "industries": {
+    "heading": "行业与产品类别",
+    "closing": "未找到您的类别？请描述产品 — 我们将评估生产与交付可行性。"
+  },
+  "process": {
+    "heading": "中国进口流程",
+    "step1": { "title": "需求简报与规格确认", "description": "我们了解产品、应用场景、技术要求、计划数量、预算、交期及目的国。" },
+    "step2": { "title": "寻源与生产商对比", "description": "我们筛选合适工厂，收集报价，并对比配置、价格、生产周期、MOQ 及商务条件。" },
+    "step3": { "title": "工厂审核与样品", "description": "我们审核生产商、资质及生产能力，必要时安排样品、视频验厂或现场审计。" },
+    "step4": { "title": "下单与生产跟进", "description": "我们协助确认规格、付款条件、时间表及提货方式，并在订单执行期间协调与生产商的沟通。" },
+    "step5": { "title": "质量与单证检查", "description": "发货前我们核查货物是否符合约定、数量、包装、标识、功能及相关单证。" },
+    "step6": { "title": "运输、清关与配送", "description": "我们组织中国出口、运费、清关，并配送至波兰、乌克兰或其他欧洲国家的指定地址。" }
+  },
+  "about": {
+    "heading": "连接欧洲企业与中国生产商",
+    "intro": "Buy & Bring Solutions 协助企业寻源、组织生产、质量管控及中国进口配送。我们将与中国工厂的直接协作，与欧洲及乌克兰的客户服务相结合。",
+    "mission": "我们的目标是降低风险、规范与生产商的沟通，并引导客户完成全流程 — 从规格确认与工厂选择，到检验、运输与交付。",
+    "experience": "Buy & Bring Solutions 团队拥有 17 年中国合作经验。",
+    "operations": "我们在中国的业务由广东省佛山市统筹运营。"
+  },
+  "china": {
+    "pageTitle": "中国本地团队",
+    "heading": "佛山运营支持 — 更贴近生产商与项目执行",
+    "intro": "Buy & Bring Solutions 中国团队支持寻源、工厂沟通、检验组织、集货及发货准备。",
+    "specialistsNote": "根据项目类型，我们安排相应的技术与检验专家参与。"
+  },
+  "contact": {
+    "heading": "告诉我们您的项目",
+    "supporting": "初期信息越充分，我们就能越快评估项目并提出后续方案。",
+    "formTitle": "发送询盘",
+    "formDescription": "请描述您的项目 — 我们将回复服务范围及后续步骤建议。",
+    "name": "姓名",
+    "company": "公司名称",
+    "email": "电子邮箱",
+    "phone": "电话 / WhatsApp",
+    "country": "国家",
+    "city": "城市或配送邮编",
+    "product": "产品或设备类型",
+    "quantity": "计划数量",
+    "budget": "预算",
+    "deadline": "期望交期",
+    "scope": "所需服务范围",
+    "description": "项目描述",
+    "productLink": "产品链接",
+    "submit": "发送询盘",
+    "successTitle": "感谢您的询盘",
+    "successDescription": "我们已收到您的信息，将尽快联系您并提供后续方案。",
+    "errorTitle": "表单提交失败",
+    "errorDescription": "请稍后重试，或直接与我们联系。",
+    "scopeOptions": {
+      "sourcing": "生产商寻源",
+      "audit": "工厂审核或审计",
+      "qc": "质量检验",
+      "oem": "Private Label / OEM",
+      "consolidation": "集货",
+      "freight": "运输与清关",
+      "full": "进口全流程服务",
+      "other": "其他"
+    }
+  },
+  "consultation": {
+    "heading": "预约免费咨询",
+    "text": "请简要描述项目并选择方便联系的时间，我们将与您确认沟通安排。",
+    "cta": "请求联系",
+    "preferredContact": "首选联系方式",
+    "preferredDate": "首选日期",
+    "preferredTime": "首选时间段",
+    "timezone": "时区",
+    "projectCategory": "项目类别",
+    "shortDescription": "项目简述"
+  },
+  "calculator": {
+    "title": "中国进口成本计算器",
+    "supporting": "估算采购、运输、关税及增值税成本。结果仅供参考，不构成商业报价或税务建议。",
+    "productValue": "货值",
+    "currency": "币种",
+    "incoterm": "Incoterm",
+    "originCosts": "中国端费用",
+    "freight": "运费",
+    "insurance": "保险",
+    "customsValue": "完税价格",
+    "dutyRate": "关税税率",
+    "customsHandling": "清关",
+    "brokerCost": "报关行费用",
+    "importVat": "进口增值税",
+    "terminalCharges": "码头费用",
+    "finalDelivery": "末端配送",
+    "serviceCost": "B&BS 服务费用（选填）",
+    "units": "数量",
+    "landedPerUnit": "估算单位到岸成本",
+    "grossWeight": "毛重",
+    "volume": "体积（m³）",
+    "packages": "件数",
+    "dimensions": "尺寸",
+    "destinationCountry": "目的国",
+    "destinationPostcode": "邮编",
+    "transportMode": "运输方式",
+    "calculate": "计算",
+    "ratesSource": "汇率日期",
+    "manualRates": "手动输入汇率",
+    "disclaimer": "计算结果仅供参考，不构成商业报价。",
+    "freightNote": "精确运费报价需提供重量、体积、装货地址及配送地点。"
+  },
+  "cases": {
+    "heading": "案例",
+    "viewCase": "查看案例",
+    "category": "类别",
+    "scope": "服务范围",
+    "result": "成果",
+    "challenge": "挑战",
+    "requirements": "要求"
+  },
+  "seo": {
+    "homeTitle": "企业中国进口服务 | Buy & Bring Solutions",
+    "homeDescription": "生产商寻源与审核、质量检验、自有品牌生产、运输、清关及从中国至波兰、乌克兰与欧洲的配送服务。"
+  },
+  "cookie": {
+    "message": "本网站使用 Cookie 以保障基本功能；经您同意后，亦用于分析用途。",
+    "accept": "接受",
+    "reject": "仅必要 Cookie",
+    "settings": "设置"
+  },
+  "forms": {
+    "validationRequired": "此字段为必填项",
+    "validationEmail": "请输入有效的电子邮箱",
+    "validationPhone": "请输入有效的电话号码"
+  }
+}
