@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, Inter, Noto_Sans_SC } from "next/font/google";
 import { notFound } from "next/navigation";
+import Script from "next/script";
 import { LogisticsBackdrop } from "@/components/backgrounds/LogisticsBackdrop";
 import { CookieBanner } from "@/components/layout/CookieBanner";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
+import { getThemeInitScript } from "@/components/theme/theme-init-script";
+import { ThemeProvider } from "@/components/theme/ThemeProvider";
 import { company } from "@/config/company";
 import { htmlLang, locales, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/get-dictionary";
@@ -58,6 +61,8 @@ export default async function LocaleLayout({
   return (
     <html
       lang={htmlLang[locale]}
+      data-theme="dark"
+      suppressHydrationWarning
       className={cn(
         "h-full antialiased",
         jakarta.variable,
@@ -66,14 +71,21 @@ export default async function LocaleLayout({
         locale === "zh" ? "font-[family-name:var(--font-chinese)]" : "font-sans",
       )}
     >
+      <head>
+        <Script id="bbs-theme-init" strategy="beforeInteractive">
+          {getThemeInitScript()}
+        </Script>
+      </head>
       <body className="relative min-h-full flex flex-col bg-background text-foreground">
-        <LocaleProvider locale={locale} messages={messages}>
-          <LogisticsBackdrop variant="site" />
-          <Header />
-          <main className="relative z-10 flex-1 pt-16">{children}</main>
-          <Footer />
-          <CookieBanner />
-        </LocaleProvider>
+        <ThemeProvider>
+          <LocaleProvider locale={locale} messages={messages}>
+            <LogisticsBackdrop variant="site" />
+            <Header />
+            <main className="relative z-10 flex-1 pt-16">{children}</main>
+            <Footer />
+            <CookieBanner />
+          </LocaleProvider>
+        </ThemeProvider>
       </body>
     </html>
   );
@@ -81,6 +93,9 @@ export default async function LocaleLayout({
 
 export function generateViewport() {
   return {
-    themeColor: "#1e3a5f",
+    themeColor: [
+      { media: "(prefers-color-scheme: light)", color: "#f6f7f9" },
+      { media: "(prefers-color-scheme: dark)", color: "#1c2128" },
+    ],
   };
 }

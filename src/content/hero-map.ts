@@ -418,28 +418,28 @@ export function getMapLocationTypeColors(type: MapLocationType): {
   switch (type) {
     case "operations":
       return {
-        fill: "rgba(219, 170, 71, 0.14)",
-        fillHover: "rgba(219, 170, 71, 0.24)",
-        stroke: "rgba(219, 170, 71, 0.42)",
-        strokeHover: "rgba(219, 170, 71, 0.75)",
+        fill: "color-mix(in srgb, var(--map-operations) 14%, transparent)",
+        fillHover: "color-mix(in srgb, var(--map-operations) 24%, transparent)",
+        stroke: "color-mix(in srgb, var(--map-operations) 42%, transparent)",
+        strokeHover: "color-mix(in srgb, var(--map-operations) 75%, transparent)",
         marker: "var(--map-operations)",
         badge: "var(--map-operations)",
       };
     case "company-presence":
       return {
-        fill: "rgba(96, 165, 250, 0.12)",
-        fillHover: "rgba(96, 165, 250, 0.22)",
-        stroke: "rgba(96, 165, 250, 0.4)",
-        strokeHover: "rgba(96, 165, 250, 0.72)",
+        fill: "color-mix(in srgb, var(--map-presence) 12%, transparent)",
+        fillHover: "color-mix(in srgb, var(--map-presence) 22%, transparent)",
+        stroke: "color-mix(in srgb, var(--map-presence) 40%, transparent)",
+        strokeHover: "color-mix(in srgb, var(--map-presence) 72%, transparent)",
         marker: "var(--map-presence)",
         badge: "var(--map-presence)",
       };
     case "client-market":
       return {
-        fill: "rgba(74, 222, 128, 0.1)",
-        fillHover: "rgba(74, 222, 128, 0.2)",
-        stroke: "rgba(74, 222, 128, 0.38)",
-        strokeHover: "rgba(74, 222, 128, 0.7)",
+        fill: "color-mix(in srgb, var(--map-client) 10%, transparent)",
+        fillHover: "color-mix(in srgb, var(--map-client) 20%, transparent)",
+        stroke: "color-mix(in srgb, var(--map-client) 38%, transparent)",
+        strokeHover: "color-mix(in srgb, var(--map-client) 70%, transparent)",
         marker: "var(--map-client)",
         badge: "var(--map-client)",
       };

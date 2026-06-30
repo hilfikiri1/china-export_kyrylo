@@ -1646,5 +1646,12 @@
         ]
       }
     ]
+  },
+  "theme": {
+    "light": "Helles Design",
+    "dark": "Dunkles Design",
+    "switchToLight": "Helles Design aktivieren",
+    "switchToDark": "Dunkles Design aktivieren",
+    "currentTheme": "Aktuelles Design: {theme}"
   }
 }

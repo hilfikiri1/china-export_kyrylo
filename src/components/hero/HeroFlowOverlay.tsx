@@ -99,7 +99,7 @@ function HeroRouteTooltip({
       animate={{ opacity: 1, y: 0 }}
       exit={reducedMotion ? undefined : { opacity: 0, y: 4 }}
       transition={{ duration: 0.15 }}
-      className="hero-flow-tooltip pointer-events-none absolute z-20 max-w-[220px] rounded-lg border border-white/10 bg-navy/95 px-3 py-2.5 text-xs text-gray-200 shadow-xl backdrop-blur-md"
+      className="hero-flow-tooltip pointer-events-none absolute z-20 max-w-[220px] rounded-lg border border-border bg-popover/95 px-3 py-2.5 text-xs text-popover-foreground shadow-xl backdrop-blur-md"
       style={{ left: tooltip.x, top: tooltip.y }}
       role="tooltip"
       aria-label={`${tooltip.title}: ${tooltip.lines.join(", ")}`}
@@ -132,7 +132,7 @@ function HeroCountryStatsCard({
       animate={{ opacity: 1, y: 0 }}
       exit={reducedMotion ? undefined : { opacity: 0, y: 8 }}
       transition={{ duration: 0.18 }}
-      className="hero-country-stats-card pointer-events-none absolute z-20 rounded-xl border border-white/10 bg-navy/95 p-4 shadow-xl backdrop-blur-md"
+      className="hero-country-stats-card pointer-events-none absolute z-20 rounded-xl border border-border bg-popover/95 p-4 text-popover-foreground shadow-xl backdrop-blur-md"
       style={{ left: card.x, top: card.y }}
       role="tooltip"
       aria-label={`${country.name}: ${country.role}`}
