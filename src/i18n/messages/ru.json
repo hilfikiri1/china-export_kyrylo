@@ -230,130 +230,211 @@
     },
     "heroMap": {
       "transportModes": {
-        "rail": "Kolej",
-        "air": "Lotniczy"
+        "rail": "Ж/д",
+        "air": "Авиа"
+      },
+      "instructions": {
+        "hover": "Наведите на отмеченную страну, чтобы увидеть подробности",
+        "tap": "Коснитесь отмеченной страны, чтобы увидеть подробности"
+      },
+      "badges": {
+        "operations": "Операции в Китае",
+        "company-presence": "База компании",
+        "client-market": "Рынок клиентов"
       },
       "countries": [
         {
           "id": "CN",
-          "name": "Chiny",
-          "role": "Kraj źródłowy",
-          "description": "Operacje w Foshan: kontakt z producentami, inspekcje, konsolidacja i dokumentacja eksportowa.",
+          "name": "Китай",
+          "role": "Операции в Китае",
+          "description": "Операции в Фошане: контакт с производителями, инспекции, консолидация и экспортная документация.",
           "hubs": [
-            "Foshan"
+            "Фошань"
           ],
           "metrics": [
             {
-              "label": "Doświadczenie",
-              "value": "lat"
+              "label": "Опыт",
+              "value": "лет"
             },
             {
-              "label": "Obsłużeni klienci",
+              "label": "Обслуженные клиенты",
               "value": "275+"
             },
             {
-              "label": "Baza operacyjna",
-              "value": "Foshan"
+              "label": "Операционная база",
+              "value": "Фошань"
+            }
+          ]
+        },
+        {
+          "id": "UA",
+          "name": "Украина",
+          "role": "База компании",
+          "description": "Представительство Buy & Bring Solutions в Украине — поддержка клиентов, координация проектов и связь с командой в Китае.",
+          "hubs": [
+            "Киев",
+            "Львов",
+            "Одесса"
+          ],
+          "metrics": [
+            {
+              "label": "Обслуживание",
+              "value": "Полное"
+            },
+            {
+              "label": "Языки",
+              "value": "UK / PL / EN"
+            },
+            {
+              "label": "Поддержка",
+              "value": "Door-to-door"
             }
           ]
         },
         {
           "id": "PL",
-          "name": "Polska",
-          "role": "Główny kierunek dostaw",
-          "description": "Door-to-door do magazynu lub hali produkcyjnej. Odprawa celna i last mile w UE.",
+          "name": "Польша",
+          "role": "База компании",
+          "description": "Офис Buy & Bring Solutions в Польше — координация импорта, таможня и доставка на склад клиента.",
           "hubs": [
-            "Gdańsk",
-            "Gdynia",
-            "Wrocław"
+            "Гданьск",
+            "Гдыня",
+            "Вроцлав"
           ],
           "metrics": [
             {
-              "label": "Dostarczone kontenery",
+              "label": "Доставленные контейнеры",
               "value": "110+"
             },
             {
-              "label": "Obsługa celna",
-              "value": "Pełna"
+              "label": "Таможня",
+              "value": "Полная"
             },
             {
-              "label": "Dostawa",
+              "label": "Доставка",
               "value": "Door-to-door"
             }
           ]
         },
         {
           "id": "DE",
-          "name": "Niemcy",
-          "role": "Rynek docelowy",
-          "description": "Tranzyt i konsolidacja ładunków dla klientów w Europie Zachodniej z dostawą door-to-door.",
+          "name": "Германия",
+          "role": "Рынок клиентов",
+          "description": "Транзит и консолидация грузов для клиентов в Германии с доставкой door-to-door.",
           "hubs": [
-            "Hamburg",
-            "Frankfurt",
-            "Monachium",
-            "Berlin"
+            "Гамбург",
+            "Франкфурт",
+            "Мюнхен",
+            "Берлин"
           ],
           "metrics": [
             {
-              "label": "Tryby transportu",
-              "value": "Morski / kolej / lotniczy"
+              "label": "Виды транспорта",
+              "value": "Морской / ж/д / авиа"
             },
             {
-              "label": "Obsługa FCL / LCL",
-              "value": "Tak"
+              "label": "FCL / LCL",
+              "value": "Да"
             },
             {
-              "label": "Dostawa",
+              "label": "Доставка",
               "value": "Door-to-door"
             }
           ]
         },
         {
-          "id": "CZ",
-          "name": "Czechy",
-          "role": "Rynek docelowy",
-          "description": "Dostawy B2B dla producentów i dystrybutorów w Czechach z pełną obsługą importu.",
+          "id": "EE",
+          "name": "Эстония",
+          "role": "Рынок клиентов",
+          "description": "B2B-поставки для компаний в Эстонии с полным сопровождением импорта из Китая.",
           "hubs": [
-            "Praga",
-            "Brno",
-            "Ostrawa"
+            "Таллин",
+            "Тарту"
           ],
           "metrics": [
             {
-              "label": "Tryby transportu",
-              "value": "Morski / kolej / lotniczy"
+              "label": "Виды транспорта",
+              "value": "Морской / ж/д / авиа"
             },
             {
-              "label": "Obsługa importu",
-              "value": "Pełna"
+              "label": "Импорт",
+              "value": "Полный"
             },
             {
-              "label": "Last mile",
+              "label": "Доставка",
               "value": "Door-to-door"
             }
           ]
         },
         {
-          "id": "UA",
-          "name": "Ukraina",
-          "role": "Rynek docelowy",
-          "description": "Import towarów i komponentów B2B z obsługą tranzytu lądowego i lotniczego do magazynów klienta.",
+          "id": "LV",
+          "name": "Латвия",
+          "role": "Рынок клиентов",
+          "description": "Импорт товаров и компонентов B2B для клиентов в Латвии.",
           "hubs": [
-            "Odessa",
-            "Kijów",
-            "Lwów"
+            "Рига",
+            "Лиепая"
           ],
           "metrics": [
             {
-              "label": "Tryby transportu",
-              "value": "Morski / kolej / lotniczy"
+              "label": "Виды транспорта",
+              "value": "Морской / ж/д / авиа"
             },
             {
-              "label": "Obsługa importu",
-              "value": "Pełna"
+              "label": "Импорт",
+              "value": "Полный"
             },
             {
-              "label": "Last mile",
+              "label": "Доставка",
+              "value": "Door-to-door"
+            }
+          ]
+        },
+        {
+          "id": "LT",
+          "name": "Литва",
+          "role": "Рынок клиентов",
+          "description": "Поддержка литовских компаний в импорте продукции и компонентов из Китая.",
+          "hubs": [
+            "Вильнюс",
+            "Клайпеда"
+          ],
+          "metrics": [
+            {
+              "label": "Виды транспорта",
+              "value": "Морской / ж/д / авиа"
+            },
+            {
+              "label": "Импорт",
+              "value": "Полный"
+            },
+            {
+              "label": "Доставка",
+              "value": "Door-to-door"
+            }
+          ]
+        },
+        {
+          "id": "BG",
+          "name": "Болгария",
+          "role": "Рынок клиентов",
+          "description": "B2B-поставки для производителей и дистрибьюторов в Болгарии с полным сопровождением импорта.",
+          "hubs": [
+            "София",
+            "Пловдив",
+            "Варна"
+          ],
+          "metrics": [
+            {
+              "label": "Виды транспорта",
+              "value": "Морской / ж/д / авиа"
+            },
+            {
+              "label": "Импорт",
+              "value": "Полный"
+            },
+            {
+              "label": "Доставка",
               "value": "Door-to-door"
             }
           ]
@@ -362,39 +443,63 @@
       "routes": [
         {
           "id": "cn-pl-rail",
-          "label": "Kolej: Chiny → Polska",
-          "volumeLabel": "Fracht kolejowy",
-          "transitDays": "Zależnie od trasy"
+          "label": "Ж/д: Китай → Польша",
+          "volumeLabel": "Ж/д фрахт",
+          "transitDays": "Зависит от маршрута"
         },
         {
           "id": "cn-de-rail",
-          "label": "Kolej: Chiny → Niemcy",
-          "volumeLabel": "Fracht kolejowy",
-          "transitDays": "Zależnie od trasy"
-        },
-        {
-          "id": "cn-cz-rail",
-          "label": "Kolej: Chiny → Czechy",
-          "volumeLabel": "Fracht kolejowy",
-          "transitDays": "Zależnie od trasy"
+          "label": "Ж/д: Китай → Германия",
+          "volumeLabel": "Ж/д фрахт",
+          "transitDays": "Зависит от маршрута"
         },
         {
           "id": "cn-ua-rail",
-          "label": "Kolej: Chiny → Ukraina",
-          "volumeLabel": "Fracht kolejowy",
-          "transitDays": "Zależnie od trasy"
+          "label": "Ж/д: Китай → Украина",
+          "volumeLabel": "Ж/д фрахт",
+          "transitDays": "Зависит от маршрута"
         },
         {
           "id": "cn-pl-air",
-          "label": "Lotniczy: Chiny → Polska",
-          "volumeLabel": "Fracht lotniczy",
-          "transitDays": "Zależnie od trasy"
+          "label": "Авиа: Китай → Польша",
+          "volumeLabel": "Авиафрахт",
+          "transitDays": "Зависит от маршрута"
         },
         {
           "id": "cn-de-air",
-          "label": "Lotniczy: Chiny → Niemcy",
-          "volumeLabel": "Fracht lotniczy",
-          "transitDays": "Zależnie od trasy"
+          "label": "Авиа: Китай → Германия",
+          "volumeLabel": "Авиафрахт",
+          "transitDays": "Зависит от маршрута"
+        },
+        {
+          "id": "cn-ua-air",
+          "label": "Авиа: Китай → Украина",
+          "volumeLabel": "Авиафрахт",
+          "transitDays": "Зависит от маршрута"
+        },
+        {
+          "id": "cn-ee-air",
+          "label": "Авиа: Китай → Эстония",
+          "volumeLabel": "Авиафрахт",
+          "transitDays": "Зависит от маршрута"
+        },
+        {
+          "id": "cn-lv-air",
+          "label": "Авиа: Китай → Латвия",
+          "volumeLabel": "Авиафрахт",
+          "transitDays": "Зависит от маршрута"
+        },
+        {
+          "id": "cn-lt-air",
+          "label": "Авиа: Китай → Литва",
+          "volumeLabel": "Авиафрахт",
+          "transitDays": "Зависит от маршрута"
+        },
+        {
+          "id": "cn-bg-air",
+          "label": "Авиа: Китай → Болгария",
+          "volumeLabel": "Авиафрахт",
+          "transitDays": "Зависит от маршрута"
         }
       ]
     },

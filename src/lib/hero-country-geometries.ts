@@ -1,4 +1,4 @@
-import { heroMapCountries } from "@/content/hero-map";
+import { heroMapLocations } from "@/content/hero-map";
 import type { HeroMapCountry } from "@/content/hero-map";
 import {
   geometryToPaths,
@@ -8,22 +8,33 @@ import {
 import countriesGeo from "../../public/geo/countries-low.json";
 
 export type HeroCountryGeometry = {
-  country: HeroMapCountry;
+  country: Pick<HeroMapCountry, "id" | "geoId" | "type">;
   paths: string[];
 };
 
-export const heroCountryGeometries: HeroCountryGeometry[] = heroMapCountries.map(
-  (country) => {
+export const heroCountryGeometries: HeroCountryGeometry[] = heroMapLocations.map(
+  (location) => {
     const feature = countriesGeo.features.find(
-      (entry) => entry.id === country.geoId,
+      (entry) => entry.id === location.geoId,
     );
 
     if (!feature) {
-      return { country, paths: [] };
+      return {
+        country: {
+          id: location.id,
+          geoId: location.geoId,
+          type: location.type,
+        },
+        paths: [],
+      };
     }
 
     return {
-      country,
+      country: {
+        id: location.id,
+        geoId: location.geoId,
+        type: location.type,
+      },
       paths: geometryToPaths(
         feature.geometry as PolygonGeometry | MultiPolygonGeometry,
       ),

@@ -2,12 +2,16 @@
 export const MAP_WIDTH = 2000;
 export const MAP_HEIGHT = 1000;
 
-/** Cropped viewBox: no Antarctica, slight zoom (matches world-map-outline.svg) */
-export const MAP_VIEW_X = 44;
-export const MAP_VIEW_Y = 33;
-export const MAP_VIEW_WIDTH = 1911;
-export const MAP_VIEW_HEIGHT = 778;
+/**
+ * Regional viewBox: Africa, Europe and Asia — China–Europe trade corridor.
+ * Approx. lng −20°…142°, lat −30°…70° (no Americas / Australia).
+ */
+export const MAP_VIEW_X = 889;
+export const MAP_VIEW_Y = 111;
+export const MAP_VIEW_WIDTH = 901;
+export const MAP_VIEW_HEIGHT = 556;
 export const MAP_VIEW_BOX = `${MAP_VIEW_X} ${MAP_VIEW_Y} ${MAP_VIEW_WIDTH} ${MAP_VIEW_HEIGHT}`;
+export const MAP_ASPECT_RATIO = MAP_VIEW_WIDTH / MAP_VIEW_HEIGHT;
 
 export function projectLngLat(lng: number, lat: number): [number, number] {
   const x = ((lng + 180) / 360) * MAP_WIDTH;

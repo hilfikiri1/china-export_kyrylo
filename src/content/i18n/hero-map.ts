@@ -2,21 +2,28 @@ import type { Messages } from "@/i18n/get-dictionary";
 import { statistics } from "@/content/statistics";
 import {
   heroFlowRoutes as staticRoutes,
+  heroMapLocations,
   type HeroFlowRoute,
   type HeroMapCountry,
+  type MapLocationType,
 } from "@/content/hero-map";
 import { getMessageArray, getMessageObject } from "@/i18n/translate";
 
-const countryGeo: Record<
+const locationGeo = Object.fromEntries(
+  heroMapLocations.map((location) => [
+    location.id,
+    {
+      id: location.id,
+      geoId: location.geoId,
+      lat: location.coordinates[1],
+      lng: location.coordinates[0],
+      type: location.type,
+    },
+  ]),
+) as Record<
   string,
-  Pick<HeroMapCountry, "id" | "geoId" | "lat" | "lng">
-> = {
-  CN: { id: "CN", geoId: "CHN", lat: 23.02, lng: 113.12 },
-  PL: { id: "PL", geoId: "POL", lat: 52, lng: 19 },
-  DE: { id: "DE", geoId: "DEU", lat: 51, lng: 10 },
-  CZ: { id: "CZ", geoId: "CZE", lat: 50, lng: 15 },
-  UA: { id: "UA", geoId: "UKR", lat: 50, lng: 30 },
-};
+  Pick<HeroMapCountry, "id" | "geoId" | "lat" | "lng" | "type">
+>;
 
 type CountryMessage = {
   id: string;
@@ -41,7 +48,7 @@ export function getHeroMapCountries(messages: Messages): HeroMapCountry[] {
   );
 
   return countries.map((country) => {
-    const geo = countryGeo[country.id];
+    const geo = locationGeo[country.id];
     if (!geo) {
       throw new Error(`Missing hero map geo for ${country.id}`);
     }
@@ -96,4 +103,24 @@ export function getHeroMapTransportModes(messages: Messages) {
       "home.heroMap.transportModes",
     ) ?? { rail: "Rail", air: "Air" }
   );
+}
+
+export function getHeroMapInstructions(messages: Messages) {
+  return (
+    getMessageObject<{ hover: string; tap: string }>(
+      messages,
+      "home.heroMap.instructions",
+    ) ?? { hover: "", tap: "" }
+  );
+}
+
+export function getHeroMapBadgeLabel(
+  messages: Messages,
+  type: MapLocationType,
+): string {
+  const badges = getMessageObject<Record<MapLocationType, string>>(
+    messages,
+    "home.heroMap.badges",
+  );
+  return badges?.[type] ?? type;
 }
