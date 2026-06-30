@@ -25,6 +25,7 @@ export const navLabelKeys = {
   process: "process",
   cases: "cases",
   about: "about",
+  specializations: "specializations",
   china: "china",
   modularServices: "modularServices",
   sourcing: "sourcing",
@@ -43,6 +44,10 @@ export function getNavGroups(locale: Locale): NavGroup[] {
       items: [
         { href: localizedPath(locale, routes.process), labelKey: "process" },
         { href: localizedPath(locale, routes.about), labelKey: "about" },
+        {
+          href: localizedPath(locale, routes.specializations),
+          labelKey: "specializations",
+        },
         { href: localizedPath(locale, routes.cases), labelKey: "cases" },
         { href: localizedPath(locale, routes.china), labelKey: "china" },
       ],
@@ -112,6 +117,7 @@ export function resolveNavLabel(
     process: messages.nav.process,
     cases: messages.nav.cases,
     about: messages.nav.about,
+    specializations: messages.nav.specializations,
     china: messages.nav.china,
     modularServices: messages.common.modularServices,
     sourcing: messages.services.modules.sourcing.title,

@@ -9,6 +9,7 @@ const staticPaths = [
   routes.process,
   routes.cases,
   routes.about,
+  routes.specializations,
   routes.china,
   routes.calculator,
   routes.consultation,

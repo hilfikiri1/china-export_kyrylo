@@ -52,7 +52,8 @@
     "helpAtThisStage": "Hilfe in dieser Phase?",
     "submitForVerification": "Daten zur Prüfung senden",
     "requestContact": "Kontakt anfragen",
-    "sendAnotherInquiry": "Weitere Anfrage senden"
+    "sendAnotherInquiry": "Weitere Anfrage senden",
+    "specializations": "Spezialisierungen"
   },
   "nav": {
     "home": "Startseite",
@@ -63,7 +64,8 @@
     "china": "Wir sind in China aktiv",
     "calculator": "Rechner",
     "contact": "Kontakt",
-    "cta": "Projekt beschreiben"
+    "cta": "Projekt beschreiben",
+    "specializations": "Spezialisierungen"
   },
   "layout": {
     "breadcrumb": {
@@ -395,6 +397,14 @@
           "transitDays": "Zależnie od trasy"
         }
       ]
+    },
+    "specializations": {
+      "eyebrow": "SPEZIALISIERUNGSBEREICHE",
+      "title": "Produkte und Branchen, auf die wir uns spezialisiert haben",
+      "lead": "Wir finden Hersteller, organisieren Produktion und Qualitätskontrolle in acht Schlüsselbereichen — von Industriemaschinen bis zu Konsumgütern.",
+      "closing": "Ihre Kategorie fehlt? Beschreiben Sie das Produkt — wir prüfen Produktions- und Importmöglichkeiten.",
+      "ctaLabel": "Alle Spezialisierungen ansehen",
+      "ariaLabel": "Spezialisierungsbereiche"
     }
   },
   "services": {
@@ -1360,6 +1370,29 @@
           "href": "/kontakt"
         }
       }
+    },
+    "specializations": {
+      "meta": {
+        "title": "Spezialisierungen — Buy & Bring Solutions",
+        "description": "Spezialisierungsbereiche: Industriemaschinen, Batterien, E-Mobilität, Chemie, Verpackungen, Textilien, Bauwesen und Konsumgüter."
+      },
+      "hero": {
+        "eyebrow": "SPEZIALISIERUNGSBEREICHE",
+        "title": "Produkte und Branchen, auf die wir uns spezialisiert haben",
+        "lead": "Wir unterstützen Unternehmen beim Einkauf von Maschinen, Rohstoffen, Komponenten und Fertigprodukten direkt bei Herstellern in China. Nachfolgend die Hauptbereiche, in denen wir Erfahrung bei der Lieferantensuche, Produktionsorganisation, Qualitätskontrolle und Lieferung haben."
+      },
+      "secondaryLead": "Das bedeutet nicht, dass wir uns ausschließlich auf diese Kategorien beschränken. Wenn Sie ein anderes Produkt suchen, beschreiben Sie Ihr Projekt — wir prüfen Produktions- und Importmöglichkeiten.",
+      "sections": [],
+      "cta": {
+        "primary": {
+          "label": "Projekt beschreiben",
+          "href": "/kontakt"
+        },
+        "secondary": {
+          "label": "Referenzen ansehen",
+          "href": "/realizacje"
+        }
+      }
     }
   },
   "cases": {
@@ -1379,5 +1412,134 @@
   },
   "legal": {
     "placeholder": "Rechtstext wird vorbereitet. Bei Fragen: contact@buybringsolutions.com"
+  },
+  "specializations": {
+    "ui": {
+      "viewDetails": "Details ansehen",
+      "productsHeading": "Produktumfang",
+      "examplesHeading": "Beispiele"
+    },
+    "categories": [
+      {
+        "id": "machinery",
+        "title": "Industriemaschinen und Anlagen",
+        "shortDescription": "Wir finden Hersteller von Industriemaschinen, organisieren technische Besuche, Qualitätskontrolle vor Versand und Lieferung nach Europa.",
+        "extendedDescription": "Wir unterstützen Unternehmen beim Import von Maschinen und Produktionslinien aus China — von der Identifikation des passenden Herstellers bis zur Inspektion vor Versand, Exportdokumentation und Transport. Erfahrung in Verpackungs-, Lebensmittel-, Medizin- und Bauindustrie.",
+        "examples": "u.a. Verpackungslinien, SPA-Geräte, Baumaschinen",
+        "items": [
+          "Maschinen für Verpackungs- und Papierindustrie",
+          "Lebensmittelmaschinen",
+          "Verarbeitungs- und Produktionslinien",
+          "Medizin- und SPA-Geräte",
+          "Baumaschinen"
+        ]
+      },
+      {
+        "id": "battery",
+        "title": "Batterietechnologien und Energielösungen",
+        "shortDescription": "Wir verbinden Unternehmen mit Herstellern von Zellen, Batteriepaketen und Energiespeichersystemen in China.",
+        "extendedDescription": "Wir helfen beim Einkauf von Batteriekomponenten — von LFP- und NMC-Zellen über BMS-Systeme und Industriepakete bis zu Ladestationen. Technische Spezifikationen werden geprüft, Muster und Qualitätskontrolle nach Zielmarktanforderungen organisiert.",
+        "examples": "ESS, Pakete für Energiespeicher, Ladeinfrastruktur",
+        "items": [
+          "LFP- und NMC-Zellen",
+          "prismatische und zylindrische Zellen",
+          "BMS-Systeme",
+          "Batteriepakete",
+          "Industriebatterien",
+          "Energiespeichersysteme ESS",
+          "Ladestationen"
+        ]
+      },
+      {
+        "id": "emobility",
+        "title": "Elektromobilität und Komponenten",
+        "shortDescription": "Sourcing von E-Mobility-Komponenten und Fahrzeugen — von Motoren und Steuerungen bis zu Fertigprodukten.",
+        "extendedDescription": "Wir unterstützen E-Mobility-Projekte: Elektromotorräder, Drohnen, Antriebskomponenten, Batterien und Autoteile. Wir helfen, den Hersteller an technische Spezifikationen und Zielmarktnormen anzupassen.",
+        "examples": "E-Motorräder, Controller, Reifen, Ersatzteile",
+        "items": [
+          "Elektromotorräder",
+          "Motoren und Steuerungen",
+          "Batterielösungen",
+          "Drohnen",
+          "Fahrzeuge",
+          "Reifen",
+          "Autoteile"
+        ]
+      },
+      {
+        "id": "chemistry",
+        "title": "Chemie und Rohstoffe",
+        "shortDescription": "Import chemischer Rohstoffe und Zusatzstoffe für die Industrie — mit Dokumentenprüfung und Compliance.",
+        "extendedDescription": "Wir finden Lieferanten für Industriechemie, Futtermittelzusätze, Polymere und funktionelle Materialien. Wir unterstützen Zertifikatsprüfung, Labormuster und Gefahrgutlogistik, wo erforderlich.",
+        "examples": "LLDPE/LDPE/HDPE, Futtermittelzusätze, Industrieklebstoffe",
+        "items": [
+          "Futtermittelzusätze",
+          "funktionelle Inhaltsstoffe",
+          "Industrierohstoffe",
+          "LLDPE, LDPE und HDPE",
+          "Industriechemie",
+          "Klebstoffe"
+        ]
+      },
+      {
+        "id": "packaging",
+        "title": "Papier, Verpackungen und Materialien",
+        "shortDescription": "Papier, Karton, Folien und Verpackungsrohstoffe direkt von chinesischen Herstellern.",
+        "extendedDescription": "Wir helfen beim Einkauf von Verpackungsmaterialien — von Kraftpapier und GC/FBB-Karton bis PET-Folie und speziellen hitzebeständigen Papieren. Muster, Qualitätskontrolle und Lieferung von Produktionschargen werden organisiert.",
+        "examples": "Pappbecher, PET-Folie, GC1/GC2-Karton",
+        "items": [
+          "Kraftpapier",
+          "Karton GC1, GC2 und FBB",
+          "Papier für Becherproduktion",
+          "PET-Folie",
+          "Verpackungsrohstoffe",
+          "Spezial- und hitzebeständige Papiere"
+        ]
+      },
+      {
+        "id": "textiles",
+        "title": "Textilien und technische Materialien",
+        "shortDescription": "Technische Textilien und Textilprodukte — Sourcing, Muster und Chargenkontrolle.",
+        "extendedDescription": "Wir unterstützen den Import von Baumwoll-, Synthetik- und technischen Stoffen sowie Fertigprodukten. Wir helfen bei Grammatur, Zusammensetzung, Farben und organisieren Qualitätskontrolle vor Versand.",
+        "examples": "Fleece, technische Textilien, Bekleidung nach Maß",
+        "items": [
+          "Fleece",
+          "Baumwoll- und Synthetikstoffe",
+          "Mischgewebe",
+          "Technische Textilien",
+          "Spezialmaterialien",
+          "Textilprodukte"
+        ]
+      },
+      {
+        "id": "construction",
+        "title": "Bauwesen und Spezialausrüstung",
+        "shortDescription": "Baumaterialien, Modulkonstruktionen und Spezialausrüstung aus China.",
+        "extendedDescription": "Wir importieren Baumaterialien, Container- und Modulhäuser sowie Spezialausrüstung — z.B. für Schieneninfrastruktur. Hersteller werden geprüft, Inspektionen und Transportdokumentation organisiert.",
+        "examples": "Modulhäuser, Schienenausrüstung, Ausbaumaterialien",
+        "items": [
+          "Container- und Modulhäuser",
+          "Schienenausrüstung",
+          "Baumaterialien",
+          "Spezialmaschinen und -ausrüstung"
+        ]
+      },
+      {
+        "id": "consumer",
+        "title": "Konsumgüter und Private Label",
+        "shortDescription": "Konsumgüter und Private-Label-Produktion nach Kundenspezifikation.",
+        "extendedDescription": "Wir helfen bei Produktion und Import von Alltagsartikeln — von Geschirr und Bekleidung bis Spielzeug und Tierbedarf. Muster, Qualitätskontrolle und Produktion unter Kundenmarke werden organisiert.",
+        "examples": "Geschirr, Spielzeug, Tierbedarf",
+        "items": [
+          "Geschirr",
+          "Bekleidung",
+          "Spielzeug",
+          "Gusseiserzeugnisse",
+          "Folien",
+          "Tierbedarf",
+          "weitere Produkte unter Kundenmarke"
+        ]
+      }
+    ]
   }
 }

@@ -14,6 +14,7 @@ const PUBLIC_FILE = /\.(.*)$/;
 const legacyRedirects: Record<string, string> = {
   "/proces": "/pl/proces",
   "/o-nas": "/pl/o-nas",
+  "/specjalizacje": "/pl/specjalizacje",
   "/realizacje": "/pl/realizacje",
   "/zespol-w-chinach": "/pl/zespol-w-chinach",
   "/kalkulator": "/pl/kalkulator",

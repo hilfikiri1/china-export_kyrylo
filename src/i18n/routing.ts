@@ -7,6 +7,7 @@ export const routes = {
   process: "proces",
   cases: "realizacje",
   about: "o-nas",
+  specializations: "specjalizacje",
   china: "zespol-w-chinach",
   calculator: "kalkulator",
   consultation: "konsultacja",

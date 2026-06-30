@@ -52,7 +52,8 @@
     "helpAtThisStage": "此阶段需要帮助？",
     "submitForVerification": "提交资料核验",
     "requestContact": "请求联系",
-    "sendAnotherInquiry": "再次发送询盘"
+    "sendAnotherInquiry": "再次发送询盘",
+    "specializations": "专业领域"
   },
   "nav": {
     "home": "首页",
@@ -63,7 +64,8 @@
     "china": "中国业务",
     "calculator": "计算器",
     "contact": "联系",
-    "cta": "描述项目"
+    "cta": "描述项目",
+    "specializations": "专业领域"
   },
   "layout": {
     "breadcrumb": {
@@ -395,6 +397,14 @@
           "transitDays": "Zależnie od trasy"
         }
       ]
+    },
+    "specializations": {
+      "eyebrow": "专业领域",
+      "title": "我们专注的产品与行业",
+      "lead": "在八个核心领域为客户搜寻制造商、组织生产与质量检验——涵盖工业机械至消费品。",
+      "closing": "未找到您的品类？描述产品需求——我们将评估生产与进口可行性。",
+      "ctaLabel": "查看全部专业领域",
+      "ariaLabel": "专业领域"
     }
   },
   "services": {
@@ -1360,6 +1370,29 @@
           "href": "/kontakt"
         }
       }
+    },
+    "specializations": {
+      "meta": {
+        "title": "专业领域 — Buy & Bring Solutions",
+        "description": "专业领域：工业机械、电池、电动出行、化工、包装、纺织品、建筑及消费品。"
+      },
+      "hero": {
+        "eyebrow": "专业领域",
+        "title": "我们专注的产品与行业",
+        "lead": "支持企业直接从中国制造商采购机械、原材料、零部件及成品。以下是我们拥有供应商搜寻、生产组织、质量检验与交付经验的主要领域。"
+      },
+      "secondaryLead": "这并不意味着我们仅限于这些品类。若您需要其他产品，请描述项目——我们将评估生产与进口可行性。",
+      "sections": [],
+      "cta": {
+        "primary": {
+          "label": "描述您的项目",
+          "href": "/kontakt"
+        },
+        "secondary": {
+          "label": "查看案例",
+          "href": "/realizacje"
+        }
+      }
     }
   },
   "cases": {
@@ -1379,5 +1412,134 @@
   },
   "legal": {
     "placeholder": "法律文件内容准备中。如有疑问请联系：contact@buybringsolutions.com"
+  },
+  "specializations": {
+    "ui": {
+      "viewDetails": "查看详情",
+      "productsHeading": "产品范围",
+      "examplesHeading": "示例"
+    },
+    "categories": [
+      {
+        "id": "machinery",
+        "title": "工业机械与设备",
+        "shortDescription": "搜寻工业机械制造商，组织技术访厂、出货前质量检验及欧洲交付。",
+        "extendedDescription": "支持企业从中国进口机械与生产线——从识别合适制造商到出货前检验、出口单证与运输。在包装、食品、医疗与建筑行业拥有丰富经验。",
+        "examples": "如包装线、SPA设备、工程机械",
+        "items": [
+          "包装与造纸机械",
+          "食品机械",
+          "加工与生产线",
+          "医疗与SPA设备",
+          "工程机械"
+        ]
+      },
+      {
+        "id": "battery",
+        "title": "电池技术与能源解决方案",
+        "shortDescription": "对接中国电芯、电池包与储能系统制造商。",
+        "extendedDescription": "协助采购电池组件——从LFP与NMC电芯到BMS系统、工业电池包与充电站。核实技术规格，按目标市场要求组织样品与质量检验。",
+        "examples": "ESS、储能电池包、充电基础设施",
+        "items": [
+          "LFP与NMC电芯",
+          "方形与圆柱电芯",
+          "BMS系统",
+          "电池包",
+          "工业电池",
+          "ESS储能系统",
+          "充电站"
+        ]
+      },
+      {
+        "id": "emobility",
+        "title": "电动出行与零部件",
+        "shortDescription": "电动出行零部件与整车采购——从电机控制器到成品。",
+        "extendedDescription": "支持电动摩托车、无人机、驱动组件、电池及汽车零部件等项目。帮助按技术规格与目标市场标准匹配合适制造商。",
+        "examples": "电动摩托车、控制器、轮胎、备件",
+        "items": [
+          "电动摩托车",
+          "电机与控制器",
+          "电池解决方案",
+          "无人机",
+          "车辆",
+          "轮胎",
+          "汽车零部件"
+        ]
+      },
+      {
+        "id": "chemistry",
+        "title": "化工与原材料",
+        "shortDescription": "工业化学品与添加剂进口——含文件审核与合规核查。",
+        "extendedDescription": "搜寻工业化学品、饲料添加剂、聚合物与功能性材料供应商。支持证书核查、实验室样品及必要的危险品物流。",
+        "examples": "LLDPE/LDPE/HDPE、饲料添加剂、工业胶粘剂",
+        "items": [
+          "饲料添加剂",
+          "功能性成分",
+          "工业原料",
+          "LLDPE、LDPE与HDPE",
+          "工业化学品",
+          "粘合材料"
+        ]
+      },
+      {
+        "id": "packaging",
+        "title": "纸张、包装与材料",
+        "shortDescription": "纸、纸板、薄膜与包装原材料，直接对接中国生产商。",
+        "extendedDescription": "协助采购包装材料——从牛皮纸与GC/FBB纸板到PET薄膜及特种耐热纸。组织样品、质量检验与生产批次交付。",
+        "examples": "纸杯、PET薄膜、GC1/GC2纸板",
+        "items": [
+          "牛皮纸",
+          "GC1、GC2与FBB纸板",
+          "纸杯用纸",
+          "PET薄膜",
+          "包装原材料",
+          "特种及耐热纸"
+        ]
+      },
+      {
+        "id": "textiles",
+        "title": "纺织品与工程材料",
+        "shortDescription": "技术织物与纺织成品——采购、打样与批次检验。",
+        "extendedDescription": "支持棉质、合成与技术织物及成品进口。协助克重、成分、配色选择，并组织出货前质量检验。",
+        "examples": "摇粒绒、技术织物、定制服装",
+        "items": [
+          "摇粒绒",
+          "棉质与合成面料",
+          "混纺面料",
+          "技术织物",
+          "特种材料",
+          "纺织制品"
+        ]
+      },
+      {
+        "id": "construction",
+        "title": "建筑与专业设备",
+        "shortDescription": "建筑材料、模块化建筑及专业设备中国采购。",
+        "extendedDescription": "进口建筑材料、集装箱与模块化房屋及专业设备——如铁路基础设施装备。核实制造商，组织检验与运输单证。",
+        "examples": "模块化房屋、铁路设备、装修材料",
+        "items": [
+          "集装箱与模块化房屋",
+          "铁路设备",
+          "建筑材料",
+          "专业机械与设备"
+        ]
+      },
+      {
+        "id": "consumer",
+        "title": "消费品与自有品牌",
+        "shortDescription": "消费品及按客户规格进行的自有品牌生产。",
+        "extendedDescription": "协助餐具、服装、玩具及宠物用品等日用品的生产与进口。组织样品、质量检验及客户品牌定制生产。",
+        "examples": "餐具、玩具、宠物用品",
+        "items": [
+          "餐具",
+          "服装",
+          "玩具",
+          "铸铁制品",
+          "薄膜",
+          "宠物用品",
+          "其他客户品牌产品"
+        ]
+      }
+    ]
   }
 }

@@ -52,7 +52,8 @@
     "helpAtThisStage": "Pomoc na tym etapie?",
     "submitForVerification": "Prześlij dane do weryfikacji",
     "requestContact": "Poproś o kontakt",
-    "sendAnotherInquiry": "Wyślij kolejne zapytanie"
+    "sendAnotherInquiry": "Wyślij kolejne zapytanie",
+    "specializations": "Specjalizacje"
   },
   "nav": {
     "home": "Strona główna",
@@ -63,7 +64,8 @@
     "china": "Działamy w Chinach",
     "calculator": "Kalkulator",
     "contact": "Kontakt",
-    "cta": "Opisz projekt"
+    "cta": "Opisz projekt",
+    "specializations": "Specjalizacje"
   },
   "layout": {
     "breadcrumb": {
@@ -219,18 +221,32 @@
       }
     },
     "heroMap": {
-      "transportModes": { "rail": "Kolej", "air": "Lotniczy" },
+      "transportModes": {
+        "rail": "Kolej",
+        "air": "Lotniczy"
+      },
       "countries": [
         {
           "id": "CN",
           "name": "Chiny",
           "role": "Kraj źródłowy",
           "description": "Operacje w Foshan: kontakt z producentami, inspekcje, konsolidacja i dokumentacja eksportowa.",
-          "hubs": ["Foshan"],
+          "hubs": [
+            "Foshan"
+          ],
           "metrics": [
-            { "label": "Doświadczenie", "value": "lat" },
-            { "label": "Obsłużeni klienci", "value": "275+" },
-            { "label": "Baza operacyjna", "value": "Foshan" }
+            {
+              "label": "Doświadczenie",
+              "value": "lat"
+            },
+            {
+              "label": "Obsłużeni klienci",
+              "value": "275+"
+            },
+            {
+              "label": "Baza operacyjna",
+              "value": "Foshan"
+            }
           ]
         },
         {
@@ -238,11 +254,24 @@
           "name": "Polska",
           "role": "Główny kierunek dostaw",
           "description": "Door-to-door do magazynu lub hali produkcyjnej. Odprawa celna i last mile w UE.",
-          "hubs": ["Gdańsk", "Gdynia", "Wrocław"],
+          "hubs": [
+            "Gdańsk",
+            "Gdynia",
+            "Wrocław"
+          ],
           "metrics": [
-            { "label": "Dostarczone kontenery", "value": "110+" },
-            { "label": "Obsługa celna", "value": "Pełna" },
-            { "label": "Dostawa", "value": "Door-to-door" }
+            {
+              "label": "Dostarczone kontenery",
+              "value": "110+"
+            },
+            {
+              "label": "Obsługa celna",
+              "value": "Pełna"
+            },
+            {
+              "label": "Dostawa",
+              "value": "Door-to-door"
+            }
           ]
         },
         {
@@ -250,11 +279,25 @@
           "name": "Niemcy",
           "role": "Rynek docelowy",
           "description": "Tranzyt i konsolidacja ładunków dla klientów w Europie Zachodniej z dostawą door-to-door.",
-          "hubs": ["Hamburg", "Frankfurt", "Monachium", "Berlin"],
+          "hubs": [
+            "Hamburg",
+            "Frankfurt",
+            "Monachium",
+            "Berlin"
+          ],
           "metrics": [
-            { "label": "Tryby transportu", "value": "Morski / kolej / lotniczy" },
-            { "label": "Obsługa FCL / LCL", "value": "Tak" },
-            { "label": "Dostawa", "value": "Door-to-door" }
+            {
+              "label": "Tryby transportu",
+              "value": "Morski / kolej / lotniczy"
+            },
+            {
+              "label": "Obsługa FCL / LCL",
+              "value": "Tak"
+            },
+            {
+              "label": "Dostawa",
+              "value": "Door-to-door"
+            }
           ]
         },
         {
@@ -262,11 +305,24 @@
           "name": "Czechy",
           "role": "Rynek docelowy",
           "description": "Dostawy B2B dla producentów i dystrybutorów w Czechach z pełną obsługą importu.",
-          "hubs": ["Praga", "Brno", "Ostrawa"],
+          "hubs": [
+            "Praga",
+            "Brno",
+            "Ostrawa"
+          ],
           "metrics": [
-            { "label": "Tryby transportu", "value": "Morski / kolej / lotniczy" },
-            { "label": "Obsługa importu", "value": "Pełna" },
-            { "label": "Last mile", "value": "Door-to-door" }
+            {
+              "label": "Tryby transportu",
+              "value": "Morski / kolej / lotniczy"
+            },
+            {
+              "label": "Obsługa importu",
+              "value": "Pełna"
+            },
+            {
+              "label": "Last mile",
+              "value": "Door-to-door"
+            }
           ]
         },
         {
@@ -274,21 +330,64 @@
           "name": "Ukraina",
           "role": "Rynek docelowy",
           "description": "Import towarów i komponentów B2B z obsługą tranzytu lądowego i lotniczego do magazynów klienta.",
-          "hubs": ["Odessa", "Kijów", "Lwów"],
+          "hubs": [
+            "Odessa",
+            "Kijów",
+            "Lwów"
+          ],
           "metrics": [
-            { "label": "Tryby transportu", "value": "Morski / kolej / lotniczy" },
-            { "label": "Obsługa importu", "value": "Pełna" },
-            { "label": "Last mile", "value": "Door-to-door" }
+            {
+              "label": "Tryby transportu",
+              "value": "Morski / kolej / lotniczy"
+            },
+            {
+              "label": "Obsługa importu",
+              "value": "Pełna"
+            },
+            {
+              "label": "Last mile",
+              "value": "Door-to-door"
+            }
           ]
         }
       ],
       "routes": [
-        { "id": "cn-pl-rail", "label": "Kolej: Chiny → Polska", "volumeLabel": "Fracht kolejowy", "transitDays": "Zależnie od trasy" },
-        { "id": "cn-de-rail", "label": "Kolej: Chiny → Niemcy", "volumeLabel": "Fracht kolejowy", "transitDays": "Zależnie od trasy" },
-        { "id": "cn-cz-rail", "label": "Kolej: Chiny → Czechy", "volumeLabel": "Fracht kolejowy", "transitDays": "Zależnie od trasy" },
-        { "id": "cn-ua-rail", "label": "Kolej: Chiny → Ukraina", "volumeLabel": "Fracht kolejowy", "transitDays": "Zależnie od trasy" },
-        { "id": "cn-pl-air", "label": "Lotniczy: Chiny → Polska", "volumeLabel": "Fracht lotniczy", "transitDays": "Zależnie od trasy" },
-        { "id": "cn-de-air", "label": "Lotniczy: Chiny → Niemcy", "volumeLabel": "Fracht lotniczy", "transitDays": "Zależnie od trasy" }
+        {
+          "id": "cn-pl-rail",
+          "label": "Kolej: Chiny → Polska",
+          "volumeLabel": "Fracht kolejowy",
+          "transitDays": "Zależnie od trasy"
+        },
+        {
+          "id": "cn-de-rail",
+          "label": "Kolej: Chiny → Niemcy",
+          "volumeLabel": "Fracht kolejowy",
+          "transitDays": "Zależnie od trasy"
+        },
+        {
+          "id": "cn-cz-rail",
+          "label": "Kolej: Chiny → Czechy",
+          "volumeLabel": "Fracht kolejowy",
+          "transitDays": "Zależnie od trasy"
+        },
+        {
+          "id": "cn-ua-rail",
+          "label": "Kolej: Chiny → Ukraina",
+          "volumeLabel": "Fracht kolejowy",
+          "transitDays": "Zależnie od trasy"
+        },
+        {
+          "id": "cn-pl-air",
+          "label": "Lotniczy: Chiny → Polska",
+          "volumeLabel": "Fracht lotniczy",
+          "transitDays": "Zależnie od trasy"
+        },
+        {
+          "id": "cn-de-air",
+          "label": "Lotniczy: Chiny → Niemcy",
+          "volumeLabel": "Fracht lotniczy",
+          "transitDays": "Zależnie od trasy"
+        }
       ]
     },
     "industries": {
@@ -298,6 +397,14 @@
     "seo": {
       "title": "Import z Chin dla firm | Buy & Bring Solutions",
       "description": "Wyszukiwanie i weryfikacja producentów, kontrola jakości, produkcja pod marką własną, transport, odprawa celna i dostawa z Chin do Polski i Europy."
+    },
+    "specializations": {
+      "eyebrow": "OBSZARY SPECJALIZACJI",
+      "title": "Produkty i branże, w których się specjalizujemy",
+      "lead": "Wyszukujemy producentów, organizujemy produkcję i kontrolę jakości w ośmiu kluczowych obszarach — od maszyn przemysłowych po produkty konsumenckie.",
+      "closing": "Nie widzisz swojej kategorii? Opisz produkt — sprawdzimy możliwości produkcji i importu.",
+      "ctaLabel": "Zobacz wszystkie specjalizacje",
+      "ariaLabel": "Obszary specjalizacji"
     }
   },
   "services": {
@@ -715,21 +822,48 @@
       },
       "layout": {
         "heroImageAlt": "Kontenery cargo — logistyka i import z Chin",
-        "primaryCta": { "label": "Nasza historia", "href": "#o-nas-story" },
+        "primaryCta": {
+          "label": "Nasza historia",
+          "href": "#o-nas-story"
+        },
         "storyEyebrow": "Zespół",
         "storyImageAlt": "Kontrola jakości towarów przed wysyłką z Chin",
         "storyAccentLabel": "LAT",
         "valuesEyebrow": "Współpraca",
         "valueCards": [
-          { "icon": "layers", "label": "MODUŁOWOŚĆ", "title": "Bez sztywnego pakietu" },
-          { "icon": "shield-check", "label": "BEZPIECZEŃSTWO", "title": "Weryfikacja przed płatnością" },
-          { "icon": "file-check", "label": "DOKUMENTACJA", "title": "Zgodność z wymogami UE" }
+          {
+            "icon": "layers",
+            "label": "MODUŁOWOŚĆ",
+            "title": "Bez sztywnego pakietu"
+          },
+          {
+            "icon": "shield-check",
+            "label": "BEZPIECZEŃSTWO",
+            "title": "Weryfikacja przed płatnością"
+          },
+          {
+            "icon": "file-check",
+            "label": "DOKUMENTACJA",
+            "title": "Zgodność z wymogami UE"
+          }
         ],
         "highlights": {
-          "experience": { "mono": "DOŚWIADCZENIE", "label": "Lat doświadczenia" },
-          "clients": { "mono": "KLIENCI", "label": "Obsłużonych klientów" },
-          "containers": { "mono": "KONTENERY", "label": "Dostarczonych kontenerów" },
-          "foshan": { "mono": "CHINY", "label": "Operacje w Foshan" }
+          "experience": {
+            "mono": "DOŚWIADCZENIE",
+            "label": "Lat doświadczenia"
+          },
+          "clients": {
+            "mono": "KLIENCI",
+            "label": "Obsłużonych klientów"
+          },
+          "containers": {
+            "mono": "KONTENERY",
+            "label": "Dostarczonych kontenerów"
+          },
+          "foshan": {
+            "mono": "CHINY",
+            "label": "Operacje w Foshan"
+          }
         },
         "ctaBand": {
           "eyebrow": "Kontakt",
@@ -750,9 +884,18 @@
       },
       "layout": {
         "highlights": [
-          { "value": "17 lat", "label": "Doświadczenia z Chinami" },
-          { "value": "PL + UA + CN", "label": "Zespół w Polsce, Ukrainie i Chinach" },
-          { "value": "Moduły", "label": "Elastyczny zakres usług" }
+          {
+            "value": "17 lat",
+            "label": "Doświadczenia z Chinami"
+          },
+          {
+            "value": "PL + UA + CN",
+            "label": "Zespół w Polsce, Ukrainie i Chinach"
+          },
+          {
+            "value": "Moduły",
+            "label": "Elastyczny zakres usług"
+          }
         ],
         "channels": {
           "email": "E-mail",
@@ -839,18 +982,43 @@
           "titleLead": "Umów konsultację",
           "titleAccent": "bez zobowiązań",
           "stats": [
-            { "value": "30 min", "label": "Czas rozmowy" },
-            { "value": "Online", "label": "Zoom / Meet / telefon" },
-            { "value": "0 zł", "label": "Bez opłat wstępnych" }
+            {
+              "value": "30 min",
+              "label": "Czas rozmowy"
+            },
+            {
+              "value": "Online",
+              "label": "Zoom / Meet / telefon"
+            },
+            {
+              "value": "0 zł",
+              "label": "Bez opłat wstępnych"
+            }
           ]
         },
         "agenda": {
           "title": "Jak wygląda rozmowa",
           "steps": [
-            { "num": "01", "title": "Analiza produktu", "description": "Analiza produktu i wymagań rynku UE" },
-            { "num": "02", "title": "Ocena ryzyk", "description": "Ocena ryzyk — dostawca, certyfikaty, logistyka" },
-            { "num": "03", "title": "Rekomendacja planu", "description": "Rekomendacja modułów i orientacyjny harmonogram" },
-            { "num": "04", "title": "Pytania i koszty", "description": "Odpowiedzi na pytania o proces i koszty" }
+            {
+              "num": "01",
+              "title": "Analiza produktu",
+              "description": "Analiza produktu i wymagań rynku UE"
+            },
+            {
+              "num": "02",
+              "title": "Ocena ryzyk",
+              "description": "Ocena ryzyk — dostawca, certyfikaty, logistyka"
+            },
+            {
+              "num": "03",
+              "title": "Rekomendacja planu",
+              "description": "Rekomendacja modułów i orientacyjny harmonogram"
+            },
+            {
+              "num": "04",
+              "title": "Pytania i koszty",
+              "description": "Odpowiedzi na pytania o proces i koszty"
+            }
           ],
           "facilitatorTitle": "Z kim rozmawiasz"
         },
@@ -1005,10 +1173,22 @@
         "heroOverlayBody": "Sourcing, kontrola jakości i wsparcie negocjacyjne — wszystko koordynowane lokalnie, z raportowaniem do Polski.",
         "statsAriaLabel": "Kluczowe dane zespołu w Chinach",
         "highlights": [
-          { "value": "Foshan", "label": "Baza operacyjna w Chinach" },
-          { "value": "PL/EN/CN", "label": "Języki zespołu" },
-          { "value": "Na miejscu", "label": "Inspekcje i audyty QA" },
-          { "value": "17 lat", "label": "Doświadczenia z Chinami" }
+          {
+            "value": "Foshan",
+            "label": "Baza operacyjna w Chinach"
+          },
+          {
+            "value": "PL/EN/CN",
+            "label": "Języki zespołu"
+          },
+          {
+            "value": "Na miejscu",
+            "label": "Inspekcje i audyty QA"
+          },
+          {
+            "value": "17 lat",
+            "label": "Doświadczenia z Chinami"
+          }
         ],
         "pillars": [
           {
@@ -1190,6 +1370,29 @@
           "href": "/kontakt"
         }
       }
+    },
+    "specializations": {
+      "meta": {
+        "title": "Specjalizacje — Buy & Bring Solutions",
+        "description": "Obszary specjalizacji: maszyny przemysłowe, baterie, elektromobilność, chemia, opakowania, tekstylia, budownictwo i produkty konsumenckie."
+      },
+      "hero": {
+        "eyebrow": "OBSZARY SPECJALIZACJI",
+        "title": "Produkty i branże, w których się specjalizujemy",
+        "lead": "Wspieramy firmy w zakupie maszyn, surowców, komponentów i produktów gotowych bezpośrednio od producentów w Chinach. Poniżej przedstawiamy główne obszary, w których posiadamy doświadczenie w wyszukiwaniu dostawców, organizacji produkcji, kontroli jakości i dostaw."
+      },
+      "secondaryLead": "Nie oznacza to, że ograniczamy się wyłącznie do tych kategorii. Jeżeli poszukujesz innego produktu, opisz swój projekt — sprawdzimy możliwości produkcji i importu.",
+      "sections": [],
+      "cta": {
+        "primary": {
+          "label": "Opisz swój projekt",
+          "href": "/kontakt"
+        },
+        "secondary": {
+          "label": "Zobacz realizacje",
+          "href": "/realizacje"
+        }
+      }
     }
   },
   "cases": {
@@ -1209,5 +1412,134 @@
   },
   "legal": {
     "placeholder": "Treść dokumentu prawnego jest w przygotowaniu. W razie pytań skontaktuj się z nami: contact@buybringsolutions.com"
+  },
+  "specializations": {
+    "ui": {
+      "viewDetails": "Zobacz szczegóły",
+      "productsHeading": "Zakres produktów",
+      "examplesHeading": "Przykłady"
+    },
+    "categories": [
+      {
+        "id": "machinery",
+        "title": "Maszyny i urządzenia przemysłowe",
+        "shortDescription": "Wyszukujemy producentów maszyn przemysłowych, organizujemy wizyty techniczne, kontrolę jakości przed wysyłką i dostawę do Europy.",
+        "extendedDescription": "Wspieramy firmy w imporcie maszyn i linii produkcyjnych z Chin — od identyfikacji odpowiedniego producenta po inspekcję przed wysyłką, dokumentację eksportową i transport. Mamy doświadczenie w branży opakowaniowej, spożywczej, medycznej i budowlanej.",
+        "examples": "m.in. linie opakowaniowe, urządzenia SPA, maszyny budowlane",
+        "items": [
+          "maszyny dla branży opakowaniowej i papierniczej",
+          "maszyny spożywcze",
+          "linie do przetwórstwa i produkcji",
+          "urządzenia medyczne i SPA",
+          "maszyny budowlane"
+        ]
+      },
+      {
+        "id": "battery",
+        "title": "Technologie akumulatorowe i rozwiązania energetyczne",
+        "shortDescription": "Łączymy firmy z producentami ogniw, pakietów akumulatorowych i systemów magazynowania energii w Chinach.",
+        "extendedDescription": "Pomagamy w zakupie komponentów akumulatorowych — od ogniw LFP i NMC po systemy BMS, pakiety przemysłowe i stacje ładowania. Weryfikujemy specyfikacje techniczne, organizujemy próbki i kontrolę jakości zgodnie z wymaganiami rynku docelowego.",
+        "examples": "ESS, pakiety do magazynów energii, infrastruktura ładowania",
+        "items": [
+          "ogniwa LFP i NMC",
+          "ogniwa pryzmatyczne i cylindryczne",
+          "systemy BMS",
+          "pakiety akumulatorowe",
+          "akumulatory przemysłowe",
+          "magazyny energii ESS",
+          "stacje ładowania"
+        ]
+      },
+      {
+        "id": "emobility",
+        "title": "Elektromobilność i komponenty",
+        "shortDescription": "Sourcing komponentów i pojazdów elektrycznych — od silników i sterowników po gotowe produkty.",
+        "extendedDescription": "Wspieramy projekty związane z elektromobilnością: motocykle elektryczne, drony, komponenty napędu, akumulatory oraz części samochodowe. Pomagamy dopasować producenta do specyfikacji technicznej i norm rynku docelowego.",
+        "examples": "e-motocykle, kontrolery, opony, części zamienne",
+        "items": [
+          "motocykle elektryczne",
+          "silniki i sterowniki",
+          "rozwiązania akumulatorowe",
+          "drony",
+          "pojazdy",
+          "opony",
+          "części samochodowe"
+        ]
+      },
+      {
+        "id": "chemistry",
+        "title": "Chemia i surowce",
+        "shortDescription": "Import surowców chemicznych i dodatków dla przemysłu — z weryfikacją dokumentacji i zgodności.",
+        "extendedDescription": "Wyszukujemy dostawców chemii przemysłowej, dodatków paszowych, polimerów i materiałów funkcjonalnych. Wspieramy weryfikację certyfikatów, próbek laboratoryjnych i logistyki materiałów niebezpiecznych tam, gdzie jest to wymagane.",
+        "examples": "LLDPE/LDPE/HDPE, dodatki paszowe, kleje przemysłowe",
+        "items": [
+          "dodatki paszowe",
+          "składniki funkcjonalne",
+          "surowce dla przemysłu",
+          "LLDPE, LDPE i HDPE",
+          "chemia przemysłowa",
+          "materiały klejące"
+        ]
+      },
+      {
+        "id": "packaging",
+        "title": "Papier, opakowania i materiały",
+        "shortDescription": "Papier, karton, folie i surowce opakowaniowe bezpośrednio od chińskich producentów.",
+        "extendedDescription": "Pomagamy w zakupie materiałów opakowaniowych — od papieru kraft i kartonów GC/FBB po folie PET i specjalistyczne papiery termoodporne. Organizujemy próbki, kontrolę jakości i dostawę partii produkcyjnych.",
+        "examples": "kubki papierowe, folia PET, kartony GC1/GC2",
+        "items": [
+          "papier kraft",
+          "karton GC1, GC2 i FBB",
+          "papier do produkcji kubków",
+          "folia PET",
+          "surowce opakowaniowe",
+          "papiery specjalistyczne i termoodporne"
+        ]
+      },
+      {
+        "id": "textiles",
+        "title": "Tekstylia i materiały techniczne",
+        "shortDescription": "Tkaniny techniczne i produkty tekstylne — sourcing, próbki i kontrola partii produkcyjnych.",
+        "extendedDescription": "Wspieramy import tkanin bawełnianych, syntetycznych i technicznych oraz produktów gotowych. Pomagamy w doborze gramatury, składu, kolorów i organizujemy kontrolę jakości przed wysyłką.",
+        "examples": "polar, tkaniny techniczne, odzież na zamówienie",
+        "items": [
+          "polar",
+          "tkaniny bawełniane i syntetyczne",
+          "tkaniny mieszane",
+          "tkaniny techniczne",
+          "materiały specjalistyczne",
+          "produkty tekstylne"
+        ]
+      },
+      {
+        "id": "construction",
+        "title": "Budownictwo i wyposażenie specjalistyczne",
+        "shortDescription": "Materiały budowlane, konstrukcje modułowe i wyposażenie specjalistyczne z Chin.",
+        "extendedDescription": "Importujemy materiały budowlane, domy kontenerowe i modułowe oraz specjalistyczne wyposażenie — np. dla infrastruktury kolejowej. Weryfikujemy producentów, organizujemy inspekcje i kompletujemy dokumentację transportową.",
+        "examples": "domy modułowe, wyposażenie kolejowe, materiały wykończeniowe",
+        "items": [
+          "domy kontenerowe i modułowe",
+          "wyposażenie kolejowe",
+          "materiały budowlane",
+          "maszyny i wyposażenie specjalistyczne"
+        ]
+      },
+      {
+        "id": "consumer",
+        "title": "Produkty konsumenckie i Private Label",
+        "shortDescription": "Produkty konsumenckie i produkcja Private Label według specyfikacji klienta.",
+        "extendedDescription": "Pomagamy w produkcji i imporcie artykułów codziennego użytku — od naczyń i odzieży po zabawki i artykuły dla zwierząt. Organizujemy próbki, kontrolę jakości i produkcję pod marką klienta.",
+        "examples": "naczynia, zabawki, artykuły dla zwierząt",
+        "items": [
+          "naczynia",
+          "odzież",
+          "zabawki",
+          "wyroby żeliwne",
+          "folie",
+          "artykuły dla zwierząt",
+          "inne produkty wykonywane pod marką klienta"
+        ]
+      }
+    ]
   }
 }

@@ -5,6 +5,7 @@ import { StatsBanner } from "@/components/stats/StatsBanner";
 import { ServicesSection } from "@/components/services/ServicesSection";
 import { RealizacjeTeaserSection } from "@/components/case-studies/RealizacjeTeaserSection";
 import { AboutGridSection } from "@/components/about/AboutGridSection";
+import { SpecializationsSection } from "@/components/specializations/SpecializationsSection";
 import {
   getAlternateLanguages,
   getCanonicalUrl,
@@ -67,6 +68,7 @@ export default async function Home({ params }: PageProps) {
       <ServicesSection />
       <RealizacjeTeaserSection />
       <AboutGridSection />
+      <SpecializationsSection />
     </>
   );
 }
