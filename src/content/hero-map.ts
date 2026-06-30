@@ -54,7 +54,7 @@ export const heroMapCountries: HeroMapCountry[] = [
     role: "Kraj źródłowy",
     description:
       "Centrum sourcingu i produkcji. Wsparcie operacyjne na miejscu, weryfikacja producentów i kontrola jakości przed wysyłką.",
-    hubs: ["Foshan", "Guangzhou", "Shenzhen", "Ningbo"],
+    hubs: ["Foshan", "Guangzhou", "Shanghai"],
     metrics: [
       { label: "Baza operacyjna", value: "Foshan, Guangdong" },
       { label: "Zakres", value: "Sourcing i kontrola jakości" },

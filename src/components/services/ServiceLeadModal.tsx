@@ -154,7 +154,7 @@ export function ServiceLeadModal({
                     id="lead-phone"
                     name="phone"
                     type="tel"
-                    placeholder="+48 000 000 000"
+                    placeholder="+48 600 000 000"
                     className="border-white/15 bg-white/5 text-white placeholder:text-white/30"
                   />
                 </div>
