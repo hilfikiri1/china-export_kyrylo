@@ -1,15 +1,20 @@
 /**
- * CMS-ready case study content.
- * Replace this file with Sanity/Contentlayer fetch when CMS is connected.
+ * Case studies (Polish master). Real Buy & Bring Solutions project themes.
+ *
+ * Do NOT invent delivery times, quantities, savings percentages, countries or
+ * dates. Optional fields (`destinationCountry`, `publishedAt`, `status`) are
+ * hidden in the UI when empty.
+ *
+ * TODO (owner): replace placeholder images with real project photos. See the
+ * asset checklist in CONTENT_EDITING_GUIDE.md.
  */
 
 export type CaseStudyCategoryId =
-  | "laser-industrial"
-  | "construction"
-  | "ev-mobility"
-  | "cookware"
-  | "packaging"
-  | "custom";
+  | "private-label"
+  | "battery"
+  | "logistics"
+  | "machinery"
+  | "sourcing";
 
 export type CaseStudyCategory = {
   id: CaseStudyCategoryId;
@@ -32,253 +37,181 @@ export type CaseStudy = {
   coverImage: string;
   challenge: string;
   scope: string[];
-  destinationCountry: string;
   outcome: string;
   gallery: CaseStudyImage[];
-  publishedAt: string;
+  /** Optional — hidden when empty. */
+  destinationCountry?: string;
+  /** Optional ISO date — hidden when empty. */
+  publishedAt?: string;
+  /** Optional status label — hidden when empty. */
+  status?: string;
 };
 
 export const caseStudyCategories: CaseStudyCategory[] = [
   {
-    id: "laser-industrial",
-    label: "Laser i przemysł",
-    description: "Maszyny CNC, spawalnictwo laserowe i linie produkcyjne.",
+    id: "private-label",
+    label: "Private Label",
+    description: "Produkcja pod marką własną — produkt, opakowanie i etykiety.",
     examples:
-      "Cięcie laserowe CNC, spawanie i czyszczenie laserowe, obróbka metalu i drewna, zautomatyzowane linie pakowania żywności.",
+      "Naczynia, artykuły gospodarstwa domowego i produkty konsumenckie pod marką klienta.",
   },
   {
-    id: "construction",
-    label: "Maszyny budowlane",
-    description: "Sprzęt ciężki i maszyny specjalistyczne dla budownictwa.",
+    id: "battery",
+    label: "Technologie akumulatorowe",
+    description: "Ogniwa, pakiety akumulatorowe i systemy BMS.",
     examples:
-      "Minikoparki, ładowarki, kompresory powietrza, pojazdy budowlane i osprzęt ciężki.",
+      "Pakiety akumulatorowe, ogniwa LFP i NMC, systemy BMS oraz rozwiązania energetyczne.",
   },
   {
-    id: "ev-mobility",
-    label: "Pojazdy elektryczne",
-    description: "Mobilność miejska i pojazdy użytkowe na prąd.",
+    id: "logistics",
+    label: "Logistyka i konsolidacja",
+    description: "Konsolidacja towarów od wielu producentów i organizacja wysyłki.",
     examples:
-      "Rowery elektryczne, motorowery, motocykle elektryczne i trójkołowe pojazdy użytkowe.",
+      "Odbiór z wielu fabryk, kontrola kompletności, załadunek kontenera i dokumentacja eksportowa.",
   },
   {
-    id: "cookware",
-    label: "Gastronomia i naczynia",
-    description: "Wyposażenie kuchni komercyjnej i artykuły metalowe.",
+    id: "machinery",
+    label: "Maszyny przemysłowe",
+    description: "Dobór, weryfikacja i dostawa maszyn oraz linii produkcyjnych.",
     examples:
-      "Szpatułki i nabierki ze stali, garnki żeliwne, kazany, pokrywy szklane, frytownice przemysłowe.",
+      "Maszyny do produkcji wyrobów papierniczych, linie pakujące i urządzenia przemysłowe.",
   },
   {
-    id: "packaging",
-    label: "Opakowania i surowce",
-    description: "Materiały opakowaniowe i surowce dla produkcji.",
+    id: "sourcing",
+    label: "Sourcing w Chinach",
+    description: "Wyszukiwanie producentów, w tym na targach branżowych w Chinach.",
     examples:
-      "Papier do pieczenia, tworzywa sztuczne, polietylen, folia stretch, tektura i opakowania komercyjne.",
-  },
-  {
-    id: "custom",
-    label: "Projekty niestandardowe",
-    description: "Komponenty, części zamienne i zapytania poza katalogiem.",
-    examples:
-      "Komponenty przemysłowe, części zamienne, inwentarz B2B, surowce i produkcja na zamówienie.",
+      "Udział w targach, rozmowy z wystawcami i przygotowanie listy potencjalnych producentów.",
   },
 ];
 
 export const caseStudies: CaseStudy[] = [
   {
-    id: "cs-001",
-    slug: "laser-cnc-germany",
-    title: "Linie cięcia laserowego CNC — dostawa do Niemiec",
-    categoryId: "laser-industrial",
+    id: "cs-private-label-cookware",
+    slug: "produkcja-garnkow-i-patelni-private-label",
+    title: "Produkcja garnków i patelni pod marką klienta",
+    categoryId: "private-label",
     summary:
-      "Kompleksowy import dwóch maszyn CNC z audytem producenta, kontrolą przed wysyłką i organizacją frachtu morskiego.",
-    coverImage: "/case-studies/laser-cnc.jpg",
-    challenge:
-      "Klient z branży metalowej potrzebował zweryfikowanego dostawcy maszyn CNC o określonych parametrach mocy i precyzji. Wymagana była zgodność z normami UE oraz dostawa w ściśle określonym terminie przed uruchomieniem nowej hali.",
-    scope: [
-      "Sourcing i negocjacje z producentami",
-      "Audyt fabryki i weryfikacja certyfikatów",
-      "Kontrola jakości przed wysyłką",
-      "Organizacja frachtu morskiego FCL",
-      "Koordynacja odprawy w UE",
-    ],
-    destinationCountry: "Niemcy",
-    outcome:
-      "Dostawa w 62 dni od podpisania umowy. Oba urządzenia przeszły inspekcję QA bez usterek. Klient uruchomił produkcję zgodnie z harmonogramem inwestycji.",
-    gallery: [
-      {
-        src: "/case-studies/laser-cnc.jpg",
-        alt: "Maszyna CNC przygotowana do załadunku",
-      },
-      {
-        src: "/case-studies/laser-cnc-2.jpg",
-        alt: "Kontrola jakości komponentów przed wysyłką",
-      },
-      {
-        src: "/case-studies/laser-cnc-3.jpg",
-        alt: "Opakowanie eksportowe maszyny przemysłowej",
-      },
-    ],
-    publishedAt: "2025-11-12",
-  },
-  {
-    id: "cs-002",
-    slug: "mini-excavator-poland",
-    title: "Minikoparki i osprzęt — dostawa do Polski",
-    categoryId: "construction",
-    summary:
-      "Import trzech minikoparek z weryfikacją producenta, konsolidacją ładunku i dostawą door-to-door.",
-    coverImage: "/case-studies/excavator.jpg",
-    challenge:
-      "Firma budowlana szukała ekonomicznych minikoparek z potwierdzoną historią eksportu do Europy. Kluczowe były realne możliwości serwisowe producenta i termin dostawy przed sezonem budowlym.",
-    scope: [
-      "Wyszukiwanie i shortlista producentów",
-      "Audyt fabryki na miejscu",
-      "Konsolidacja ładunku z dwóch linii produkcyjnych",
-      "Spedycja morska i ubezpieczenie frachtu",
-      "Odprawa celna i last mile",
-    ],
-    destinationCountry: "Polska",
-    outcome:
-      "Trzy maszyny dostarczone w 54 dni. Konsolidacja obniżyła koszt transportu o ok. 18% względem osobnych przesyłek. Wszystkie jednostki spełniły parametry techniczne z umowy.",
-    gallery: [
-      {
-        src: "/case-studies/excavator.jpg",
-        alt: "Minikoparka przed załadunkiem kontenerowym",
-      },
-      {
-        src: "/case-studies/excavator-2.jpg",
-        alt: "Osprzęt budowlany zapakowany do eksportu",
-      },
-    ],
-    publishedAt: "2025-10-03",
-  },
-  {
-    id: "cs-003",
-    slug: "e-bikes-netherlands",
-    title: "Rowery elektryczne B2B — dostawa do Holandii",
-    categoryId: "ev-mobility",
-    summary:
-      "Import partii e-bike’ów flotowych z kontrolą baterii, dokumentacją i dostawą do magazynu dystrybutora.",
-    coverImage: "/case-studies/ebikes.jpg",
-    challenge:
-      "Dystrybutor mobilności miejskiej zamówił partię e-bike’ów pod wynajem flotowy. Wymagana była zgodność baterii z przepisami UE, spójne opakowanie i etykietowanie oraz dostawa do centralnego hubu logistycznego.",
-    scope: [
-      "Sourcing producenta OEM",
-      "Kontrola jakości i testy funkcjonalne",
-      "OEM / etykietowanie i instrukcje PL/EN",
-      "Organizacja transportu morskiego LCL",
-      "Odprawa celna w Holandii",
-    ],
-    destinationCountry: "Holandia",
-    outcome:
-      "200 jednostek dostarczonych w 48 dni. Wskaźnik usterek na inspekcji odbioru: poniżej 1%. Flota uruchomiona przed sezonem wynajmu.",
-    gallery: [
-      {
-        src: "/case-studies/ebikes.jpg",
-        alt: "Rowery elektryczne przygotowane do eksportu",
-      },
-      {
-        src: "/case-studies/ebikes-2.jpg",
-        alt: "Kontrola opakowania i komponentów e-bike",
-      },
-    ],
-    publishedAt: "2025-09-18",
-  },
-  {
-    id: "cs-004",
-    slug: "commercial-kitchen-poland",
-    title: "Wyposażenie gastronomii HORECA — Polska",
-    categoryId: "cookware",
-    summary:
-      "Import garnków i urządzeń ze stali nierdzewnej dla sieci gastronomicznej z pełną kontrolą jakości.",
+      "Produkcja naczyń pod marką własną klienta — od wyboru producentów po markowe opakowania i dostawę.",
     coverImage: "/case-studies/kitchen.jpg",
     challenge:
-      "Sieć restauracji potrzebowała ujednoliconej serii naczyń i urządzeń kuchennych spełniających normy kontaktu z żywnością. Priorytetem była powtarzalna jakość partii i krótki czas dostawy.",
+      "Klient chciał wprowadzić serię naczyń (garnki i patelnie) do sprzedaży pod własną marką i potrzebował producenta oraz spójnych, markowych opakowań.",
     scope: [
-      "Identyfikacja producenta i próbki",
-      "Kontrola jakości partii produkcyjnej",
-      "Koordynacja produkcji i pakowania",
-      "Eksport i fracht morski",
-      "Dostawa do magazynu klienta",
+      "Wybór producentów",
+      "Produkcja naczyń z logo klienta",
+      "Opracowanie markowych opakowań",
+      "Kontrola jakości w fabryce",
+      "Organizacja dostawy",
     ],
-    destinationCountry: "Polska",
     outcome:
-      "Dostawa kompletna w 41 dni. Trzy partie QA zatwierdzone bez reklamacji. Klient objął zapas na 6 miesięcy działalności sezonowej.",
+      "Klient otrzymał gotową serię produktów przeznaczoną do sprzedaży pod własną marką.",
     gallery: [
-      {
-        src: "/case-studies/kitchen.jpg",
-        alt: "Naczynia ze stali nierdzewnej gotowe do wysyłki",
-      },
-      {
-        src: "/case-studies/kitchen-2.jpg",
-        alt: "Inspekcja jakości wyrobów gastronomicznych",
-      },
+      { src: "/case-studies/kitchen.jpg", alt: "Naczynia pod marką własną klienta" },
+      { src: "/case-studies/kitchen-2.jpg", alt: "Kontrola jakości naczyń w fabryce" },
     ],
-    publishedAt: "2025-08-22",
   },
   {
-    id: "cs-005",
-    slug: "packaging-materials-czech",
-    title: "Materiały opakowaniowe — dostawa do Czech",
-    categoryId: "packaging",
+    id: "cs-ev-batteries",
+    slug: "akumulatory-do-motocykli-elektrycznych",
+    title: "Akumulatory do motocykli elektrycznych według specyfikacji klienta",
+    categoryId: "battery",
     summary:
-      "Regularna dostawa folii stretch i opakowań kartonowych z konsolidacją wielu dostawców.",
+      "Pakiety akumulatorowe dopasowane do parametrów technicznych pojazdu klienta — od konfiguracji ogniw po kontrolę przed wysyłką.",
+    coverImage: "/case-studies/ebikes.jpg",
+    challenge:
+      "Klient potrzebował pakietów akumulatorowych dopasowanych do parametrów technicznych i wymiarów swojego pojazdu elektrycznego.",
+    scope: [
+      "Wybór producenta",
+      "Uzgodnienie parametrów technicznych",
+      "Dopasowanie wymiarów",
+      "Konfiguracja ogniw",
+      "System BMS",
+      "Kontrola przed wysyłką",
+      "Organizacja dostawy",
+    ],
+    outcome:
+      "Wyprodukowano pakiety akumulatorowe dopasowane do parametrów technicznych pojazdu klienta.",
+    gallery: [
+      { src: "/case-studies/ebikes.jpg", alt: "Pojazd elektryczny klienta" },
+      { src: "/case-studies/ebikes-2.jpg", alt: "Kontrola pakietów akumulatorowych przed wysyłką" },
+    ],
+  },
+  {
+    id: "cs-consolidation-9",
+    slug: "konsolidacja-towarow-od-9-producentow",
+    title: "Konsolidacja towarów od 9 producentów",
+    categoryId: "logistics",
+    summary:
+      "Połączenie towarów od dziewięciu fabryk w jedną wysyłkę kontenerową — od odbioru po dokumentację eksportową.",
     coverImage: "/case-studies/packaging.jpg",
     challenge:
-      "Producent FMCG importował materiały opakowaniowe od trzech różnych fabryk w Chinach. Klient potrzebował jednego punktu koordynacji, konsolidacji i przewidywalnego harmonogramu dostaw.",
+      "Klient zamawiał towary od dziewięciu różnych producentów w Chinach i potrzebował jednego punktu koordynacji oraz wspólnej wysyłki.",
     scope: [
-      "Koordynacja trzech producentów",
-      "Konsolidacja ładunków w magazynie",
-      "Kontrola jakości i dokumentacja eksportowa",
-      "Fracht morski FCL",
-      "Wsparcie odprawy celnej",
+      "Koordynacja dostaw od dziewięciu fabryk",
+      "Odbiór na magazyn w Chinach",
+      "Kontrola kompletności",
+      "Przygotowanie wspólnej wysyłki",
+      "Załadunek kontenera",
+      "Dokumentacja eksportowa",
     ],
-    destinationCountry: "Czechy",
     outcome:
-      "Cykl dostaw skrócony do 35–40 dni. Konsolidacja zredukowała koszty logistyki o ok. 22%. Stały rytm dostaw przez 3 kolejne kwartały.",
+      "Towary od dziewięciu producentów zostały połączone w jedną wysyłkę kontenerową.",
     gallery: [
-      {
-        src: "/case-studies/packaging.jpg",
-        alt: "Materiały opakowaniowe w magazynie konsolidacyjnym",
-      },
-      {
-        src: "/case-studies/packaging-2.jpg",
-        alt: "Kontener załadowany folią i opakowaniami",
-      },
+      { src: "/case-studies/packaging.jpg", alt: "Towary w magazynie konsolidacyjnym" },
+      { src: "/case-studies/packaging-2.jpg", alt: "Załadunek kontenera z konsolidowanym towarem" },
     ],
-    publishedAt: "2025-07-14",
   },
   {
-    id: "cs-006",
-    slug: "custom-components-sweden",
-    title: "Komponenty przemysłowe na zamówienie — Szwecja",
-    categoryId: "custom",
+    id: "cs-paper-machines",
+    slug: "maszyny-do-produkcji-wyrobow-papierniczych",
+    title: "Dobór i dostawa maszyn do produkcji wyrobów papierniczych",
+    categoryId: "machinery",
     summary:
-      "Niestandardowe komponenty metalowe z weryfikacją tolerancji i dostawą just-in-time do linii montażowej.",
-    coverImage: "/case-studies/custom-parts.jpg",
+      "Analiza potrzeb produkcyjnych, wyszukiwanie producentów i dostawa maszyn do produkcji wyrobów papierniczych.",
+    coverImage: "/case-studies/laser-cnc.jpg",
     challenge:
-      "Producent maszyn przemysłowych potrzebował serii niestandardowych komponentów z tolerancjami ±0,05 mm. Wcześniejszy import od niezweryfikowanego dostawcy skutkował wysokim wskaźnikiem reklamacji.",
+      "Klient planował uruchomić produkcję wyrobów papierniczych i potrzebował doboru oraz weryfikacji maszyn dopasowanych do swoich potrzeb.",
     scope: [
-      "Sourcing i audyt nowego producenta",
-      "Zatwierdzenie próbek i dokumentacji technicznej",
-      "Kontrola wymiarowa partii produkcyjnej",
-      "Zarządzanie eksportem i frachtem lotniczym",
-      "Dostawa ekspresowa do fabryki klienta",
+      "Analiza potrzeb produkcyjnych",
+      "Wyszukiwanie producentów",
+      "Porównanie modeli",
+      "Negocjacje techniczne",
+      "Weryfikacja producenta",
+      "Przygotowanie ofert",
+      "Organizacja dostawy",
     ],
-    destinationCountry: "Szwecja",
     outcome:
-      "Pierwsza partia 5 000 szt. dostarczona w 28 dni (transport lotniczy). Reklamacje: 0,3%. Klient przeszedł na stałą miesięczną dostawę komponentów.",
+      "Klient otrzymał dobór maszyn wraz z weryfikacją producentów — w zakresie projektu znalazły się m.in. maszyna do produkcji kubków papierowych, laminator, gilotyna do papieru oraz grawer laserowy.",
     gallery: [
-      {
-        src: "/case-studies/custom-parts.jpg",
-        alt: "Komponenty metalowe po inspekcji wymiarowej",
-      },
-      {
-        src: "/case-studies/custom-parts-2.jpg",
-        alt: "Opakowanie eksportowe części przemysłowych",
-      },
+      { src: "/case-studies/laser-cnc.jpg", alt: "Maszyna przemysłowa do produkcji wyrobów papierniczych" },
+      { src: "/case-studies/laser-cnc-2.jpg", alt: "Weryfikacja maszyny u producenta" },
+      { src: "/case-studies/laser-cnc-3.jpg", alt: "Przygotowanie maszyny do wysyłki" },
     ],
-    publishedAt: "2025-06-05",
+  },
+  {
+    id: "cs-trade-fair-sourcing",
+    slug: "poszukiwanie-producentow-na-targach-w-chinach",
+    title: "Poszukiwanie producentów na specjalistycznych targach w Chinach",
+    categoryId: "sourcing",
+    summary:
+      "Udział w branżowych targach w Chinach i przygotowanie listy potencjalnych producentów dla klienta.",
+    coverImage: "/image/business_trips.jpg",
+    challenge:
+      "Klient szukał nowych producentów w konkretnej branży i potrzebował rozeznania rynku oraz kontaktów do fabryk.",
+    scope: [
+      "Udział w targach branżowych",
+      "Rozmowy z wystawcami",
+      "Analiza produktów i możliwości fabryk",
+      "Zebranie kontaktów",
+      "Zdjęcia i materiały wideo",
+      "Przygotowanie listy potencjalnych producentów",
+    ],
+    outcome:
+      "Klient otrzymał listę potencjalnych producentów oraz materiały potrzebne do rozpoczęcia dalszych negocjacji.",
+    gallery: [
+      { src: "/image/business_trips.jpg", alt: "Targi branżowe w Chinach" },
+      { src: "/image/china_office.jpg", alt: "Rozmowy z producentami w Chinach" },
+    ],
   },
 ];
 

@@ -3,14 +3,14 @@ import type { DedicatedPageContent } from "./types";
 export const wyszukiwanieDostawcowPage: DedicatedPageContent = {
   id: "uslugi-wyszukiwanie-dostawcow",
   meta: {
-    title: "Wyszukiwanie dostawców — China Export",
+    title: "Wyszukiwanie producentów i organizacja zakupu",
     description:
-      "Sourcing i negocjacje z fabrykami w Chinach — identyfikacja producentów, porównanie ofert i negocjacja warunków handlowych.",
+      "Wyszukujemy producentów, zbieramy i porównujemy oferty, analizujemy MOQ, terminy i warunki handlowe — zanim podejmiesz decyzję o współpracy.",
   },
   hero: {
     eyebrow: "Przed produkcją",
-    title: "Wyszukiwanie dostawców i negocjacje",
-    lead: "Znajdujemy fabryki dopasowane do Twojej specyfikacji, weryfikujemy wstępnie i negocjujemy warunki — zanim podejmiesz decyzję o współpracy.",
+    title: "Wyszukiwanie producentów i organizacja zakupu",
+    lead: "Znajdujemy producentów dopasowanych do Twojej specyfikacji, weryfikujemy wstępnie i porównujemy oferty — zanim podejmiesz decyzję o współpracy.",
   },
   processCarousel: {
     sectionTitle: "Jak przebiega sourcing",

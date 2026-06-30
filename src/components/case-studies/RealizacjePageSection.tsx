@@ -4,7 +4,6 @@ import { useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import {
   caseStudyCategories,
-  caseStudies,
   getCaseStudyById,
   getCaseStudiesByCategory,
   type CaseStudyCategoryId,
@@ -138,11 +137,6 @@ export function RealizacjePageSection({
           Brak realizacji w tej kategorii.
         </p>
       )}
-
-      <p className="text-center text-xs text-white/40">
-        Treści zarządzane przez CMS — łatwa publikacja nowych case studies bez zmian
-        w kodzie ({caseStudies.length} projektów w portfolio).
-      </p>
 
       <CaseStudyDetailModal
         caseStudy={selectedCase ?? null}

@@ -13,9 +13,11 @@ function StatCard({
 }) {
   const count = useCountUp(stat.numericValue, 1800, animate, stat.decimal);
 
-  const displayValue = stat.decimal
-    ? count.toFixed(1).replace(".", ",")
-    : String(count);
+  const displayValue = stat.display
+    ? stat.display
+    : stat.decimal
+      ? count.toFixed(1).replace(".", ",")
+      : String(count);
 
   return (
     <div className="border-l border-white/10 py-2 pl-6">

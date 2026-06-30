@@ -25,6 +25,8 @@ export function LanguageSwitcher({
   const [open, setOpen] = useState(false);
 
   function selectLocale(next: Locale) {
+    // Persist the chosen locale (browser API write).
+    // eslint-disable-next-line react-hooks/immutability
     document.cookie = `${LOCALE_COOKIE}=${next}; path=/; max-age=31536000; samesite=lax`;
     setOpen(false);
     router.push(switchLocalePath(pathname, next));

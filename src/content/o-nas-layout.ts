@@ -9,6 +9,8 @@ export type ONasHighlight = {
   numericValue: number;
   suffix: string;
   decimal?: boolean;
+  /** Non-numeric stats render this string directly (no count-up). */
+  display?: string;
 };
 
 export type ONasValueCard = {
@@ -31,33 +33,33 @@ export const oNasLayout = {
   },
   highlights: [
     {
-      label: "Lat doświadczenia",
-      value: "12+",
-      mono: "OD 2012",
-      numericValue: 12,
+      label: "Doświadczenia we współpracy z Chinami",
+      value: "17 lat",
+      mono: "ZESPÓŁ",
+      numericValue: 17,
+      suffix: " lat",
+    },
+    {
+      label: "Obsłużonych klientów",
+      value: "275+",
+      mono: "KLIENCI",
+      numericValue: 275,
       suffix: "+",
     },
     {
-      label: "Wysyłek miesięcznie",
-      value: "120+",
-      mono: "OPERACJE",
-      numericValue: 120,
+      label: "Dostarczonych kontenerów",
+      value: "110+",
+      mono: "DOSTAWY",
+      numericValue: 110,
       suffix: "+",
     },
     {
-      label: "Średnia ocena",
-      value: "4,9",
-      mono: "OCENY KLIENTÓW",
-      numericValue: 4.9,
+      label: "Operacje na miejscu w Chinach",
+      value: "Foshan",
+      mono: "GUANGDONG",
+      numericValue: 0,
       suffix: "",
-      decimal: true,
-    },
-    {
-      label: "Zweryfikowanych opinii",
-      value: "240+",
-      mono: "RECENZJE",
-      numericValue: 240,
-      suffix: "+",
+      display: "Foshan",
     },
   ] satisfies ONasHighlight[],
   story: {
@@ -65,7 +67,7 @@ export const oNasLayout = {
     ...oNasPage.sections[0],
     image: "/image/quality_control.jpg",
     imageAlt: "Kontrola jakości towarów przed wysyłką z Chin",
-    accentValue: "12+",
+    accentValue: "17",
     accentLabel: "LAT",
   },
   values: {
@@ -96,7 +98,7 @@ export const oNasLayout = {
   cta: {
     eyebrow: "Kontakt",
     title: "Gotowy na import z Chin?",
-    body: "Niezależnie od skali — od audytu fabryki po pełną logistykę door-to-door. Porozmawiajmy o Twoim projekcie.",
+    body: "Niezależnie od skali — od weryfikacji producenta po kompleksową obsługę logistyczną. Porozmawiajmy o Twoim projekcie.",
     image: "/image/business_trips.jpg",
     ...oNasPage.cta,
   },

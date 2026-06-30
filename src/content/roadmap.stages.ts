@@ -16,9 +16,9 @@ export type RoadmapStage = {
 export const roadmapStages: RoadmapStage[] = [
   {
     id: "brief",
-    title: "Brief i wycena",
+    title: "Brief i specyfikacja",
     description:
-      "Omawiamy zakres importu, Incoterms, harmonogram i budżet. Otrzymujesz przejrzystą wycenę całego procesu lub wybranego etapu.",
+      "Omawiamy produkt, wymagania techniczne, ilość, budżet, termin oraz kraj docelowy. Proponujemy zakres całego procesu lub wybranego etapu.",
     cta: { label: "Wyślij brief", href: "/kontakt" },
     theme: {
       bg: "#232830",

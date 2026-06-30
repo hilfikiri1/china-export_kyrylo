@@ -83,10 +83,12 @@ export function CaseStudyDetailModal({
                 <DialogTitle className="text-xl font-bold text-white sm:text-2xl">
                   {caseStudy.title}
                 </DialogTitle>
-                <p className="flex items-center gap-1.5 text-sm text-white/60">
-                  <MapPin className="h-4 w-4 text-accent-light" aria-hidden />
-                  Kraj dostawy: {caseStudy.destinationCountry}
-                </p>
+                {caseStudy.destinationCountry && (
+                  <p className="flex items-center gap-1.5 text-sm text-white/60">
+                    <MapPin className="h-4 w-4 text-accent-light" aria-hidden />
+                    Kraj dostawy: {caseStudy.destinationCountry}
+                  </p>
+                )}
               </DialogHeader>
 
               <div className="mt-6 space-y-6">

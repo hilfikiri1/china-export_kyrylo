@@ -3,14 +3,14 @@ import type { DedicatedPageContent } from "./types";
 export const realizacjePage: DedicatedPageContent = {
   id: "realizacje",
   meta: {
-    title: "Realizacje — China Export",
+    title: "Realizacje — projekty importowe",
     description:
-      "Case studies importów z Chin — maszyny przemysłowe, materiały budowlane, EV, opakowania i produkty na zamówienie.",
+      "Wybrane projekty Buy & Bring Solutions — Private Label, technologie akumulatorowe, konsolidacja, maszyny przemysłowe i sourcing w Chinach.",
   },
   hero: {
-    eyebrow: "Realizacje i branże",
-    title: "Case studies — udane importy z Chin",
-    lead: "Wybrane projekty z różnych branż. Ze względu na poufność nie publikujemy danych klientów ani brandingów — pokazujemy zakres, proces i rezultaty.",
+    eyebrow: "Realizacje",
+    title: "Wybrane realizacje",
+    lead: "Przykłady projektów zrealizowanych dla naszych klientów. Ze względu na poufność pokazujemy zakres, proces i rezultaty, bez danych klientów.",
   },
   sections: [],
   cta: {

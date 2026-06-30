@@ -18,6 +18,8 @@ export function CookieConsent() {
 
   useEffect(() => {
     try {
+      // Read persisted consent on mount; intentional client-only init.
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       if (!localStorage.getItem(STORAGE_KEY)) setVisible(true);
     } catch {
       /* storage unavailable */

@@ -3,14 +3,14 @@ import type { DedicatedPageContent } from "./types";
 export const kontrolaJakosciPage: DedicatedPageContent = {
   id: "uslugi-kontrola-jakosci",
   meta: {
-    title: "Kontrola jakości — China Export",
+    title: "Kontrola jakości towarów",
     description:
-      "Inspekcje QC przed wysyłką z Chin — weryfikacja ilości, wymiarów, opakowania i testy funkcjonalne z raportem.",
+      "Organizujemy kontrolę jakości na podstawie uzgodnionej specyfikacji, checklisty i próbek referencyjnych — weryfikacja ilości, wymiarów, opakowania i testy funkcjonalne.",
   },
   hero: {
     eyebrow: "Przed produkcją",
-    title: "Kontrola jakości przed wysyłką",
-    lead: "Inspekcja towaru zanim opuści fabrykę — sprawdzamy zgodność ze specyfikacją, ilość, opakowanie i działanie. Płacisz dopiero, gdy wiesz, co wysyłasz.",
+    title: "Kontrola jakości towarów",
+    lead: "Organizujemy kontrolę jakości na podstawie uzgodnionej specyfikacji — sprawdzamy zgodność, ilość, opakowanie, oznakowanie i działanie. Zakres kontroli dobieramy do projektu.",
   },
   sections: [
     {
@@ -35,7 +35,7 @@ export const kontrolaJakosciPage: DedicatedPageContent = {
     },
     {
       title: "Harmonogram",
-      body: "Inspekcja PSI zwykle trwa 1 dzień. Raport otrzymujesz w ciągu 24 godzin od zakończenia — przed finalną płatnością producentowi.",
+      body: "Inspekcja przed wysyłką zwykle trwa jeden dzień, a raport otrzymujesz wkrótce po jej zakończeniu — zanim towar opuści fabrykę.",
     },
   ],
   cta: {

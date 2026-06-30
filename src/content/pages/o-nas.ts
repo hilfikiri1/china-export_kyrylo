@@ -3,43 +3,40 @@ import type { DedicatedPageContent } from "./types";
 export const oNasPage: DedicatedPageContent = {
   id: "o-nas",
   meta: {
-    title: "O nas — China Export",
+    title: "O nas — Buy & Bring Solutions",
     description:
-      "China Export łączy biuro w Warszawie z zespołem operacyjnym w Chinach. Import towarów, maszyn i materiałów do Polski i Europy.",
+      "Łączymy europejskie firmy z producentami w Chinach. Wyszukiwanie producentów, kontrola jakości i dostawy z Chin dla firm.",
   },
   hero: {
     eyebrow: "Kim jesteśmy",
-    title: "Most między rynkiem chińskim a Twoją firmą w Europie",
-    lead: "Od 2012 roku wspieramy importerów w Polsce, Niemczech i Czechach. Nie jesteśmy pośrednikiem z katalogu — jesteśmy operatorem, który bierze odpowiedzialność za każdy etap.",
+    title: "Łączymy europejskie firmy z producentami w Chinach",
+    lead: "Buy & Bring Solutions wspiera firmy w wyszukiwaniu producentów, organizacji produkcji, kontroli jakości i dostawach z Chin. Łączymy bezpośrednią pracę z chińskimi fabrykami z obsługą klientów w Europie i Ukrainie.",
   },
   sections: [
     {
-      title: "Warszawa i Chiny — jeden zespół",
-      body: "Biuro w Warszawie koordynuje projekty, komunikację i logistykę w Europie. W Chinach pracuje zespół ds. sourcingu, audytów, kontroli jakości i eksportu. Dzięki temu nie polegamy na przypadkowych agentach — mamy własną obecność na miejscu.",
-      bullets: [
-        "Siedziba operacyjna: Warszawa, Polska",
-        "Biura terenowe: Shenzhen, Yiwu, Ningbo",
-        "Komunikacja w języku polskim, angielskim i mandaryńskim",
-      ],
+      title: "Nasza misja",
+      body: "Naszym celem jest ograniczenie ryzyka, uporządkowanie komunikacji z producentem i przeprowadzenie klienta przez cały proces — od specyfikacji i wyboru fabryki po kontrolę, transport i dostawę. Zespół Buy & Bring Solutions posiada 17 lat doświadczenia we współpracy z Chinami, a nasze operacje w Chinach są koordynowane z Foshan w prowincji Guangdong.",
     },
     {
-      title: "Dlaczego klienci zostają z nami",
-      body: "Większość współprac zaczyna się od jednego modułu — np. audytu fabryki lub pierwszej wysyłki próbnej. Gdy widzą, jak pracujemy, powierzają kolejne etapy. Nie wiążemy umową długoterminową — zostajesz, bo proces działa.",
+      title: "Dlaczego firmy z nami pracują",
+      body: "Możesz powierzyć nam cały proces importu albo wesprzeć się tylko na wybranym etapie. Pracujemy elastycznie i dopasowujemy zakres do potrzeb projektu.",
       bullets: [
-        "Modułowa współpraca bez sztywnego pakietu",
-        "Weryfikacja dostawcy przed płatnością",
-        "Pełna dokumentacja zgodna z wymogami UE",
+        "Bezpośredni kontakt z producentami",
+        "Wsparcie zespołu na miejscu w Chinach",
+        "Komunikacja w kilku językach",
+        "Możliwość kompleksowej lub modułowej współpracy",
+        "Doświadczenie w maszynach, surowcach i produktach Private Label",
+        "Kontrola projektu od zapytania do wysyłki",
       ],
     },
   ],
   highlights: [
-    { label: "Lat doświadczenia", value: "12+" },
-    { label: "Wysyłek miesięcznie", value: "120+" },
-    { label: "Średnia ocena", value: "4,9" },
-    { label: "Zweryfikowanych opinii", value: "240+" },
+    { label: "Doświadczenia we współpracy z Chinami", value: "17 lat" },
+    { label: "Obsłużonych klientów", value: "275+" },
+    { label: "Dostarczonych kontenerów", value: "110+" },
   ],
   cta: {
-    primary: { label: "Poznaj nasz zespół w Chinach", href: "/zespol-w-chinach" },
-    secondary: { label: "Wyślij zapytanie", href: "/kontakt" },
+    primary: { label: "Działamy w Chinach", href: "/zespol-w-chinach" },
+    secondary: { label: "Opisz projekt", href: "/kontakt" },
   },
 };

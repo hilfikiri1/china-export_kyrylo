@@ -3,33 +3,33 @@ import type { DedicatedPageContent } from "./types";
 export const konsultacjaPage: DedicatedPageContent = {
   id: "konsultacja",
   meta: {
-    title: "Umów konsultację — China Export",
+    title: "Umów bezpłatną konsultację",
     description:
-      "Bezpłatna 30-minutowa konsultacja z specjalistą ds. importu z Chin — omówimy Twój projekt, ryzyka i rekomendowany plan.",
+      "Opisz krótko swój projekt importowy i wskaż dogodny termin kontaktu. Skontaktujemy się z Tobą, aby potwierdzić rozmowę.",
   },
   hero: {
-    eyebrow: "Narzędzia",
-    title: "Bezpłatna konsultacja 30 minut",
-    lead: "Porozmawiaj z naszym specjalistą ds. importu — bez zobowiązań. Omówimy produkt, ryzyka, harmonogram i rekomendowany zakres usług.",
+    eyebrow: "Konsultacja",
+    title: "Umów bezpłatną konsultację",
+    lead: "Opisz krótko swój projekt i wskaż dogodny termin kontaktu. Skontaktujemy się z Tobą, aby potwierdzić rozmowę.",
   },
   sections: [
     {
       title: "Jak wygląda rozmowa",
-      body: "Konsultacja trwa ok. 30 minut online (Zoom / Google Meet) lub telefonicznie. Przygotuj krótki opis produktu, planowany wolumen i to, na czym najbardziej zależy Ci w imporcie.",
+      body: "Konsultacja odbywa się online lub telefonicznie. Przygotuj krótki opis produktu, planowaną ilość i to, na czym najbardziej zależy Ci w imporcie.",
       bullets: [
-        "Analiza produktu i wymagań rynku UE",
-        "Ocena ryzyk (dostawca, certyfikaty, logistyka)",
-        "Rekomendacja modułów i orientacyjny harmonogram",
+        "Analiza produktu i wymagań rynku docelowego",
+        "Ocena ryzyk (producent, dokumentacja, logistyka)",
+        "Rekomendacja zakresu i orientacyjny harmonogram",
         "Odpowiedzi na pytania o proces i koszty",
       ],
     },
     {
       title: "Z kim rozmawiasz",
-      body: "Konsultacje prowadzą doświadczeni koordynatorzy projektów z biura w Warszawie — osoby, które na co dzień nadzorują importy w różnych branżach.",
+      body: "Konsultacje prowadzą doświadczeni koordynatorzy projektów Buy & Bring Solutions — osoby, które na co dzień nadzorują importy w różnych branżach.",
     },
   ],
   cta: {
-    primary: { label: "Wyślij zapytanie", href: "/kontakt" },
-    secondary: { label: "Zobacz proces importu", href: "/proces" },
+    primary: { label: "Poproś o kontakt", href: "/kontakt" },
+    secondary: { label: "Jak pracujemy", href: "/proces" },
   },
 };

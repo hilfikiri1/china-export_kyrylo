@@ -32,6 +32,7 @@ export function ServiceLeadModal({
 
   useEffect(() => {
     if (!open) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setSubmitted(false);
     }
   }, [open]);

@@ -7,11 +7,13 @@ import { ServiceLeadModal } from "@/components/services/ServiceLeadModal";
 import { ServicesBackground } from "@/components/services/ServicesBackground";
 import { ServicesPhaseTabs } from "@/components/services/ServicesPhaseTabs";
 import { useMotionConfig, viewportOnce } from "@/lib/motion";
+import { useT } from "@/i18n/LocaleProvider";
 
 export function ServicesSection({ embedded = false }: { embedded?: boolean }) {
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedServiceId, setSelectedServiceId] = useState<string | null>(null);
   const { fadeUp, headerTransition } = useMotionConfig();
+  const t = useT();
 
   function handleRequestHelp(serviceId: string) {
     setSelectedServiceId(serviceId);
@@ -46,18 +48,16 @@ export function ServicesSection({ embedded = false }: { embedded?: boolean }) {
                 transition={headerTransition}
               >
                 <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-accent-light">
-                  Usługi modułowe
+                  {t("nav.uslugiAll")}
                 </p>
                 <h2
                   id="services-heading"
                   className="text-2xl font-bold text-white sm:text-3xl lg:text-4xl"
                 >
-                  Każdy etap — jako osobna usługa
+                  {t("sections.servicesHeading")}
                 </h2>
                 <p className="mt-4 text-base leading-relaxed text-white/80 sm:text-lg">
-                  Każdy etap w mapie współpracy działa też jako samodzielny moduł.
-                  Kupujesz dokładnie to, czego potrzebujesz — bez obowiązku wykupu
-                  pełnego pakietu end-to-end.
+                  {t("sections.servicesLead")}
                 </p>
               </motion.div>
             )}

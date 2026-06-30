@@ -19,14 +19,14 @@ export type KonsultacjaTopicOption = {
 export const konsultacjaLayout = {
   meta: konsultacjaPage.meta,
   hero: {
-    badge: "Bezpłatna · 30 min",
-    titleLead: "Umów konsultację",
-    titleAccent: "bez zobowiązań",
+    badge: "Bezpłatna konsultacja",
+    titleLead: "Umów bezpłatną",
+    titleAccent: "konsultację",
     lead: konsultacjaPage.hero.lead,
     stats: [
-      { value: "30 min", label: "Czas rozmowy" },
-      { value: "Online", label: "Zoom / Meet / telefon" },
+      { value: "Online", label: "Lub telefonicznie" },
       { value: "0 zł", label: "Bez opłat wstępnych" },
+      { value: "Bez zobowiązań", label: "Niezobowiązująca rozmowa" },
     ] satisfies KonsultacjaStat[],
   },
   agenda: {
@@ -62,31 +62,31 @@ export const konsultacjaLayout = {
     },
   },
   form: {
-    title: "Zarezerwuj termin",
+    title: "Poproś o kontakt",
     description:
-      "Podaj dane kontaktowe i temat rozmowy — odezwiemy się, aby ustalić dogodny termin.",
+      "Podaj dane kontaktowe i temat rozmowy oraz dogodny termin — odezwiemy się, aby potwierdzić rozmowę.",
     topicLabel: "Temat konsultacji",
     topicOptions: [
-      { value: "sourcing", label: "Wyszukiwanie dostawcy" },
-      { value: "audit", label: "Audyt fabryki" },
+      { value: "sourcing", label: "Wyszukiwanie producenta" },
+      { value: "verification", label: "Weryfikacja lub audyt fabryki" },
       { value: "qc", label: "Kontrola jakości" },
-      { value: "logistics", label: "Logistyka i transport" },
-      { value: "full", label: "Pełny proces importu" },
+      { value: "logistics", label: "Transport i odprawa" },
+      { value: "full", label: "Kompleksowa obsługa importu" },
     ] satisfies KonsultacjaTopicOption[],
     notesLabel: "Krótki opis (opcjonalnie)",
     notesPlaceholder: "Czego dotyczy projekt?",
-    submitLabel: "Umów konsultację",
+    submitLabel: "Poproś o kontakt",
     footnote: "Wolisz napisać zamiast rozmawiać?",
-    footnoteLink: { label: "Wyślij zapytanie", href: "/kontakt" },
+    footnoteLink: { label: "Opisz projekt", href: "/kontakt" },
     success: {
-      title: "Dziękujemy — termin w drodze",
+      title: "Dziękujemy — odezwiemy się wkrótce",
       description:
-        "Otrzymaliśmy zgłoszenie. Skontaktujemy się w ciągu 24 godzin roboczych, aby ustalić termin konsultacji.",
+        "Otrzymaliśmy zgłoszenie. Skontaktujemy się z Tobą, aby potwierdzić termin rozmowy.",
     },
   },
   footerCta: {
-    label: "Zobacz proces importu",
+    label: "Jak pracujemy",
     href: "/proces",
-    hint: "Poznaj pełną ścieżkę współpracy — od briefu po dostawę door-to-door.",
+    hint: "Poznaj pełną ścieżkę współpracy — od briefu po transport, odprawę i dostawę.",
   },
 } as const;

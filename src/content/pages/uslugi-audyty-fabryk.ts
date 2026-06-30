@@ -3,14 +3,14 @@ import type { DedicatedPageContent } from "./types";
 export const audytyFabrykPage: DedicatedPageContent = {
   id: "uslugi-audyty-fabryk",
   meta: {
-    title: "Audyty fabryk — China Export",
+    title: "Weryfikacja dostawców i audyty fabryk",
     description:
-      "Weryfikacja dostawców i audyty fabryk w Chinach — wizyta na miejscu, ocena mocy produkcyjnych i raport z rekomendacją.",
+      "Sprawdzamy dane rejestrowe, możliwości produkcyjne i dokumentację producenta. Weryfikacja zdalna, wideoweryfikacja na żywo lub audyt fabryki na miejscu.",
   },
   hero: {
     eyebrow: "Przed produkcją",
-    title: "Audyty fabryk i weryfikacja dostawców",
-    lead: "Sprawdzamy producenta zanim zlecisz produkcję — prawnie, operacyjnie i jakościowo. Fizyczna wizyta w fabryce to standard, nie opcja.",
+    title: "Weryfikacja dostawców i audyty fabryk",
+    lead: "Sprawdzamy producenta przed zleceniem produkcji — dane rejestrowe, możliwości produkcyjne i dokumentację. Zakres weryfikacji dobieramy do projektu: zdalnie, wideo lub na miejscu.",
   },
   featuredSteps: {
     sectionTitle: "Jak przebiega audyt",

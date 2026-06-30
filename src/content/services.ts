@@ -62,9 +62,9 @@ export const servicePhases: ServicePhase[] = [
 export const serviceModules: ServiceModule[] = [
   {
     id: "sourcing",
-    title: "Sourcing i negocjacje",
+    title: "Wyszukiwanie producentów i organizacja zakupu",
     scope:
-      "Identyfikacja fabryk, zbieranie i porównywanie ofert oraz negocjacja warunków handlowych.",
+      "Wyszukujemy producentów, zbieramy i porównujemy oferty, analizujemy MOQ, terminy, konfiguracje oraz warunki płatności i dostawy.",
     icon: Search,
     phase: "pre-production",
     roadmapStageId: "sourcing",
@@ -72,9 +72,9 @@ export const serviceModules: ServiceModule[] = [
   },
   {
     id: "verification",
-    title: "Weryfikacja dostawców i audyty",
+    title: "Weryfikacja dostawców i audyty fabryk",
     scope:
-      "Sprawdzenie prawne, weryfikacje wideo na żywo, przegląd dokumentów, ocena mocy produkcyjnych oraz fizyczne wizyty w fabryce.",
+      "Sprawdzamy dane rejestrowe, zakres działalności, możliwości produkcyjne, dokumentację i zgodność fabryki z wymaganiami projektu.",
     icon: ShieldCheck,
     phase: "pre-production",
     roadmapStageId: "audit",
@@ -82,9 +82,9 @@ export const serviceModules: ServiceModule[] = [
   },
   {
     id: "qc",
-    title: "Kontrola jakości (QC)",
+    title: "Kontrola jakości towarów",
     scope:
-      "Inspekcja towaru, weryfikacja ilości i komponentów, pomiary wymiarowe, ocena opakowania oraz testy funkcjonalne.",
+      "Organizujemy kontrolę jakości na podstawie uzgodnionej specyfikacji, checklisty, próbek referencyjnych i wymagań klienta.",
     icon: ClipboardCheck,
     phase: "pre-production",
     roadmapStageId: "production",
@@ -92,34 +92,34 @@ export const serviceModules: ServiceModule[] = [
   },
   {
     id: "oem",
-    title: "OEM / Private Label",
+    title: "Produkcja pod marką własną — Private Label i OEM",
     scope:
-      "Opakowania na zamówienie, etykietowanie, umieszczenie logo, tłumaczenie lub tworzenie instrukcji oraz adaptacja produktu pod normy europejskie.",
+      "Pomagamy dostosować produkt, logo, opakowanie, etykiety i instrukcję do wymagań marki oraz rynku docelowego.",
     icon: Tag,
     phase: "pre-production",
   },
   {
     id: "payment-export",
-    title: "Płatności i zarządzanie eksportem",
+    title: "Koordynacja płatności i eksportu z Chin",
     scope:
-      "Bezpieczne, zgodne struktury płatności oraz obsługa dokumentacji eksportowej po stronie chińskiej.",
+      "Koordynujemy dokumentację handlową i eksportową oraz uzgodniony model współpracy z producentem.",
     icon: FileText,
     phase: "logistics",
     roadmapStageId: "export",
   },
   {
     id: "consolidation",
-    title: "Konsolidacja ładunków",
+    title: "Konsolidacja towarów od wielu producentów",
     scope:
-      "Odbiór towarów z wielu fabryk, magazynowanie, łączenie przesyłek w jeden kontener i przeopakowanie.",
+      "Organizujemy odbiór towarów z kilku fabryk, magazynowanie, kontrolę kompletności, przeładunek i przygotowanie wspólnej wysyłki.",
     icon: Package,
     phase: "logistics",
   },
   {
     id: "freight",
-    title: "Spedycja i transport",
+    title: "Transport, odprawa celna i dostawa",
     scope:
-      "Optymalizacja trasy, rezerwacja frachtu, transport multimodalny oraz śledzenie ładunku w czasie rzeczywistym.",
+      "Dobieramy sposób transportu, koordynujemy fracht, dokumentację, odprawę celną oraz dostawę końcową.",
     icon: Ship,
     phase: "logistics",
     roadmapStageId: "freight",
@@ -127,17 +127,17 @@ export const serviceModules: ServiceModule[] = [
   },
   {
     id: "customs",
-    title: "Wsparcie odprawy celnej",
+    title: "Wsparcie celne i klasyfikacja HS",
     scope:
-      "Przygotowanie zgodnej dokumentacji taryfowej, klasyfikacja kodów HS oraz koordynacja z brokerami celnymi.",
+      "Przygotowanie dokumentacji taryfowej, klasyfikacja kodów HS oraz koordynacja z brokerami celnymi.",
     icon: Stamp,
     phase: "delivery",
   },
   {
     id: "delivery",
-    title: "Dostawa door-to-door",
+    title: "Dostawa pod wskazany adres",
     scope:
-      "Logistyka last mile — dostawa ładunku prosto pod wskazany adres w Polsce lub Europie.",
+      "Dostawa ładunku pod wskazany adres w Polsce, Ukrainie lub innym kraju europejskim.",
     icon: Truck,
     phase: "delivery",
     roadmapStageId: "delivery",

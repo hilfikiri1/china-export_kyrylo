@@ -53,12 +53,12 @@ export const heroMapCountries: HeroMapCountry[] = [
     name: "Chiny",
     role: "Kraj źródłowy",
     description:
-      "Centrum sourcingu i produkcji. Lokalny podmiot, audyty fabryk i kontrola jakości przed wysyłką.",
-    hubs: ["Shenzhen", "Ningbo", "Shanghai", "Guangzhou"],
+      "Centrum sourcingu i produkcji. Wsparcie operacyjne na miejscu, weryfikacja producentów i kontrola jakości przed wysyłką.",
+    hubs: ["Foshan", "Guangzhou", "Shenzhen", "Ningbo"],
     metrics: [
-      { label: "Czas audytu fabryki", value: "3–5 dni" },
-      { label: "Aktywne linie produktowe", value: "120+" },
-      { label: "Zespół on-site", value: "Stały" },
+      { label: "Baza operacyjna", value: "Foshan, Guangdong" },
+      { label: "Zakres", value: "Sourcing i kontrola jakości" },
+      { label: "Eksport", value: "Organizacja i dokumentacja" },
     ],
   },
   {
@@ -69,11 +69,11 @@ export const heroMapCountries: HeroMapCountry[] = [
     name: "Polska",
     role: "Główny kierunek dostaw",
     description:
-      "Door-to-door do magazynu lub hali produkcyjnej. Odprawa celna i last mile w UE.",
-    hubs: ["Gdańsk", "Gdynia", "Warszawa", "Wrocław"],
+      "Dostawa do magazynu lub hali produkcyjnej. Odprawa celna i dostawa końcowa w UE.",
+    hubs: ["Gdańsk", "Gdynia", "Wrocław"],
     metrics: [
-      { label: "Wolumen kolejowy", value: "100 000 TEU / rok" },
-      { label: "Średni czas dostawy", value: "14–18 dni" },
+      { label: "Dostawa", value: "Pod wskazany adres" },
+      { label: "Czas tranzytu (kolej)", value: "14–18 dni" },
       { label: "Obsługa celna", value: "Pełna" },
     ],
   },
@@ -88,8 +88,8 @@ export const heroMapCountries: HeroMapCountry[] = [
       "Tranzyt i konsolidacja ładunków dla klientów w Europie Zachodniej z dostawą door-to-door.",
     hubs: ["Hamburg", "Frankfurt", "Monachium", "Berlin"],
     metrics: [
-      { label: "Wolumen kolejowy", value: "85 000 TEU / rok" },
-      { label: "Czas tranzytu", value: "16–20 dni" },
+      { label: "Dostawa", value: "Door-to-door" },
+      { label: "Czas tranzytu (kolej)", value: "16–20 dni" },
       { label: "Obsługa FCL / LCL", value: "Tak" },
     ],
   },
@@ -104,9 +104,9 @@ export const heroMapCountries: HeroMapCountry[] = [
       "Dostawy B2B dla producentów i dystrybutorów w Czechach z pełną obsługą importu.",
     hubs: ["Praga", "Brno", "Ostrawa"],
     metrics: [
-      { label: "Wolumen kolejowy", value: "55 000 TEU / rok" },
-      { label: "Średni czas dostawy", value: "15–19 dni" },
-      { label: "Last mile", value: "Door-to-door" },
+      { label: "Dostawa", value: "Pod wskazany adres" },
+      { label: "Czas tranzytu (kolej)", value: "15–19 dni" },
+      { label: "Obsługa FCL / LCL", value: "Tak" },
     ],
   },
   {
@@ -120,9 +120,9 @@ export const heroMapCountries: HeroMapCountry[] = [
       "Import towarów i komponentów B2B z obsługą tranzytu lądowego i lotniczego do magazynów klienta.",
     hubs: ["Kijów", "Lwów", "Odessa"],
     metrics: [
-      { label: "Wolumen kolejowy", value: "40 000 TEU / rok" },
-      { label: "Średni czas dostawy", value: "16–22 dni" },
-      { label: "Tryb multimodalny", value: "Kolej + lotniczy" },
+      { label: "Dostawa", value: "Do magazynu klienta" },
+      { label: "Tryb", value: "Kolej + lotniczy" },
+      { label: "Czas tranzytu", value: "16–22 dni" },
     ],
   },
 ];
@@ -135,7 +135,7 @@ export const heroFlowRoutes: HeroFlowRoute[] = [
     mode: "rail",
     label: "Kolej: Chiny → Polska",
     volume: 100,
-    volumeLabel: "100 000 TEU / rok",
+    volumeLabel: "Połączenie kolejowe",
     transitDays: "14–18 dni",
     waypoints: [...CORRIDOR_TO_MINSK, [21, 52]],
   },
@@ -146,7 +146,7 @@ export const heroFlowRoutes: HeroFlowRoute[] = [
     mode: "rail",
     label: "Kolej: Chiny → Niemcy",
     volume: 85,
-    volumeLabel: "85 000 TEU / rok",
+    volumeLabel: "Połączenie kolejowe",
     transitDays: "16–20 dni",
     waypoints: [...CORRIDOR_TO_MINSK, [21, 52], [13.4, 52.5]],
   },
@@ -157,7 +157,7 @@ export const heroFlowRoutes: HeroFlowRoute[] = [
     mode: "rail",
     label: "Kolej: Chiny → Czechy",
     volume: 55,
-    volumeLabel: "55 000 TEU / rok",
+    volumeLabel: "Połączenie kolejowe",
     transitDays: "15–19 dni",
     waypoints: [...CORRIDOR_TO_MINSK, [21, 52], [14.4, 50.1]],
   },
@@ -168,7 +168,7 @@ export const heroFlowRoutes: HeroFlowRoute[] = [
     mode: "rail",
     label: "Kolej: Chiny → Ukraina",
     volume: 40,
-    volumeLabel: "40 000 TEU / rok",
+    volumeLabel: "Połączenie kolejowe",
     transitDays: "16–22 dni",
     waypoints: [
       [116, 34],
@@ -186,7 +186,7 @@ export const heroFlowRoutes: HeroFlowRoute[] = [
     mode: "air",
     label: "Lotniczy: Chiny → Polska",
     volume: 22,
-    volumeLabel: "22 000 t / rok",
+    volumeLabel: "Fracht lotniczy",
     transitDays: "3–5 dni",
     waypoints: [
       [121.5, 31.2],
@@ -201,7 +201,7 @@ export const heroFlowRoutes: HeroFlowRoute[] = [
     mode: "air",
     label: "Lotniczy: Chiny → Niemcy",
     volume: 20,
-    volumeLabel: "20 000 t / rok",
+    volumeLabel: "Fracht lotniczy",
     transitDays: "3–5 dni",
     waypoints: [
       [121.5, 31.2],
@@ -216,7 +216,7 @@ export const heroFlowRoutes: HeroFlowRoute[] = [
     mode: "air",
     label: "Lotniczy: Chiny → Czechy",
     volume: 15,
-    volumeLabel: "15 000 t / rok",
+    volumeLabel: "Fracht lotniczy",
     transitDays: "3–5 dni",
     waypoints: [
       [113, 22.5],
@@ -231,7 +231,7 @@ export const heroFlowRoutes: HeroFlowRoute[] = [
     mode: "air",
     label: "Lotniczy: Chiny → Ukraina",
     volume: 18,
-    volumeLabel: "18 000 t / rok",
+    volumeLabel: "Fracht lotniczy",
     transitDays: "4–6 dni",
     waypoints: [
       [121.5, 31.2],

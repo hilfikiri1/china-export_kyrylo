@@ -1,4 +1,5 @@
 import { kontaktPage } from "@/content/pages/kontakt";
+import { contactEmail, phones } from "@/config/contacts";
 
 export type KontaktHighlight = {
   value: string;
@@ -26,33 +27,40 @@ export const kontaktLayout = {
     bullets: kontaktPage.sections[0]?.bullets ?? [],
   },
   highlights: [
-    { value: "24h", label: "Odpowiedź robocza" },
-    { value: "PL + CN", label: "Zespół w Polsce i Chinach" },
+    { value: "Foshan", label: "Operacje na miejscu w Chinach" },
+    { value: "PL · UA · CN", label: "Wsparcie w Europie i Chinach" },
     { value: "Moduły", label: "Elastyczny zakres usług" },
   ] satisfies KontaktHighlight[],
   channels: [
     {
       id: "email",
       label: "E-mail",
-      value: "kontakt@china-export.pl",
-      href: "mailto:kontakt@china-export.pl",
+      value: contactEmail,
+      href: `mailto:${contactEmail}`,
     },
     {
-      id: "phone",
-      label: "Telefon",
-      value: "+48 000 000 000",
-      href: "tel:+48000000000",
+      id: "phone-pl",
+      label: "Telefon (Polska)",
+      value: phones.pl.display,
+      href: `tel:${phones.pl.tel}`,
     },
     {
-      id: "office",
-      label: "Biuro",
-      value: "Warszawa, Polska",
+      id: "phone-ua",
+      label: "Telefon (Ukraina)",
+      value: phones.ua.display,
+      href: `tel:${phones.ua.tel}`,
+    },
+    {
+      id: "phone-cn",
+      label: "Telefon (Chiny)",
+      value: phones.cn.display,
+      href: `tel:${phones.cn.tel}`,
     },
   ] satisfies KontaktChannel[],
   consultationLink: {
     label: "Wolisz konsultację?",
     href: "/konsultacja",
-    hint: "Umów bezpłatną 30-minutową rozmowę online",
+    hint: "Umów bezpłatną rozmowę online — opisz projekt i wskaż dogodny termin.",
   },
   form: {
     title: "Wyślij zapytanie",

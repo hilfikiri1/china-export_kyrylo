@@ -3,14 +3,14 @@ import type { DedicatedPageContent } from "./types";
 export const spedycjaILogistykaPage: DedicatedPageContent = {
   id: "uslugi-spedycja-i-logistyka",
   meta: {
-    title: "Spedycja i logistyka — China Export",
+    title: "Transport, odprawa celna i dostawa",
     description:
-      "Spedycja i transport z Chin — fracht morski i lotniczy, konsolidacja ładunków, śledzenie i optymalizacja trasy.",
+      "Dobieramy sposób transportu, koordynujemy fracht, dokumentację, odprawę celną oraz dostawę końcową — morską, kolejową, lotniczą, drogową i multimodalną.",
   },
   hero: {
     eyebrow: "Logistyka",
-    title: "Spedycja i transport z Chin do Europy",
-    lead: "Rezerwujemy fracht, optymalizujemy trasę i śledzimy ładunek w czasie rzeczywistym — morskim, lotniczym i multimodalnym.",
+    title: "Transport, odprawa celna i dostawa",
+    lead: "Dobieramy sposób transportu, koordynujemy fracht i dokumentację oraz organizujemy odprawę celną i dostawę końcową — morską, kolejową, lotniczą, drogową i multimodalną.",
   },
   sections: [
     {
@@ -30,12 +30,12 @@ export const spedycjaILogistykaPage: DedicatedPageContent = {
         "Odbiór z fabryki i transport do portu / lotniska",
         "Konsolidacja ładunków z wielu dostawców",
         "Rezerwacja frachtu i dokumentacja B/L / AWB",
-        "Tracking ładunku i alerty o opóźnieniach",
+        "Aktualizacje statusu ładunku na każdym etapie",
       ],
     },
     {
       title: "Typowy czas tranzytu",
-      body: "Morski FCL Shenzhen–Gdańsk: 28–35 dni. Lotniczy: 5–8 dni. Dokładny czas zależy od portu załadunku, sezonu i wybranego przewoźnika.",
+      body: "Morski FCL z Chin do Polski: zwykle 28–35 dni. Lotniczy: 5–8 dni. Dokładny czas zależy od portu załadunku, sezonu i wybranego przewoźnika.",
     },
   ],
   cta: {
