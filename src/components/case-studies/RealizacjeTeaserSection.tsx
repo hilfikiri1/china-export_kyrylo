@@ -9,10 +9,14 @@ import { LogisticsBackdrop } from "@/components/backgrounds/LogisticsBackdrop";
 import { SectionEdgeFade } from "@/components/backgrounds/SectionEdgeFade";
 import { realizacjeTeaser } from "@/content/realizacje-teaser";
 import { useMotionConfig, viewportOnce } from "@/lib/motion";
+import { useLocale, useT } from "@/i18n/LocaleProvider";
+import { localeHref } from "@/i18n/routing";
 
 export function RealizacjeTeaserSection() {
   const [imageError, setImageError] = useState(false);
   const { fadeUp, headerTransition } = useMotionConfig();
+  const t = useT();
+  const locale = useLocale();
   const content = realizacjeTeaser;
 
   return (
@@ -34,16 +38,16 @@ export function RealizacjeTeaserSection() {
             transition={headerTransition}
           >
             <p className="mb-2 text-xs font-semibold tracking-widest text-accent-light uppercase">
-              {content.eyebrow}
+              {t("nav.realizacje")}
             </p>
             <h2
               id="realizacje-teaser-heading"
               className="text-2xl font-bold text-white sm:text-3xl lg:text-4xl"
             >
-              {content.title}
+              {t("sections.casesHeading")}
             </h2>
             <p className="mt-4 text-base leading-relaxed text-white/70 sm:text-lg">
-              {content.lead}
+              {t("sections.casesLead")}
             </p>
 
             <div className="mt-8 grid grid-cols-3 gap-3">
@@ -78,10 +82,10 @@ export function RealizacjeTeaserSection() {
             </ul>
 
             <Link
-              href={content.cta.href}
+              href={localeHref(locale, content.cta.href)}
               className="mt-10 inline-flex items-center gap-2 rounded-lg border border-accent-light/20 bg-accent-light px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-accent-light/25 transition-colors duration-200 hover:bg-[#dbaa47] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-light focus-visible:ring-offset-2 focus-visible:ring-offset-navy"
             >
-              {content.cta.label}
+              {t("nav.realizacje")}
               <ArrowRight className="h-4 w-4" aria-hidden />
             </Link>
           </motion.div>

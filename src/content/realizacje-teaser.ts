@@ -1,7 +1,5 @@
-import {
-  caseStudies,
-  caseStudyCategories,
-} from "@/content/case-studies";
+import { caseStudies, caseStudyCategories } from "@/content/case-studies";
+import { companyStatValues } from "@/config/company";
 
 export type RealizacjeTeaserContent = {
   eyebrow: string;
@@ -14,40 +12,26 @@ export type RealizacjeTeaserContent = {
   cta: { label: string; href: string };
 };
 
-const destinationCountries = new Set(
-  caseStudies.map((study) => study.destinationCountry),
-);
-
 export const realizacjeTeaser: RealizacjeTeaserContent = {
-  eyebrow: "Realizacje i branże",
-  title: "Importy z Chin — od maszyn po produkty na zamówienie",
-  lead: "Obsługujemy projekty B2B w wielu branżach. Ze względu na NDA nie publikujemy nazw klientów — na stronie Realizacje znajdziesz case studies z zakresem, procesem i rezultatami.",
+  eyebrow: "Realizacje",
+  title: "Wybrane realizacje — od Private Label po maszyny przemysłowe",
+  lead: "Realizujemy projekty B2B w wielu obszarach. Ze względu na poufność pokazujemy zakres, proces i rezultaty, bez danych klientów.",
   highlights: [
-    {
-      value: String(caseStudies.length),
-      label: "Projektów w portfolio",
-    },
-    {
-      value: String(caseStudyCategories.length),
-      label: "Branż wspieranych",
-    },
-    {
-      value: `${destinationCountries.size}+`,
-      label: "Krajów docelowych",
-    },
+    { value: String(caseStudies.length), label: "Wybranych realizacji" },
+    { value: String(caseStudyCategories.length), label: "Obszarów współpracy" },
+    { value: `${companyStatValues.experience} lat`, label: "Doświadczenia z Chinami" },
   ],
   bullets: [
-    "Laser i przemysł — maszyny CNC, spawalnictwo, automatyka",
-    "Maszyny budowlane — minikoparki, osprzęt ciężki, kompresory",
-    "Pojazdy elektryczne — rowery, motorowery, pojazdy użytkowe",
-    "Gastronomia i naczynia — wyposażenie HORECA, stal nierdzewna",
-    "Opakowania i surowce — folie, tworzywa, konsolidacja dostaw",
-    "Projekty niestandardowe — komponenty, części zamienne, OEM",
+    "Private Label — produkcja pod marką własną klienta",
+    "Technologie akumulatorowe — pakiety i systemy BMS",
+    "Logistyka i konsolidacja — wysyłki od wielu producentów",
+    "Maszyny przemysłowe — dobór, weryfikacja i dostawa",
+    "Sourcing w Chinach — wyszukiwanie producentów i targi",
   ],
   image: "/image/plane_shipment.jpg",
   imageAlt: "Kontenery cargo — logistyka i realizacje importu z Chin",
   cta: {
-    label: "Zobacz case studies",
+    label: "Zobacz realizacje",
     href: "/realizacje",
   },
 };
