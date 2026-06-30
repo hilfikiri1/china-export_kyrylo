@@ -6,6 +6,7 @@ import type { KontaktChannel } from "@/content/kontakt-layout";
 import { kontaktLayout } from "@/content/kontakt-layout";
 import { useLocale, useT } from "@/i18n/LocaleProvider";
 import { localeHref } from "@/i18n/routing";
+import { RegionalContactPerson } from "@/components/team/RegionalContactPerson";
 
 function ContactChannelCard({ channel }: { channel: KontaktChannel }) {
   const Icon = channel.id.startsWith("phone") ? Phone : Mail;
@@ -97,6 +98,8 @@ export function KontaktSidebar() {
           </div>
         ))}
       </div>
+
+      <RegionalContactPerson />
 
       <div className="space-y-3">
         {channels.map((channel) => (

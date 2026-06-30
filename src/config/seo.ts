@@ -15,7 +15,11 @@ export const siteUrl = (
 
 export const seo = {
   siteName: company.name,
-  /** Default social share image stored locally in /public. */
-  ogImage: "/brand/og-image.png",
+  /**
+   * Default social share image (1200×630).
+   * TODO (owner): replace with a branded /brand/og-image.png. Using an existing
+   * photo as a temporary placeholder so social cards are not broken.
+   */
+  ogImage: "/image/cargo_conteiners.jpg",
   twitterCard: "summary_large_image" as const,
 };
