@@ -1,6 +1,6 @@
 import {
   Building2,
-  Eye,
+  FlaskConical,
   MapPin,
   ShieldCheck,
   Truck,
@@ -16,38 +16,38 @@ export type TrustFactor = {
 
 export const trustFactors: TrustFactor[] = [
   {
-    id: "local-entity",
-    icon: Building2,
-    label: "Podmiot lokalny w Chinach",
-    description:
-      "Zarejestrowana firma działająca lokalnie — legalne faktury i umowy.",
-  },
-  {
-    id: "on-ground",
+    id: "local-china",
     icon: MapPin,
-    label: "Obecność na miejscu",
+    label: "Działamy na miejscu w Chinach",
     description:
-      "Fizyczny zespół w Chinach z możliwością bezpośrednich wizyt w fabrykach.",
+      "Nasz zespół operacyjny w Foshan kontaktuje się z producentami, koordynuje zamówienia oraz organizuje kontrole i wysyłki.",
   },
   {
-    id: "pre-audit",
-    icon: Eye,
-    label: "Audyty przed produkcją",
+    id: "verification",
+    icon: Building2,
+    label: "Weryfikujemy producentów",
     description:
-      "Weryfikacja producenta przed jakąkolwiek płatnością lub startem produkcji.",
+      "Sprawdzamy dane firmy, możliwości produkcyjne, dokumentację oraz zgodność oferty z wymaganiami projektu.",
   },
   {
-    id: "qa",
+    id: "quality",
     icon: ShieldCheck,
-    label: "Kontrola jakości",
+    label: "Kontrolujemy towar przed wysyłką",
     description:
-      "Ścisłe inspekcje QA przed ostateczną płatnością i wysyłką towaru.",
+      "W zależności od projektu organizujemy kontrolę przedprodukcyjną, kontrolę w trakcie produkcji lub inspekcję przed wysyłką.",
   },
   {
-    id: "e2e",
+    id: "logistics",
     icon: Truck,
-    label: "Logistyka end-to-end",
+    label: "Organizujemy dostawę od fabryki do magazynu",
     description:
-      "Kompletny spedycja i obsługa frachtu prosto pod wskazany adres klienta.",
+      "Koordynujemy eksport, transport morski, kolejowy, lotniczy lub drogowy, odprawę celną i dostawę końcową.",
+  },
+  {
+    id: "flexible",
+    icon: FlaskConical,
+    label: "Pełny proces lub wybrana usługa",
+    description:
+      "Możesz zlecić nam kompleksową obsługę albo tylko wyszukanie producenta, kontrolę jakości, konsolidację lub transport.",
   },
 ];

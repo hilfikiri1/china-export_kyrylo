@@ -50,7 +50,7 @@ export function RealizacjePageSection({
   const selectedCase = selectedId ? getCaseStudyById(selectedId) : null;
 
   const activeCategoryHint = useMemo(
-    () => caseStudyCategories.find((c) => c.id === activeFilter)?.examples,
+    () => caseStudyCategories.find((c) => c.id === activeFilter)?.description,
     [activeFilter],
   );
 

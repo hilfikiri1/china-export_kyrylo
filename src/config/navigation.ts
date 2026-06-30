@@ -10,10 +10,10 @@ export const navGroups: NavGroup[] = [
   {
     label: "Firma",
     items: [
-      { href: "/proces", label: "Proces" },
+      { href: "/proces", label: "Jak pracujemy" },
       { href: "/o-nas", label: "O nas" },
       { href: "/realizacje", label: "Realizacje" },
-      { href: "/zespol-w-chinach", label: "My w Chinach" },
+      { href: "/zespol-w-chinach", label: "Działamy w Chinach" },
     ],
   },
   {
@@ -22,12 +22,12 @@ export const navGroups: NavGroup[] = [
       { href: "/uslugi", label: "Usługi modułowe" },
       {
         href: "/uslugi/wyszukiwanie-dostawcow",
-        label: "Wyszukiwanie dostawców",
+        label: "Wyszukiwanie producentów",
         serviceId: "sourcing",
       },
       {
         href: "/uslugi/audyty-fabryk",
-        label: "Audyty fabryk",
+        label: "Weryfikacja i audyty fabryk",
         serviceId: "verification",
       },
       {
@@ -37,7 +37,7 @@ export const navGroups: NavGroup[] = [
       },
       {
         href: "/uslugi/spedycja-i-logistyka",
-        label: "Spedycja i logistyka",
+        label: "Transport i odprawa celna",
         serviceId: "freight",
       },
     ],
@@ -52,4 +52,4 @@ export const navGroups: NavGroup[] = [
   },
 ];
 
-export const ctaLink = { href: "/kontakt", label: "Wyślij zapytanie" };
+export const ctaLink = { href: "/kontakt", label: "Opisz projekt" };

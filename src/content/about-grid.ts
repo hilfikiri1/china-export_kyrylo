@@ -7,17 +7,17 @@ export type AboutGridPanel = {
 };
 
 export const aboutGridSectionCta = {
-  label: "Poznaj nasz zespół w Chinach",
+  label: "Działamy na miejscu w Chinach",
   href: "/zespol-w-chinach",
 } as const;
 
 export const aboutGridHero: AboutGridPanel = {
   id: "team-china",
-  title: "Zespół w Chinach",
+  title: "Wsparcie operacyjne w Foshan",
   description:
-    "Lokalny zespół na miejscu — od weryfikacji dostawców po koordynację produkcji i wysyłki.",
+    "Nasz zespół w Foshan koordynuje kontakt z producentami, organizację inspekcji i przygotowanie wysyłek.",
   image: "/image/china_office.jpg",
-  imageAlt: "Biuro i zespół China Export w Chinach",
+  imageAlt: "Operacje Buy & Bring Solutions w Foshan, Chiny",
 };
 
 export function getAboutPanelById(id: string): AboutGridPanel | undefined {
@@ -38,16 +38,16 @@ export const aboutGridRow: AboutGridPanel[] = [
     id: "quality-control",
     title: "Kontrola jakości i dokumentacja",
     description:
-      "Inspekcje QA, raporty z kontroli, certyfikaty i pełna dokumentacja zgodna z wymogami importu do UE.",
+      "Organizujemy inspekcje towaru przed wysyłką, zbieramy dokumentację i weryfikujemy zgodność z uzgodnioną specyfikacją.",
     image: "/image/quality_control.jpg",
     imageAlt: "Kontrola jakości towarów przed wysyłką z Chin",
   },
   {
     id: "business-trips",
-    title: "Wyjazdy biznesowe do Chin",
+    title: "Wsparcie przy wizytach biznesowych",
     description:
-      "Organizujemy wizyty w fabrykach, tłumaczenia na miejscu i wsparcie podczas negocjacji z dostawcami.",
+      "Wspieramy klientów podczas wyjazdów do Chin — organizacja wizyt w fabrykach, tłumaczenie i wsparcie podczas negocjacji.",
     image: "/image/business_trips.jpg",
-    imageAlt: "Transport lotniczy — wyjazdy biznesowe do Chin",
+    imageAlt: "Wizyta biznesowa w chińskiej fabryce",
   },
 ];

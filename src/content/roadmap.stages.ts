@@ -16,10 +16,10 @@ export type RoadmapStage = {
 export const roadmapStages: RoadmapStage[] = [
   {
     id: "brief",
-    title: "Brief i wycena",
+    title: "Brief i specyfikacja",
     description:
-      "Omawiamy zakres importu, Incoterms, harmonogram i budżet. Otrzymujesz przejrzystą wycenę całego procesu lub wybranego etapu.",
-    cta: { label: "Wyślij brief", href: "/kontakt" },
+      "Poznajemy produkt, jego zastosowanie, wymagania techniczne, planowaną ilość, budżet, termin oraz kraj docelowy.",
+    cta: { label: "Opisz swój projekt", href: "/kontakt" },
     theme: {
       bg: "#232830",
       accent: "#38bdf8",
@@ -27,14 +27,14 @@ export const roadmapStages: RoadmapStage[] = [
     },
     icon: "clipboard",
     image: "/roadmap/brief.jpg",
-    imageAlt: "Spotkanie biznesowe i planowanie projektu importu",
+    imageAlt: "Planowanie projektu importu — brief i specyfikacja",
   },
   {
     id: "sourcing",
-    title: "Wyszukiwanie dostawcy",
+    title: "Wyszukiwanie i porównanie producentów",
     description:
-      "Identyfikujemy i weryfikujemy producentów dopasowanych do Twoich wymagań. Przeprowadzamy RFQ, negocjacje i shortlistę kandydatów.",
-    cta: { label: "Zobacz jak szukamy", href: "/uslugi/wyszukiwanie-dostawcow" },
+      "Wyszukujemy odpowiednie fabryki, zbieramy oferty oraz porównujemy konfiguracje, ceny, terminy produkcji, MOQ i warunki handlowe.",
+    cta: { label: "Wyszukiwanie producentów", href: "/uslugi/wyszukiwanie-dostawcow" },
     theme: {
       bg: "#1a2e1a",
       accent: "#4ade80",
@@ -42,14 +42,14 @@ export const roadmapStages: RoadmapStage[] = [
     },
     icon: "search",
     image: "/roadmap/sourcing.jpg",
-    imageAlt: "Magazyn z towarami — wyszukiwanie dostawców",
+    imageAlt: "Wyszukiwanie producentów — magazyn towarów",
   },
   {
     id: "audit",
-    title: "Audyt fabryki",
+    title: "Weryfikacja fabryki i próbek",
     description:
-      "Nasz zespół na miejscu odwiedza fabrykę, weryfikuje certyfikaty, park maszynowy i realne możliwości produkcyjne.",
-    cta: { label: "Umów audyt", href: "/konsultacja" },
+      "Sprawdzamy producenta, dokumentację, możliwości produkcyjne oraz — gdy jest to potrzebne — organizujemy próbki, wideoweryfikację lub audyt.",
+    cta: { label: "Weryfikacja i audyty", href: "/uslugi/audyty-fabryk" },
     theme: {
       bg: "#2a1f0a",
       accent: "#fbbf24",
@@ -57,14 +57,14 @@ export const roadmapStages: RoadmapStage[] = [
     },
     icon: "factory",
     image: "/roadmap/audit.jpg",
-    imageAlt: "Hala produkcyjna — audyt fabryki w Chinach",
+    imageAlt: "Weryfikacja fabryki — hala produkcyjna w Chinach",
   },
   {
     id: "production",
-    title: "Produkcja i QA",
+    title: "Zamówienie i nadzór nad produkcją",
     description:
-      "Monitorujemy produkcję, zatwierdzamy próbki, przeprowadzamy kontrolę inline i inspekcję przed wysyłką (pre-shipment).",
-    cta: { label: "Kontrola jakości", href: "/kontakt" },
+      "Pomagamy uzgodnić specyfikację, warunki płatności i harmonogram. Koordynujemy komunikację z producentem podczas realizacji zamówienia.",
+    cta: { label: "Kontrola jakości", href: "/uslugi/kontrola-jakosci" },
     theme: {
       bg: "#1e1b4b",
       accent: "#a78bfa",
@@ -72,13 +72,13 @@ export const roadmapStages: RoadmapStage[] = [
     },
     icon: "check",
     image: "/roadmap/production.jpg",
-    imageAlt: "Kontrola jakości na linii produkcyjnej",
+    imageAlt: "Nadzór nad produkcją — kontrola jakości na linii",
   },
   {
     id: "export",
-    title: "Eksport z Chin",
+    title: "Kontrola jakości i dokumenty",
     description:
-      "Przygotowujemy dokumentację eksportową, organizujemy transport do portu i koordynujemy odprawę po stronie chińskiej.",
+      "Sprawdzamy zgodność towaru z ustaleniami, ilość, opakowanie, oznakowanie oraz dostępne dokumenty przed wysyłką.",
     cta: { label: "Dowiedz się więcej", href: "/kontakt" },
     theme: {
       bg: "#0c2340",
@@ -91,10 +91,10 @@ export const roadmapStages: RoadmapStage[] = [
   },
   {
     id: "freight",
-    title: "Transport kolejowy / lotniczy",
+    title: "Transport, odprawa i dostawa",
     description:
-      "Organizujemy fracht kolejowy i lotniczy, śledzimy ładunek i informujemy o statusie na każdym etapie trasy Chiny–Europa.",
-    cta: { label: "Oblicz transport", href: "/kalkulator" },
+      "Organizujemy eksport z Chin, fracht morski, kolejowy lub lotniczy, odprawę celną i dostawę pod wskazany adres w Polsce lub Europie.",
+    cta: { label: "Oblicz koszt importu", href: "/kalkulator" },
     theme: {
       bg: "#0a2540",
       accent: "#22d3ee",
@@ -102,21 +102,6 @@ export const roadmapStages: RoadmapStage[] = [
     },
     icon: "train",
     image: "/image/road_shipment.jpg",
-    imageAlt: "Transport kolejowy — fracht z Chin do Europy",
-  },
-  {
-    id: "delivery",
-    title: "Dostawa w Polsce",
-    description:
-      "Obsługujemy odprawę celną w UE, koordynujemy last mile i dostarczamy towar pod wskazany adres — door-to-door.",
-    cta: { label: "Wyślij zapytanie", href: "/kontakt" },
-    theme: {
-      bg: "#1a1033",
-      accent: "#f472b6",
-      gradient: "from-rose-950 via-surface-deep to-surface",
-    },
-    icon: "home",
-    image: "/roadmap/delivery.jpg",
-    imageAlt: "Dostawa towaru — logistyka last mile w Polsce",
+    imageAlt: "Transport — fracht z Chin do Europy",
   },
 ];

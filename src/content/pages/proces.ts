@@ -3,37 +3,37 @@ import type { DedicatedPageContent } from "./types";
 export const procesPage: DedicatedPageContent = {
   id: "proces",
   meta: {
-    title: "Proces importu — China Export",
+    title: "Jak pracujemy — proces importu z Chin | Buy & Bring Solutions",
     description:
-      "Poznaj pełną ścieżkę importu z Chin — od briefu i weryfikacji dostawcy po fracht, odprawę celną i dostawę door-to-door.",
+      "Sześć etapów importu z Chin — od briefu i weryfikacji producenta po kontrolę jakości, transport i dostawę.",
   },
   hero: {
-    eyebrow: "Mapa współpracy",
+    eyebrow: "Jak pracujemy",
     title: "Import z Chin krok po kroku",
-    lead: "Każdy projekt przechodzi przez przewidywalne etapy. Wiesz, co dzieje się teraz, co będzie dalej i kto za to odpowiada — po stronie polskiej i chińskiej.",
+    lead: "Każdy projekt przechodzi przez przewidywalne etapy. Wiesz, co dzieje się teraz, co będzie dalej i kto za to odpowiada.",
   },
   sections: [
     {
-      title: "Od briefu do pierwszej wyceny",
-      body: "Zaczynamy od krótkiego briefu: produkt, wolumen, budżet i harmonogram. Na tej podstawie proponujemy zakres — pełny import end-to-end albo wybrane moduły. Pierwsza wycena i plan działania trafiają do Ciebie zwykle w ciągu 48 godzin roboczych.",
+      title: "Transparentność na każdym etapie",
+      body: "Po każdym kroku otrzymujesz informację o stanie projektu. Możesz wejść w proces w dowolnym momencie albo powierzyć nam całość — od briefu do dostawy.",
       bullets: [
-        "Analiza produktu i wymagań rynku UE",
-        "Wstępna ocena ryzyk i harmonogramu",
-        "Propozycja modułów i transparentny kosztorys",
+        "Stały kontakt podczas realizacji",
+        "Wsparcie operacyjne na miejscu w Chinach",
+        "Aktualizacje w uzgodnionym rytmie",
       ],
     },
     {
-      title: "Transparentność na każdym etapie",
-      body: "Nie znikamy między etapami. Po każdym kroku otrzymujesz raport, zdjęcia lub dokumenty — w zależności od fazy. Możesz wejść w proces w dowolnym momencie albo powierzyć nam całość.",
+      title: "Pełny zakres lub wybrane etapy",
+      body: "Możesz zlecić nam cały proces importu lub skorzystać tylko z wybranych modułów — np. sourcingu, weryfikacji producenta, kontroli jakości lub organizacji transportu.",
       bullets: [
-        "Stały opiekun projektu po stronie PL",
-        "Zespół operacyjny na miejscu w Chinach",
-        "Raporty i aktualizacje w uzgodnionym rytmie",
+        "Przed produkcją — sourcing, weryfikacja, kontrola jakości, Private Label",
+        "Logistyka — eksport, konsolidacja, fracht",
+        "Dostawa w UE — odprawa celna, dostawa końcowa",
       ],
     },
   ],
   cta: {
-    primary: { label: "Wyślij zapytanie", href: "/kontakt" },
+    primary: { label: "Opisz swój projekt", href: "/kontakt" },
     secondary: { label: "Umów konsultację", href: "/konsultacja" },
   },
 };

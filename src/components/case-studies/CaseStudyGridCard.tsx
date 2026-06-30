@@ -25,7 +25,7 @@ export function CaseStudyGridCard({
 }: CaseStudyGridCardProps) {
   const [imageError, setImageError] = useState(false);
   const category = getCategoryById(caseStudy.categoryId);
-  const year = new Date(caseStudy.publishedAt).getFullYear();
+  const year = caseStudy.publishedAt ? new Date(caseStudy.publishedAt).getFullYear() : null;
 
   return (
     <article

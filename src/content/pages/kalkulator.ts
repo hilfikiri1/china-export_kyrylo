@@ -3,40 +3,39 @@ import type { DedicatedPageContent } from "./types";
 export const kalkulatorPage: DedicatedPageContent = {
   id: "kalkulator",
   meta: {
-    title: "Kalkulator importu — B&BS Poland",
+    title: "Kalkulator importu z Chin | Buy & Bring Solutions",
     description:
-      "Orientacyjny kalkulator importu z Chin: transport, cło, VAT i koszt dostawy do Polski. Narzędzie planistyczne B&BS Poland.",
+      "Oblicz orientacyjny koszt importu z Chin — transport, cło, VAT i koszt jednostkowy.",
   },
   hero: {
-    eyebrow: "Narzędzia · B&BS Poland",
-    title: "Orientacyjny kalkulator importu z Chin",
-    lead: "Oszacuj pełny koszt importu — fracht, cło, VAT i obsługę celną — zanim wyślesz zapytanie. Wynik ma charakter orientacyjny i nie stanowi oferty handlowej.",
+    eyebrow: "Narzędzia",
+    title: "Kalkulator kosztu importu z Chin",
+    lead: "Oblicz orientacyjny koszt zakupu, transportu, cła i podatku VAT. Wynik ma charakter informacyjny i nie stanowi oferty handlowej ani porady podatkowej.",
   },
   sections: [
     {
       title: "Co uwzględnia kalkulator",
-      body: "Moduł B&BS Poland łączy szacunkowy koszt transportu z podstawową kalkulacją celną i podatkową po stronie polskiej.",
+      body: "Kalkulator łączy szacunkowy koszt transportu z podstawową kalkulacją celną i podatkową.",
       bullets: [
-        "Wartość towaru w USD, EUR lub PLN z aktualnymi kursami NBP",
+        "Wartość towaru w USD, EUR lub PLN z kursami NBP",
         "Tryby: FCL morski/kolejowy, LCL oraz transport lotniczy",
         "Incoterms EXW, FOB i CIF z odpowiednią wartością celną",
         "Cło, VAT importowy 23% oraz koszt agencji celnej",
-        "Opcjonalne ubezpieczenie ładunku (poza CIF)",
+        "Opcjonalne ubezpieczenie ładunku",
       ],
     },
     {
       title: "Czego kalkulator nie obejmuje",
-      body: "To narzędzie planistyczne oparte na przykładowych stawkach frachtowych. Dokładna wycena wymaga weryfikacji kodu CN/TARIC, trasy i specyfiki ładunku.",
+      body: "To narzędzie planistyczne. Dokładna wycena wymaga weryfikacji kodu HS/TARIC, trasy i specyfiki ładunku.",
       bullets: [
         "Towary niebezpieczne, baterie litowe, chemia i żywność",
         "Akcyza, cła antydumpingowe i procedury specjalne",
-        "Door-to-door z odbiorem z fabryki (poza wybranym incotermem)",
         "Indywidualne stawki portowe dla konkretnych portów załadunku",
       ],
     },
   ],
   cta: {
-    primary: { label: "Wyślij zapytanie o wycenę", href: "/kontakt" },
+    primary: { label: "Prześlij dane do weryfikacji", href: "/kontakt" },
     secondary: { label: "Umów konsultację", href: "/konsultacja" },
   },
 };

@@ -1,4 +1,7 @@
-import Link from "next/link";
+"use client";
+
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import { HeroTooltip } from "@/components/hero/HeroTooltip";
 import { cn } from "@/lib/utils";
 
@@ -26,7 +29,7 @@ function HeroButton({
 }) {
   return (
     <Link
-      href={href}
+      href={href as Parameters<typeof Link>[0]["href"]}
       className={cn(
         "inline-flex items-center justify-center rounded-lg px-5 py-3 text-sm font-semibold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-light focus-visible:ring-offset-2 focus-visible:ring-offset-navy",
         variants[variant],
@@ -39,25 +42,40 @@ function HeroButton({
 }
 
 export function HeroCTAs({ className }: { className?: string }) {
+  const t = useTranslations("hero");
+
   return (
-    <div className={cn("mx-auto flex max-w-3xl flex-col items-center gap-4", className)}>
+    <div
+      className={cn(
+        "mx-auto flex max-w-3xl flex-col items-center gap-4",
+        className,
+      )}
+    >
       <div className="flex flex-col items-center justify-center gap-3 sm:flex-row sm:flex-wrap">
-        <HeroButton variant="primary" href="/kontakt" className="sm:min-w-[180px]">
-          Wyślij zapytanie
+        <HeroButton
+          variant="primary"
+          href="/kontakt"
+          className="sm:min-w-[180px]"
+        >
+          {t("ctaPrimary")}
         </HeroButton>
         <HeroButton
           variant="secondary"
+          href="/konsultacja"
+          className="sm:min-w-[180px]"
+        >
+          {t("ctaSecondary")}
+        </HeroButton>
+        <HeroButton
+          variant="tertiary"
           href="/kalkulator"
           className="sm:min-w-[180px]"
         >
-          Oblicz transport
-        </HeroButton>
-        <HeroButton variant="primary" href="/konsultacja" className="sm:min-w-[180px]">
-          Umów konsultację
+          {t("ctaCalculator")}
         </HeroButton>
       </div>
       <HeroTooltip
-        text="Powierz nam cały proces albo wybierz jeden etap."
+        text={t("supporting")}
         className="justify-center"
       />
     </div>

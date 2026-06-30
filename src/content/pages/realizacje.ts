@@ -3,18 +3,18 @@ import type { DedicatedPageContent } from "./types";
 export const realizacjePage: DedicatedPageContent = {
   id: "realizacje",
   meta: {
-    title: "Realizacje — China Export",
+    title: "Realizacje — projekty importowe | Buy & Bring Solutions",
     description:
-      "Case studies importów z Chin — maszyny przemysłowe, materiały budowlane, EV, opakowania i produkty na zamówienie.",
+      "Przykłady zrealizowanych projektów importowych z Chin — maszyny, akumulatory, konsolidacja, Private Label i sourcing.",
   },
   hero: {
-    eyebrow: "Realizacje i branże",
-    title: "Case studies — udane importy z Chin",
-    lead: "Wybrane projekty z różnych branż. Ze względu na poufność nie publikujemy danych klientów ani brandingów — pokazujemy zakres, proces i rezultaty.",
+    eyebrow: "Realizacje",
+    title: "Przykłady projektów Buy & Bring Solutions",
+    lead: "Wybrane przypadki z zakresu sourcingu, weryfikacji fabryk, kontroli jakości, logistyki i produkcji pod marką własną.",
   },
   sections: [],
   cta: {
     primary: { label: "Opisz swój projekt", href: "/kontakt" },
-    secondary: { label: "Zobacz proces importu", href: "/proces" },
+    secondary: { label: "Jak pracujemy", href: "/proces" },
   },
 };

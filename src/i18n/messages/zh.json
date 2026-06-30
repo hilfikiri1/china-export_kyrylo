@@ -1,0 +1,370 @@
+{
+  "brand": {
+    "name": "Buy & Bring Solutions",
+    "short": "B&BS",
+    "descriptor": "面向企业的中国进口、采购与生产服务",
+    "tagline": "波兰 — 中国"
+  },
+  "nav": {
+    "home": "首页",
+    "services": "服务",
+    "process": "合作流程",
+    "cases": "案例",
+    "about": "关于我们",
+    "china": "在华运营",
+    "calculator": "费用计算器",
+    "contact": "联系我们",
+    "cta": "描述项目",
+    "groups": {
+      "company": "公司",
+      "services": "服务",
+      "tools": "工具"
+    }
+  },
+  "footer": {
+    "tagline": "将商品、机械及材料从中国进口至波兰和欧洲。",
+    "services": "服务",
+    "pages": "页面",
+    "contact": "联系方式",
+    "copyright": "版权所有。",
+    "privacy": "隐私政策",
+    "cookies": "Cookie 政策",
+    "terms": "使用条款"
+  },
+  "lang": {
+    "pl": "Polski",
+    "uk": "Українська",
+    "ru": "Русский",
+    "de": "Deutsch",
+    "zh": "中文",
+    "select": "选择语言"
+  },
+  "hero": {
+    "eyebrow": "Buy & Bring Solutions · 波兰 — 中国",
+    "heading": "面向企业的中国进口服务——从经过验证的制造商到您的仓库",
+    "lead": "我们寻找并核实制造商，监控生产和质量，组织出口、运输、清关及货物交付至波兰和欧洲其他国家。",
+    "supporting": "您可以将整个流程委托给我们，或仅委托某一特定环节。",
+    "ctaPrimary": "描述您的项目",
+    "ctaSecondary": "预约咨询",
+    "ctaCalculator": "计算进口参考费用",
+    "trustHeading": "为什么企业选择 Buy & Bring Solutions"
+  },
+  "stats": {
+    "experience": { "value": "17年", "label": "与中国合作经验" },
+    "clients": { "value": "275+", "label": "服务客户" },
+    "containers": { "value": "110+", "label": "已交付集装箱" },
+    "location": { "value": "佛山", "label": "在华运营与本地支持" }
+  },
+  "trust": {
+    "china": {
+      "heading": "我们在中国本地运营",
+      "body": "我们佛山的运营团队与制造商保持直接联系，协调订单，并组织检验和发货工作。"
+    },
+    "verification": {
+      "heading": "我们核实制造商",
+      "body": "我们核查企业注册信息、生产能力、相关文件，以及供应商报价是否符合项目要求。"
+    },
+    "quality": {
+      "heading": "我们在发货前检验货物",
+      "body": "根据项目需求，我们组织生产前检验、生产中检验或发货前检验。"
+    },
+    "logistics": {
+      "heading": "我们组织从工厂到仓库的全程配送",
+      "body": "我们协调出口、海运、铁路、航空或公路运输、清关及最终交付。"
+    },
+    "flexible": {
+      "heading": "全流程服务或单项服务",
+      "body": "您可以委托我们提供全程综合服务，或仅委托寻找制造商、质量控制、拼箱或运输等单项服务。"
+    }
+  },
+  "services": {
+    "heading": "根据您项目阶段定制的服务",
+    "subheading": "我们可以执行完整的进口流程，也可以仅在某一特定阶段为您提供支持。",
+    "learnMore": "了解更多",
+    "help": "需要这一阶段的帮助？",
+    "items": {
+      "sourcing": {
+        "title": "制造商寻源与采购组织",
+        "scope": "我们寻找制造商，收集并比较报价，分析 MOQ、交货期、配置以及付款和交货条款。",
+        "outcomes": [
+          "制造商候选名单",
+          "报价比较",
+          "MOQ 及交货期信息",
+          "优势与风险评估",
+          "下一步行动建议"
+        ]
+      },
+      "verification": {
+        "title": "供应商核实与工厂审核",
+        "scope": "我们核查注册信息、业务范围、生产能力、文件，以及工厂是否符合项目要求。"
+      },
+      "qc": {
+        "title": "货物质量控制",
+        "scope": "我们根据商定的规格、检查清单、参考样品和客户要求，组织质量控制工作。"
+      },
+      "oem": {
+        "title": "自有品牌生产 — Private Label 与 OEM",
+        "scope": "我们协助将产品、标志、包装、标签和说明书调整为符合品牌要求及目标市场需求。"
+      },
+      "export": {
+        "title": "付款与中国出口协调",
+        "scope": "我们协调商业和出口文件，以及与制造商商定的合作模式。"
+      },
+      "consolidation": {
+        "title": "多家制造商货物拼箱",
+        "scope": "我们组织从多家工厂提货、仓储、数量核查、换装及共同发货准备工作。"
+      },
+      "freight": {
+        "title": "运输、清关与交付",
+        "scope": "我们选择运输方式，协调货运、文件、清关及最终交付。"
+      }
+    },
+    "phases": {
+      "preProduction": { "label": "生产前", "description": "从寻找制造商到质量控制和 Private Label。" },
+      "logistics": { "label": "物流", "description": "从工厂到港口——拼箱、出口和货运。" },
+      "delivery": { "label": "欧盟境内交付", "description": "清关及送货至指定地址。" }
+    }
+  },
+  "process": {
+    "heading": "中国进口流程详解",
+    "subheading": "每个项目都遵循可预期的阶段推进，您清楚当前进展和下一步计划。",
+    "steps": {
+      "brief": {
+        "title": "项目简介与规格确认",
+        "body": "我们了解产品信息、用途、技术要求、计划数量、预算、时间节点及目标国家。"
+      },
+      "sourcing": {
+        "title": "制造商寻源与比较",
+        "body": "我们寻找合适的工厂，收集报价，比较配置、价格、生产周期、MOQ 及贸易条款。"
+      },
+      "verification": {
+        "title": "工厂与样品核实",
+        "body": "我们核查制造商、文件、生产能力，并在必要时组织样品寄送、视频核实或审厂。"
+      },
+      "production": {
+        "title": "下单与生产监督",
+        "body": "我们协助确认规格、付款条款、生产计划及验收方式，并在订单执行期间协调与制造商的沟通。"
+      },
+      "quality": {
+        "title": "质量与文件检验",
+        "body": "发货前，我们核查货物是否符合约定要求，包括数量、包装、标识、功能及相关文件。"
+      },
+      "delivery": {
+        "title": "运输、清关与交付",
+        "body": "我们组织从中国出口、货运、清关及货物交付至波兰、乌克兰或其他欧洲国家的指定地址。"
+      }
+    }
+  },
+  "cases": {
+    "heading": "项目案例",
+    "subheading": "Buy & Bring Solutions 已完成项目案例展示。",
+    "allCategories": "全部",
+    "viewDetails": "查看详情",
+    "close": "关闭",
+    "scope": "服务范围",
+    "result": "项目成果",
+    "category": "类别",
+    "noImage": "暂无图片",
+    "cmsNote": ""
+  },
+  "about": {
+    "heading": "连接欧洲企业与中国制造商",
+    "intro": "Buy & Bring Solutions 为企业提供制造商寻源、生产组织、质量控制及从中国进口货物等全方位服务。我们将与中国工厂的直接合作与在欧洲和乌克兰的客户服务相结合。",
+    "mission": "我们的目标是降低风险，理顺与制造商的沟通，并引导客户完成从规格确认、工厂选择到质量控制、运输和交付的全流程。",
+    "experience": "Buy & Bring Solutions 团队拥有17年与中国合作的经验。",
+    "chinaOps": "我们的中国业务由广东省佛山市协调运营。",
+    "advantages": [
+      "与制造商直接联系",
+      "在华团队本地支持",
+      "多语言沟通",
+      "灵活选择综合服务或模块化合作",
+      "机械、原材料和 Private Label 产品方面的丰富经验",
+      "从询价到发货的全程项目管控"
+    ]
+  },
+  "chinaOps": {
+    "heading": "我们在中国本地运营",
+    "mainHeading": "佛山运营支持——更贴近制造商与执行流程",
+    "intro": "Buy & Bring Solutions 中国团队提供制造商寻源、工厂沟通、检验组织、拼箱及发货准备等支持。",
+    "capabilities": [
+      "与制造商联系与谈判",
+      "收集报价与技术资料",
+      "工厂参观",
+      "组织检验",
+      "照片与视频报告",
+      "拼箱服务",
+      "装箱监督",
+      "出口文件",
+      "商务访华客户支持"
+    ],
+    "specialistsNote": "根据项目类型，我们会安排相应的技术专家和检验人员。",
+    "address": "中国广东省佛山市"
+  },
+  "industries": {
+    "heading": "产品类别与行业领域",
+    "subheading": "我们承接多个行业的项目——从工业机械到消费品。",
+    "noCategory": "没有找到您的类别？欢迎描述产品——我们将评估生产和交付的可行性。",
+    "items": {
+      "machinery": {
+        "title": "工业机械与设备",
+        "items": ["包装与造纸工业机械", "食品机械", "加工与生产线", "医疗与 SPA 设备", "建筑机械"]
+      },
+      "battery": {
+        "title": "电池技术与储能解决方案",
+        "items": ["LFP 与 NMC 电芯", "方形与圆柱电芯", "BMS 系统", "电池包", "工业电池", "ESS 储能系统", "充电桩"]
+      },
+      "ev": {
+        "title": "电动出行与零部件",
+        "items": ["电动摩托车", "电机与控制器", "电池解决方案", "无人机", "车辆", "轮胎", "汽车零件"]
+      },
+      "chemistry": {
+        "title": "化学品与原材料",
+        "items": ["饲料添加剂", "功能性原料", "工业原材料", "LLDPE、LDPE 与 HDPE", "工业化学品", "粘合材料"]
+      },
+      "paper": {
+        "title": "纸张、包装与材料",
+        "items": ["牛皮纸", "GC1、GC2 与 FBB 纸板", "纸杯原纸", "PET 薄膜", "包装原材料", "特种纸与耐热纸"]
+      },
+      "textiles": {
+        "title": "纺织品与技术材料",
+        "items": ["摇粒绒", "棉织物与合成织物", "混纺织物", "技术面料", "特种材料", "纺织产品"]
+      },
+      "construction": {
+        "title": "建筑与专业设备",
+        "items": ["集装箱房与模块化建筑", "铁路设备", "建筑材料", "机械与专业设备"]
+      },
+      "consumer": {
+        "title": "消费品与 Private Label",
+        "items": ["炊具", "服装", "玩具", "铸铁制品", "薄膜", "宠物用品", "其他客户品牌定制产品"]
+      }
+    }
+  },
+  "calculator": {
+    "heading": "中国进口费用计算器",
+    "subheading": "计算采购、运输、关税和增值税的参考费用。",
+    "disclaimer": "计算结果仅供参考，不构成商业报价或税务建议。",
+    "cta": "提交数据以供核实",
+    "fields": {
+      "goods": "货物价值",
+      "currency": "货币",
+      "mode": "运输方式",
+      "cbm": "体积（立方米）",
+      "kg": "毛重（千克）",
+      "incoterm": "国际贸易术语",
+      "duty": "关税税率",
+      "insurance": "货物保险",
+      "calculate": "计算费用",
+      "units": "数量"
+    },
+    "results": {
+      "heading": "计算结果",
+      "total": "进口总费用",
+      "landed": "单件到岸费用",
+      "transport": "运输",
+      "customs": "关税",
+      "vat": "进口增值税",
+      "perUnit": "每件"
+    },
+    "rateSource": "汇率来源日期"
+  },
+  "consultation": {
+    "heading": "预约免费咨询",
+    "subheading": "请简要描述您的项目并提供方便联系的时间。我们将与您联系以确认会谈安排。",
+    "cta": "申请联系",
+    "fields": {
+      "preferredContact": "首选联系方式",
+      "preferredDate": "首选日期",
+      "preferredTime": "首选时间",
+      "timezone": "时区",
+      "category": "项目类别",
+      "description": "项目简介"
+    }
+  },
+  "contact": {
+    "heading": "告诉我们您的项目",
+    "subheading": "我们获得的信息越多，就能越快评估项目并准备后续步骤。",
+    "fields": {
+      "name": "姓名",
+      "company": "公司名称",
+      "email": "电子邮件",
+      "phone": "电话 / WhatsApp",
+      "country": "国家",
+      "city": "收货城市或邮政编码",
+      "product": "产品或机械类型",
+      "quantity": "计划数量",
+      "budget": "预算",
+      "deadline": "预期交货期",
+      "scope": "所需协助范围",
+      "description": "项目描述",
+      "link": "产品链接（可选）",
+      "consent": "我同意为处理本次询价而处理我的个人数据。",
+      "submit": "提交询价",
+      "required": "必填项"
+    },
+    "scope": {
+      "sourcing": "寻找制造商",
+      "verification": "供应商核实或工厂审核",
+      "qc": "质量控制",
+      "oem": "Private Label / OEM",
+      "consolidation": "拼箱",
+      "freight": "运输与清关",
+      "fullService": "进口综合服务",
+      "other": "其他"
+    },
+    "success": "感谢您！我们将尽快与您联系。",
+    "error": "表单提交失败，请稍后重试。",
+    "sending": "正在提交...",
+    "duplicate": "表单已提交。",
+    "privacyNote": "您的数据将根据我们的",
+    "privacyLink": "隐私政策进行处理"
+  },
+  "meta": {
+    "home": {
+      "title": "面向企业的中国进口服务 | Buy & Bring Solutions",
+      "description": "制造商寻源与核实、质量控制、自有品牌生产、运输、清关及货物交付至波兰和欧洲。"
+    },
+    "services": {
+      "title": "中国进口服务 | Buy & Bring Solutions",
+      "description": "模块化进口服务——寻源、工厂核实、质量控制、Private Label、拼箱、运输与清关。"
+    },
+    "process": {
+      "title": "我们的工作方式——中国进口流程 | Buy & Bring Solutions",
+      "description": "中国进口六步流程——从项目简介与制造商核实，到质量控制、运输与交付。"
+    },
+    "cases": {
+      "title": "项目案例 | Buy & Bring Solutions",
+      "description": "已完成的中国进口项目案例——机械、电池、拼箱、Private Label 与寻源。"
+    },
+    "about": {
+      "title": "关于我们 | Buy & Bring Solutions",
+      "description": "Buy & Bring Solutions——17年与中国合作经验，提供寻源、制造商核实、质量控制与物流服务。"
+    },
+    "china": {
+      "title": "在华运营——佛山 | Buy & Bring Solutions",
+      "description": "Buy & Bring Solutions 佛山团队提供制造商寻源、质量控制、拼箱与发货准备支持。"
+    },
+    "calculator": {
+      "title": "中国进口费用计算器 | Buy & Bring Solutions",
+      "description": "计算中国进口参考费用——运输、关税、增值税及单件到岸费用。"
+    },
+    "consultation": {
+      "title": "免费进口咨询 | Buy & Bring Solutions",
+      "description": "预约 Buy & Bring Solutions 专家的免费咨询，讨论您的项目、风险及建议服务范围。"
+    },
+    "contact": {
+      "title": "联系我们 | Buy & Bring Solutions",
+      "description": "联系 Buy & Bring Solutions——描述您的进口项目，获取可行性评估和后续步骤建议。"
+    }
+  },
+  "errors": {
+    "notFound": "页面未找到",
+    "goHome": "返回首页",
+    "serverError": "服务器错误"
+  },
+  "cookie": {
+    "message": "我们使用 Cookie 进行流量分析。继续使用本网站，即表示您同意使用 Cookie。",
+    "accept": "接受",
+    "reject": "拒绝",
+    "more": "更多信息"
+  }
+}

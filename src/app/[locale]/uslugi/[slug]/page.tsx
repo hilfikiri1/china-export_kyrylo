@@ -1,3 +1,4 @@
+import { setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { LogistykaPageContent } from "@/components/logistyka/LogistykaPageContent";
@@ -12,13 +13,16 @@ import {
 } from "@/content/pages";
 import { logistykaLayout } from "@/content/logistyka-layout";
 import { getServiceBySlug, getServiceNavSlugs } from "@/content/services";
+import { routing } from "@/i18n/routing";
 
 type ServicePageProps = {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ locale: string; slug: string }>;
 };
 
 export function generateStaticParams() {
-  return getServiceNavSlugs().map((slug) => ({ slug }));
+  return routing.locales.flatMap((locale) =>
+    getServiceNavSlugs().map((slug) => ({ locale, slug })),
+  );
 }
 
 export async function generateMetadata({
@@ -28,7 +32,7 @@ export async function generateMetadata({
   const content = getPageContentByServiceSlug(slug);
 
   if (!content) {
-    return { title: "Usługa nie znaleziona — China Export" };
+    return { title: "Usługa nie znaleziona — Buy & Bring Solutions" };
   }
 
   return {
@@ -38,7 +42,9 @@ export async function generateMetadata({
 }
 
 export default async function ServicePage({ params }: ServicePageProps) {
-  const { slug } = await params;
+  const { locale, slug } = await params;
+  setRequestLocale(locale);
+
   const service = getServiceBySlug(slug);
 
   if (!service) {

@@ -3,28 +3,28 @@ import type { DedicatedPageContent } from "./types";
 export const uslugiPage: DedicatedPageContent = {
   id: "uslugi",
   meta: {
-    title: "Usługi modułowe — China Export",
+    title: "Usługi importu z Chin | Buy & Bring Solutions",
     description:
-      "Każdy etap importu jako osobna usługa — sourcing, audyty, QC, spedycja i dostawa door-to-door. Wybierz moduły, których potrzebujesz.",
+      "Modułowe usługi importowe — sourcing, weryfikacja fabryk, kontrola jakości, Private Label, konsolidacja, transport i odprawa celna.",
   },
   hero: {
     eyebrow: "Usługi modułowe",
-    title: "Kupujesz dokładnie to, czego potrzebujesz",
-    lead: "Nie musisz wykupywać pełnego pakietu end-to-end. Każdy etap mapy współpracy działa jako samodzielny moduł — od wyszukiwania dostawcy po dostawę pod Twój adres.",
+    title: "Usługi dopasowane do etapu Twojego projektu",
+    lead: "Możemy przeprowadzić cały proces importu albo wesprzeć Cię tylko na wybranym etapie.",
   },
   sections: [
     {
-      title: "Jak wybrać moduły",
-      body: "Jeśli masz już dostawcę — potrzebujesz może tylko QC i spedycji. Jeśli zaczynasz od zera — zaczynamy od sourcingu i audytu. Na konsultacji pomożemy dobrać minimalny, sensowny zakres.",
+      title: "Jak wybrać zakres",
+      body: "Jeśli masz już dostawcę — potrzebujesz może tylko kontroli jakości i transportu. Jeśli zaczynasz od zera — zaczynamy od sourcingu i weryfikacji. Na konsultacji pomożemy dobrać minimalny, sensowny zakres.",
       bullets: [
-        "Przed produkcją — sourcing, audyty, QC, OEM",
-        "Logistyka — płatności, konsolidacja, fracht",
-        "Dostawa w UE — odprawa celna, door-to-door",
+        "Przed produkcją — wyszukiwanie producentów, weryfikacja, kontrola jakości, Private Label",
+        "Logistyka — koordynacja eksportu, konsolidacja, fracht",
+        "Dostawa w UE — odprawa celna, dostawa końcowa",
       ],
     },
   ],
   cta: {
-    primary: { label: "Wyślij zapytanie", href: "/kontakt" },
+    primary: { label: "Opisz swój projekt", href: "/kontakt" },
     secondary: { label: "Umów konsultację", href: "/konsultacja" },
   },
 };

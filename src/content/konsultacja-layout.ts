@@ -19,14 +19,14 @@ export type KonsultacjaTopicOption = {
 export const konsultacjaLayout = {
   meta: konsultacjaPage.meta,
   hero: {
-    badge: "Bezpłatna · 30 min",
+    badge: "Bezpłatna",
     titleLead: "Umów konsultację",
     titleAccent: "bez zobowiązań",
     lead: konsultacjaPage.hero.lead,
     stats: [
-      { value: "30 min", label: "Czas rozmowy" },
       { value: "Online", label: "Zoom / Meet / telefon" },
       { value: "0 zł", label: "Bez opłat wstępnych" },
+      { value: "Moduły", label: "Elastyczny zakres" },
     ] satisfies KonsultacjaStat[],
   },
   agenda: {
@@ -35,25 +35,23 @@ export const konsultacjaLayout = {
     steps: [
       {
         num: "01",
-        title: "Analiza produktu",
-        description: "Analiza produktu i wymagań rynku UE",
+        title: "Analiza projektu",
+        description: "Omawiamy produkt, wolumen, termin i wymagania techniczne",
       },
       {
         num: "02",
         title: "Ocena ryzyk",
-        description:
-          "Ocena ryzyk — dostawca, certyfikaty, logistyka",
+        description: "Oceniamy potencjalne ryzyka i kluczowe kwestie do sprawdzenia",
       },
       {
         num: "03",
-        title: "Rekomendacja planu",
-        description:
-          "Rekomendacja modułów i orientacyjny harmonogram",
+        title: "Rekomendacja zakresu",
+        description: "Sugerujemy minimalne sensowne moduły i orientacyjny harmonogram",
       },
       {
         num: "04",
         title: "Pytania i koszty",
-        description: "Odpowiedzi na pytania o proces i koszty",
+        description: "Odpowiadamy na pytania o proces, koszty i kolejne kroki",
       },
     ] satisfies KonsultacjaAgendaStep[],
     facilitator: {
@@ -67,26 +65,29 @@ export const konsultacjaLayout = {
       "Podaj dane kontaktowe i temat rozmowy — odezwiemy się, aby ustalić dogodny termin.",
     topicLabel: "Temat konsultacji",
     topicOptions: [
-      { value: "sourcing", label: "Wyszukiwanie dostawcy" },
-      { value: "audit", label: "Audyt fabryki" },
+      { value: "sourcing", label: "Wyszukiwanie producenta" },
+      { value: "verification", label: "Weryfikacja lub audyt fabryki" },
       { value: "qc", label: "Kontrola jakości" },
-      { value: "logistics", label: "Logistyka i transport" },
-      { value: "full", label: "Pełny proces importu" },
+      { value: "oem", label: "Private Label / OEM" },
+      { value: "consolidation", label: "Konsolidacja" },
+      { value: "freight", label: "Transport i odprawa celna" },
+      { value: "full", label: "Kompleksowa obsługa importu" },
+      { value: "other", label: "Inne" },
     ] satisfies KonsultacjaTopicOption[],
-    notesLabel: "Krótki opis (opcjonalnie)",
+    notesLabel: "Krótki opis projektu (opcjonalnie)",
     notesPlaceholder: "Czego dotyczy projekt?",
-    submitLabel: "Umów konsultację",
+    submitLabel: "Poproś o kontakt",
     footnote: "Wolisz napisać zamiast rozmawiać?",
     footnoteLink: { label: "Wyślij zapytanie", href: "/kontakt" },
     success: {
-      title: "Dziękujemy — termin w drodze",
+      title: "Dziękujemy!",
       description:
-        "Otrzymaliśmy zgłoszenie. Skontaktujemy się w ciągu 24 godzin roboczych, aby ustalić termin konsultacji.",
+        "Otrzymaliśmy zgłoszenie. Skontaktujemy się z Tobą wkrótce, aby potwierdzić rozmowę.",
     },
   },
   footerCta: {
-    label: "Zobacz proces importu",
+    label: "Jak pracujemy",
     href: "/proces",
-    hint: "Poznaj pełną ścieżkę współpracy — od briefu po dostawę door-to-door.",
+    hint: "Poznaj pełną ścieżkę współpracy — od briefu po dostawę pod wskazany adres.",
   },
 } as const;
