@@ -1,5 +1,9 @@
+"use client";
+
 import Link from "next/link";
 import { HeroTooltip } from "@/components/hero/HeroTooltip";
+import { useLocale, useT } from "@/i18n/LocaleProvider";
+import { localizedPath, routes } from "@/i18n/routing";
 import { cn } from "@/lib/utils";
 
 type HeroButtonVariant = "primary" | "secondary" | "tertiary";
@@ -39,25 +43,36 @@ function HeroButton({
 }
 
 export function HeroCTAs({ className }: { className?: string }) {
+  const { locale } = useLocale();
+  const t = useT();
+
   return (
     <div className={cn("mx-auto flex max-w-3xl flex-col items-center gap-4", className)}>
       <div className="flex flex-col items-center justify-center gap-3 sm:flex-row sm:flex-wrap">
-        <HeroButton variant="primary" href="/kontakt" className="sm:min-w-[180px]">
-          Wyślij zapytanie
+        <HeroButton
+          variant="primary"
+          href={localizedPath(locale, routes.contact)}
+          className="sm:min-w-[180px]"
+        >
+          {t("common.describeYourProject")}
         </HeroButton>
         <HeroButton
           variant="secondary"
-          href="/kalkulator"
+          href={localizedPath(locale, routes.consultation)}
           className="sm:min-w-[180px]"
         >
-          Oblicz transport
+          {t("common.bookConsultation")}
         </HeroButton>
-        <HeroButton variant="primary" href="/konsultacja" className="sm:min-w-[180px]">
-          Umów konsultację
+        <HeroButton
+          variant="secondary"
+          href={localizedPath(locale, routes.calculator)}
+          className="sm:min-w-[180px]"
+        >
+          {t("common.calculateImport")}
         </HeroButton>
       </div>
       <HeroTooltip
-        text="Powierz nam cały proces albo wybierz jeden etap."
+        text={t("home.hero.supporting")}
         className="justify-center"
       />
     </div>

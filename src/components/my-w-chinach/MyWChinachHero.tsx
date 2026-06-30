@@ -12,8 +12,8 @@ type MyWChinachHeroProps = {
   image: string;
   imageAlt: string;
   headingId?: string;
-  imageOverlayTitle?: string;
-  imageOverlayBody?: string;
+  imageOverlayTitle: string;
+  imageOverlayBody: string;
 };
 
 export function MyWChinachHero({
@@ -23,8 +23,8 @@ export function MyWChinachHero({
   image,
   imageAlt,
   headingId = "my-w-chinach-hero-heading",
-  imageOverlayTitle = "Operacje terenowe",
-  imageOverlayBody = "Sourcing, kontrola jakości i wsparcie negocjacyjne — wszystko koordynowane lokalnie, z raportowaniem do Polski.",
+  imageOverlayTitle,
+  imageOverlayBody,
 }: MyWChinachHeroProps) {
   const [imageError, setImageError] = useState(false);
   const { fadeUp, headerTransition } = useMotionConfig();

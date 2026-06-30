@@ -119,12 +119,14 @@ export function ProcesStepRow({ step, index, totalSteps }: ProcesStepRowProps) {
             </span>
           </div>
 
-          <p
-            className="mb-2 text-xs font-semibold uppercase tracking-widest"
-            style={{ color: step.theme.accent }}
-          >
-            {step.tagline}
-          </p>
+          {step.tagline ? (
+            <p
+              className="mb-2 text-xs font-semibold uppercase tracking-widest"
+              style={{ color: step.theme.accent }}
+            >
+              {step.tagline}
+            </p>
+          ) : null}
 
           <h3 className="mb-3 text-xl font-bold leading-tight tracking-tight text-white sm:text-2xl">
             {step.title}

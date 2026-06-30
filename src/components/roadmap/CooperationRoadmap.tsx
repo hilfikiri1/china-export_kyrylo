@@ -2,13 +2,16 @@
 
 import { LogisticsBackdrop } from "@/components/backgrounds/LogisticsBackdrop";
 import { SectionEdgeFade } from "@/components/backgrounds/SectionEdgeFade";
-import { roadmapStages } from "@/content/roadmap.stages";
+import { getRoadmapStages } from "@/content/i18n/roadmap";
 import { RoadmapBackground } from "@/components/roadmap/RoadmapBackground";
 import { RoadmapStagePanel } from "@/components/roadmap/RoadmapStagePanel";
 import { RoadmapTrack } from "@/components/roadmap/RoadmapTrack";
 import { useRoadmapScrub } from "@/components/roadmap/useRoadmapScrub";
+import { useTranslation } from "@/i18n/LocaleProvider";
 
 export function CooperationRoadmap({ embedded = false }: { embedded?: boolean }) {
+  const { messages, t } = useTranslation();
+  const roadmapStages = getRoadmapStages(messages);
   const {
     progress,
     activeIndex,
@@ -20,7 +23,7 @@ export function CooperationRoadmap({ embedded = false }: { embedded?: boolean })
     handlePointerMove,
     handlePointerUp,
     handleKeyDown,
-  } = useRoadmapScrub();
+  } = useRoadmapScrub(roadmapStages);
 
   return (
     <section
@@ -38,16 +41,16 @@ export function CooperationRoadmap({ embedded = false }: { embedded?: boolean })
             {!embedded && (
               <>
                 <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-accent-light">
-                  Mapa współpracy
+                  {t("home.roadmap.eyebrow")}
                 </p>
                 <h2
                   id="roadmap-heading"
                   className="text-2xl font-bold text-white sm:text-3xl"
                 >
-                  Twój import krok po kroku
+                  {t("home.roadmap.title")}
                 </h2>
                 <p className="mt-2 max-w-lg text-sm text-white/70">
-                  Interaktywna ścieżka — od briefu po dostawę pod Twój adres.
+                  {t("home.roadmap.lead")}
                 </p>
               </>
             )}
@@ -61,6 +64,7 @@ export function CooperationRoadmap({ embedded = false }: { embedded?: boolean })
             </div>
 
             <RoadmapTrack
+              stages={roadmapStages}
               progress={progress}
               activeIndex={activeIndex}
               isDragging={isDragging}

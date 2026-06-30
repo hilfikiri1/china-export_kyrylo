@@ -3,13 +3,14 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import {
+  getServicePhases,
   getServicesByPhase,
-  servicePhases,
-  type ServicePhaseId,
-} from "@/content/services";
+} from "@/content/i18n/services";
+import type { ServicePhaseId } from "@/content/services";
 import { ServiceCard } from "@/components/services/ServiceCard";
 import type { ServiceCardComponentProps } from "@/components/services/ServiceCompactTile";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { useTranslation } from "@/i18n/LocaleProvider";
 import { useMotionConfig } from "@/lib/motion";
 import { cn } from "@/lib/utils";
 
@@ -35,6 +36,8 @@ export function ServicesPhaseTabs({
 }: ServicesPhaseTabsProps) {
   const [activePhase, setActivePhase] = useState<ServicePhaseId>("pre-production");
   const { fadeUp, staggerContainer, itemTransition } = useMotionConfig();
+  const { messages, t } = useTranslation();
+  const servicePhases = getServicePhases(messages);
   const isDedicated = variant === "dedicated";
   const isMosaic = isDedicated && layout === "mosaic";
 
@@ -56,7 +59,7 @@ export function ServicesPhaseTabs({
         >
           <div className="-mx-1 overflow-x-auto px-1 pb-1">
             <TabsList
-              aria-label="Fazy importu"
+              aria-label={t("services.section.phasesAriaLabel")}
               className={cn(
                 "h-auto w-max min-w-full justify-start gap-1 rounded-xl border border-white/10 p-1 sm:min-w-0 sm:w-full",
                 isDedicated ? "bg-navy/50" : "bg-white/5 backdrop-blur-sm",
@@ -132,7 +135,7 @@ export function ServicesPhaseTabs({
                 initial="hidden"
                 animate={activePhase === phase.id ? "visible" : "hidden"}
               >
-                {getServicesByPhase(phase.id).map((service) => (
+                {getServicesByPhase(messages, phase.id).map((service) => (
                   <CardComponent
                     key={service.id}
                     service={service}

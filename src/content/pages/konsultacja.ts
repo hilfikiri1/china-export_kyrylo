@@ -3,7 +3,7 @@ import type { DedicatedPageContent } from "./types";
 export const konsultacjaPage: DedicatedPageContent = {
   id: "konsultacja",
   meta: {
-    title: "Umów konsultację — China Export",
+    title: "Umów konsultację — Buy & Bring Solutions",
     description:
       "Bezpłatna 30-minutowa konsultacja z specjalistą ds. importu z Chin — omówimy Twój projekt, ryzyka i rekomendowany plan.",
   },
@@ -25,7 +25,7 @@ export const konsultacjaPage: DedicatedPageContent = {
     },
     {
       title: "Z kim rozmawiasz",
-      body: "Konsultacje prowadzą doświadczeni koordynatorzy projektów z biura w Warszawie — osoby, które na co dzień nadzorują importy w różnych branżach.",
+      body: "Konsultacje prowadzą doświadczeni koordynatorzy projektów — osoby, które na co dzień nadzorują importy w różnych branżach.",
     },
   ],
   cta: {

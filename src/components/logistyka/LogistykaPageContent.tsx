@@ -10,7 +10,7 @@ export function LogistykaPageContent() {
   return (
     <>
       <MyWChinachHero {...hero} />
-      <MyWChinachStatsStrip highlights={[...highlights]} />
+      <MyWChinachStatsStrip highlights={[...highlights]} ariaLabel="" />
       <FeaturedStepsPanel {...transportModes} />
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {chainPillars.map((pillar, index) => (

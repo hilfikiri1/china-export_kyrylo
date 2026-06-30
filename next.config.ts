@@ -5,7 +5,7 @@ const nextConfig: NextConfig = {
     return [
       {
         source: "/wyjazdy-do-chin",
-        destination: "/zespol-w-chinach#wyjazdy",
+        destination: "/pl/zespol-w-chinach",
         permanent: true,
       },
     ];

@@ -10,6 +10,7 @@ import { PageCtaBand } from "@/components/pages/PageCtaBand";
 type DedicatedMarketingPageProps = {
   content: DedicatedPageContent;
   breadcrumbs?: BreadcrumbItem[];
+  breadcrumbAriaLabel?: string;
   beforeSections?: ReactNode;
   widget?: ReactNode;
   afterSections?: ReactNode;
@@ -21,6 +22,7 @@ type DedicatedMarketingPageProps = {
 export function DedicatedMarketingPage({
   content,
   breadcrumbs,
+  breadcrumbAriaLabel,
   beforeSections,
   widget,
   afterSections,
@@ -29,7 +31,10 @@ export function DedicatedMarketingPage({
   skipSections = false,
 }: DedicatedMarketingPageProps) {
   return (
-    <DedicatedPageShell breadcrumbs={breadcrumbs}>
+    <DedicatedPageShell
+      breadcrumbs={breadcrumbs}
+      breadcrumbAriaLabel={breadcrumbAriaLabel}
+    >
       <PageHero
         eyebrow={content.hero.eyebrow}
         title={content.hero.title}

@@ -1,12 +1,16 @@
+"use client";
+
 import { SectionEdgeFade } from "@/components/backgrounds/SectionEdgeFade";
 import { ConsultationForm } from "@/components/forms/ConsultationForm";
 import { KonsultacjaAgenda } from "@/components/konsultacja/KonsultacjaAgenda";
 import { KonsultacjaFooterCta } from "@/components/konsultacja/KonsultacjaFooterCta";
 import { KonsultacjaHero } from "@/components/konsultacja/KonsultacjaHero";
-import { konsultacjaLayout } from "@/content/konsultacja-layout";
+import { getKonsultacjaLayout } from "@/content/i18n/konsultacja-layout";
+import { useTranslation } from "@/i18n/LocaleProvider";
 
 export function KonsultacjaPageContent() {
-  const { hero, agenda, footerCta } = konsultacjaLayout;
+  const { messages, locale } = useTranslation();
+  const { hero, agenda, footerCta } = getKonsultacjaLayout(messages, locale);
 
   return (
     <div className="relative overflow-hidden pb-16 sm:pb-20">
@@ -33,10 +37,7 @@ export function KonsultacjaPageContent() {
 
       <div className="relative z-10 mx-auto max-w-2xl px-4 py-12 sm:px-6 md:py-16 lg:px-8">
         <KonsultacjaHero {...hero} stats={[...hero.stats]} />
-        <KonsultacjaAgenda
-          {...agenda}
-          steps={[...agenda.steps]}
-        />
+        <KonsultacjaAgenda {...agenda} steps={[...agenda.steps]} />
         <ConsultationForm />
         <KonsultacjaFooterCta {...footerCta} />
       </div>

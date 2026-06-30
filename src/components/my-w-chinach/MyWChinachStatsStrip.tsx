@@ -2,12 +2,14 @@ import type { MyWChinachHighlight } from "@/content/my-w-chinach-layout";
 
 export function MyWChinachStatsStrip({
   highlights,
+  ariaLabel,
 }: {
   highlights: MyWChinachHighlight[];
+  ariaLabel: string;
 }) {
   return (
     <section
-      aria-label="Kluczowe dane zespołu w Chinach"
+      aria-label={ariaLabel}
       className="border-y border-white/10 bg-navy-light"
     >
       <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-12 lg:px-8">

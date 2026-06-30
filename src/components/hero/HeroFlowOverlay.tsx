@@ -3,11 +3,12 @@
 import { useCallback, useEffect, useId, useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
-  getFlowRoutes,
-  heroMapCountries,
-  type HeroFlowRoute,
-  type HeroMapCountry,
-} from "@/content/hero-map";
+  getHeroFlowRoutes,
+  getHeroMapCountries,
+  getHeroMapTransportModes,
+} from "@/content/i18n/hero-map";
+import type { HeroFlowRoute, HeroMapCountry } from "@/content/hero-map";
+import { useTranslation } from "@/i18n/LocaleProvider";
 import { heroCountryGeometries } from "@/lib/hero-country-geometries";
 import { buildRoutePath, MAP_VIEW_BOX, projectLngLat } from "@/lib/geo";
 import { useMotionConfig } from "@/lib/motion";
@@ -302,13 +303,22 @@ function CountryHub({
 
 export function HeroFlowOverlay({ className }: { className?: string }) {
   const uid = useId().replace(/:/g, "");
+  const { messages } = useTranslation();
+  const heroMapCountries = useMemo(
+    () => getHeroMapCountries(messages),
+    [messages],
+  );
+  const transportModes = useMemo(
+    () => getHeroMapTransportModes(messages),
+    [messages],
+  );
   const interactive = useInteractiveDesktop();
   const { prefersReducedMotion } = useMotionConfig();
   const [routeTooltip, setRouteTooltip] = useState<RouteTooltipState | null>(null);
   const [countryCard, setCountryCard] = useState<CountryCardState | null>(null);
   const [hoveredCountry, setHoveredCountry] = useState<string | null>(null);
 
-  const routes = getFlowRoutes();
+  const routes = useMemo(() => getHeroFlowRoutes(messages), [messages]);
 
   const clearCountryHover = useCallback(() => {
     setCountryCard(null);
@@ -328,7 +338,8 @@ export function HeroFlowOverlay({ className }: { className?: string }) {
 
       clearCountryHover();
 
-      const modeLabel = route.mode === "rail" ? "Kolej" : "Lotniczy";
+      const modeLabel =
+        route.mode === "rail" ? transportModes.rail : transportModes.air;
       setRouteTooltip({
         x: event.clientX - containerRect.left + 12,
         y: event.clientY - containerRect.top - 8,
@@ -336,7 +347,7 @@ export function HeroFlowOverlay({ className }: { className?: string }) {
         lines: [route.volumeLabel, `${modeLabel} · ${route.transitDays}`],
       });
     },
-    [interactive, getContainerRect, clearCountryHover],
+    [interactive, getContainerRect, clearCountryHover, transportModes],
   );
 
   const showCountryCard = useCallback(

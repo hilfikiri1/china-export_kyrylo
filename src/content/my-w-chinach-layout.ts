@@ -16,28 +16,28 @@ export type MyWChinachPillar = {
 
 export const myWChinachLayout = {
   meta: {
-    title: "My w Chinach — China Export",
+    title: "Działamy na miejscu w Chinach — Buy & Bring Solutions",
     description:
-      "Lokalny zespół China Export w Chinach — sourcing, kontrola jakości na miejscu, wyjazdy biznesowe i koordynacja produkcji.",
+      "Operacje w Foshan: wyszukiwanie producentów, komunikacja z fabrykami, kontrole jakości, konsolidacja i przygotowanie wysyłek.",
   },
   hero: {
     eyebrow: "My w Chinach",
-    title: "Twój zespół na miejscu — nie zdalny pośrednik",
-    lead: "14 osób w trzech miastach Chin. Od weryfikacji dostawców po inspekcje QA i organizację wizyt w fabrykach — reprezentujemy Twoje interesy przy stole negocjacyjnym.",
+    title: "Wsparcie operacyjne w Foshan — bliżej producentów i procesu realizacji",
+    lead: "Zespół Buy & Bring Solutions w Chinach wspiera wyszukiwanie producentów, komunikację z fabrykami, organizację kontroli, konsolidację oraz przygotowanie wysyłek. W zależności od rodzaju projektu angażujemy odpowiednich specjalistów technicznych i inspekcyjnych.",
     image: "/image/plane_shipment.jpg",
-    imageAlt: "Logistyka i operacje na miejscu w Chinach",
+    imageAlt: "Logistyka i operacje na miejscu w Foshan, Chiny",
   },
   highlights: [
-    { value: "14", label: "Osób w zespole terenowym" },
-    { value: "3", label: "Miasta operacyjne" },
+    { value: "Foshan", label: "Baza operacyjna w Chinach" },
     { value: "PL/EN/CN", label: "Języki zespołu" },
     { value: "Na miejscu", label: "Inspekcje i audyty QA" },
+    { value: "17 lat", label: "Doświadczenia z Chinami" },
   ] satisfies MyWChinachHighlight[],
   pillars: [
     {
       id: "zespol",
       title: "Zespół w Chinach",
-      body: "Lokalny zespół na miejscu — od weryfikacji dostawców po koordynację produkcji i wysyłki. Każdy projekt ma przypisanego opiekuna, który raportuje bezpośrednio do biura w Warszawie.",
+      body: "Lokalny zespół na miejscu — od weryfikacji dostawców po koordynację produkcji i wysyłki. Każdy projekt ma przypisanego opiekuna, który raportuje bezpośrednio do zespołu w Europie.",
       bullets: [
         "Sourcing i negocjacje — identyfikacja i weryfikacja fabryk",
         "Inżynierowie QC — inspekcje na linii produkcyjnej",
@@ -45,7 +45,7 @@ export const myWChinachLayout = {
         "Tłumacze techniczni — specyfikacje, umowy, raporty",
       ],
       image: "/image/china_office.jpg",
-      imageAlt: "Biuro i zespół China Export w Chinach",
+      imageAlt: "Zespół Buy & Bring Solutions w Foshan",
     },
     {
       id: "kontrola-jakosci",
@@ -71,52 +71,27 @@ export const myWChinachLayout = {
         "Raport porównawczy po powrocie z rekomendacjami",
       ],
       image: "/image/business_trips.jpg",
-      imageAlt: "Transport lotniczy — wyjazdy biznesowe do Chin",
+      imageAlt: "Wyjazdy biznesowe do fabryk w Chinach",
     },
   ] satisfies MyWChinachPillar[],
   locations: {
     sectionTitle: "Gdzie działamy",
     sectionLead:
-      "Biura terenowe w trzech regionach Chin. Wybór bazy zależy od branży i lokalizacji dostawców.",
+      "Nasze operacje w Chinach są koordynowane z Foshan w prowincji Guangdong — blisko producentów i portów eksportowych.",
     steps: [
       {
-        id: "shenzhen",
-        tabLabel: "Shenzhen",
-        title: "Shenzhen — elektronika i hardware",
-        body: "Centrum elektroniki i komponentów. Idealna baza dla projektów hardware, IoT, akcesoriów elektronicznych i produkcji OEM w regionie Pearl River Delta.",
+        id: "foshan",
+        tabLabel: "Foshan",
+        title: "Foshan — operacje na miejscu",
+        body: "Z Foshan koordynujemy kontakt z producentami, inspekcje, konsolidację ładunków i dokumentację eksportową. Region Guangdong obejmuje szerokie spektrum branż — od naczyń i elektroniki po maszyny przemysłowe.",
         bullets: [
-          "Elektronika, komponenty, urządzenia IoT",
-          "Hardware i akcesoria mobilne",
-          "Szybkie prototypowanie i małe serie",
-        ],
-        image: "/image/quality_control.jpg",
-        imageAlt: "Region Shenzhen — elektronika i produkcja OEM",
-      },
-      {
-        id: "yiwu",
-        tabLabel: "Yiwu",
-        title: "Yiwu — handel hurtowy i małe serie",
-        body: "Największy hub handlu hurtowego w Chinach. Sprawdzamy dostawców towarów konsumenckich, gadżetów i produktów na małe serie lub próbki.",
-        bullets: [
-          "Towary konsumenckie i gadżety",
-          "Małe serie i próbki przed produkcją",
-          "Konsolidacja dostaw z wielu kategorii",
+          "Kontakt z producentami i koordynacja zamówień",
+          "Inspekcje jakości i audyty fabryk",
+          "Magazynowanie, konsolidacja i przygotowanie wysyłek",
+          "Dokumentacja eksportowa po stronie chińskiej",
         ],
         image: "/image/china_office.jpg",
-        imageAlt: "Region Yiwu — handel hurtowy i małe serie",
-      },
-      {
-        id: "ningbo",
-        tabLabel: "Ningbo",
-        title: "Ningbo — port morski i duże wolumeny",
-        body: "Kluczowy port morski i region produkcji OEM. Koordynujemy logistykę, kontrolę jakości i wysyłki kontenerowe dla większych wolumenów.",
-        bullets: [
-          "Port morski i wysyłki FCL/LCL",
-          "Produkcja OEM i duże serie",
-          "Koordynacja magazynowa i konsolidacja",
-        ],
-        image: "/image/cargo_conteiners.jpg",
-        imageAlt: "Region Ningbo — logistyka morska i produkcja OEM",
+        imageAlt: "Operacje Buy & Bring Solutions w Foshan",
       },
     ],
   } satisfies FeaturedStepsContent,

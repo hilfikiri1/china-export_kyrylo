@@ -6,6 +6,8 @@ import {
   Truck,
   type LucideIcon,
 } from "lucide-react";
+import type { Messages } from "@/i18n/get-dictionary";
+import { getMessageObject } from "@/i18n/translate";
 
 export type TrustFactor = {
   id: string;
@@ -14,40 +16,42 @@ export type TrustFactor = {
   description: string;
 };
 
-export const trustFactors: TrustFactor[] = [
-  {
-    id: "local-entity",
-    icon: Building2,
-    label: "Podmiot lokalny w Chinach",
-    description:
-      "Zarejestrowana firma działająca lokalnie — legalne faktury i umowy.",
-  },
-  {
-    id: "on-ground",
-    icon: MapPin,
-    label: "Obecność na miejscu",
-    description:
-      "Fizyczny zespół w Chinach z możliwością bezpośrednich wizyt w fabrykach.",
-  },
-  {
-    id: "pre-audit",
-    icon: Eye,
-    label: "Audyty przed produkcją",
-    description:
-      "Weryfikacja producenta przed jakąkolwiek płatnością lub startem produkcji.",
-  },
-  {
-    id: "qa",
-    icon: ShieldCheck,
-    label: "Kontrola jakości",
-    description:
-      "Ścisłe inspekcje QA przed ostateczną płatnością i wysyłką towaru.",
-  },
-  {
-    id: "e2e",
-    icon: Truck,
-    label: "Logistyka end-to-end",
-    description:
-      "Kompletny spedycja i obsługa frachtu prosto pod wskazany adres klienta.",
-  },
-];
+type TrustMessages = Record<string, { title: string; description: string }>;
+
+export function getTrustFactors(messages: Messages): TrustFactor[] {
+  const trust = getMessageObject<TrustMessages>(messages, "home.trust");
+  if (!trust) return [];
+
+  return [
+    {
+      id: "local-china",
+      icon: MapPin,
+      label: trust.localChina?.title ?? "",
+      description: trust.localChina?.description ?? "",
+    },
+    {
+      id: "verification",
+      icon: Eye,
+      label: trust.verification?.title ?? "",
+      description: trust.verification?.description ?? "",
+    },
+    {
+      id: "quality",
+      icon: ShieldCheck,
+      label: trust.quality?.title ?? "",
+      description: trust.quality?.description ?? "",
+    },
+    {
+      id: "logistics",
+      icon: Truck,
+      label: trust.logistics?.title ?? "",
+      description: trust.logistics?.description ?? "",
+    },
+    {
+      id: "flexible",
+      icon: Building2,
+      label: trust.flexible?.title ?? "",
+      description: trust.flexible?.description ?? "",
+    },
+  ];
+}

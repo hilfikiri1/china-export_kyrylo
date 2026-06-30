@@ -1,9 +1,10 @@
 import type { DedicatedPageContent } from "./types";
+import { contacts } from "@/config/contacts";
 
 export const kontaktPage: DedicatedPageContent = {
   id: "kontakt",
   meta: {
-    title: "Kontakt — China Export",
+    title: "Kontakt — Buy & Bring Solutions",
     description:
       "Wyślij zapytanie o import z Chin — opisz projekt, a odpowiemy w ciągu 24 godzin roboczych.",
   },
@@ -27,9 +28,10 @@ export const kontaktPage: DedicatedPageContent = {
       title: "Dane kontaktowe",
       body: "Preferujesz rozmowę telefoniczną? Zadzwoń lub napisz — umówimy termin konsultacji.",
       bullets: [
-        "E-mail: kontakt@china-export.pl",
-        "Telefon: +48 000 000 000",
-        "Biuro: Warszawa, Polska",
+        `E-mail: ${contacts.email}`,
+        `Telefon (PL): ${contacts.phones.poland.display}`,
+        `Telefon (UA): ${contacts.phones.ukraine.display}`,
+        `Telefon (CN): ${contacts.phones.china.display}`,
       ],
     },
   ],

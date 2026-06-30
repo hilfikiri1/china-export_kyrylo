@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import { CheckCircle2 } from "lucide-react";
-import { kontaktLayout } from "@/content/kontakt-layout";
+import { getKontaktLayout } from "@/content/i18n/kontakt";
+import { useTranslation } from "@/i18n/LocaleProvider";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -14,11 +15,11 @@ const fieldClassName =
 
 export function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
-  const { form } = kontaktLayout;
+  const { locale, messages, t } = useTranslation();
+  const { form } = getKontaktLayout(locale, messages, t);
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    // TODO: wire to API / Formspree / email service
     setSubmitted(true);
   }
 
@@ -39,7 +40,7 @@ export function ContactForm() {
             className="mt-8 border-white/20 bg-transparent text-white hover:bg-white/5"
             onClick={() => setSubmitted(false)}
           >
-            Wyślij kolejne zapytanie
+            {form.sendAnother}
           </Button>
         </div>
       ) : (
@@ -55,24 +56,24 @@ export function ContactForm() {
             <div className="grid gap-4 sm:grid-cols-2">
               <div className="space-y-2">
                 <Label htmlFor="contact-name" className="text-white/80">
-                  Imię i nazwisko
+                  {form.fields?.name}
                 </Label>
                 <Input
                   id="contact-name"
                   name="name"
                   required
-                  placeholder="Jan Kowalski"
+                  placeholder={form.placeholders?.name}
                   className={fieldClassName}
                 />
               </div>
               <div className="space-y-2">
                 <Label htmlFor="contact-company" className="text-white/80">
-                  Firma
+                  {form.fields?.company}
                 </Label>
                 <Input
                   id="contact-company"
                   name="company"
-                  placeholder="Nazwa firmy"
+                  placeholder={form.placeholders?.company}
                   className={fieldClassName}
                 />
               </div>
@@ -81,26 +82,26 @@ export function ContactForm() {
             <div className="grid gap-4 sm:grid-cols-2">
               <div className="space-y-2">
                 <Label htmlFor="contact-email" className="text-white/80">
-                  E-mail
+                  {form.fields?.email}
                 </Label>
                 <Input
                   id="contact-email"
                   name="email"
                   type="email"
                   required
-                  placeholder="jan@firma.pl"
+                  placeholder={form.placeholders?.email}
                   className={fieldClassName}
                 />
               </div>
               <div className="space-y-2">
                 <Label htmlFor="contact-phone" className="text-white/80">
-                  Telefon
+                  {form.fields?.phone}
                 </Label>
                 <Input
                   id="contact-phone"
                   name="phone"
                   type="tel"
-                  placeholder="+48 000 000 000"
+                  placeholder={form.placeholders?.phone}
                   className={fieldClassName}
                 />
               </div>
@@ -134,14 +135,14 @@ export function ContactForm() {
 
             <div className="space-y-2">
               <Label htmlFor="contact-message" className="text-white/80">
-                Opis projektu
+                {form.fields?.message}
               </Label>
               <Textarea
                 id="contact-message"
                 name="message"
                 rows={5}
                 required
-                placeholder="Produkt, ilość, harmonogram, preferowany zakres usług..."
+                placeholder={form.placeholders?.message}
                 className={fieldClassName}
               />
             </div>

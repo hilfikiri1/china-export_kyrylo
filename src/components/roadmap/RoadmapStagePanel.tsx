@@ -2,6 +2,7 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 import type { RoadmapStage } from "@/content/roadmap.stages";
+import { useT } from "@/i18n/LocaleProvider";
 
 type RoadmapStagePanelProps = {
   stage: RoadmapStage;
@@ -14,6 +15,8 @@ export function RoadmapStagePanel({
   stageIndex,
   totalStages,
 }: RoadmapStagePanelProps) {
+  const t = useT();
+
   return (
     <div className="relative z-10 min-h-[180px]">
       <AnimatePresence mode="wait">
@@ -25,7 +28,10 @@ export function RoadmapStagePanel({
           transition={{ duration: 0.3 }}
         >
           <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-white/55">
-            Etap {stageIndex + 1} / {totalStages}
+            {t("home.roadmap.stageCounter", {
+              current: stageIndex + 1,
+              total: totalStages,
+            })}
           </p>
           <h3 className="text-2xl font-bold text-white sm:text-3xl lg:text-4xl">
             {stage.title}

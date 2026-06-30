@@ -3,7 +3,7 @@ import type { DedicatedPageContent } from "./types";
 export const spedycjaILogistykaPage: DedicatedPageContent = {
   id: "uslugi-spedycja-i-logistyka",
   meta: {
-    title: "Spedycja i logistyka — China Export",
+    title: "Spedycja i logistyka — Buy & Bring Solutions",
     description:
       "Spedycja i transport z Chin — fracht morski i lotniczy, konsolidacja ładunków, śledzenie i optymalizacja trasy.",
   },
@@ -35,7 +35,7 @@ export const spedycjaILogistykaPage: DedicatedPageContent = {
     },
     {
       title: "Typowy czas tranzytu",
-      body: "Morski FCL Shenzhen–Gdańsk: 28–35 dni. Lotniczy: 5–8 dni. Dokładny czas zależy od portu załadunku, sezonu i wybranego przewoźnika.",
+      body: "Czas transportu zależy od portu załadunku, sposobu przewozu (morski, lotniczy, kolejowy, drogowy), sezonu i przewoźnika. Dokładny termin ustalamy po znaniu wagi, objętości i adresów.",
     },
   ],
   cta: {

@@ -3,19 +3,19 @@ import type { DedicatedPageContent } from "./types";
 export const zespolWChinachPage: DedicatedPageContent = {
   id: "zespol-w-chinach",
   meta: {
-    title: "Zespół w Chinach — China Export",
+    title: "Zespół w Chinach — Buy & Bring Solutions",
     description:
-      "Lokalny zespół China Export w Chinach — sourcing, audyty fabryk, kontrola jakości i koordynacja produkcji na miejscu.",
+      "Operacje w Foshan: wyszukiwanie producentów, komunikacja z fabrykami, kontrole jakości, konsolidacja i przygotowanie wysyłek.",
   },
   hero: {
     eyebrow: "My w Chinach",
-    title: "Twój zespół na miejscu — nie zdalny pośrednik",
-    lead: "14 osób w trzech miastach Chin. Mówimy mandaryńsko, znamy lokalny rynek i reprezentujemy Twoje interesy przy stole negocjacyjnym.",
+    title: "Wsparcie operacyjne w Foshan — bliżej producentów i procesu realizacji",
+    lead: "Zespół Buy & Bring Solutions w Chinach wspiera wyszukiwanie producentów, komunikację z fabrykami, organizację kontroli, konsolidację oraz przygotowanie wysyłek.",
   },
   sections: [
     {
       title: "Kto jest w zespole",
-      body: "Zespół terenowy to specjaliści ds. sourcingu, inżynierowie QC, koordynatorzy logistyczni i tłumacze techniczni. Każdy projekt ma przypisanego opiekuna, który raportuje bezpośrednio do biura w Warszawie.",
+      body: "Zespół terenowy to specjaliści ds. sourcingu, inżynierowie QC, koordynatorzy logistyczni i tłumacze techniczni. W zależności od rodzaju projektu angażujemy odpowiednich specjalistów technicznych i inspekcyjnych.",
       bullets: [
         "Sourcing i negocjacje — identyfikacja i weryfikacja fabryk",
         "Inżynierowie QC — inspekcje na linii produkcyjnej",
@@ -25,11 +25,11 @@ export const zespolWChinachPage: DedicatedPageContent = {
     },
     {
       title: "Gdzie działamy",
-      body: "Biura terenowe w Shenzhen (elektronika i hardware), Yiwu (towary konsumenckie i małe serie) oraz Ningbo (logistyka morska i region produkcji OEM). Wybór bazy zależy od branży i lokalizacji dostawców.",
+      body: "Nasze operacje w Chinach są koordynowane z Foshan w prowincji Guangdong — blisko producentów i portów eksportowych. Z tej bazy kontaktujemy się z fabrykami, organizujemy inspekcje i przygotowujemy wysyłki.",
       bullets: [
-        "Shenzhen — elektronika, komponenty, hardware",
-        "Yiwu — handel hurtowy, małe serie, próbki",
-        "Ningbo — port morski, OEM, duże wolumeny",
+        "Foshan — kontakt z producentami i koordynacja zamówień",
+        "Inspekcje jakości i audyty fabryk",
+        "Magazynowanie, konsolidacja i dokumentacja eksportowa",
       ],
     },
   ],

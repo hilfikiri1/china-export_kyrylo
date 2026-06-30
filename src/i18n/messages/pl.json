@@ -1,0 +1,1545 @@
+{
+  "common": {
+    "brand": "Buy & Bring Solutions",
+    "brandShort": "B&BS",
+    "brandRegional": "B&BS Poland",
+    "home": "Strona główna",
+    "services": "Usługi",
+    "process": "Jak pracujemy",
+    "cases": "Realizacje",
+    "about": "O nas",
+    "china": "Działamy w Chinach",
+    "calculator": "Kalkulator",
+    "contact": "Kontakt",
+    "consultation": "Konsultacja",
+    "describeProject": "Opisz projekt",
+    "describeYourProject": "Opisz swój projekt",
+    "bookConsultation": "Umów konsultację",
+    "calculateImport": "Oblicz orientacyjny koszt importu",
+    "sendInquiry": "Wyślij zapytanie",
+    "learnMore": "Dowiedz się więcej",
+    "viewAll": "Zobacz wszystkie",
+    "close": "Zamknij",
+    "openMenu": "Otwórz menu",
+    "closeMenu": "Zamknij menu",
+    "previousSlide": "Poprzedni slajd",
+    "nextSlide": "Następny slajd",
+    "language": "Język",
+    "loading": "Ładowanie…",
+    "error": "Wystąpił błąd",
+    "tryAgain": "Spróbuj ponownie",
+    "ok": "OK",
+    "required": "Pole wymagane",
+    "optional": "Opcjonalne",
+    "privacyConsent": "Wyrażam zgodę na przetwarzanie danych osobowych zgodnie z",
+    "privacyPolicy": "polityką prywatności",
+    "cookiePolicy": "polityką cookies",
+    "terms": "regulamin",
+    "calculatorDisclaimer": "zastrzeżenie kalkulatora",
+    "footerPages": "Strony",
+    "footerServices": "Usługi",
+    "footerContact": "Kontakt",
+    "footerLegal": "Informacje prawne",
+    "email": "E-mail",
+    "phone": "Telefon",
+    "whatsapp": "WhatsApp",
+    "allRightsReserved": "Wszelkie prawa zastrzeżone.",
+    "modularServices": "Usługi modułowe",
+    "importCalculator": "Kalkulator importu",
+    "bookConsultationNav": "Umów konsultację",
+    "company": "Firma",
+    "tools": "Narzędzia",
+    "helpAtThisStage": "Pomoc na tym etapie?",
+    "submitForVerification": "Prześlij dane do weryfikacji",
+    "requestContact": "Poproś o kontakt",
+    "sendAnotherInquiry": "Wyślij kolejne zapytanie",
+    "specializations": "Specjalizacje"
+  },
+  "nav": {
+    "home": "Strona główna",
+    "services": "Usługi",
+    "process": "Jak pracujemy",
+    "cases": "Realizacje",
+    "about": "O nas",
+    "china": "Działamy w Chinach",
+    "calculator": "Kalkulator",
+    "contact": "Kontakt",
+    "cta": "Opisz projekt",
+    "specializations": "Specjalizacje"
+  },
+  "layout": {
+    "breadcrumb": {
+      "ariaLabel": "Nawigacja okruszkowa"
+    }
+  },
+  "home": {
+    "hero": {
+      "eyebrow": "Buy & Bring Solutions · Polska — Chiny",
+      "title": "Import z Chin dla firm — od sprawdzonego producenta do Twojego magazynu",
+      "paragraph": "Wyszukujemy i weryfikujemy producentów, kontrolujemy produkcję i jakość, organizujemy eksport, transport, odprawę celną oraz dostawę do Polski i innych krajów Europy.",
+      "supporting": "Możesz powierzyć nam cały proces albo zlecić tylko wybrany etap.",
+      "trustHeading": "Dlaczego firmy wybierają Buy & Bring Solutions",
+      "ariaLabel": "Strona główna"
+    },
+    "stats": {
+      "ariaLabel": "Kluczowe wskaźniki firmy",
+      "experience": {
+        "value": "17 lat",
+        "label": "doświadczenia we współpracy z Chinami"
+      },
+      "clients": {
+        "value": "275+",
+        "label": "obsłużonych klientów"
+      },
+      "containers": {
+        "value": "110+",
+        "label": "dostarczonych kontenerów"
+      },
+      "foshan": {
+        "value": "Foshan",
+        "label": "operacje i wsparcie na miejscu w Chinach"
+      }
+    },
+    "trust": {
+      "localChina": {
+        "title": "Działamy na miejscu w Chinach",
+        "description": "Nasz zespół operacyjny w Foshan kontaktuje się z producentami, koordynuje zamówienia oraz organizuje kontrole i wysyłki."
+      },
+      "verification": {
+        "title": "Weryfikujemy producentów",
+        "description": "Sprawdzamy dane firmy, możliwości produkcyjne, dokumentację oraz zgodność oferty z wymaganiami projektu."
+      },
+      "quality": {
+        "title": "Kontrolujemy towar przed wysyłką",
+        "description": "W zależności od projektu organizujemy kontrolę przedprodukcyjną, kontrolę w trakcie produkcji lub inspekcję przed wysyłką."
+      },
+      "logistics": {
+        "title": "Organizujemy dostawę od fabryki do magazynu",
+        "description": "Koordynujemy eksport, transport morski, kolejowy, lotniczy lub drogowy, odprawę celną i dostawę końcową."
+      },
+      "flexible": {
+        "title": "Pełny proces lub wybrana usługa",
+        "description": "Możesz zlecić nam kompleksową obsługę albo tylko wyszukanie producenta, kontrolę jakości, konsolidację lub transport."
+      }
+    },
+    "roadmap": {
+      "eyebrow": "Mapa współpracy",
+      "title": "Twój import krok po kroku",
+      "lead": "Interaktywna ścieżka — od briefu po dostawę pod Twój adres.",
+      "heading": "Jak przebiega import z Chin",
+      "dragHint": "Przeciągnij kontener, użyj kółka myszy lub strzałek ← →",
+      "stageCounter": "Etap {current} / {total}",
+      "trackAriaLabel": "Etapy współpracy",
+      "stageAriaLabel": "Etap {n}: {title}",
+      "stages": [
+        {
+          "id": "brief",
+          "title": "Brief i specyfikacja",
+          "description": "Poznajemy produkt, jego zastosowanie, wymagania techniczne, planowaną ilość, budżet, termin oraz kraj docelowy.",
+          "ctaLabel": "Wyślij brief",
+          "ctaId": "contact",
+          "imageAlt": "Spotkanie biznesowe i planowanie projektu importu"
+        },
+        {
+          "id": "sourcing",
+          "title": "Wyszukiwanie i porównanie producentów",
+          "description": "Wyszukujemy odpowiednie fabryki, zbieramy oferty oraz porównujemy konfiguracje, ceny, terminy produkcji, MOQ i warunki handlowe.",
+          "ctaLabel": "Zobacz jak szukamy",
+          "ctaId": "sourcing",
+          "imageAlt": "Magazyn z towarami — wyszukiwanie dostawców"
+        },
+        {
+          "id": "verification",
+          "title": "Weryfikacja fabryki i próbek",
+          "description": "Sprawdzamy producenta, dokumentację, możliwości produkcyjne oraz — gdy jest to potrzebne — organizujemy próbki, wideoweryfikację lub audyt.",
+          "ctaLabel": "Umów weryfikację",
+          "ctaId": "audit",
+          "imageAlt": "Hala produkcyjna — weryfikacja fabryki w Chinach"
+        },
+        {
+          "id": "production",
+          "title": "Zamówienie i nadzór nad produkcją",
+          "description": "Pomagamy uzgodnić specyfikację, warunki płatności, harmonogram i sposób odbioru. Koordynujemy komunikację z producentem podczas realizacji zamówienia.",
+          "ctaLabel": "Wyślij zapytanie",
+          "ctaId": "contact",
+          "imageAlt": "Nadzór nad produkcją w fabryce"
+        },
+        {
+          "id": "qc",
+          "title": "Kontrola jakości i dokumentów",
+          "description": "Sprawdzamy zgodność towaru z ustaleniami, ilość, opakowanie, oznakowanie, działanie oraz dostępne dokumenty przed wysyłką.",
+          "ctaLabel": "Kontrola jakości",
+          "ctaId": "qc",
+          "imageAlt": "Kontrola jakości i dokumentacja przed wysyłką"
+        },
+        {
+          "id": "delivery",
+          "title": "Transport, odprawa i dostawa",
+          "description": "Organizujemy eksport z Chin, fracht, odprawę celną i dostawę pod wskazany adres w Polsce, Ukrainie lub innym kraju europejskim.",
+          "ctaLabel": "Oblicz transport",
+          "ctaId": "freight",
+          "imageAlt": "Transport i dostawa door-to-door"
+        }
+      ]
+    },
+    "casesTeaser": {
+      "eyebrow": "Realizacje",
+      "title": "Wybrane projekty importu z Chin",
+      "lead": "Poniżej przykłady współpracy w różnych branżach. Ze względu na poufność nie publikujemy danych klientów — na stronie Realizacje znajdziesz zakres, proces i rezultaty.",
+      "imageAlt": "Kontenery cargo — logistyka i realizacje importu z Chin",
+      "ctaLabel": "Zobacz realizacje",
+      "overlayTitle": "Logistyka i realizacja",
+      "overlayBody": "Od weryfikacji dostawcy po dostawę do magazynu w UE — pełny proces importu w jednym miejscu.",
+      "bullets": [
+        "Case studies z różnych branż — maszyny, materiały budowlane, EV, opakowania",
+        "Zakres, proces i rezultaty bez ujawniania danych klientów",
+        "275+ obsłużonych firm w 17 lat działalności"
+      ],
+      "highlights": {
+        "projects": "Projektów w portfolio",
+        "categories": "Branż w realizacjach",
+        "clients": "Obsłużonych klientów"
+      }
+    },
+    "aboutGrid": {
+      "sectionAriaLabel": "Zespół i usługi na miejscu w Chinach",
+      "sectionCta": "Poznaj nasz zespół w Chinach",
+      "hero": {
+        "title": "Zespół w Chinach",
+        "description": "Zespół operacyjny w Foshan — od weryfikacji dostawców po koordynację produkcji i wysyłki.",
+        "imageAlt": "Zespół Buy & Bring Solutions w Foshan"
+      },
+      "qualityControl": {
+        "title": "Kontrola jakości i dokumentacja",
+        "description": "Inspekcje QA, raporty z kontroli, certyfikaty i pełna dokumentacja zgodna z wymogami importu do UE.",
+        "imageAlt": "Kontrola jakości towarów przed wysyłką z Chin"
+      },
+      "businessTrips": {
+        "title": "Wyjazdy biznesowe do Chin",
+        "description": "Organizujemy wizyty w fabrykach, tłumaczenia na miejscu i wsparcie podczas negocjacji z dostawcami.",
+        "imageAlt": "Wyjazdy biznesowe do fabryk w Chinach"
+      }
+    },
+    "heroMap": {
+      "transportModes": {
+        "rail": "Kolej",
+        "air": "Lotniczy"
+      },
+      "countries": [
+        {
+          "id": "CN",
+          "name": "Chiny",
+          "role": "Kraj źródłowy",
+          "description": "Operacje w Foshan: kontakt z producentami, inspekcje, konsolidacja i dokumentacja eksportowa.",
+          "hubs": [
+            "Foshan"
+          ],
+          "metrics": [
+            {
+              "label": "Doświadczenie",
+              "value": "lat"
+            },
+            {
+              "label": "Obsłużeni klienci",
+              "value": "275+"
+            },
+            {
+              "label": "Baza operacyjna",
+              "value": "Foshan"
+            }
+          ]
+        },
+        {
+          "id": "PL",
+          "name": "Polska",
+          "role": "Główny kierunek dostaw",
+          "description": "Door-to-door do magazynu lub hali produkcyjnej. Odprawa celna i last mile w UE.",
+          "hubs": [
+            "Gdańsk",
+            "Gdynia",
+            "Wrocław"
+          ],
+          "metrics": [
+            {
+              "label": "Dostarczone kontenery",
+              "value": "110+"
+            },
+            {
+              "label": "Obsługa celna",
+              "value": "Pełna"
+            },
+            {
+              "label": "Dostawa",
+              "value": "Door-to-door"
+            }
+          ]
+        },
+        {
+          "id": "DE",
+          "name": "Niemcy",
+          "role": "Rynek docelowy",
+          "description": "Tranzyt i konsolidacja ładunków dla klientów w Europie Zachodniej z dostawą door-to-door.",
+          "hubs": [
+            "Hamburg",
+            "Frankfurt",
+            "Monachium",
+            "Berlin"
+          ],
+          "metrics": [
+            {
+              "label": "Tryby transportu",
+              "value": "Morski / kolej / lotniczy"
+            },
+            {
+              "label": "Obsługa FCL / LCL",
+              "value": "Tak"
+            },
+            {
+              "label": "Dostawa",
+              "value": "Door-to-door"
+            }
+          ]
+        },
+        {
+          "id": "CZ",
+          "name": "Czechy",
+          "role": "Rynek docelowy",
+          "description": "Dostawy B2B dla producentów i dystrybutorów w Czechach z pełną obsługą importu.",
+          "hubs": [
+            "Praga",
+            "Brno",
+            "Ostrawa"
+          ],
+          "metrics": [
+            {
+              "label": "Tryby transportu",
+              "value": "Morski / kolej / lotniczy"
+            },
+            {
+              "label": "Obsługa importu",
+              "value": "Pełna"
+            },
+            {
+              "label": "Last mile",
+              "value": "Door-to-door"
+            }
+          ]
+        },
+        {
+          "id": "UA",
+          "name": "Ukraina",
+          "role": "Rynek docelowy",
+          "description": "Import towarów i komponentów B2B z obsługą tranzytu lądowego i lotniczego do magazynów klienta.",
+          "hubs": [
+            "Odessa",
+            "Kijów",
+            "Lwów"
+          ],
+          "metrics": [
+            {
+              "label": "Tryby transportu",
+              "value": "Morski / kolej / lotniczy"
+            },
+            {
+              "label": "Obsługa importu",
+              "value": "Pełna"
+            },
+            {
+              "label": "Last mile",
+              "value": "Door-to-door"
+            }
+          ]
+        }
+      ],
+      "routes": [
+        {
+          "id": "cn-pl-rail",
+          "label": "Kolej: Chiny → Polska",
+          "volumeLabel": "Fracht kolejowy",
+          "transitDays": "Zależnie od trasy"
+        },
+        {
+          "id": "cn-de-rail",
+          "label": "Kolej: Chiny → Niemcy",
+          "volumeLabel": "Fracht kolejowy",
+          "transitDays": "Zależnie od trasy"
+        },
+        {
+          "id": "cn-cz-rail",
+          "label": "Kolej: Chiny → Czechy",
+          "volumeLabel": "Fracht kolejowy",
+          "transitDays": "Zależnie od trasy"
+        },
+        {
+          "id": "cn-ua-rail",
+          "label": "Kolej: Chiny → Ukraina",
+          "volumeLabel": "Fracht kolejowy",
+          "transitDays": "Zależnie od trasy"
+        },
+        {
+          "id": "cn-pl-air",
+          "label": "Lotniczy: Chiny → Polska",
+          "volumeLabel": "Fracht lotniczy",
+          "transitDays": "Zależnie od trasy"
+        },
+        {
+          "id": "cn-de-air",
+          "label": "Lotniczy: Chiny → Niemcy",
+          "volumeLabel": "Fracht lotniczy",
+          "transitDays": "Zależnie od trasy"
+        }
+      ]
+    },
+    "industries": {
+      "heading": "Branże i kategorie produktów",
+      "closing": "Nie widzisz swojej kategorii? Opisz produkt — sprawdzimy możliwości produkcji i dostawy."
+    },
+    "seo": {
+      "title": "Import z Chin dla firm | Buy & Bring Solutions",
+      "description": "Wyszukiwanie i weryfikacja producentów, kontrola jakości, produkcja pod marką własną, transport, odprawa celna i dostawa z Chin do Polski i Europy."
+    },
+    "specializations": {
+      "eyebrow": "OBSZARY SPECJALIZACJI",
+      "title": "Produkty i branże, w których się specjalizujemy",
+      "lead": "Wyszukujemy producentów, organizujemy produkcję i kontrolę jakości w ośmiu kluczowych obszarach — od maszyn przemysłowych po produkty konsumenckie.",
+      "closing": "Nie widzisz swojej kategorii? Opisz produkt — sprawdzimy możliwości produkcji i importu.",
+      "ctaLabel": "Zobacz wszystkie specjalizacje",
+      "ariaLabel": "Obszary specjalizacji"
+    }
+  },
+  "services": {
+    "section": {
+      "heading": "Usługi dopasowane do etapu Twojego projektu",
+      "supporting": "Możemy przeprowadzić cały proces importu albo wesprzeć Cię tylko na wybranym etapie.",
+      "phasesAriaLabel": "Fazy importu",
+      "helpCtaLong": "Potrzebujesz pomocy tylko na tym etapie?",
+      "relatedStagePrefix": "Powiązany etap"
+    },
+    "phases": {
+      "pre-production": {
+        "label": "Przed produkcją",
+        "description": "Od wyszukiwania producenta po kontrolę jakości i OEM."
+      },
+      "logistics": {
+        "label": "Logistyka",
+        "description": "Od fabryki do portu — płatności, konsolidacja i fracht."
+      },
+      "delivery": {
+        "label": "Dostawa w UE",
+        "description": "Transport, odprawa celna i dostawa pod wskazany adres."
+      }
+    },
+    "modules": {
+      "sourcing": {
+        "title": "Wyszukiwanie producentów i organizacja zakupu",
+        "scope": "Wyszukujemy producentów, zbieramy i porównujemy oferty, analizujemy MOQ, terminy, konfiguracje oraz warunki płatności i dostawy."
+      },
+      "verification": {
+        "title": "Weryfikacja dostawców i audyty fabryk",
+        "scope": "Sprawdzamy dane rejestrowe, zakres działalności, możliwości produkcyjne, dokumentację i zgodność fabryki z wymaganiami projektu."
+      },
+      "qc": {
+        "title": "Kontrola jakości towarów",
+        "scope": "Organizujemy kontrolę jakości na podstawie uzgodnionej specyfikacji, checklisty, próbek referencyjnych i wymagań klienta."
+      },
+      "oem": {
+        "title": "Produkcja pod marką własną — Private Label i OEM",
+        "scope": "Pomagamy dostosować produkt, logo, opakowanie, etykiety i instrukcję do wymagań marki oraz rynku docelowego."
+      },
+      "payment-export": {
+        "title": "Koordynacja płatności i eksportu z Chin",
+        "scope": "Koordynujemy dokumentację handlową i eksportową oraz uzgodniony model współpracy z producentem."
+      },
+      "consolidation": {
+        "title": "Konsolidacja towarów od wielu producentów",
+        "scope": "Organizujemy odbiór towarów z kilku fabryk, magazynowanie, kontrolę kompletności, przeładunek i przygotowanie wspólnej wysyłki."
+      },
+      "freight": {
+        "title": "Transport, odprawa celna i dostawa",
+        "scope": "Dobieramy sposób transportu, koordynujemy fracht, dokumentację, odprawę celną oraz dostawę końcową."
+      }
+    },
+    "card": {
+      "relatedStage": "Powiązany etap",
+      "helpCta": "Pomoc na tym etapie?"
+    }
+  },
+  "process": {
+    "section": {
+      "heading": "Jak przebiega import z Chin",
+      "steps": [
+        {
+          "title": "Brief i specyfikacja",
+          "description": "Poznajemy produkt, jego zastosowanie, wymagania techniczne, planowaną ilość, budżet, termin oraz kraj docelowy."
+        },
+        {
+          "title": "Wyszukiwanie i porównanie producentów",
+          "description": "Wyszukujemy odpowiednie fabryki, zbieramy oferty oraz porównujemy konfiguracje, ceny, terminy produkcji, MOQ i warunki handlowe."
+        },
+        {
+          "title": "Weryfikacja fabryki i próbek",
+          "description": "Sprawdzamy producenta, dokumentację, możliwości produkcyjne oraz — gdy jest to potrzebne — organizujemy próbki, wideoweryfikację lub audyt."
+        },
+        {
+          "title": "Zamówienie i nadzór nad produkcją",
+          "description": "Pomagamy uzgodnić specyfikację, warunki płatności, harmonogram i sposób odbioru. Koordynujemy komunikację z producentem podczas realizacji zamówienia."
+        },
+        {
+          "title": "Kontrola jakości i dokumentów",
+          "description": "Sprawdzamy zgodność towaru z ustaleniami, ilość, opakowanie, oznakowanie, działanie oraz dostępne dokumenty przed wysyłką."
+        },
+        {
+          "title": "Transport, odprawa i dostawa",
+          "description": "Organizujemy eksport z Chin, fracht, odprawę celną i dostawę pod wskazany adres w Polsce, Ukrainie lub innym kraju europejskim."
+        }
+      ]
+    },
+    "page": {
+      "meta": {
+        "title": "Proces importu — Buy & Bring Solutions",
+        "description": "Poznaj pełną ścieżkę importu z Chin — od briefu i weryfikacji dostawcy po fracht, odprawę celną i dostawę door-to-door."
+      },
+      "hero": {
+        "eyebrow": "Mapa współpracy",
+        "title": "Import z Chin krok po kroku",
+        "titleLead": "Import z Chin",
+        "titleAccent": "krok po kroku",
+        "lead": "Każdy projekt przechodzi przez przewidywalne etapy. Wiesz, co dzieje się teraz, co będzie dalej i kto za to odpowiada — po stronie polskiej i chińskiej.",
+        "stats": {
+          "experience": "lat doświadczenia",
+          "clients": "obsłużonych klientów",
+          "containers": "dostarczonych kontenerów"
+        }
+      },
+      "stepsAriaLabel": "Etapy procesu importu",
+      "ctaBand": {
+        "eyebrow": "Gotowy na swój pierwszy import?",
+        "title": "Zacznij bez ryzyka",
+        "body": "Pierwsza konsultacja i wycena są bezpłatne. Zero zobowiązań."
+      },
+      "sections": [
+        {
+          "title": "Od briefu do planu działania",
+          "body": "Zaczynamy od krótkiego briefu: produkt, wolumen, budżet i harmonogram. Na tej podstawie proponujemy zakres — pełny import end-to-end albo wybrane moduły wraz z propozycją kolejnych kroków.",
+          "bullets": [
+            "Analiza produktu i wymagań rynku UE",
+            "Wstępna ocena ryzyk i harmonogramu",
+            "Propozycja modułów i transparentny kosztorys"
+          ]
+        },
+        {
+          "title": "Transparentność na każdym etapie",
+          "body": "Nie znikamy między etapami. Utrzymujemy kontakt i informujemy o postępach — w zależności od fazy projektu otrzymujesz dokumenty, zdjęcia lub podsumowania. Możesz wejść w proces w dowolnym momencie albo powierzyć nam całość.",
+          "bullets": [
+            "Stały opiekun projektu po stronie PL",
+            "Zespół operacyjny na miejscu w Chinach",
+            "Aktualizacje zgodnie z ustaleniami projektu"
+          ]
+        }
+      ],
+      "cta": {
+        "primary": {
+          "label": "Wyślij zapytanie",
+          "href": "/kontakt"
+        },
+        "secondary": {
+          "label": "Umów konsultację",
+          "href": "/konsultacja"
+        }
+      }
+    }
+  },
+  "forms": {
+    "validation": {
+      "required": "To pole jest wymagane",
+      "email": "Podaj prawidłowy adres e-mail",
+      "phone": "Podaj prawidłowy numer telefonu"
+    },
+    "contact": {
+      "title": "Wyślij zapytanie",
+      "description": "Opisz projekt — odpowiemy z propozycją zakresu i kolejnych kroków.",
+      "fields": {
+        "name": "Imię i nazwisko",
+        "company": "Firma",
+        "email": "E-mail",
+        "phone": "Telefon",
+        "scope": "Zakres potrzebnej pomocy",
+        "message": "Opis projektu"
+      },
+      "placeholders": {
+        "name": "Jan Kowalski",
+        "company": "Nazwa firmy Sp. z o.o.",
+        "email": "jan@firma.pl",
+        "phone": "+48 783 232 971",
+        "message": "Produkt, ilość, harmonogram, preferowany zakres usług..."
+      },
+      "scopeOptions": {
+        "sourcing": "Wyszukiwanie producenta",
+        "audit": "Weryfikacja lub audyt fabryki",
+        "qc": "Kontrola jakości",
+        "oem": "Private Label / OEM",
+        "consolidation": "Konsolidacja",
+        "freight": "Transport i odprawa",
+        "full": "Kompleksowa obsługa importu",
+        "other": "Inne"
+      },
+      "submit": "Wyślij zapytanie",
+      "sendAnother": "Wyślij kolejne zapytanie",
+      "success": {
+        "title": "Dziękujemy za zapytanie",
+        "description": "Otrzymaliśmy Twoją wiadomość. Skontaktujemy się wkrótce z propozycją dalszych kroków."
+      },
+      "error": {
+        "title": "Nie udało się wysłać formularza",
+        "description": "Spróbuj ponownie później lub skontaktuj się z nami bezpośrednio."
+      }
+    },
+    "consultation": {
+      "title": "Zarezerwuj termin",
+      "description": "Podaj dane kontaktowe i temat rozmowy — odezwiemy się, aby ustalić dogodny termin.",
+      "fields": {
+        "name": "Imię i nazwisko",
+        "email": "E-mail",
+        "topic": "Temat konsultacji",
+        "notes": "Krótki opis (opcjonalnie)"
+      },
+      "placeholders": {
+        "name": "Jan Kowalski",
+        "email": "jan@firma.pl",
+        "notes": "Czego dotyczy projekt?"
+      },
+      "topicOptions": {
+        "sourcing": "Wyszukiwanie dostawcy",
+        "audit": "Audyt fabryki",
+        "qc": "Kontrola jakości",
+        "logistics": "Logistyka i transport",
+        "full": "Pełny proces importu"
+      },
+      "submit": "Umów konsultację",
+      "footnote": "Wolisz napisać zamiast rozmawiać?",
+      "footnoteLink": "Wyślij zapytanie",
+      "sendAnother": "Wyślij kolejne zgłoszenie",
+      "success": {
+        "title": "Dziękujemy — termin w drodze",
+        "description": "Otrzymaliśmy zgłoszenie. Skontaktujemy się, aby ustalić termin konsultacji."
+      }
+    },
+    "serviceLead": {
+      "title": "Zapytanie o wybraną usługę",
+      "description": "Opisz krótko swoje potrzeby — odpowiemy z wyceną wybranego modułu, bez konieczności wykupu pełnego pakietu.",
+      "selectedService": "Wybrana usługa",
+      "successWithService": "Skontaktujemy się w sprawie wybranej usługi: {service}.",
+      "fields": {
+        "name": "Imię i nazwisko",
+        "company": "Firma",
+        "email": "E-mail",
+        "phone": "Telefon",
+        "message": "Opis potrzeb"
+      },
+      "placeholders": {
+        "name": "Jan Kowalski",
+        "company": "Nazwa firmy Sp. z o.o.",
+        "email": "jan@firma.pl",
+        "phone": "+48 501 234 567",
+        "message": "Krótko opisz produkt, ilość lub zakres usługi..."
+      },
+      "submit": "Wyślij zapytanie",
+      "close": "Zamknij",
+      "success": {
+        "title": "Dziękujemy za zapytanie",
+        "description": "Skontaktujemy się w sprawie wybranej usługi z propozycją kolejnych kroków."
+      }
+    }
+  },
+  "calculator": {
+    "title": "Orientacyjny kalkulator importu z Chin",
+    "supporting": "Transport, cło, VAT i koszt dostawy do Polski. Wynik ma charakter orientacyjny i nie stanowi oferty handlowej.",
+    "brandNote": "Buy & Bring Solutions",
+    "fields": {
+      "sectionTitle": "Dane przesyłki",
+      "intro": "Najedź lub kliknij (?) przy polu, jeśli nie wiesz co wpisać.",
+      "goods": "Wartość towaru",
+      "currency": "Waluta towaru",
+      "mode": "Sposób transportu",
+      "cbm": "Objętość (m³)",
+      "kg": "Waga brutto (kg)",
+      "incoterm": "Incoterm",
+      "cnCodes": "Liczba kodów CN",
+      "duty": "Stawka cła",
+      "customDuty": "Własna stawka (%)",
+      "usdPln": "Kurs USD/PLN",
+      "eurPln": "Kurs EUR/PLN",
+      "insurance": "Dodać ubezpieczenie 0,5% (min. 50 USD)",
+      "insuranceCif": "Ubezpieczenie wliczone w wartość CIF",
+      "calculate": "Oblicz orientacyjny koszt"
+    },
+    "fieldHelp": {
+      "goods": "Wpisz kwotę z faktury proforma lub oferty dostawcy. Przy EXW i FOB to cena samego towaru — bez transportu i cła.",
+      "goodsCif": "Wpisz kwotę z faktury CIF — cena towaru już z transportem morskim do portu docelowego. Nie dodawaj frachtu osobno.",
+      "currency": "Waluta, w której wystawiona jest faktura od chińskiego dostawcy. Najczęściej USD lub EUR.",
+      "mode": "Wybierz sposób wysyłki. Cały kontener (20/40 ft) = duża regularna dostawa. LCL = mniejsza ilość w współdzielonym kontenerze. Lotniczy = szybko, ale drożej.",
+      "cbm": "Objętość zapakowanego towaru w metrach sześciennych. Znajdziesz ją na liście pakowej albo oblicz: długość × szerokość × wysokość w metrach.",
+      "kg": "Waga całego ładunku z opakowaniem i paletami, w kilogramach. Na liście pakowej szukaj „gross weight” lub „waga brutto”.",
+      "incoterm": "Warunki dostawy — sprawdź na fakturze proforma. EXW = odbiór z fabryki w Chinach. FOB = dostarczone do portu w Chinach. CIF = cena obejmuje transport morski do portu docelowego.",
+      "cnCodes": "Ile różnych rodzajów towarów jest w przesyłce. Jeden produkt → wpisz 1. Mix produktów → liczba różnych kodów celnych.",
+      "duty": "Podatek celny od importu — zależy od rodzaju produktu. Jeśli nie znasz stawki, wybierz „Nie znam” — zobaczysz trzy scenariusze: 0%, 5% i 10%.",
+      "customDuty": "Wpisz stawkę cła z bazy TARIC lub podaną przez brokera celnego, np. 3,5%.",
+      "usdPln": "Kurs wymiany dolara na złotówkę. Domyślnie pobierany automatycznie z NBP (tabela A). Możesz go zmienić ręcznie.",
+      "eurPln": "Kurs wymiany euro na złotówkę. Domyślnie pobierany automatycznie z NBP (tabela A). Możesz go zmienić ręcznie.",
+      "insurance": "Ubezpieczenie ładunku na czas transportu — 0,5% wartości towaru, minimum 50 USD. Zazwyczaj warto je doliczyć.",
+      "insuranceCif": "Przy CIF ubezpieczenie jest już wliczone w cenę towaru — nie trzeba dodawać osobno."
+    },
+    "transportModes": {
+      "sea20": "Morze — kontener 20 ft",
+      "sea40": "Morze — kontener 40 ft",
+      "sea40hc": "Morze — kontener 40 HC",
+      "sealcl": "Morze — LCL",
+      "rail20": "Kolej — kontener 20 ft",
+      "rail40": "Kolej — kontener 40 HQ",
+      "raillcl": "Kolej — LCL",
+      "air": "Lotniczy"
+    },
+    "dutyOptions": {
+      "0": "0%",
+      "3": "3%",
+      "5": "5%",
+      "10": "10%",
+      "unknown": "Nie znam — pokaż 0/5/10%",
+      "custom": "Inna"
+    },
+    "results": {
+      "title": "Wynik",
+      "emptyState": "Uzupełnij dane i kliknij „Oblicz”.",
+      "totalCash": "Środki potrzebne przy imporcie (z VAT)",
+      "landed": "Koszt landed bez VAT",
+      "transport": "Transport",
+      "transportCifNote": "Międzynarodowy fracht wliczony w wartość CIF",
+      "transportLocal": "Transport (lokalny PL)",
+      "goods": "Wartość towaru",
+      "insurance": "Ubezpieczenie",
+      "customsValue": "Wartość celna",
+      "duty": "Cło",
+      "vat": "VAT importowy 23%",
+      "broker": "Agencja celna",
+      "dutyRange": "Zakres przy tej stawce cła",
+      "scenarios": {
+        "duty": "Cło",
+        "landed": "Landed bez VAT",
+        "total": "Środki z VAT"
+      },
+      "ratesBadge": "Dane planistyczne",
+      "ratesNotOffer": "wynik nie jest ofertą",
+      "ratesNbp": "kursy NBP",
+      "footerDisclaimer": "VAT 23%. Cło zależy od kodu CN/TARIC. Odprawa brokera: 250 PLN + 20 PLN za dodatkowy kod CN. Zakres transportu: ±15%. Wartość VAT jest pokazywana osobno, ponieważ dla czynnego podatnika może podlegać rozliczeniu."
+    },
+    "disclaimers": {
+      "form": "Stawki są przykładowe i wymagają regularnej aktualizacji. Kalkulator nie obsługuje automatycznie towarów niebezpiecznych, baterii, chemii, żywności, akcyzy ani ceł antydumpingowych.",
+      "freight": "Dokładna wycena frachtu wymaga wagi, objętości, adresu załadunku i miejsca dostawy.",
+      "general": "Wynik ma charakter orientacyjny i nie stanowi oferty handlowej ani porady podatkowej."
+    }
+  },
+  "pages": {
+    "proces": {
+      "meta": {
+        "title": "Proces importu — Buy & Bring Solutions",
+        "description": "Poznaj pełną ścieżkę importu z Chin — od briefu i weryfikacji dostawcy po fracht, odprawę celną i dostawę door-to-door."
+      },
+      "hero": {
+        "eyebrow": "Mapa współpracy",
+        "title": "Import z Chin krok po kroku",
+        "lead": "Każdy projekt przechodzi przez przewidywalne etapy. Wiesz, co dzieje się teraz, co będzie dalej i kto za to odpowiada — po stronie polskiej i chińskiej."
+      },
+      "sections": [
+        {
+          "title": "Od briefu do planu działania",
+          "body": "Zaczynamy od krótkiego briefu: produkt, wolumen, budżet i harmonogram. Na tej podstawie proponujemy zakres — pełny import end-to-end albo wybrane moduły wraz z propozycją kolejnych kroków.",
+          "bullets": [
+            "Analiza produktu i wymagań rynku UE",
+            "Wstępna ocena ryzyk i harmonogramu",
+            "Propozycja modułów i transparentny kosztorys"
+          ]
+        },
+        {
+          "title": "Transparentność na każdym etapie",
+          "body": "Nie znikamy między etapami. Utrzymujemy kontakt i informujemy o postępach — w zależności od fazy projektu otrzymujesz dokumenty, zdjęcia lub podsumowania. Możesz wejść w proces w dowolnym momencie albo powierzyć nam całość.",
+          "bullets": [
+            "Stały opiekun projektu po stronie PL",
+            "Zespół operacyjny na miejscu w Chinach",
+            "Aktualizacje zgodnie z ustaleniami projektu"
+          ]
+        }
+      ],
+      "cta": {
+        "primary": {
+          "label": "Wyślij zapytanie",
+          "href": "/kontakt"
+        },
+        "secondary": {
+          "label": "Umów konsultację",
+          "href": "/konsultacja"
+        }
+      }
+    },
+    "about": {
+      "meta": {
+        "title": "O nas — Buy & Bring Solutions",
+        "description": "Buy & Bring Solutions wspiera firmy w wyszukiwaniu producentów, organizacji produkcji, kontroli jakości i dostawach z Chin do Polski, Ukrainy i Europy."
+      },
+      "hero": {
+        "eyebrow": "Kim jesteśmy",
+        "title": "Most między rynkiem chińskim a Twoją firmą w Europie",
+        "lead": "17 lat doświadczenia we współpracy z Chinami. Nie jesteśmy pośrednikiem z katalogu — jesteśmy operatorem, który bierze odpowiedzialność za każdy etap."
+      },
+      "sections": [
+        {
+          "title": "Europa i Chiny — jeden zespół",
+          "body": "Obsługujemy klientów w Polsce, Ukrainie i innych krajach europejskich. Operacje w Chinach koordynujemy z Foshan — sourcing, audyty, kontrola jakości i eksport. Dzięki temu nie polegamy na przypadkowych agentach — mamy własną obecność na miejscu.",
+          "bullets": [
+            "Obsługa klientów w Polsce, Ukrainie i Europie",
+            "Operacje w Foshan, prowincja Guangdong",
+            "Komunikacja w języku polskim, angielskim i mandaryńskim"
+          ]
+        },
+        {
+          "title": "Dlaczego klienci zostają z nami",
+          "body": "Większość współprac zaczyna się od jednego modułu — np. audytu fabryki lub pierwszej wysyłki próbnej. Gdy widzą, jak pracujemy, powierzają kolejne etapy. Nie wiążemy umową długoterminową — zostajesz, bo proces działa.",
+          "bullets": [
+            "Modułowa współpraca bez sztywnego pakietu",
+            "Weryfikacja dostawcy przed płatnością",
+            "Pełna dokumentacja zgodna z wymogami UE"
+          ]
+        }
+      ],
+      "cta": {
+        "primary": {
+          "label": "Poznaj nasz zespół w Chinach",
+          "href": "/zespol-w-chinach"
+        },
+        "secondary": {
+          "label": "Wyślij zapytanie",
+          "href": "/kontakt"
+        }
+      },
+      "layout": {
+        "heroImageAlt": "Kontenery cargo — logistyka i import z Chin",
+        "primaryCta": {
+          "label": "Nasza historia",
+          "href": "#o-nas-story"
+        },
+        "storyEyebrow": "Zespół",
+        "storyImageAlt": "Kontrola jakości towarów przed wysyłką z Chin",
+        "storyAccentLabel": "LAT",
+        "valuesEyebrow": "Współpraca",
+        "valueCards": [
+          {
+            "icon": "layers",
+            "label": "MODUŁOWOŚĆ",
+            "title": "Bez sztywnego pakietu"
+          },
+          {
+            "icon": "shield-check",
+            "label": "BEZPIECZEŃSTWO",
+            "title": "Weryfikacja przed płatnością"
+          },
+          {
+            "icon": "file-check",
+            "label": "DOKUMENTACJA",
+            "title": "Zgodność z wymogami UE"
+          }
+        ],
+        "highlights": {
+          "experience": {
+            "mono": "DOŚWIADCZENIE",
+            "label": "Lat doświadczenia"
+          },
+          "clients": {
+            "mono": "KLIENCI",
+            "label": "Obsłużonych klientów"
+          },
+          "containers": {
+            "mono": "KONTENERY",
+            "label": "Dostarczonych kontenerów"
+          },
+          "foshan": {
+            "mono": "CHINY",
+            "label": "Operacje w Foshan"
+          }
+        },
+        "ctaBand": {
+          "eyebrow": "Kontakt",
+          "title": "Gotowy na import z Chin?",
+          "body": "Niezależnie od skali — od audytu fabryki po pełną logistykę door-to-door. Porozmawiajmy o Twoim projekcie."
+        }
+      }
+    },
+    "contact": {
+      "meta": {
+        "title": "Kontakt — Buy & Bring Solutions",
+        "description": "Wyślij zapytanie o import z Chin — opisz projekt, a odpowiemy z propozycją kolejnych kroków."
+      },
+      "hero": {
+        "eyebrow": "Kontakt",
+        "title": "Opowiedz nam o swoim projekcie",
+        "lead": "Im więcej szczegółów podasz na starcie, tym szybciej przygotujemy sensowną propozycję."
+      },
+      "layout": {
+        "highlights": [
+          {
+            "value": "17 lat",
+            "label": "Doświadczenia z Chinami"
+          },
+          {
+            "value": "PL + UA + CN",
+            "label": "Zespół w Polsce, Ukrainie i Chinach"
+          },
+          {
+            "value": "Moduły",
+            "label": "Elastyczny zakres usług"
+          }
+        ],
+        "channels": {
+          "email": "E-mail",
+          "phonePoland": "Telefon — Polska",
+          "phoneUkraine": "Telefon — Ukraina",
+          "phoneChina": "Telefon — Chiny",
+          "officeUkraine": "Biuro — Ukraina",
+          "officeChina": "Biuro — Chiny (Foshan)"
+        },
+        "consultationHint": "Preferujesz rozmowę telefoniczną? Zadzwoń lub napisz — umówimy termin konsultacji."
+      },
+      "sections": [
+        {
+          "title": "Co warto napisać",
+          "body": "Nie musisz mieć gotowej specyfikacji — wystarczy opis produktu, planowany wolumen i harmonogram. Resztę doprecyzujemy na konsultacji.",
+          "bullets": [
+            "Produkt — co importujesz, do czego służy",
+            "Wolumen — MOQ, planowana ilość, częstotliwość zamówień",
+            "Harmonogram — kiedy potrzebujesz dostawy",
+            "Zakres — pełny import czy wybrane moduły (np. tylko QC)"
+          ]
+        },
+        {
+          "title": "Dane kontaktowe",
+          "body": "Preferujesz rozmowę telefoniczną? Zadzwoń lub napisz — umówimy termin konsultacji.",
+          "bullets": [
+            "E-mail: contact@buybringsolutions.com",
+            "Telefon (PL): +48 783 232 971",
+            "Telefon (UA): +380 66 496 38 81",
+            "Telefon (CN): +86 139 2994 3320"
+          ]
+        }
+      ],
+      "cta": {
+        "primary": {
+          "label": "Umów konsultację",
+          "href": "/konsultacja"
+        },
+        "secondary": {
+          "label": "Zobacz usługi",
+          "href": "/uslugi"
+        }
+      }
+    },
+    "consultation": {
+      "meta": {
+        "title": "Umów konsultację — Buy & Bring Solutions",
+        "description": "Bezpłatna 30-minutowa konsultacja z specjalistą ds. importu z Chin — omówimy Twój projekt, ryzyka i rekomendowany plan."
+      },
+      "hero": {
+        "eyebrow": "Narzędzia",
+        "title": "Bezpłatna konsultacja 30 minut",
+        "lead": "Porozmawiaj z naszym specjalistą ds. importu — bez zobowiązań. Omówimy produkt, ryzyka, harmonogram i rekomendowany zakres usług."
+      },
+      "sections": [
+        {
+          "title": "Jak wygląda rozmowa",
+          "body": "Konsultacja trwa ok. 30 minut online (Zoom / Google Meet) lub telefonicznie. Przygotuj krótki opis produktu, planowany wolumen i to, na czym najbardziej zależy Ci w imporcie.",
+          "bullets": [
+            "Analiza produktu i wymagań rynku UE",
+            "Ocena ryzyk (dostawca, certyfikaty, logistyka)",
+            "Rekomendacja modułów i orientacyjny harmonogram",
+            "Odpowiedzi na pytania o proces i koszty"
+          ]
+        },
+        {
+          "title": "Z kim rozmawiasz",
+          "body": "Konsultacje prowadzą doświadczeni koordynatorzy projektów — osoby, które na co dzień nadzorują importy w różnych branżach."
+        }
+      ],
+      "cta": {
+        "primary": {
+          "label": "Wyślij zapytanie",
+          "href": "/kontakt"
+        },
+        "secondary": {
+          "label": "Zobacz proces importu",
+          "href": "/proces"
+        }
+      },
+      "layout": {
+        "hero": {
+          "badge": "Bezpłatna · 30 min",
+          "titleLead": "Umów konsultację",
+          "titleAccent": "bez zobowiązań",
+          "stats": [
+            {
+              "value": "30 min",
+              "label": "Czas rozmowy"
+            },
+            {
+              "value": "Online",
+              "label": "Zoom / Meet / telefon"
+            },
+            {
+              "value": "0 zł",
+              "label": "Bez opłat wstępnych"
+            }
+          ]
+        },
+        "agenda": {
+          "title": "Jak wygląda rozmowa",
+          "steps": [
+            {
+              "num": "01",
+              "title": "Analiza produktu",
+              "description": "Analiza produktu i wymagań rynku UE"
+            },
+            {
+              "num": "02",
+              "title": "Ocena ryzyk",
+              "description": "Ocena ryzyk — dostawca, certyfikaty, logistyka"
+            },
+            {
+              "num": "03",
+              "title": "Rekomendacja planu",
+              "description": "Rekomendacja modułów i orientacyjny harmonogram"
+            },
+            {
+              "num": "04",
+              "title": "Pytania i koszty",
+              "description": "Odpowiedzi na pytania o proces i koszty"
+            }
+          ],
+          "facilitatorTitle": "Z kim rozmawiasz"
+        },
+        "footerCta": {
+          "label": "Zobacz proces importu",
+          "hint": "Poznaj pełną ścieżkę współpracy — od briefu po dostawę door-to-door."
+        }
+      }
+    },
+    "calculator": {
+      "meta": {
+        "title": "Kalkulator importu — Buy & Bring Solutions",
+        "description": "Orientacyjny kalkulator importu z Chin: transport, cło, VAT i koszt dostawy do Polski. Narzędzie planistyczne Buy & Bring Solutions."
+      },
+      "hero": {
+        "eyebrow": "Narzędzia",
+        "title": "Orientacyjny kalkulator importu z Chin",
+        "lead": "Oszacuj pełny koszt importu — fracht, cło, VAT i obsługę celną — zanim wyślesz zapytanie. Wynik ma charakter orientacyjny i nie stanowi oferty handlowej."
+      },
+      "sections": [
+        {
+          "title": "Co uwzględnia kalkulator",
+          "body": "Kalkulator łączy szacunkowy koszt transportu z podstawową kalkulacją celną i podatkową po stronie polskiej.",
+          "bullets": [
+            "Wartość towaru w USD, EUR lub PLN z aktualnymi kursami NBP",
+            "Tryby: FCL morski/kolejowy, LCL oraz transport lotniczy",
+            "Incoterms EXW, FOB i CIF z odpowiednią wartością celną",
+            "Cło, VAT importowy 23% oraz koszt agencji celnej",
+            "Opcjonalne ubezpieczenie ładunku (poza CIF)"
+          ]
+        },
+        {
+          "title": "Czego kalkulator nie obejmuje",
+          "body": "To narzędzie planistyczne oparte na przykładowych stawkach frachtowych. Dokładna wycena wymaga weryfikacji kodu CN/TARIC, trasy i specyfiki ładunku.",
+          "bullets": [
+            "Towary niebezpieczne, baterie litowe, chemia i żywność",
+            "Akcyza, cła antydumpingowe i procedury specjalne",
+            "Door-to-door z odbiorem z fabryki (poza wybranym incotermem)",
+            "Indywidualne stawki portowe dla konkretnych portów załadunku"
+          ]
+        }
+      ],
+      "cta": {
+        "primary": {
+          "label": "Wyślij zapytanie o wycenę",
+          "href": "/kontakt"
+        },
+        "secondary": {
+          "label": "Umów konsultację",
+          "href": "/konsultacja"
+        }
+      }
+    },
+    "cases": {
+      "meta": {
+        "title": "Realizacje — Buy & Bring Solutions",
+        "description": "Case studies importów z Chin — maszyny przemysłowe, materiały budowlane, EV, opakowania i produkty na zamówienie."
+      },
+      "hero": {
+        "eyebrow": "Realizacje i branże",
+        "title": "Case studies — udane importy z Chin",
+        "lead": "Wybrane projekty z różnych branż. Ze względu na poufność nie publikujemy danych klientów ani brandingów — pokazujemy zakres, proces i rezultaty."
+      },
+      "sections": [],
+      "cta": {
+        "primary": {
+          "label": "Opisz swój projekt",
+          "href": "/kontakt"
+        },
+        "secondary": {
+          "label": "Zobacz proces importu",
+          "href": "/proces"
+        }
+      }
+    },
+    "services": {
+      "meta": {
+        "title": "Usługi modułowe — Buy & Bring Solutions",
+        "description": "Każdy etap importu jako osobna usługa — sourcing, audyty, QC, spedycja i dostawa door-to-door. Wybierz moduły, których potrzebujesz."
+      },
+      "hero": {
+        "eyebrow": "Usługi modułowe",
+        "title": "Kupujesz dokładnie to, czego potrzebujesz",
+        "lead": "Nie musisz wykupywać pełnego pakietu end-to-end. Każdy etap mapy współpracy działa jako samodzielny moduł — od wyszukiwania dostawcy po dostawę pod Twój adres."
+      },
+      "sections": [
+        {
+          "title": "Jak wybrać moduły",
+          "body": "Jeśli masz już dostawcę — potrzebujesz może tylko QC i spedycji. Jeśli zaczynasz od zera — zaczynamy od sourcingu i audytu. Na konsultacji pomożemy dobrać minimalny, sensowny zakres.",
+          "bullets": [
+            "Przed produkcją — sourcing, audyty, QC, OEM",
+            "Logistyka — płatności, konsolidacja, fracht",
+            "Dostawa w UE — odprawa celna, door-to-door"
+          ]
+        }
+      ],
+      "cta": {
+        "primary": {
+          "label": "Wyślij zapytanie",
+          "href": "/kontakt"
+        },
+        "secondary": {
+          "label": "Umów konsultację",
+          "href": "/konsultacja"
+        }
+      }
+    },
+    "china": {
+      "meta": {
+        "title": "Zespół w Chinach — Buy & Bring Solutions",
+        "description": "Operacje w Foshan: wyszukiwanie producentów, komunikacja z fabrykami, kontrole jakości, konsolidacja i przygotowanie wysyłek."
+      },
+      "hero": {
+        "eyebrow": "My w Chinach",
+        "title": "Wsparcie operacyjne w Foshan — bliżej producentów i procesu realizacji",
+        "lead": "Zespół Buy & Bring Solutions w Chinach wspiera wyszukiwanie producentów, komunikację z fabrykami, organizację kontroli, konsolidację oraz przygotowanie wysyłek."
+      },
+      "sections": [
+        {
+          "title": "Kto jest w zespole",
+          "body": "Zespół terenowy to specjaliści ds. sourcingu, inżynierowie QC, koordynatorzy logistyczni i tłumacze techniczni. W zależności od rodzaju projektu angażujemy odpowiednich specjalistów technicznych i inspekcyjnych.",
+          "bullets": [
+            "Sourcing i negocjacje — identyfikacja i weryfikacja fabryk",
+            "Inżynierowie QC — inspekcje na linii produkcyjnej",
+            "Logistyka — odbiór z fabryki, magazyn, konsolidacja",
+            "Tłumacze techniczni — specyfikacje, umowy, raporty"
+          ]
+        },
+        {
+          "title": "Gdzie działamy",
+          "body": "Nasze operacje w Chinach są koordynowane z Foshan w prowincji Guangdong — blisko producentów i portów eksportowych. Z tej bazy kontaktujemy się z fabrykami, organizujemy inspekcje i przygotowujemy wysyłki.",
+          "bullets": [
+            "Foshan — kontakt z producentami i koordynacja zamówień",
+            "Inspekcje jakości i audyty fabryk",
+            "Magazynowanie, konsolidacja i dokumentacja eksportowa"
+          ]
+        }
+      ],
+      "cta": {
+        "primary": {
+          "label": "Poznaj nasz zespół",
+          "href": "/kontakt"
+        },
+        "secondary": {
+          "label": "Wyjazdy biznesowe do Chin",
+          "href": "/wyjazdy-do-chin"
+        }
+      },
+      "layout": {
+        "heroImageAlt": "Logistyka i operacje na miejscu w Foshan, Chiny",
+        "heroOverlayTitle": "Operacje terenowe",
+        "heroOverlayBody": "Sourcing, kontrola jakości i wsparcie negocjacyjne — wszystko koordynowane lokalnie, z raportowaniem do Polski.",
+        "statsAriaLabel": "Kluczowe dane zespołu w Chinach",
+        "highlights": [
+          {
+            "value": "Foshan",
+            "label": "Baza operacyjna w Chinach"
+          },
+          {
+            "value": "PL/EN/CN",
+            "label": "Języki zespołu"
+          },
+          {
+            "value": "Na miejscu",
+            "label": "Inspekcje i audyty QA"
+          },
+          {
+            "value": "17 lat",
+            "label": "Doświadczenia z Chinami"
+          }
+        ],
+        "pillars": [
+          {
+            "id": "zespol",
+            "imageAlt": "Zespół Buy & Bring Solutions w Foshan"
+          },
+          {
+            "id": "kontrola-jakosci",
+            "imageAlt": "Kontrola jakości towarów przed wysyłką z Chin"
+          },
+          {
+            "id": "wyjazdy",
+            "imageAlt": "Wyjazdy biznesowe do fabryk w Chinach"
+          }
+        ],
+        "locations": {
+          "sectionTitle": "Gdzie działamy",
+          "sectionLead": "Nasze operacje w Chinach są koordynowane z Foshan w prowincji Guangdong — blisko producentów i portów eksportowych.",
+          "stepImageAlt": "Operacje Buy & Bring Solutions w Foshan"
+        }
+      }
+    },
+    "servicesSourcing": {
+      "meta": {
+        "title": "Wyszukiwanie dostawców — Buy & Bring Solutions",
+        "description": "Sourcing i negocjacje z fabrykami w Chinach — identyfikacja producentów, porównanie ofert i negocjacja warunków handlowych."
+      },
+      "hero": {
+        "eyebrow": "Przed produkcją",
+        "title": "Wyszukiwanie dostawców i negocjacje",
+        "lead": "Znajdujemy fabryki dopasowane do Twojej specyfikacji, weryfikujemy wstępnie i negocjujemy warunki — zanim podejmiesz decyzję o współpracy."
+      },
+      "sections": [
+        {
+          "title": "Co otrzymujesz",
+          "body": "Na koniec fazy sourcingu masz rekomendowanych dostawców z uzasadnieniem, wyceną próbek i propozycją warunków handlowych do negocjacji.",
+          "bullets": [
+            "Raport porównawczy dostawców",
+            "Wycena próbek i MOQ",
+            "Rekomendacja z uzasadnieniem ryzyk"
+          ]
+        },
+        {
+          "title": "Typowy harmonogram",
+          "stat": "7–14 dni",
+          "body": "Czas sourcingu zależy od złożoności produktu, liczby wymaganych certyfikatów i dostępności producentów."
+        }
+      ],
+      "cta": {
+        "primary": {
+          "label": "Wyślij zapytanie",
+          "href": "/kontakt"
+        },
+        "secondary": {
+          "label": "Umów konsultację",
+          "href": "/konsultacja"
+        }
+      }
+    },
+    "servicesAudit": {
+      "meta": {
+        "title": "Audyty fabryk — Buy & Bring Solutions",
+        "description": "Weryfikacja dostawców i audyty fabryk w Chinach — wizyta na miejscu, ocena mocy produkcyjnych i raport z rekomendacją."
+      },
+      "hero": {
+        "eyebrow": "Przed produkcją",
+        "title": "Audyty fabryk i weryfikacja dostawców",
+        "lead": "Sprawdzamy producenta zanim zlecisz produkcję — prawnie, operacyjnie i jakościowo. Fizyczna wizyta w fabryce to standard, nie opcja."
+      },
+      "sections": [
+        {
+          "title": "Rodzaje audytów",
+          "body": "Dobieramy zakres do ryzyka produktu i wartości zamówienia — od weryfikacji wideo po pełny audit on-site z inspekcją linii produkcyjnej.",
+          "bullets": [
+            "Weryfikacja prawna — licencje, rejestr, księgi handlowe",
+            "Audit wideo na żywo — hala, magazyn, próbki produkcji",
+            "Wizyta on-site — pełna inspekcja fabryki z raportem foto/wideo",
+            "Re-audit — kontrola przed zleceniem dużej serii"
+          ]
+        },
+        {
+          "title": "Deliverables",
+          "body": "Raport PDF z oceną ryzyka (zielony / żółty / czerwony), zdjęciami, rekomendacją i listą pytań do negocjacji."
+        }
+      ],
+      "cta": {
+        "primary": {
+          "label": "Zamów audyt fabryki",
+          "href": "/kontakt"
+        },
+        "secondary": {
+          "label": "Umów konsultację",
+          "href": "/konsultacja"
+        }
+      }
+    },
+    "servicesQc": {
+      "meta": {
+        "title": "Kontrola jakości — Buy & Bring Solutions",
+        "description": "Inspekcje QC przed wysyłką z Chin — weryfikacja ilości, wymiarów, opakowania i testy funkcjonalne z raportem."
+      },
+      "hero": {
+        "eyebrow": "Przed produkcją",
+        "title": "Kontrola jakości przed wysyłką",
+        "lead": "Inspekcja towaru zanim opuści fabrykę — sprawdzamy zgodność ze specyfikacją, ilość, opakowanie i działanie. Płacisz dopiero, gdy wiesz, co wysyłasz."
+      },
+      "sections": [
+        {
+          "title": "Etapy kontroli",
+          "body": "QC może obejmować inspekcję w trakcie produkcji (DUPRO), przed wysyłką (PSI) lub oba — w zależności od produktu i ryzyka.",
+          "bullets": [
+            "DUPRO — kontrola w trakcie produkcji",
+            "PSI — inspekcja przed wysyłką (pre-shipment)",
+            "Losowanie próbek według AQL (ISO 2859-1)",
+            "Pomiary wymiarowe i testy funkcjonalne"
+          ]
+        },
+        {
+          "title": "Co sprawdzamy",
+          "body": "Każda inspekcja ma checklistę dopasowaną do produktu — od elektroniki po materiały budowlane. Raport zawiera zdjęcia każdej usterki.",
+          "bullets": [
+            "Zgodność z approved sample i specyfikacją",
+            "Ilość, etykietowanie, instrukcje i opakowanie",
+            "Testy działania i wytrzymałości (wg specyfikacji)",
+            "Raport Pass / Fail z rekomendacją"
+          ]
+        }
+      ],
+      "cta": {
+        "primary": {
+          "label": "Zamów inspekcję QC",
+          "href": "/kontakt"
+        },
+        "secondary": {
+          "label": "Umów konsultację",
+          "href": "/konsultacja"
+        }
+      }
+    },
+    "servicesFreight": {
+      "meta": {
+        "title": "Spedycja i logistyka — Buy & Bring Solutions",
+        "description": "Spedycja i transport z Chin — fracht morski i lotniczy, konsolidacja ładunków, śledzenie i optymalizacja trasy."
+      },
+      "hero": {
+        "eyebrow": "Logistyka",
+        "title": "Spedycja i transport z Chin do Europy",
+        "lead": "Rezerwujemy fracht, optymalizujemy trasę i śledzimy ładunek w czasie rzeczywistym — morskim, lotniczym i multimodalnym."
+      },
+      "sections": [
+        {
+          "title": "Tryby transportu",
+          "body": "Dobieramy tryb do pilności, wagi i budżetu. Dla większości ładunków B2B optymalny jest fracht morski FCL/LCL; lotniczy stosujemy przy próbkach i pilnych dostawach.",
+          "bullets": [
+            "FCL — pełny kontener (20'/40'/40'HC)",
+            "LCL — ładunek drobnica, konsolidacja w portcie",
+            "Lotniczy — express i standard air freight",
+            "Multimodal — morski + kolej + droga (Chiny–Europa)"
+          ]
+        },
+        {
+          "title": "Co robimy po stronie logistycznej",
+          "body": "Od odbioru z fabryki po załadunek w porcie — koordynujemy cały łańcuch po stronie chińskiej, a po dotarciu do UE przejmujemy odprawę i last mile.",
+          "bullets": [
+            "Odbiór z fabryki i transport do portu / lotniska",
+            "Konsolidacja ładunków z wielu dostawców",
+            "Rezerwacja frachtu i dokumentacja B/L / AWB",
+            "Tracking ładunku i alerty o opóźnieniach"
+          ]
+        }
+      ],
+      "cta": {
+        "primary": {
+          "label": "Wyceń transport",
+          "href": "/kalkulator"
+        },
+        "secondary": {
+          "label": "Wyślij zapytanie",
+          "href": "/kontakt"
+        }
+      }
+    },
+    "specializations": {
+      "meta": {
+        "title": "Specjalizacje — Buy & Bring Solutions",
+        "description": "Obszary specjalizacji: maszyny przemysłowe, baterie, elektromobilność, chemia, opakowania, tekstylia, budownictwo i produkty konsumenckie."
+      },
+      "hero": {
+        "eyebrow": "OBSZARY SPECJALIZACJI",
+        "title": "Produkty i branże, w których się specjalizujemy",
+        "lead": "Wspieramy firmy w zakupie maszyn, surowców, komponentów i produktów gotowych bezpośrednio od producentów w Chinach. Poniżej przedstawiamy główne obszary, w których posiadamy doświadczenie w wyszukiwaniu dostawców, organizacji produkcji, kontroli jakości i dostaw."
+      },
+      "secondaryLead": "Nie oznacza to, że ograniczamy się wyłącznie do tych kategorii. Jeżeli poszukujesz innego produktu, opisz swój projekt — sprawdzimy możliwości produkcji i importu.",
+      "sections": [],
+      "cta": {
+        "primary": {
+          "label": "Opisz swój projekt",
+          "href": "/kontakt"
+        },
+        "secondary": {
+          "label": "Zobacz realizacje",
+          "href": "/realizacje"
+        }
+      }
+    }
+  },
+  "cases": {
+    "heading": "Realizacje",
+    "viewCase": "Zobacz realizację",
+    "category": "Kategoria",
+    "scope": "Zakres prac",
+    "result": "Rezultat",
+    "challenge": "Wyzwanie",
+    "requirements": "Wymagania"
+  },
+  "cookie": {
+    "message": "Ta strona używa plików cookie w celach niezbędnych do działania oraz — za Twoją zgodą — analitycznych.",
+    "accept": "Akceptuję",
+    "reject": "Tylko niezbędne",
+    "settings": "Ustawienia"
+  },
+  "legal": {
+    "placeholder": "Treść dokumentu prawnego jest w przygotowaniu. W razie pytań skontaktuj się z nami: contact@buybringsolutions.com"
+  },
+  "specializations": {
+    "ui": {
+      "viewDetails": "Zobacz szczegóły",
+      "productsHeading": "Zakres produktów",
+      "examplesHeading": "Przykłady"
+    },
+    "categories": [
+      {
+        "id": "machinery",
+        "title": "Maszyny i urządzenia przemysłowe",
+        "shortDescription": "Wyszukujemy producentów maszyn przemysłowych, organizujemy wizyty techniczne, kontrolę jakości przed wysyłką i dostawę do Europy.",
+        "extendedDescription": "Wspieramy firmy w imporcie maszyn i linii produkcyjnych z Chin — od identyfikacji odpowiedniego producenta po inspekcję przed wysyłką, dokumentację eksportową i transport. Mamy doświadczenie w branży opakowaniowej, spożywczej, medycznej i budowlanej.",
+        "examples": "m.in. linie opakowaniowe, urządzenia SPA, maszyny budowlane",
+        "items": [
+          "maszyny dla branży opakowaniowej i papierniczej",
+          "maszyny spożywcze",
+          "linie do przetwórstwa i produkcji",
+          "urządzenia medyczne i SPA",
+          "maszyny budowlane"
+        ]
+      },
+      {
+        "id": "battery",
+        "title": "Technologie akumulatorowe i rozwiązania energetyczne",
+        "shortDescription": "Łączymy firmy z producentami ogniw, pakietów akumulatorowych i systemów magazynowania energii w Chinach.",
+        "extendedDescription": "Pomagamy w zakupie komponentów akumulatorowych — od ogniw LFP i NMC po systemy BMS, pakiety przemysłowe i stacje ładowania. Weryfikujemy specyfikacje techniczne, organizujemy próbki i kontrolę jakości zgodnie z wymaganiami rynku docelowego.",
+        "examples": "ESS, pakiety do magazynów energii, infrastruktura ładowania",
+        "items": [
+          "ogniwa LFP i NMC",
+          "ogniwa pryzmatyczne i cylindryczne",
+          "systemy BMS",
+          "pakiety akumulatorowe",
+          "akumulatory przemysłowe",
+          "magazyny energii ESS",
+          "stacje ładowania"
+        ]
+      },
+      {
+        "id": "emobility",
+        "title": "Elektromobilność i komponenty",
+        "shortDescription": "Sourcing komponentów i pojazdów elektrycznych — od silników i sterowników po gotowe produkty.",
+        "extendedDescription": "Wspieramy projekty związane z elektromobilnością: motocykle elektryczne, drony, komponenty napędu, akumulatory oraz części samochodowe. Pomagamy dopasować producenta do specyfikacji technicznej i norm rynku docelowego.",
+        "examples": "e-motocykle, kontrolery, opony, części zamienne",
+        "items": [
+          "motocykle elektryczne",
+          "silniki i sterowniki",
+          "rozwiązania akumulatorowe",
+          "drony",
+          "pojazdy",
+          "opony",
+          "części samochodowe"
+        ]
+      },
+      {
+        "id": "chemistry",
+        "title": "Chemia i surowce",
+        "shortDescription": "Import surowców chemicznych i dodatków dla przemysłu — z weryfikacją dokumentacji i zgodności.",
+        "extendedDescription": "Wyszukujemy dostawców chemii przemysłowej, dodatków paszowych, polimerów i materiałów funkcjonalnych. Wspieramy weryfikację certyfikatów, próbek laboratoryjnych i logistyki materiałów niebezpiecznych tam, gdzie jest to wymagane.",
+        "examples": "LLDPE/LDPE/HDPE, dodatki paszowe, kleje przemysłowe",
+        "items": [
+          "dodatki paszowe",
+          "składniki funkcjonalne",
+          "surowce dla przemysłu",
+          "LLDPE, LDPE i HDPE",
+          "chemia przemysłowa",
+          "materiały klejące"
+        ]
+      },
+      {
+        "id": "packaging",
+        "title": "Papier, opakowania i materiały",
+        "shortDescription": "Papier, karton, folie i surowce opakowaniowe bezpośrednio od chińskich producentów.",
+        "extendedDescription": "Pomagamy w zakupie materiałów opakowaniowych — od papieru kraft i kartonów GC/FBB po folie PET i specjalistyczne papiery termoodporne. Organizujemy próbki, kontrolę jakości i dostawę partii produkcyjnych.",
+        "examples": "kubki papierowe, folia PET, kartony GC1/GC2",
+        "items": [
+          "papier kraft",
+          "karton GC1, GC2 i FBB",
+          "papier do produkcji kubków",
+          "folia PET",
+          "surowce opakowaniowe",
+          "papiery specjalistyczne i termoodporne"
+        ]
+      },
+      {
+        "id": "textiles",
+        "title": "Tekstylia i materiały techniczne",
+        "shortDescription": "Tkaniny techniczne i produkty tekstylne — sourcing, próbki i kontrola partii produkcyjnych.",
+        "extendedDescription": "Wspieramy import tkanin bawełnianych, syntetycznych i technicznych oraz produktów gotowych. Pomagamy w doborze gramatury, składu, kolorów i organizujemy kontrolę jakości przed wysyłką.",
+        "examples": "polar, tkaniny techniczne, odzież na zamówienie",
+        "items": [
+          "polar",
+          "tkaniny bawełniane i syntetyczne",
+          "tkaniny mieszane",
+          "tkaniny techniczne",
+          "materiały specjalistyczne",
+          "produkty tekstylne"
+        ]
+      },
+      {
+        "id": "construction",
+        "title": "Budownictwo i wyposażenie specjalistyczne",
+        "shortDescription": "Materiały budowlane, konstrukcje modułowe i wyposażenie specjalistyczne z Chin.",
+        "extendedDescription": "Importujemy materiały budowlane, domy kontenerowe i modułowe oraz specjalistyczne wyposażenie — np. dla infrastruktury kolejowej. Weryfikujemy producentów, organizujemy inspekcje i kompletujemy dokumentację transportową.",
+        "examples": "domy modułowe, wyposażenie kolejowe, materiały wykończeniowe",
+        "items": [
+          "domy kontenerowe i modułowe",
+          "wyposażenie kolejowe",
+          "materiały budowlane",
+          "maszyny i wyposażenie specjalistyczne"
+        ]
+      },
+      {
+        "id": "consumer",
+        "title": "Produkty konsumenckie i Private Label",
+        "shortDescription": "Produkty konsumenckie i produkcja Private Label według specyfikacji klienta.",
+        "extendedDescription": "Pomagamy w produkcji i imporcie artykułów codziennego użytku — od naczyń i odzieży po zabawki i artykuły dla zwierząt. Organizujemy próbki, kontrolę jakości i produkcję pod marką klienta.",
+        "examples": "naczynia, zabawki, artykuły dla zwierząt",
+        "items": [
+          "naczynia",
+          "odzież",
+          "zabawki",
+          "wyroby żeliwne",
+          "folie",
+          "artykuły dla zwierząt",
+          "inne produkty wykonywane pod marką klienta"
+        ]
+      }
+    ]
+  }
+}
