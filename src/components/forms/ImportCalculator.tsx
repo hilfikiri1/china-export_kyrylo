@@ -4,12 +4,14 @@ import { useCallback, useEffect, useId, useState } from "react";
 import { FieldHelp, HelpTooltip, ResultHelp } from "@/components/forms/FieldHelp";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import {
-  calculatorFormIntro,
-  fieldHelp,
+  getCalculatorFieldHelp,
+  getCalculatorResultHelp,
+  getDutyOptions,
   getGoodsHelp,
   getInsuranceHelp,
-  resultHelp,
-} from "@/content/calculator/field-help";
+  getTransportModes,
+} from "@/content/i18n/calculator";
+import { useTranslation } from "@/i18n/LocaleProvider";
 import {
   calculateImportCost,
   formatMoney,
@@ -65,6 +67,11 @@ function BreakdownRow({
 
 export function ImportCalculator() {
   const insuranceId = useId();
+  const { messages, t } = useTranslation();
+  const fieldHelp = getCalculatorFieldHelp(messages);
+  const resultHelp = getCalculatorResultHelp(messages);
+  const transportModes = getTransportModes(messages) ?? {};
+  const dutyOptions = getDutyOptions(messages) ?? {};
   const [input, setInput] = useState<CalculatorInput>(defaultInput);
   const [result, setResult] = useState<CalculatorOutput | null>(null);
   const [rateDate, setRateDate] = useState(TARIFF_LAST_UPDATED);
@@ -104,8 +111,8 @@ export function ImportCalculator() {
   const showCustomDuty = input.duty === "custom";
   const isCif = input.incoterm === "CIF";
   const insuranceLabel = isCif
-    ? "Ubezpieczenie wliczone w wartość CIF"
-    : "Dodać ubezpieczenie 0,5% (min. 50 USD)";
+    ? t("calculator.fields.insuranceCif")
+    : t("calculator.fields.insurance");
 
   const update = useCallback(
     <K extends keyof CalculatorInput>(key: K, value: CalculatorInput[K]) => {
@@ -132,32 +139,32 @@ export function ImportCalculator() {
           <header className="flex flex-col items-start justify-between gap-5 border-b border-white/10 px-[18px] py-6 sm:flex-row sm:items-end sm:px-[30px]">
             <div>
               <h2 className="text-[28px] leading-[1.12] font-semibold text-white">
-                Orientacyjny kalkulator importu z Chin
+                {t("calculator.title")}
               </h2>
               <p className="mt-2 text-sm text-white/70">
-                Transport, cło, VAT i koszt dostawy do Polski
+                {t("calculator.supporting")}
               </p>
-              <p className="mt-1 text-xs text-accent-light">B&amp;BS Poland</p>
+              <p className="mt-1 text-xs text-accent-light">{t("calculator.brandNote")}</p>
             </div>
             <div className="rounded-full border border-white/20 px-3 py-2 text-xs whitespace-normal text-white/60 sm:whitespace-nowrap">
-              Dane planistyczne: {formatRateDate(rateDate)} · wynik nie jest ofertą
-              {ratesSource === "nbp" ? " · kursy NBP" : ""}
+              {t("calculator.results.ratesBadge")}: {formatRateDate(rateDate)} · {t("calculator.results.ratesNotOffer")}
+              {ratesSource === "nbp" ? ` · ${t("calculator.results.ratesNbp")}` : ""}
             </div>
           </header>
 
           <div className="grid lg:grid-cols-[minmax(0,1.02fr)_minmax(380px,0.98fr)]">
             <section className="border-b border-white/10 px-[18px] py-6 lg:border-r lg:border-b-0 sm:px-[30px]">
-              <h3 className="text-xl text-white">Dane przesyłki</h3>
+              <h3 className="text-xl text-white">{t("calculator.fields.sectionTitle")}</h3>
               <p className="mb-[18px] mt-1.5 text-xs leading-snug text-white/50">
-                {calculatorFormIntro}
+                {t("calculator.fields.intro")}
               </p>
 
               <div className="grid gap-3.5 sm:grid-cols-2">
                 <div className="flex flex-col gap-1.5">
                   <FieldHelp
                     htmlFor="goods"
-                    label="Wartość towaru"
-                    help={getGoodsHelp(input.incoterm)}
+                    label={t("calculator.fields.goods")}
+                    help={getGoodsHelp(messages, input.incoterm)}
                   />
                   <input
                     id="goods"
@@ -173,8 +180,8 @@ export function ImportCalculator() {
                 <div className="flex flex-col gap-1.5">
                   <FieldHelp
                     htmlFor="currency"
-                    label="Waluta towaru"
-                    help={fieldHelp.currency}
+                    label={t("calculator.fields.currency")}
+                    help={fieldHelp?.currency ?? ""}
                   />
                   <select
                     id="currency"
@@ -191,8 +198,8 @@ export function ImportCalculator() {
                 <div className="flex flex-col gap-1.5 sm:col-span-2">
                   <FieldHelp
                     htmlFor="mode"
-                    label="Sposób transportu"
-                    help={fieldHelp.mode}
+                    label={t("calculator.fields.mode")}
+                    help={fieldHelp?.mode ?? ""}
                   />
                   <select
                     id="mode"
@@ -200,14 +207,11 @@ export function ImportCalculator() {
                     onChange={(e) => update("mode", e.target.value as TransportMode)}
                     className={inputClassName}
                   >
-                    <option value="sea20">Morze - kontener 20 ft</option>
-                    <option value="sea40">Morze - kontener 40 ft</option>
-                    <option value="sea40hc">Morze - kontener 40 HC</option>
-                    <option value="sealcl">Morze - LCL</option>
-                    <option value="rail20">Kolej - kontener 20 ft</option>
-                    <option value="rail40">Kolej - kontener 40 HQ</option>
-                    <option value="raillcl">Kolej - LCL</option>
-                    <option value="air">Lotniczy</option>
+                    {(Object.keys(transportModes) as TransportMode[]).map((mode) => (
+                      <option key={mode} value={mode}>
+                        {transportModes[mode]}
+                      </option>
+                    ))}
                   </select>
                 </div>
 
@@ -216,8 +220,8 @@ export function ImportCalculator() {
                     <div className="flex flex-col gap-1.5">
                       <FieldHelp
                         htmlFor="cbm"
-                        label="Objętość (m³)"
-                        help={fieldHelp.cbm}
+                        label={t("calculator.fields.cbm")}
+                        help={fieldHelp?.cbm ?? ""}
                       />
                       <input
                         id="cbm"
@@ -233,8 +237,8 @@ export function ImportCalculator() {
                     <div className="flex flex-col gap-1.5">
                       <FieldHelp
                         htmlFor="kg"
-                        label="Waga brutto (kg)"
-                        help={fieldHelp.kg}
+                        label={t("calculator.fields.kg")}
+                        help={fieldHelp?.kg ?? ""}
                       />
                       <input
                         id="kg"
@@ -252,8 +256,8 @@ export function ImportCalculator() {
                 <div className="flex flex-col gap-1.5">
                   <FieldHelp
                     htmlFor="incoterm"
-                    label="Incoterm"
-                    help={fieldHelp.incoterm}
+                    label={t("calculator.fields.incoterm")}
+                    help={fieldHelp?.incoterm ?? ""}
                   />
                   <select
                     id="incoterm"
@@ -270,8 +274,8 @@ export function ImportCalculator() {
                 <div className="flex flex-col gap-1.5">
                   <FieldHelp
                     htmlFor="cncodes"
-                    label="Liczba kodów CN"
-                    help={fieldHelp.cnCodes}
+                    label={t("calculator.fields.cnCodes")}
+                    help={fieldHelp?.cnCodes ?? ""}
                   />
                   <input
                     id="cncodes"
@@ -287,8 +291,8 @@ export function ImportCalculator() {
                 <div className="flex flex-col gap-1.5">
                   <FieldHelp
                     htmlFor="duty"
-                    label="Stawka cła"
-                    help={fieldHelp.duty}
+                    label={t("calculator.fields.duty")}
+                    help={fieldHelp?.duty ?? ""}
                   />
                   <select
                     id="duty"
@@ -296,12 +300,13 @@ export function ImportCalculator() {
                     onChange={(e) => update("duty", e.target.value as DutyOption)}
                     className={inputClassName}
                   >
-                    <option value="unknown">Nie znam - pokaż 0/5/10%</option>
-                    <option value="0">0%</option>
-                    <option value="3">3%</option>
-                    <option value="5">5%</option>
-                    <option value="10">10%</option>
-                    <option value="custom">Inna</option>
+                    {(
+                      ["unknown", "0", "3", "5", "10", "custom"] as DutyOption[]
+                    ).map((value) => (
+                      <option key={value} value={value}>
+                        {dutyOptions[value]}
+                      </option>
+                    ))}
                   </select>
                 </div>
 
@@ -309,8 +314,8 @@ export function ImportCalculator() {
                   <div className="flex flex-col gap-1.5">
                     <FieldHelp
                       htmlFor="customDuty"
-                      label="Własna stawka (%)"
-                      help={fieldHelp.customDuty}
+                      label={t("calculator.fields.customDuty")}
+                      help={fieldHelp?.customDuty ?? ""}
                     />
                     <input
                       id="customDuty"
@@ -328,8 +333,8 @@ export function ImportCalculator() {
                 <div className="flex flex-col gap-1.5">
                   <FieldHelp
                     htmlFor="usdpln"
-                    label="Kurs USD/PLN"
-                    help={fieldHelp.usdPln}
+                    label={t("calculator.fields.usdPln")}
+                    help={fieldHelp?.usdPln ?? ""}
                   />
                   <input
                     id="usdpln"
@@ -348,8 +353,8 @@ export function ImportCalculator() {
                 <div className="flex flex-col gap-1.5">
                   <FieldHelp
                     htmlFor="eurpln"
-                    label="Kurs EUR/PLN"
-                    help={fieldHelp.eurPln}
+                    label={t("calculator.fields.eurPln")}
+                    help={fieldHelp?.eurPln ?? ""}
                   />
                   <input
                     id="eurpln"
@@ -378,20 +383,18 @@ export function ImportCalculator() {
                     {insuranceLabel}
                   </label>
                   <HelpTooltip
-                    label="Ubezpieczenie"
-                    help={getInsuranceHelp(input.incoterm)}
+                    label={t("calculator.fields.insurance")}
+                    help={getInsuranceHelp(messages, input.incoterm)}
                   />
                 </div>
               </div>
 
               <button type="button" onClick={handleCalculate} className={buttonClassName}>
-                Oblicz orientacyjny koszt
+                {t("calculator.fields.calculate")}
               </button>
 
               <p className="mt-3.5 border-l-[3px] border-accent-light pl-3 text-xs leading-snug text-white/50">
-                Stawki są przykładowe i wymagają regularnej aktualizacji. Kalkulator
-                nie obsługuje automatycznie towarów niebezpiecznych, baterii, chemii,
-                żywności, akcyzy ani ceł antydumpingowych.
+                {t("calculator.disclaimers.form")}
               </p>
             </section>
 
@@ -400,20 +403,20 @@ export function ImportCalculator() {
               aria-live="polite"
               aria-atomic="true"
             >
-              <h3 className="mb-[18px] text-xl text-white">Wynik</h3>
+              <h3 className="mb-[18px] text-xl text-white">{t("calculator.results.title")}</h3>
 
               {!result ? (
                 <div className="rounded-xl border border-dashed border-white/20 p-[22px] text-center text-white/40">
-                  Uzupełnij dane i kliknij „Oblicz”.
+                  {t("calculator.results.emptyState")}
                 </div>
               ) : (
                 <div>
                   <div className="mb-3.5 rounded-xl border border-white/10 bg-surface-deep p-[18px] shadow-xl shadow-black/30">
                     <small className="mb-1.5 flex items-center gap-1 text-white/60">
-                      <span>Środki potrzebne przy imporcie (z VAT)</span>
+                      <span>{t("calculator.results.totalCash")}</span>
                       <HelpTooltip
-                        label="Środki potrzebne przy imporcie (z VAT)"
-                        help={resultHelp.totalCash}
+                        label={t("calculator.results.totalCash")}
+                        help={resultHelp?.totalCash ?? ""}
                         size="sm"
                         className="text-white/50 hover:text-accent-light"
                       />
@@ -422,7 +425,7 @@ export function ImportCalculator() {
                       {formatMoney(mid!.total)}
                     </strong>
                     <div className="mt-1 text-xs text-white/50">
-                      Zakres przy tej stawce cła: {formatMoney(result.low.total)} -{" "}
+                      {t("calculator.results.dutyRange")}: {formatMoney(result.low.total)} -{" "}
                       {formatMoney(result.high.total)} · {mid!.s.days}
                     </div>
                   </div>
@@ -430,10 +433,10 @@ export function ImportCalculator() {
                   <div className="mb-3.5 grid gap-2.5 sm:grid-cols-2">
                     <div className="rounded-xl border border-white/10 bg-white/5 p-3">
                       <small className="mb-1.5 flex items-center gap-1 text-white/50">
-                        <span>Koszt landed bez VAT</span>
+                        <span>{t("calculator.results.landed")}</span>
                         <HelpTooltip
-                          label="Koszt landed bez VAT"
-                          help={resultHelp.landed}
+                          label={t("calculator.results.landed")}
+                          help={resultHelp?.landed ?? ""}
                           size="sm"
                         />
                       </small>
@@ -443,8 +446,12 @@ export function ImportCalculator() {
                     </div>
                     <div className="rounded-xl border border-white/10 bg-white/5 p-3">
                       <small className="mb-1.5 flex items-center gap-1 text-white/50">
-                        <span>Transport</span>
-                        <HelpTooltip label="Transport" help={resultHelp.transport} size="sm" />
+                        <span>{t("calculator.results.transport")}</span>
+                        <HelpTooltip
+                          label={t("calculator.results.transport")}
+                          help={resultHelp?.transport ?? ""}
+                          size="sm"
+                        />
                       </small>
                       <strong className="text-[17px] text-white">
                         {formatMoney(mid!.transport)} (
@@ -453,41 +460,45 @@ export function ImportCalculator() {
                       </strong>
                       {isCif && (
                         <span className="mt-1 block text-[11px] text-white/50">
-                          Międzynarodowy fracht wliczony w wartość CIF
+                          {t("calculator.results.transportCifNote")}
                         </span>
                       )}
                     </div>
                   </div>
 
                   <div className="overflow-hidden rounded-xl border border-white/10">
-                    <BreakdownRow label="Wartość towaru" value={formatMoney(mid!.g)} />
+                    <BreakdownRow label={t("calculator.results.goods")} value={formatMoney(mid!.g)} />
                     <BreakdownRow
-                      label={isCif ? "Transport (lokalny PL)" : "Transport"}
-                      help={resultHelp.transport}
+                      label={
+                        isCif
+                          ? t("calculator.results.transportLocal")
+                          : t("calculator.results.transport")
+                      }
+                      help={resultHelp?.transport ?? ""}
                       value={formatMoney(mid!.transport)}
                     />
                     <BreakdownRow
-                      label="Ubezpieczenie"
+                      label={t("calculator.results.insurance")}
                       value={formatMoney(mid!.ins)}
                     />
                     <BreakdownRow
-                      label="Wartość celna"
-                      help={resultHelp.customsValue}
+                      label={t("calculator.results.customsValue")}
+                      help={resultHelp?.customsValue ?? ""}
                       value={formatMoney(mid!.customs)}
                     />
                     <BreakdownRow
-                      label={`Cło ${result.dutyRates[0]}%`}
-                      help={resultHelp.duty}
+                      label={`${t("calculator.results.duty")} ${result.dutyRates[0]}%`}
+                      help={resultHelp?.duty ?? ""}
                       value={formatMoney(mid!.duty)}
                     />
                     <BreakdownRow
-                      label="VAT importowy 23%"
-                      help={resultHelp.vat}
+                      label={t("calculator.results.vat")}
+                      help={resultHelp?.vat ?? ""}
                       value={formatMoney(mid!.vat)}
                     />
                     <BreakdownRow
-                      label="Agencja celna"
-                      help={resultHelp.broker}
+                      label={t("calculator.results.broker")}
+                      help={resultHelp?.broker ?? ""}
                       value={formatMoney(mid!.broker)}
                     />
                   </div>
@@ -495,11 +506,14 @@ export function ImportCalculator() {
                   {showScenarios && (
                     <div className="mt-[15px]">
                       <div className="grid grid-cols-[70px_1fr_1fr] gap-2.5 border-b border-white/10 pb-2.5 text-xs font-bold text-white/70 max-[520px]:grid-cols-[55px_1fr_1fr]">
-                        <span>Cło</span>
-                        <ResultHelp label="Landed bez VAT" help={resultHelp.landed} />
+                        <span>{t("calculator.results.scenarios.duty")}</span>
                         <ResultHelp
-                          label="Środki z VAT"
-                          help={resultHelp.totalCash}
+                          label={t("calculator.results.scenarios.landed")}
+                          help={resultHelp?.landed ?? ""}
+                        />
+                        <ResultHelp
+                          label={t("calculator.results.scenarios.total")}
+                          help={resultHelp?.totalCash ?? ""}
                         />
                       </div>
                       {result.scenarios.map((scenario) => (
@@ -520,10 +534,7 @@ export function ImportCalculator() {
                   )}
 
                   <p className="mt-3.5 text-[11px] leading-snug text-white/50">
-                    VAT 23%. Cło zależy od kodu CN/TARIC. Odprawa brokera: 250 PLN + 20
-                    PLN za dodatkowy kod CN. Zakres transportu: ±15%. Wartość VAT jest
-                    pokazywana osobno, ponieważ dla czynnego podatnika może podlegać
-                    rozliczeniu.
+                    {t("calculator.results.footerDisclaimer")}
                   </p>
                 </div>
               )}

@@ -3,9 +3,11 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { motion, type Transition, type Variants } from "framer-motion";
+import { getRoadmapStages } from "@/content/i18n/roadmap";
 import type { ServiceModule } from "@/content/services";
-import { roadmapStages } from "@/content/roadmap.stages";
 import { Button } from "@/components/ui/button";
+import { useLocale, useTranslation } from "@/i18n/LocaleProvider";
+import { localizedPath } from "@/i18n/routing";
 import { cn } from "@/lib/utils";
 import { useMotionConfig } from "@/lib/motion";
 
@@ -18,10 +20,6 @@ export type ServiceCardComponentProps = {
   onExpandTile?: (id: string | null) => void;
 };
 
-function getRoadmapStageTitle(stageId: string): string | undefined {
-  return roadmapStages.find((s) => s.id === stageId)?.title;
-}
-
 export function ServiceCompactTile({
   service,
   onRequestHelp,
@@ -30,12 +28,15 @@ export function ServiceCompactTile({
   expandedTileId,
   onExpandTile,
 }: ServiceCardComponentProps) {
+  const { locale } = useLocale();
+  const { messages, t } = useTranslation();
   const Icon = service.icon;
   const { prefersReducedMotion } = useMotionConfig();
   const isTouchExpanded = expandedTileId === service.id;
 
   const roadmapTitle = service.roadmapStageId
-    ? getRoadmapStageTitle(service.roadmapStageId)
+    ? getRoadmapStages(messages).find((s) => s.id === service.roadmapStageId)
+        ?.title
     : undefined;
 
   function handleTileClick() {
@@ -110,14 +111,14 @@ export function ServiceCompactTile({
           <div className="mt-auto flex flex-col gap-2 pt-1">
             {service.slug && (
               <Link
-                href={`/uslugi/${service.slug}`}
+                href={localizedPath(locale, `uslugi/${service.slug}`)}
                 onClick={(e) => e.stopPropagation()}
                 className={cn(
                   "inline-flex items-center justify-center gap-1.5 rounded-lg border border-white/15 bg-white/5 px-3 py-2 text-xs font-medium text-white transition-colors",
                   "hover:border-white/25 hover:bg-white/10",
                 )}
               >
-                Dowiedz się więcej
+                {t("common.learnMore")}
                 <ArrowRight className="h-3 w-3" aria-hidden />
               </Link>
             )}
@@ -128,7 +129,7 @@ export function ServiceCompactTile({
               className="w-full border-accent-light/30 bg-accent-light/10 text-xs text-white hover:border-accent-light/20 hover:bg-accent-light hover:text-white"
               onClick={handleRequestHelpClick}
             >
-              Zapytaj o moduł
+              {t("common.requestContact")}
             </Button>
           </div>
         </div>

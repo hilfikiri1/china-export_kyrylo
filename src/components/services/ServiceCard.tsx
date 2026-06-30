@@ -2,10 +2,11 @@
 
 import { useState } from "react";
 import { motion, type Transition, type Variants } from "framer-motion";
+import { getRoadmapStages } from "@/content/i18n/roadmap";
 import type { ServiceModule } from "@/content/services";
-import { roadmapStages } from "@/content/roadmap.stages";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { useTranslation } from "@/i18n/LocaleProvider";
 import { cn } from "@/lib/utils";
 import { useMotionConfig } from "@/lib/motion";
 
@@ -16,22 +17,20 @@ type ServiceCardProps = {
   transition?: Transition;
 };
 
-function getRoadmapStageTitle(stageId: string): string | undefined {
-  return roadmapStages.find((s) => s.id === stageId)?.title;
-}
-
 export function ServiceCard({
   service,
   onRequestHelp,
   variants,
   transition,
 }: ServiceCardProps) {
+  const { messages, t } = useTranslation();
   const Icon = service.icon;
   const [isHovered, setIsHovered] = useState(false);
   const { prefersReducedMotion, hoverTransition } = useMotionConfig();
 
   const roadmapTitle = service.roadmapStageId
-    ? getRoadmapStageTitle(service.roadmapStageId)
+    ? getRoadmapStages(messages).find((s) => s.id === service.roadmapStageId)
+        ?.title
     : undefined;
 
   return (
@@ -57,7 +56,7 @@ export function ServiceCard({
         <CardContent className="flex flex-1 flex-col gap-4 p-6">
           {roadmapTitle && (
             <span className="w-fit rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-[10px] font-medium uppercase tracking-wider text-white/50">
-              Powiązany etap: {roadmapTitle}
+              {t("services.section.relatedStagePrefix")}: {roadmapTitle}
             </span>
           )}
 
@@ -93,11 +92,9 @@ export function ServiceCard({
             onClick={() => onRequestHelp(service.id)}
           >
             <span className="hidden sm:inline">
-              Potrzebujesz pomocy tylko na tym etapie?
+              {t("services.section.helpCtaLong")}
             </span>
-            <span className="sm:hidden">
-              Pomoc na tym etapie?
-            </span>
+            <span className="sm:hidden">{t("common.helpAtThisStage")}</span>
           </Button>
         </CardContent>
       </Card>

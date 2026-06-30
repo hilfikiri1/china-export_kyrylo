@@ -5,17 +5,17 @@ import { HeroBackground } from "@/components/hero/HeroBackground";
 import { HeroCTAs } from "@/components/hero/HeroCTAs";
 import { HeroFlowOverlay } from "@/components/hero/HeroFlowOverlay";
 import { TrustStrip } from "@/components/hero/TrustStrip";
-import { useMessages } from "@/i18n/LocaleProvider";
+import { useT } from "@/i18n/LocaleProvider";
 import { useMotionConfig, viewportOnce } from "@/lib/motion";
 
 export function HeroSection() {
-  const messages = useMessages();
+  const t = useT();
   const { fadeUp, headerTransition } = useMotionConfig();
 
   return (
     <section
       className="relative flex min-h-screen flex-col overflow-hidden"
-      aria-label={messages.hero.ariaLabel}
+      aria-label={t("home.hero.ariaLabel")}
     >
       <HeroBackground />
       <HeroFlowOverlay className="z-[2]" />
@@ -30,13 +30,13 @@ export function HeroSection() {
           transition={headerTransition}
         >
           <p className="mb-4 inline-flex items-center rounded-full border border-accent-light/30 bg-accent-light/10 px-4 py-1.5 text-xs font-medium uppercase tracking-widest text-accent-light">
-            {messages.hero.eyebrow}
+            {t("home.hero.eyebrow")}
           </p>
           <h1 className="track-text mx-auto max-w-4xl text-4xl font-bold leading-tight tracking-tight text-gray-100 sm:text-5xl lg:text-[2.75rem] lg:leading-tight xl:text-6xl">
-            {messages.hero.title}
+            {t("home.hero.title")}
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-gray-300/80 sm:text-xl">
-            {messages.hero.paragraph}
+            {t("home.hero.paragraph")}
           </p>
         </motion.header>
 
@@ -56,7 +56,7 @@ export function HeroSection() {
           <HeroCTAs className="items-center" />
           <div className="mt-10 pt-2">
             <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-gray-400">
-              {messages.hero.trustHeading}
+              {t("home.hero.trustHeading")}
             </p>
             <TrustStrip />
           </div>

@@ -11,11 +11,13 @@ export type BreadcrumbItem = {
 type DedicatedPageShellProps = {
   children: ReactNode;
   breadcrumbs?: BreadcrumbItem[];
+  breadcrumbAriaLabel?: string;
 };
 
 export function DedicatedPageShell({
   children,
   breadcrumbs,
+  breadcrumbAriaLabel = "Breadcrumb",
 }: DedicatedPageShellProps) {
   return (
     <div className="relative min-h-[calc(100vh-4rem)] overflow-hidden">
@@ -23,7 +25,7 @@ export function DedicatedPageShell({
       <div className="relative z-10">
         {breadcrumbs && breadcrumbs.length > 0 && (
           <nav
-            aria-label="Breadcrumb"
+            aria-label={breadcrumbAriaLabel}
             className="mx-auto max-w-7xl px-4 pt-8 sm:px-6 lg:px-8"
           >
             <ol className="flex flex-wrap items-center gap-1 text-sm text-white/50">

@@ -1,21 +1,37 @@
 "use client";
 
-import { getStatistics } from "@/content/statistics";
-import { useLocale, useMessages } from "@/i18n/LocaleProvider";
+import { useTranslation } from "@/i18n/LocaleProvider";
 
 export function StatsBanner() {
-  const { locale } = useLocale();
-  const messages = useMessages();
-  const stats = getStatistics(locale);
+  const { t, getObject } = useTranslation();
+  const stats =
+    getObject<{
+      experience: { value: string; label: string };
+      clients: { value: string; label: string };
+      containers: { value: string; label: string };
+      foshan: { value: string; label: string };
+    }>("home.stats") ?? {
+      experience: { value: "", label: "" },
+      clients: { value: "", label: "" },
+      containers: { value: "", label: "" },
+      foshan: { value: "", label: "" },
+    };
+
+  const items = [
+    { id: "experience", ...stats.experience },
+    { id: "clients", ...stats.clients },
+    { id: "containers", ...stats.containers },
+    { id: "foshan", ...stats.foshan },
+  ];
 
   return (
     <section
       className="stats-banner relative w-full border-y border-white/10 bg-surface-elevated"
-      aria-label={messages.stats.ariaLabel}
+      aria-label={t("home.stats.ariaLabel")}
     >
       <div className="mx-auto flex min-h-[9.375rem] max-w-7xl items-center px-4 py-8 sm:min-h-[10rem] sm:px-6 lg:px-8">
         <ul className="grid w-full grid-cols-2 gap-x-6 gap-y-8 sm:gap-x-8 lg:grid-cols-4 lg:gap-y-0">
-          {stats.map((stat) => (
+          {items.map((stat) => (
             <li
               key={stat.id}
               className="flex flex-col items-center justify-center text-center"

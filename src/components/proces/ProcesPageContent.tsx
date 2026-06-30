@@ -4,10 +4,12 @@ import { SectionEdgeFade } from "@/components/backgrounds/SectionEdgeFade";
 import { ProcesCta } from "@/components/proces/ProcesCta";
 import { ProcesHero } from "@/components/proces/ProcesHero";
 import { ProcesStepRow } from "@/components/proces/ProcesStepRow";
-import { procesLayout } from "@/content/proces-layout";
+import { getProcesLayout } from "@/content/i18n/proces-layout";
+import { useTranslation } from "@/i18n/LocaleProvider";
 
 export function ProcesPageContent() {
-  const { hero, steps, cta } = procesLayout;
+  const { messages, locale } = useTranslation();
+  const { hero, steps, cta, stepsAriaLabel } = getProcesLayout(messages, locale);
 
   return (
     <div className="relative overflow-hidden pb-16 sm:pb-20">
@@ -35,7 +37,7 @@ export function ProcesPageContent() {
       <div className="relative z-10 mx-auto max-w-2xl px-4 py-12 sm:px-6 md:py-16 lg:px-8">
         <ProcesHero {...hero} />
 
-        <ol className="list-none" aria-label="Etapy procesu importu">
+        <ol className="list-none" aria-label={stepsAriaLabel}>
           {steps.map((step, index) => (
             <li key={step.num}>
               <ProcesStepRow

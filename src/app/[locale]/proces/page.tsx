@@ -1,20 +1,31 @@
 import type { Metadata } from "next";
 import { DedicatedPageShell } from "@/components/pages/DedicatedPageShell";
 import { ProcesPageContent } from "@/components/proces/ProcesPageContent";
-import { procesPage } from "@/content/pages/proces";
+import type { Locale } from "@/i18n/config";
+import { getServerTranslation } from "@/i18n/server";
+import { buildBreadcrumbs } from "@/lib/breadcrumbs";
+import { createLocalizedPageMetadata } from "@/lib/page-metadata";
 
-export const metadata: Metadata = {
-  title: procesPage.meta.title,
-  description: procesPage.meta.description,
+type PageProps = {
+  params: Promise<{ locale: string }>;
 };
 
-export default function ProcesPage() {
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { locale: localeParam } = await params;
+  return createLocalizedPageMetadata(localeParam as Locale, "proces", "proces");
+}
+
+export default async function ProcesPage({ params }: PageProps) {
+  const { locale: localeParam } = await params;
+  const locale = localeParam as Locale;
+  const { t } = await getServerTranslation(locale);
+
   return (
     <DedicatedPageShell
-      breadcrumbs={[
-        { label: "Strona główna", href: "/" },
-        { label: "Proces" },
-      ]}
+      breadcrumbAriaLabel={t("layout.breadcrumb.ariaLabel")}
+      breadcrumbs={buildBreadcrumbs(t, locale, [
+        { labelKey: "common.process" },
+      ])}
     >
       <ProcesPageContent />
     </DedicatedPageShell>

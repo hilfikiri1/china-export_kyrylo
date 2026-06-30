@@ -97,10 +97,12 @@ export function resolveNavLabel(
     nav: Record<string, string>;
     common: Record<string, string>;
     services: {
-      sourcing: { title: string };
-      verification: { title: string };
-      qc: { title: string };
-      freight: { title: string };
+      modules: {
+        sourcing: { title: string };
+        verification: { title: string };
+        qc: { title: string };
+        freight: { title: string };
+      };
     };
   },
 ): string {
@@ -112,10 +114,10 @@ export function resolveNavLabel(
     about: messages.nav.about,
     china: messages.nav.china,
     modularServices: messages.common.modularServices,
-    sourcing: messages.services.sourcing.title,
-    audits: messages.services.verification.title,
-    qc: messages.services.qc.title,
-    freight: messages.services.freight.title,
+    sourcing: messages.services.modules.sourcing.title,
+    audits: messages.services.modules.verification.title,
+    qc: messages.services.modules.qc.title,
+    freight: messages.services.modules.freight.title,
     calculator: messages.nav.calculator,
     consultation: messages.common.bookConsultationNav,
     contact: messages.nav.contact,

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { HeroTooltip } from "@/components/hero/HeroTooltip";
-import { useLocale, useMessages } from "@/i18n/LocaleProvider";
+import { useLocale, useT } from "@/i18n/LocaleProvider";
 import { localizedPath, routes } from "@/i18n/routing";
 import { cn } from "@/lib/utils";
 
@@ -44,7 +44,7 @@ function HeroButton({
 
 export function HeroCTAs({ className }: { className?: string }) {
   const { locale } = useLocale();
-  const messages = useMessages();
+  const t = useT();
 
   return (
     <div className={cn("mx-auto flex max-w-3xl flex-col items-center gap-4", className)}>
@@ -54,25 +54,25 @@ export function HeroCTAs({ className }: { className?: string }) {
           href={localizedPath(locale, routes.contact)}
           className="sm:min-w-[180px]"
         >
-          {messages.common.describeYourProject}
+          {t("common.describeYourProject")}
         </HeroButton>
         <HeroButton
           variant="secondary"
           href={localizedPath(locale, routes.consultation)}
           className="sm:min-w-[180px]"
         >
-          {messages.common.bookConsultation}
+          {t("common.bookConsultation")}
         </HeroButton>
         <HeroButton
           variant="secondary"
           href={localizedPath(locale, routes.calculator)}
           className="sm:min-w-[180px]"
         >
-          {messages.common.calculateImport}
+          {t("common.calculateImport")}
         </HeroButton>
       </div>
       <HeroTooltip
-        text={messages.hero.supporting}
+        text={t("home.hero.supporting")}
         className="justify-center"
       />
     </div>

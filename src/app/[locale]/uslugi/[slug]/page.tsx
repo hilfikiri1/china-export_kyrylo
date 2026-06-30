@@ -1,34 +1,41 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { LogistykaPageContent } from "@/components/logistyka/LogistykaPageContent";
 import { DedicatedMarketingPage } from "@/components/pages/DedicatedMarketingPage";
-import { DedicatedPageShell } from "@/components/pages/DedicatedPageShell";
-import { PageCtaBand } from "@/components/pages/PageCtaBand";
 import { FeaturedStepsPanel } from "@/components/services/FeaturedStepsPanel";
 import { SourcingProcessCarousel } from "@/components/services/SourcingProcessCarousel";
 import {
   getPageContentByServiceSlug,
   getRequiredPageContentByServiceSlug,
-} from "@/content/pages";
-import { logistykaLayout } from "@/content/logistyka-layout";
-import { getServiceBySlug, getServiceNavSlugs } from "@/content/services";
+} from "@/content/i18n/pages";
+import {
+  getServiceBySlug,
+  getServiceNavSlugs,
+} from "@/content/i18n/services";
+import type { Locale } from "@/i18n/config";
+import { getServerTranslation } from "@/i18n/server";
+import { localizedPath } from "@/i18n/routing";
+import { buildBreadcrumbs } from "@/lib/breadcrumbs";
 
 type ServicePageProps = {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ locale: string; slug: string }>;
 };
 
 export function generateStaticParams() {
-  return getServiceNavSlugs().map((slug) => ({ slug }));
+  return getServiceNavSlugs().flatMap((slug) =>
+    ["pl", "uk", "ru", "de", "zh"].map((locale) => ({ locale, slug })),
+  );
 }
 
 export async function generateMetadata({
   params,
 }: ServicePageProps): Promise<Metadata> {
-  const { slug } = await params;
-  const content = getPageContentByServiceSlug(slug);
+  const { locale: localeParam, slug } = await params;
+  const locale = localeParam as Locale;
+  const { messages } = await getServerTranslation(locale);
+  const content = getPageContentByServiceSlug(messages, locale, slug);
 
   if (!content) {
-    return { title: "Usługa nie znaleziona — Buy & Bring Solutions" };
+    return { title: "Buy & Bring Solutions" };
   }
 
   return {
@@ -38,41 +45,25 @@ export async function generateMetadata({
 }
 
 export default async function ServicePage({ params }: ServicePageProps) {
-  const { slug } = await params;
-  const service = getServiceBySlug(slug);
+  const { locale: localeParam, slug } = await params;
+  const locale = localeParam as Locale;
+  const { messages, t } = await getServerTranslation(locale);
+  const service = getServiceBySlug(messages, slug);
 
   if (!service) {
     notFound();
   }
 
-  const content = getRequiredPageContentByServiceSlug(slug);
-
-  if (slug === "spedycja-i-logistyka") {
-    return (
-      <DedicatedPageShell
-        breadcrumbs={[
-          { label: "Strona główna", href: "/" },
-          { label: "Usługi", href: "/uslugi" },
-          { label: service.title },
-        ]}
-      >
-        <LogistykaPageContent />
-        <PageCtaBand
-          primary={logistykaLayout.cta.primary}
-          secondary={logistykaLayout.cta.secondary}
-        />
-      </DedicatedPageShell>
-    );
-  }
+  const content = getRequiredPageContentByServiceSlug(messages, locale, slug);
 
   return (
     <DedicatedMarketingPage
       content={content}
-      breadcrumbs={[
-        { label: "Strona główna", href: "/" },
-        { label: "Usługi", href: "/uslugi" },
+      breadcrumbAriaLabel={t("layout.breadcrumb.ariaLabel")}
+      breadcrumbs={buildBreadcrumbs(t, locale, [
+        { labelKey: "common.services", href: localizedPath(locale, "uslugi") },
         { label: service.title },
-      ]}
+      ])}
       beforeSections={
         content.featuredSteps ? (
           <FeaturedStepsPanel {...content.featuredSteps} />

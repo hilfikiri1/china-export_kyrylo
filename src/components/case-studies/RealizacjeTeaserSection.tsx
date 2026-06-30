@@ -7,16 +7,15 @@ import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { LogisticsBackdrop } from "@/components/backgrounds/LogisticsBackdrop";
 import { SectionEdgeFade } from "@/components/backgrounds/SectionEdgeFade";
-import { getRealizacjeTeaser } from "@/content/realizacje-teaser";
-import { useCurrentLocale } from "@/i18n/LocaleProvider";
-import { localizedPath } from "@/i18n/routing";
+import { getRealizacjeTeaser } from "@/content/i18n/realizacje-teaser";
+import { useTranslation } from "@/i18n/LocaleProvider";
 import { useMotionConfig, viewportOnce } from "@/lib/motion";
 
 export function RealizacjeTeaserSection() {
   const [imageError, setImageError] = useState(false);
   const { fadeUp, headerTransition } = useMotionConfig();
-  const locale = useCurrentLocale();
-  const content = getRealizacjeTeaser(locale);
+  const { locale, messages } = useTranslation();
+  const content = getRealizacjeTeaser(messages, locale);
 
   return (
     <section
@@ -81,7 +80,7 @@ export function RealizacjeTeaserSection() {
             </ul>
 
             <Link
-              href={localizedPath(locale, content.cta.href)}
+              href={content.cta.href}
               className="mt-10 inline-flex items-center gap-2 rounded-lg border border-accent-light/20 bg-accent-light px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-accent-light/25 transition-colors duration-200 hover:bg-[#dbaa47] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-light focus-visible:ring-offset-2 focus-visible:ring-offset-navy"
             >
               {content.cta.label}
@@ -118,11 +117,10 @@ export function RealizacjeTeaserSection() {
             />
             <div className="absolute inset-x-0 bottom-0 z-10 p-6 sm:p-8">
               <p className="text-xs font-semibold tracking-widest text-accent-light uppercase">
-                Logistyka i realizacja
+                {content.overlayTitle}
               </p>
               <p className="mt-2 max-w-sm text-sm leading-relaxed text-white/80">
-                Od weryfikacji dostawcy po dostawę do magazynu w UE — pełny
-                proces importu w jednym miejscu.
+                {content.overlayBody}
               </p>
             </div>
           </motion.div>

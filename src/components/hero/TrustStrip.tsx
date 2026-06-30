@@ -16,7 +16,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { useMessages } from "@/i18n/LocaleProvider";
+import { useT } from "@/i18n/LocaleProvider";
 
 const navButtonClass =
   "static inset-auto left-auto right-auto top-auto my-0 shrink-0 translate-x-0 translate-y-0 size-9 border-white/20 bg-white/10 text-white hover:bg-white/20 hover:text-white disabled:opacity-30";
@@ -29,38 +29,38 @@ type TrustCard = {
 };
 
 export function TrustStrip() {
-  const messages = useMessages();
+  const t = useT();
 
   const trustFactors: TrustCard[] = [
     {
       id: "local-china",
       icon: MapPin,
-      title: messages.trust.localChina.title,
-      description: messages.trust.localChina.description,
+      title: t("home.trust.localChina.title"),
+      description: t("home.trust.localChina.description"),
     },
     {
       id: "verification",
       icon: Eye,
-      title: messages.trust.verification.title,
-      description: messages.trust.verification.description,
+      title: t("home.trust.verification.title"),
+      description: t("home.trust.verification.description"),
     },
     {
       id: "quality",
       icon: ShieldCheck,
-      title: messages.trust.quality.title,
-      description: messages.trust.quality.description,
+      title: t("home.trust.quality.title"),
+      description: t("home.trust.quality.description"),
     },
     {
       id: "logistics",
       icon: Truck,
-      title: messages.trust.logistics.title,
-      description: messages.trust.logistics.description,
+      title: t("home.trust.logistics.title"),
+      description: t("home.trust.logistics.description"),
     },
     {
       id: "flexible",
       icon: Building2,
-      title: messages.trust.flexible.title,
-      description: messages.trust.flexible.description,
+      title: t("home.trust.flexible.title"),
+      description: t("home.trust.flexible.description"),
     },
   ];
 
@@ -75,7 +75,7 @@ export function TrustStrip() {
       <div className="flex items-center gap-2 sm:gap-3">
         <CarouselPrevious
           variant="outline"
-          aria-label={messages.common.previousSlide}
+          aria-label={t("common.previousSlide")}
           className={navButtonClass}
         />
 
@@ -109,7 +109,7 @@ export function TrustStrip() {
 
         <CarouselNext
           variant="outline"
-          aria-label={messages.common.nextSlide}
+          aria-label={t("common.nextSlide")}
           className={navButtonClass}
         />
       </div>

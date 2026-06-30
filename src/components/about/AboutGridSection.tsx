@@ -4,20 +4,22 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { SectionEdgeFade } from "@/components/backgrounds/SectionEdgeFade";
 import { AboutGridPanel } from "@/components/about/AboutGridPanel";
-import { getAboutGrid } from "@/content/about-grid";
-import { useCurrentLocale } from "@/i18n/LocaleProvider";
-import { localizedPath } from "@/i18n/routing";
+import {
+  getAboutGrid,
+  getAboutGridAriaLabel,
+} from "@/content/i18n/about-grid";
+import { useTranslation } from "@/i18n/LocaleProvider";
 
 export function AboutGridSection() {
-  const locale = useCurrentLocale();
-  const { sectionCta, hero, row } = getAboutGrid(locale);
+  const { locale, messages } = useTranslation();
+  const { sectionCta, hero, row } = getAboutGrid(messages, locale);
   const [qualityControl, businessTrips] = row;
 
   return (
     <section
       id="o-nas"
       className="relative overflow-hidden py-20 sm:py-28"
-      aria-label="Zespół i usługi na miejscu w Chinach"
+      aria-label={getAboutGridAriaLabel(messages)}
     >
       <SectionEdgeFade top />
 
@@ -37,7 +39,7 @@ export function AboutGridSection() {
 
         <div className="mt-8 flex justify-center">
           <Link
-            href={localizedPath(locale, sectionCta.href)}
+            href={sectionCta.href}
             className="inline-flex items-center gap-2 rounded-lg border border-accent-light/20 bg-accent-light px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-accent-light/25 transition-colors duration-200 hover:bg-[#dbaa47] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-light focus-visible:ring-offset-2 focus-visible:ring-offset-navy"
           >
             {sectionCta.label}

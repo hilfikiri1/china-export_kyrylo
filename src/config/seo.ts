@@ -241,7 +241,7 @@ export function getPageSeo(page: PageSeoKey, locale: Locale) {
 }
 
 export const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://china-exportkyrylo.vercel.app";
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://global.buybringsolutions.com";
 
 export function getCanonicalUrl(locale: Locale, path = ""): string {
   const normalized = path.replace(/^\//, "");

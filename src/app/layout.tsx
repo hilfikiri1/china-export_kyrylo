@@ -3,7 +3,7 @@ import { company } from "@/config/company";
 
 export const metadata: Metadata = {
   metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL ?? "https://china-exportkyrylo.vercel.app",
+    process.env.NEXT_PUBLIC_SITE_URL ?? "https://global.buybringsolutions.com",
   ),
   title: {
     default: company.name,

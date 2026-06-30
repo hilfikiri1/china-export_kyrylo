@@ -3,7 +3,8 @@
 import Link from "next/link";
 import { useState } from "react";
 import { CheckCircle2 } from "lucide-react";
-import { konsultacjaLayout } from "@/content/konsultacja-layout";
+import { getKonsultacjaLayout } from "@/content/i18n/konsultacja-layout";
+import { useTranslation } from "@/i18n/LocaleProvider";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -16,11 +17,11 @@ const fieldClassName =
 export function ConsultationForm() {
   const [submitted, setSubmitted] = useState(false);
   const [topic, setTopic] = useState("full");
-  const { form } = konsultacjaLayout;
+  const { locale, messages } = useTranslation();
+  const { form } = getKonsultacjaLayout(messages, locale);
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    // TODO: wire to API / Formspree / Calendly
     setSubmitted(true);
   }
 
@@ -47,7 +48,7 @@ export function ConsultationForm() {
               className="mt-8 border-white/20 bg-transparent text-white hover:bg-white/5"
               onClick={() => setSubmitted(false)}
             >
-              Wyślij kolejne zgłoszenie
+              {form.sendAnother}
             </Button>
           </div>
         ) : (
@@ -65,26 +66,26 @@ export function ConsultationForm() {
               <div className="grid gap-4 sm:grid-cols-2">
                 <div className="space-y-2">
                   <Label htmlFor="consultation-name" className="text-white/80">
-                    Imię i nazwisko
+                    {form.fields.name}
                   </Label>
                   <Input
                     id="consultation-name"
                     name="name"
                     required
-                    placeholder="Jan Kowalski"
+                    placeholder={form.placeholders.name}
                     className={fieldClassName}
                   />
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="consultation-email" className="text-white/80">
-                    E-mail
+                    {form.fields.email}
                   </Label>
                   <Input
                     id="consultation-email"
                     name="email"
                     type="email"
                     required
-                    placeholder="jan@firma.pl"
+                    placeholder={form.placeholders.email}
                     className={fieldClassName}
                   />
                 </div>

@@ -19,14 +19,7 @@ export function PageCtaBand({ primary, secondary }: PageCtaBandProps) {
           {primary.label}
         </Link>
         {secondary && (
-          <Link
-            href={secondary.href}
-            className={
-              secondary.label === "Umów konsultację"
-                ? goldCtaClassName
-                : mutedCtaClassName
-            }
-          >
+          <Link href={secondary.href} className={mutedCtaClassName}>
             {secondary.label}
           </Link>
         )}

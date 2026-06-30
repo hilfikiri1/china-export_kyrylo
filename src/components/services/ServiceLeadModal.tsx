@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { getServiceById } from "@/content/services";
+import { getServiceById } from "@/content/i18n/services";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -14,6 +14,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { useTranslation } from "@/i18n/LocaleProvider";
 
 type ServiceLeadModalProps = {
   serviceId: string | null;
@@ -26,7 +27,8 @@ export function ServiceLeadModal({
   open,
   onOpenChange,
 }: ServiceLeadModalProps) {
-  const service = serviceId ? getServiceById(serviceId) : null;
+  const { messages, t } = useTranslation();
+  const service = serviceId ? getServiceById(messages, serviceId) : null;
   const [submitted, setSubmitted] = useState(false);
   const prefersReducedMotion = useReducedMotion();
 
@@ -38,7 +40,6 @@ export function ServiceLeadModal({
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    // TODO: wire to API / Formspree / email service
     setSubmitted(true);
   }
 
@@ -49,14 +50,12 @@ export function ServiceLeadModal({
           <div className="py-4 text-center">
             <DialogHeader className="items-center text-center">
               <DialogTitle className="text-white">
-                Dziękujemy za zapytanie
+                {t("forms.serviceLead.success.title")}
               </DialogTitle>
               <DialogDescription className="text-white/60">
-                Skontaktujemy się w ciągu 24 godzin roboczych w sprawie usługi:{" "}
-                <span className="font-medium text-accent-light">
-                  {service?.title}
-                </span>
-                .
+                {t("forms.serviceLead.successWithService", {
+                  service: service?.title ?? "",
+                })}
               </DialogDescription>
             </DialogHeader>
             <Button
@@ -64,18 +63,17 @@ export function ServiceLeadModal({
               className="mt-6 border-accent-light/20 bg-accent-light text-white hover:bg-[#dbaa47]"
               onClick={() => onOpenChange(false)}
             >
-              Zamknij
+              {t("forms.serviceLead.close")}
             </Button>
           </div>
         ) : (
           <>
             <DialogHeader>
               <DialogTitle className="text-white">
-                Zapytanie o wybraną usługę
+                {t("forms.serviceLead.title")}
               </DialogTitle>
               <DialogDescription className="text-white/60">
-                Opisz krótko swoje potrzeby — odpowiemy z wyceną wybranego
-                modułu, bez konieczności wykupu pełnego pakietu.
+                {t("forms.serviceLead.description")}
               </DialogDescription>
             </DialogHeader>
 
@@ -89,7 +87,7 @@ export function ServiceLeadModal({
 
               <div className="overflow-hidden rounded-lg border border-accent-light/20 bg-accent-light/10 px-4 py-3">
                 <p className="text-xs font-medium uppercase tracking-wider text-white/50">
-                  Wybrana usługa
+                  {t("forms.serviceLead.selectedService")}
                 </p>
                 <AnimatePresence mode="wait">
                   <motion.p
@@ -108,24 +106,24 @@ export function ServiceLeadModal({
               <div className="grid gap-4 sm:grid-cols-2">
                 <div className="space-y-2">
                   <Label htmlFor="lead-name" className="text-white/80">
-                    Imię i nazwisko
+                    {t("forms.serviceLead.fields.name")}
                   </Label>
                   <Input
                     id="lead-name"
                     name="name"
                     required
-                    placeholder="Jan Kowalski"
+                    placeholder={t("forms.serviceLead.placeholders.name")}
                     className="border-white/15 bg-white/5 text-white placeholder:text-white/30"
                   />
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="lead-company" className="text-white/80">
-                    Firma
+                    {t("forms.serviceLead.fields.company")}
                   </Label>
                   <Input
                     id="lead-company"
                     name="company"
-                    placeholder="Nazwa firmy"
+                    placeholder={t("forms.serviceLead.placeholders.company")}
                     className="border-white/15 bg-white/5 text-white placeholder:text-white/30"
                   />
                 </div>
@@ -134,26 +132,26 @@ export function ServiceLeadModal({
               <div className="grid gap-4 sm:grid-cols-2">
                 <div className="space-y-2">
                   <Label htmlFor="lead-email" className="text-white/80">
-                    E-mail
+                    {t("forms.serviceLead.fields.email")}
                   </Label>
                   <Input
                     id="lead-email"
                     name="email"
                     type="email"
                     required
-                    placeholder="jan@firma.pl"
+                    placeholder={t("forms.serviceLead.placeholders.email")}
                     className="border-white/15 bg-white/5 text-white placeholder:text-white/30"
                   />
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="lead-phone" className="text-white/80">
-                    Telefon
+                    {t("forms.serviceLead.fields.phone")}
                   </Label>
                   <Input
                     id="lead-phone"
                     name="phone"
                     type="tel"
-                    placeholder="+48 000 000 000"
+                    placeholder={t("forms.serviceLead.placeholders.phone")}
                     className="border-white/15 bg-white/5 text-white placeholder:text-white/30"
                   />
                 </div>
@@ -161,14 +159,14 @@ export function ServiceLeadModal({
 
               <div className="space-y-2">
                 <Label htmlFor="lead-message" className="text-white/80">
-                  Opis potrzeb
+                  {t("forms.serviceLead.fields.message")}
                 </Label>
                 <Textarea
                   id="lead-message"
                   name="message"
                   rows={3}
                   required
-                  placeholder="Krótko opisz produkt, ilość lub zakres usługi..."
+                  placeholder={t("forms.serviceLead.placeholders.message")}
                   className="border-white/15 bg-white/5 text-white placeholder:text-white/30"
                 />
               </div>
@@ -177,7 +175,7 @@ export function ServiceLeadModal({
                 type="submit"
                 className="w-full border-accent-light/20 bg-accent-light text-white hover:bg-[#dbaa47]"
               >
-                Wyślij zapytanie
+                {t("forms.serviceLead.submit")}
               </Button>
             </form>
           </>

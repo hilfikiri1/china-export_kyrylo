@@ -2,10 +2,11 @@
 
 import Link from "next/link";
 import { ArrowRight, Building2, Mail, Phone } from "lucide-react";
-import type { KontaktChannel } from "@/content/kontakt-layout";
-import { getKontaktLayout } from "@/content/kontakt-layout";
-import { useLocale } from "@/i18n/LocaleProvider";
-import { localizedPath } from "@/i18n/routing";
+import {
+  getKontaktLayout,
+  type KontaktChannel,
+} from "@/content/i18n/kontakt";
+import { useTranslation } from "@/i18n/LocaleProvider";
 
 function ContactChannelCard({ channel }: { channel: KontaktChannel }) {
   const Icon =
@@ -47,9 +48,9 @@ function ContactChannelCard({ channel }: { channel: KontaktChannel }) {
 }
 
 export function KontaktSidebar() {
-  const { locale, messages } = useLocale();
+  const { locale, messages, t } = useTranslation();
   const { hero, guidance, highlights, channels, consultationLink } =
-    getKontaktLayout(locale, messages);
+    getKontaktLayout(locale, messages, t);
 
   return (
     <div className="space-y-10">
@@ -71,7 +72,7 @@ export function KontaktSidebar() {
           {guidance.body}
         </p>
         <ul className="mt-5 space-y-3">
-          {guidance.bullets.map((bullet) => (
+          {(guidance.bullets ?? []).map((bullet) => (
             <li
               key={bullet}
               className="flex gap-3 text-sm leading-relaxed text-white/70 sm:text-base"
@@ -112,10 +113,10 @@ export function KontaktSidebar() {
         <p className="text-sm font-medium text-white">{consultationLink.label}</p>
         <p className="mt-1 text-sm text-white/55">{consultationLink.hint}</p>
         <Link
-          href={localizedPath(locale, consultationLink.href)}
+          href={consultationLink.href}
           className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-accent-light transition-colors hover:text-[#dbaa47]"
         >
-          {messages.common.bookConsultationNav}
+          {t("common.bookConsultationNav")}
           <ArrowRight className="h-4 w-4" aria-hidden />
         </Link>
       </div>

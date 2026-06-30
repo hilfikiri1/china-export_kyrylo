@@ -1,36 +1,41 @@
 "use client";
 
 import { useCallback, useRef, useState } from "react";
-import { roadmapStages } from "@/content/roadmap.stages";
+import type { RoadmapStage } from "@/content/roadmap.stages";
 
-const STAGE_COUNT = roadmapStages.length;
-
-export function useRoadmapScrub() {
+export function useRoadmapScrub(stages: RoadmapStage[]) {
+  const stageCount = stages.length;
   const [progress, setProgressState] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
   const trackRef = useRef<HTMLDivElement>(null);
 
   const activeIndex = Math.min(
-    STAGE_COUNT - 1,
-    Math.round(progress * (STAGE_COUNT - 1)),
+    stageCount - 1,
+    Math.round(progress * (stageCount - 1)),
   );
 
   const setProgress = useCallback((value: number) => {
     setProgressState(Math.max(0, Math.min(1, value)));
   }, []);
 
-  const goToStage = useCallback((index: number) => {
-    const clamped = Math.max(0, Math.min(STAGE_COUNT - 1, index));
-    setProgressState(clamped / (STAGE_COUNT - 1));
-  }, []);
+  const goToStage = useCallback(
+    (index: number) => {
+      const clamped = Math.max(0, Math.min(stageCount - 1, index));
+      setProgressState(clamped / (stageCount - 1));
+    },
+    [stageCount],
+  );
 
-  const progressFromClientX = useCallback((clientX: number) => {
-    const track = trackRef.current;
-    if (!track) return;
-    const rect = track.getBoundingClientRect();
-    const x = clientX - rect.left;
-    setProgress(x / rect.width);
-  }, [setProgress]);
+  const progressFromClientX = useCallback(
+    (clientX: number) => {
+      const track = trackRef.current;
+      if (!track) return;
+      const rect = track.getBoundingClientRect();
+      const x = clientX - rect.left;
+      setProgress(x / rect.width);
+    },
+    [setProgress],
+  );
 
   const handlePointerDown = useCallback(
     (e: React.PointerEvent) => {
@@ -52,10 +57,10 @@ export function useRoadmapScrub() {
   const handlePointerUp = useCallback(() => {
     setIsDragging(false);
     setProgressState((p) => {
-      const idx = Math.round(p * (STAGE_COUNT - 1));
-      return idx / (STAGE_COUNT - 1);
+      const idx = Math.round(p * (stageCount - 1));
+      return idx / (stageCount - 1);
     });
-  }, []);
+  }, [stageCount]);
 
   const handleKeyDown = useCallback(
     (e: React.KeyboardEvent) => {
@@ -70,16 +75,16 @@ export function useRoadmapScrub() {
         goToStage(0);
       } else if (e.key === "End") {
         e.preventDefault();
-        goToStage(STAGE_COUNT - 1);
+        goToStage(stageCount - 1);
       }
     },
-    [activeIndex, goToStage],
+    [activeIndex, goToStage, stageCount],
   );
 
   return {
     progress,
     activeIndex,
-    activeStage: roadmapStages[activeIndex],
+    activeStage: stages[activeIndex],
     isDragging,
     trackRef,
     setProgress,
