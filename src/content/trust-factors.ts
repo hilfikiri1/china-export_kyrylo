@@ -1,6 +1,6 @@
 import {
-  Building2,
   Eye,
+  Layers,
   MapPin,
   ShieldCheck,
   Truck,
@@ -14,40 +14,44 @@ export type TrustFactor = {
   description: string;
 };
 
+/**
+ * Trust cards (Polish master). Translations live in i18n messages under
+ * "trust.cards". Avoid absolute promises ("zero ryzyka", "gwarantowana jakość").
+ */
 export const trustFactors: TrustFactor[] = [
   {
-    id: "local-entity",
-    icon: Building2,
-    label: "Podmiot lokalny w Chinach",
-    description:
-      "Zarejestrowana firma działająca lokalnie — legalne faktury i umowy.",
-  },
-  {
-    id: "on-ground",
+    id: "local-operations",
     icon: MapPin,
-    label: "Obecność na miejscu",
+    label: "Działamy na miejscu w Chinach",
     description:
-      "Fizyczny zespół w Chinach z możliwością bezpośrednich wizyt w fabrykach.",
+      "Nasz zespół operacyjny w Foshan kontaktuje się z producentami, koordynuje zamówienia oraz organizuje kontrole i wysyłki.",
   },
   {
-    id: "pre-audit",
-    icon: Eye,
-    label: "Audyty przed produkcją",
-    description:
-      "Weryfikacja producenta przed jakąkolwiek płatnością lub startem produkcji.",
-  },
-  {
-    id: "qa",
+    id: "verification",
     icon: ShieldCheck,
-    label: "Kontrola jakości",
+    label: "Weryfikujemy producentów",
     description:
-      "Ścisłe inspekcje QA przed ostateczną płatnością i wysyłką towaru.",
+      "Sprawdzamy dane firmy, możliwości produkcyjne, dokumentację oraz zgodność oferty z wymaganiami projektu.",
   },
   {
-    id: "e2e",
-    icon: Truck,
-    label: "Logistyka end-to-end",
+    id: "quality",
+    icon: Eye,
+    label: "Kontrolujemy towar przed wysyłką",
     description:
-      "Kompletny spedycja i obsługa frachtu prosto pod wskazany adres klienta.",
+      "W zależności od projektu organizujemy kontrolę przedprodukcyjną, kontrolę w trakcie produkcji lub inspekcję przed wysyłką.",
+  },
+  {
+    id: "logistics",
+    icon: Truck,
+    label: "Organizujemy dostawę od fabryki do magazynu",
+    description:
+      "Koordynujemy eksport, transport morski, kolejowy, lotniczy lub drogowy, odprawę celną i dostawę końcową.",
+  },
+  {
+    id: "flexible",
+    icon: Layers,
+    label: "Pełny proces lub wybrana usługa",
+    description:
+      "Możesz zlecić nam kompleksową obsługę albo tylko wyszukanie producenta, kontrolę jakości, konsolidację lub transport.",
   },
 ];

@@ -1,19 +1,30 @@
 import type { Metadata } from "next";
 import { DedicatedPageShell } from "@/components/pages/DedicatedPageShell";
 import { ONasPageContent } from "@/components/o-nas/ONasPageContent";
-import { oNasPage } from "@/content/pages/o-nas";
+import { isLocale } from "@/i18n/config";
+import { getDictionary } from "@/i18n/dictionaries";
+import { createTranslator } from "@/i18n/translate";
 
-export const metadata: Metadata = {
-  title: oNasPage.meta.title,
-  description: oNasPage.meta.description,
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  if (!isLocale(locale)) return {};
+  const t = createTranslator(await getDictionary(locale));
+  return {
+    title: t("seo.oNas.title"),
+    description: t("seo.oNas.description"),
+  };
+}
 
 export default function ONasPage() {
   return (
     <DedicatedPageShell
       breadcrumbs={[
-        { label: "Strona główna", href: "/" },
-        { label: "O nas" },
+        { labelKey: "nav.home", href: "/" },
+        { labelKey: "nav.oNas" },
       ]}
     >
       <ONasPageContent />

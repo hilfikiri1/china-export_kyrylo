@@ -17,7 +17,15 @@ export function proxy(request: NextRequest) {
   const firstSegment = pathname.split("/")[1];
 
   if (firstSegment && isLocale(firstSegment)) {
-    return NextResponse.next();
+    // Remember the active locale so any non-prefixed internal link reliably
+    // redirects back into the same locale instead of the default.
+    const response = NextResponse.next();
+    response.cookies.set(LOCALE_COOKIE, firstSegment, {
+      path: "/",
+      maxAge: 60 * 60 * 24 * 365,
+      sameSite: "lax",
+    });
+    return response;
   }
 
   const cookieLocale = request.cookies.get(LOCALE_COOKIE)?.value;

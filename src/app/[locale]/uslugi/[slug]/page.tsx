@@ -12,13 +12,17 @@ import {
 } from "@/content/pages";
 import { logistykaLayout } from "@/content/logistyka-layout";
 import { getServiceBySlug, getServiceNavSlugs } from "@/content/services";
+import { company } from "@/config/company";
+import { locales } from "@/i18n/config";
 
 type ServicePageProps = {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ locale: string; slug: string }>;
 };
 
 export function generateStaticParams() {
-  return getServiceNavSlugs().map((slug) => ({ slug }));
+  return locales.flatMap((locale) =>
+    getServiceNavSlugs().map((slug) => ({ locale, slug })),
+  );
 }
 
 export async function generateMetadata({
@@ -28,7 +32,7 @@ export async function generateMetadata({
   const content = getPageContentByServiceSlug(slug);
 
   if (!content) {
-    return { title: "Usługa nie znaleziona — China Export" };
+    return { title: `404 — ${company.name}` };
   }
 
   return {
@@ -51,8 +55,8 @@ export default async function ServicePage({ params }: ServicePageProps) {
     return (
       <DedicatedPageShell
         breadcrumbs={[
-          { label: "Strona główna", href: "/" },
-          { label: "Usługi", href: "/uslugi" },
+          { labelKey: "nav.home", href: "/" },
+          { labelKey: "nav.uslugiAll", href: "/uslugi" },
           { label: service.title },
         ]}
       >
@@ -69,8 +73,8 @@ export default async function ServicePage({ params }: ServicePageProps) {
     <DedicatedMarketingPage
       content={content}
       breadcrumbs={[
-        { label: "Strona główna", href: "/" },
-        { label: "Usługi", href: "/uslugi" },
+        { labelKey: "nav.home", href: "/" },
+        { labelKey: "nav.uslugiAll", href: "/uslugi" },
         { label: service.title },
       ]}
       beforeSections={

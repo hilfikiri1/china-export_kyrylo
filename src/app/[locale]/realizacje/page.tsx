@@ -3,20 +3,32 @@ import { RealizacjePageSection } from "@/components/case-studies/RealizacjePageS
 import { DedicatedPageShell } from "@/components/pages/DedicatedPageShell";
 import { PageCtaBand } from "@/components/pages/PageCtaBand";
 import { getRequiredPageContent } from "@/content/pages";
+import { isLocale } from "@/i18n/config";
+import { getDictionary } from "@/i18n/dictionaries";
+import { createTranslator } from "@/i18n/translate";
 
 const content = getRequiredPageContent("realizacje");
 
-export const metadata: Metadata = {
-  title: content.meta.title,
-  description: content.meta.description,
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  if (!isLocale(locale)) return {};
+  const t = createTranslator(await getDictionary(locale));
+  return {
+    title: t("seo.realizacje.title"),
+    description: t("seo.realizacje.description"),
+  };
+}
 
 export default function RealizacjePage() {
   return (
     <DedicatedPageShell
       breadcrumbs={[
-        { label: "Strona główna", href: "/" },
-        { label: "Realizacje" },
+        { labelKey: "nav.home", href: "/" },
+        { labelKey: "nav.realizacje" },
       ]}
     >
       <RealizacjePageSection

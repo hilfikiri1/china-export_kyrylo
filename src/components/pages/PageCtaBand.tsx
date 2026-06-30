@@ -1,4 +1,8 @@
+"use client";
+
 import Link from "next/link";
+import { useLocale } from "@/i18n/LocaleProvider";
+import { localeHref } from "@/i18n/routing";
 
 const goldCtaClassName =
   "inline-flex justify-center rounded-lg border border-accent-light/20 bg-accent-light px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-accent-light/25 transition-colors hover:bg-[#dbaa47]";
@@ -12,20 +16,17 @@ type PageCtaBandProps = {
 };
 
 export function PageCtaBand({ primary, secondary }: PageCtaBandProps) {
+  const locale = useLocale();
   return (
     <div className="mx-auto max-w-3xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
       <div className="flex flex-col items-center justify-center gap-3 sm:flex-row">
-        <Link href={primary.href} className={goldCtaClassName}>
+        <Link href={localeHref(locale, primary.href)} className={goldCtaClassName}>
           {primary.label}
         </Link>
         {secondary && (
           <Link
-            href={secondary.href}
-            className={
-              secondary.label === "Umów konsultację"
-                ? goldCtaClassName
-                : mutedCtaClassName
-            }
+            href={localeHref(locale, secondary.href)}
+            className={mutedCtaClassName}
           >
             {secondary.label}
           </Link>

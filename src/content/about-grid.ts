@@ -7,17 +7,17 @@ export type AboutGridPanel = {
 };
 
 export const aboutGridSectionCta = {
-  label: "Poznaj nasz zespół w Chinach",
+  labelKey: "nav.chiny",
   href: "/zespol-w-chinach",
 } as const;
 
 export const aboutGridHero: AboutGridPanel = {
   id: "team-china",
-  title: "Zespół w Chinach",
+  title: "Działamy na miejscu w Chinach",
   description:
-    "Lokalny zespół na miejscu — od weryfikacji dostawców po koordynację produkcji i wysyłki.",
+    "Zespół operacyjny w Foshan — od weryfikacji producentów po koordynację produkcji, kontrole i wysyłki.",
   image: "/image/china_office.jpg",
-  imageAlt: "Biuro i zespół China Export w Chinach",
+  imageAlt: "Zespół operacyjny Buy & Bring Solutions w Chinach",
 };
 
 export function getAboutPanelById(id: string): AboutGridPanel | undefined {
@@ -38,16 +38,16 @@ export const aboutGridRow: AboutGridPanel[] = [
     id: "quality-control",
     title: "Kontrola jakości i dokumentacja",
     description:
-      "Inspekcje QA, raporty z kontroli, certyfikaty i pełna dokumentacja zgodna z wymogami importu do UE.",
+      "Inspekcje jakości, raporty z kontroli oraz weryfikacja dokumentów producenta przed wysyłką.",
     image: "/image/quality_control.jpg",
     imageAlt: "Kontrola jakości towarów przed wysyłką z Chin",
   },
   {
     id: "business-trips",
-    title: "Wyjazdy biznesowe do Chin",
+    title: "Wsparcie podczas wizyt w Chinach",
     description:
-      "Organizujemy wizyty w fabrykach, tłumaczenia na miejscu i wsparcie podczas negocjacji z dostawcami.",
+      "Organizujemy wizyty w fabrykach, tłumaczenia na miejscu i wsparcie podczas rozmów z producentami.",
     image: "/image/business_trips.jpg",
-    imageAlt: "Transport lotniczy — wyjazdy biznesowe do Chin",
+    imageAlt: "Wsparcie podczas wizyt biznesowych w Chinach",
   },
 ];

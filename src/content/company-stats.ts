@@ -1,28 +1,29 @@
+import { companyStatValues } from "@/config/company";
+
 export type CompanyStat = {
   id: string;
   value: string;
   label: string;
 };
 
+/**
+ * Confirmed public statistics only (Polish master). Translations live in i18n
+ * messages under "stats". Values come from src/config/company.ts.
+ */
 export const companyStats: CompanyStat[] = [
   {
     id: "experience",
-    value: "12+",
-    label: "Lat doświadczenia",
+    value: `${companyStatValues.experience} lat`,
+    label: "doświadczenia we współpracy z Chinami",
   },
   {
-    id: "reviews",
-    value: "240+",
-    label: "Zweryfikowanych opinii",
+    id: "clients",
+    value: companyStatValues.clients,
+    label: "obsłużonych klientów",
   },
   {
-    id: "rating",
-    value: "4,9",
-    label: "Średnia ocena",
-  },
-  {
-    id: "shipments",
-    value: "120+",
-    label: "Wysyłek miesięcznie",
+    id: "containers",
+    value: companyStatValues.containers,
+    label: "dostarczonych kontenerów",
   },
 ];

@@ -1,19 +1,30 @@
 import type { Metadata } from "next";
 import { KonsultacjaPageContent } from "@/components/konsultacja/KonsultacjaPageContent";
 import { DedicatedPageShell } from "@/components/pages/DedicatedPageShell";
-import { konsultacjaLayout } from "@/content/konsultacja-layout";
+import { isLocale } from "@/i18n/config";
+import { getDictionary } from "@/i18n/dictionaries";
+import { createTranslator } from "@/i18n/translate";
 
-export const metadata: Metadata = {
-  title: konsultacjaLayout.meta.title,
-  description: konsultacjaLayout.meta.description,
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  if (!isLocale(locale)) return {};
+  const t = createTranslator(await getDictionary(locale));
+  return {
+    title: t("seo.konsultacja.title"),
+    description: t("seo.konsultacja.description"),
+  };
+}
 
 export default function KonsultacjaPage() {
   return (
     <DedicatedPageShell
       breadcrumbs={[
-        { label: "Strona główna", href: "/" },
-        { label: "Umów konsultację" },
+        { labelKey: "nav.home", href: "/" },
+        { labelKey: "nav.konsultacja" },
       ]}
     >
       <KonsultacjaPageContent />
