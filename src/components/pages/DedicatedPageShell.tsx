@@ -6,6 +6,7 @@ import { ChevronRight } from "lucide-react";
 import { LogisticsBackdrop } from "@/components/backgrounds/LogisticsBackdrop";
 import { useLocale, useT } from "@/i18n/LocaleProvider";
 import { localeHref } from "@/i18n/routing";
+import { siteUrl } from "@/config/seo";
 
 export type BreadcrumbItem = {
   /** Translation key for the label (preferred). */
@@ -28,9 +29,35 @@ export function DedicatedPageShell({
   const locale = useLocale();
   const t = useT();
 
+  const breadcrumbJsonLd =
+    breadcrumbs && breadcrumbs.length > 0
+      ? {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: breadcrumbs.map((item, index) => {
+            const name = item.labelKey ? t(item.labelKey) : item.label ?? "";
+            const entry: Record<string, unknown> = {
+              "@type": "ListItem",
+              position: index + 1,
+              name,
+            };
+            if (item.href) {
+              entry.item = `${siteUrl}${localeHref(locale, item.href)}`;
+            }
+            return entry;
+          }),
+        }
+      : null;
+
   return (
     <div className="relative min-h-[calc(100vh-4rem)] overflow-hidden">
       <LogisticsBackdrop variant="formPage" />
+      {breadcrumbJsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+        />
+      )}
       <div className="relative z-10">
         {breadcrumbs && breadcrumbs.length > 0 && (
           <nav

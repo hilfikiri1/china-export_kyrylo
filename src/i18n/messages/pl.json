@@ -277,6 +277,11 @@
     "resultNote": "VAT 23%. Cło zależy od kodu CN/TARIC. Odprawa brokera: 250 PLN + 20 PLN za dodatkowy kod CN. Zakres transportu: ±15%. Wartość VAT jest pokazywana osobno, ponieważ dla czynnego podatnika może podlegać rozliczeniu.",
     "transferCta": "Prześlij dane do weryfikacji"
   },
+  "legal": {
+    "preparationTitle": "Dokument w przygotowaniu",
+    "preparationBody": "Treść tego dokumentu jest obecnie przygotowywana i wymaga weryfikacji prawnej. W sprawie przetwarzania danych skontaktuj się z nami.",
+    "contactCta": "Kontakt"
+  },
   "seo": {
     "home": {
       "title": "Import z Chin dla firm | Buy & Bring Solutions",

@@ -275,6 +275,11 @@
     "resultNote": "增值税 23%。关税取决于 CN/TARIC 编码。报关费：250 PLN + 每个额外 CN 编码 20 PLN。运输区间：±15%。增值税金额单独列示，因为对一般纳税人而言可能可以抵扣。",
     "transferCta": "将数据发送以供核实"
   },
+  "legal": {
+    "preparationTitle": "文件正在准备中",
+    "preparationBody": "本文件内容正在编写中，需经法律审核。如有数据处理相关问题，请与我们联系。",
+    "contactCta": "联系我们"
+  },
   "seo": {
     "home": {
       "title": "面向企业的中国进口 | Buy & Bring Solutions",

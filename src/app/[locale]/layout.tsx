@@ -5,6 +5,7 @@ import { LogisticsBackdrop } from "@/components/backgrounds/LogisticsBackdrop";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { CookieConsent } from "@/components/layout/CookieConsent";
+import { OrganizationJsonLd } from "@/components/seo/OrganizationJsonLd";
 import "../globals.css";
 import { cn } from "@/lib/utils";
 import { hreflang, htmlLang, isLocale, locales, type Locale } from "@/i18n/config";
@@ -100,6 +101,7 @@ export default async function LocaleLayout({
       )}
     >
       <body className="relative min-h-full flex flex-col bg-background text-foreground">
+        <OrganizationJsonLd />
         <LocaleProvider locale={typedLocale} messages={messages}>
           <LogisticsBackdrop variant="site" />
           <Header />

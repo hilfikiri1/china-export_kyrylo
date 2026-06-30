@@ -275,6 +275,11 @@
     "resultNote": "MwSt. 23%. Der Zoll hängt vom CN/TARIC-Code ab. Zollabwicklung des Brokers: 250 PLN + 20 PLN je zusätzlichem CN-Code. Transportbereich: ±15%. Der MwSt.-Betrag wird gesondert ausgewiesen, da er für vorsteuerabzugsberechtigte Unternehmen abziehbar sein kann.",
     "transferCta": "Daten zur Prüfung senden"
   },
+  "legal": {
+    "preparationTitle": "Dokument in Vorbereitung",
+    "preparationBody": "Der Inhalt dieses Dokuments wird derzeit erstellt und muss rechtlich geprüft werden. Bei Fragen zur Datenverarbeitung kontaktieren Sie uns bitte.",
+    "contactCta": "Kontakt"
+  },
   "seo": {
     "home": {
       "title": "Import aus China für Unternehmen | Buy & Bring Solutions",
