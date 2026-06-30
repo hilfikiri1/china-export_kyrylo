@@ -54,11 +54,11 @@ export const heroMapCountries: HeroMapCountry[] = [
     role: "Kraj źródłowy",
     description:
       "Centrum sourcingu i produkcji. Lokalny podmiot, audyty fabryk i kontrola jakości przed wysyłką.",
-    hubs: ["Shenzhen", "Ningbo", "Shanghai", "Guangzhou"],
+    hubs: ["Foshan", "Guangzhou", "Shanghai", "Shenzhen"],
     metrics: [
-      { label: "Czas audytu fabryki", value: "3–5 dni" },
-      { label: "Aktywne linie produktowe", value: "120+" },
-      { label: "Zespół on-site", value: "Stały" },
+      { label: "Baza operacyjna", value: "Foshan" },
+      { label: "Dostarczonych kontenerów", value: "110+" },
+      { label: "Zespół on-site", value: "Foshan" },
     ],
   },
   {
@@ -70,7 +70,7 @@ export const heroMapCountries: HeroMapCountry[] = [
     role: "Główny kierunek dostaw",
     description:
       "Door-to-door do magazynu lub hali produkcyjnej. Odprawa celna i last mile w UE.",
-    hubs: ["Gdańsk", "Gdynia", "Warszawa", "Wrocław"],
+    hubs: ["Gdańsk", "Gdynia", "Poznań", "Wrocław"],
     metrics: [
       { label: "Wolumen kolejowy", value: "100 000 TEU / rok" },
       { label: "Średni czas dostawy", value: "14–18 dni" },

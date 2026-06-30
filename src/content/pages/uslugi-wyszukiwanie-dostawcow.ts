@@ -3,7 +3,7 @@ import type { DedicatedPageContent } from "./types";
 export const wyszukiwanieDostawcowPage: DedicatedPageContent = {
   id: "uslugi-wyszukiwanie-dostawcow",
   meta: {
-    title: "Wyszukiwanie dostawców — China Export",
+    title: "Wyszukiwanie dostawców | Buy & Bring Solutions",
     description:
       "Sourcing i negocjacje z fabrykami w Chinach — identyfikacja producentów, porównanie ofert i negocjacja warunków handlowych.",
   },

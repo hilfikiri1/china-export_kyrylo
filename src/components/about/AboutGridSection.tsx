@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { ArrowRight } from "lucide-react";
 import { SectionEdgeFade } from "@/components/backgrounds/SectionEdgeFade";
 import { AboutGridPanel } from "@/components/about/AboutGridPanel";

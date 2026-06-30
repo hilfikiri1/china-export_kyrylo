@@ -32,7 +32,8 @@ export function ServiceLeadModal({
 
   useEffect(() => {
     if (!open) {
-      setSubmitted(false);
+      const timer = setTimeout(() => setSubmitted(false), 0);
+      return () => clearTimeout(timer);
     }
   }, [open]);
 
@@ -153,7 +154,7 @@ export function ServiceLeadModal({
                     id="lead-phone"
                     name="phone"
                     type="tel"
-                    placeholder="+48 000 000 000"
+                    placeholder="+48 783 232 971"
                     className="border-white/15 bg-white/5 text-white placeholder:text-white/30"
                   />
                 </div>

@@ -14,9 +14,9 @@ export const logistykaLayout = {
       "Rezerwacja kontenerów, dokumentacja B/L i AWB oraz tracking ładunku na każdym etapie trasy.",
   },
   highlights: [
-    { value: "28–35 dni", label: "FCL morski Shenzhen–Gdańsk" },
-    { value: "5–8 dni", label: "Fracht lotniczy" },
-    { value: "FCL / LCL / Air", label: "Tryby transportu" },
+    { value: "FCL / LCL", label: "Transport morski" },
+    { value: "Kolej", label: "Transport kolejowy Chiny–Europa" },
+    { value: "Lotniczy", label: "Transport ekspresowy" },
     { value: "Door-to-door", label: "Od fabryki po adres w UE" },
   ] satisfies MyWChinachHighlight[],
   transportModes: {
@@ -28,7 +28,7 @@ export const logistykaLayout = {
         id: "fcl",
         tabLabel: "FCL",
         title: "FCL — pełny kontener",
-        body: "Pełny kontener morski (20'/40'/40'HC) dla większych wolumenów. Typowy czas tranzytu Shenzhen–Gdańsk: 28–35 dni, w zależności od portu załadunku, sezonu i przewoźnika.",
+        body: "Pełny kontener morski (20'/40'/40'HC) dla większych wolumenów. Czas tranzytu zależy od portu załadunku, trasy, sezonu i przewoźnika.",
         bullets: [
           "Kontenery 20', 40' i 40'HC",
           "Optymalne kosztowo przy większych wolumenach",

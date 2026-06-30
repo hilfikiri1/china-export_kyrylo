@@ -100,7 +100,7 @@ export function ContactForm() {
                   id="contact-phone"
                   name="phone"
                   type="tel"
-                  placeholder="+48 000 000 000"
+                  placeholder="+48 783 232 971"
                   className={fieldClassName}
                 />
               </div>

@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { ArrowRight, Building2, Mail, Phone } from "lucide-react";
 import type { KontaktChannel } from "@/content/kontakt-layout";
 import { kontaktLayout } from "@/content/kontakt-layout";

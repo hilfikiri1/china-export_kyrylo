@@ -3,7 +3,7 @@ import type { DedicatedPageContent } from "./types";
 export const kontrolaJakosciPage: DedicatedPageContent = {
   id: "uslugi-kontrola-jakosci",
   meta: {
-    title: "Kontrola jakości — China Export",
+    title: "Kontrola jakości | Buy & Bring Solutions",
     description:
       "Inspekcje QC przed wysyłką z Chin — weryfikacja ilości, wymiarów, opakowania i testy funkcjonalne z raportem.",
   },
