@@ -47,6 +47,17 @@ export type CalculatorInput = {
   usdPln: number;
   eurPln: number;
   insurance: boolean;
+  originCosts?: number;
+  customsHandling?: number;
+  customsBrokerCost?: number;
+  terminalCharges?: number;
+  finalDelivery?: number;
+  serviceCost?: number;
+  units?: number;
+  packages?: number;
+  dimensions?: string;
+  destinationCountry?: string;
+  destinationPostcode?: string;
 };
 
 export type CalculationResult = {

@@ -7,22 +7,22 @@ export type CompanyStat = {
 export const companyStats: CompanyStat[] = [
   {
     id: "experience",
-    value: "12+",
-    label: "Lat doświadczenia",
+    value: "17 lat",
+    label: "doświadczenia we współpracy z Chinami",
   },
   {
-    id: "reviews",
-    value: "240+",
-    label: "Zweryfikowanych opinii",
+    id: "clients",
+    value: "275+",
+    label: "obsłużonych klientów",
   },
   {
-    id: "rating",
-    value: "4,9",
-    label: "Średnia ocena",
+    id: "containers",
+    value: "110+",
+    label: "dostarczonych kontenerów",
   },
   {
-    id: "shipments",
-    value: "120+",
-    label: "Wysyłek miesięcznie",
+    id: "operations",
+    value: "Foshan",
+    label: "operacje i wsparcie na miejscu w Chinach",
   },
 ];

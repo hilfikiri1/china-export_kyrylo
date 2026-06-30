@@ -3,14 +3,14 @@ import type { DedicatedPageContent } from "./types";
 export const kontaktPage: DedicatedPageContent = {
   id: "kontakt",
   meta: {
-    title: "Kontakt — China Export",
+    title: "Kontakt — Buy & Bring Solutions",
     description:
-      "Wyślij zapytanie o import z Chin — opisz projekt, a odpowiemy w ciągu 24 godzin roboczych.",
+      "Opowiedz nam o projekcie importowym. Ocenimy zakres i zaproponujemy kolejne kroki współpracy.",
   },
   hero: {
     eyebrow: "Kontakt",
     title: "Opowiedz nam o swoim projekcie",
-    lead: "Im więcej szczegółów podasz na starcie, tym szybciej przygotujemy sensowną propozycję. Odpowiadamy w ciągu 24 godzin roboczych.",
+    lead: "Im więcej informacji otrzymamy na początku, tym szybciej będziemy mogli ocenić projekt i przygotować kolejne kroki.",
   },
   sections: [
     {
@@ -25,11 +25,12 @@ export const kontaktPage: DedicatedPageContent = {
     },
     {
       title: "Dane kontaktowe",
-      body: "Preferujesz rozmowę telefoniczną? Zadzwoń lub napisz — umówimy termin konsultacji.",
+      body: "Preferujesz rozmowę telefoniczną? Zadzwoń lub napisz — ustalimy dogodny termin kontaktu.",
       bullets: [
-        "E-mail: kontakt@china-export.pl",
-        "Telefon: +48 000 000 000",
-        "Biuro: Warszawa, Polska",
+        "E-mail: contact@buybringsolutions.com",
+        "Polska: +48 783 232 971",
+        "Ukraina: +380 66 496 38 81",
+        "Chiny: +86 139 2994 3320",
       ],
     },
   ],

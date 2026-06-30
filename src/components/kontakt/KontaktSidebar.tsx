@@ -5,7 +5,9 @@ import { kontaktLayout } from "@/content/kontakt-layout";
 
 const channelIcons = {
   email: Mail,
-  phone: Phone,
+  "phone-pl": Phone,
+  "phone-ua": Phone,
+  "phone-cn": Phone,
   office: Building2,
 } as const;
 

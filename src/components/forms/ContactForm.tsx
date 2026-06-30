@@ -14,12 +14,18 @@ const fieldClassName =
 
 export function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
   const { form } = kontaktLayout;
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    if (submitting) return;
+    setSubmitting(true);
     // TODO: wire to API / Formspree / email service
-    setSubmitted(true);
+    setTimeout(() => {
+      setSubmitted(true);
+      setSubmitting(false);
+    }, 500);
   }
 
   return (
@@ -94,13 +100,38 @@ export function ContactForm() {
               </div>
               <div className="space-y-2">
                 <Label htmlFor="contact-phone" className="text-white/80">
-                  Telefon
+                  Telefon / WhatsApp
                 </Label>
                 <Input
                   id="contact-phone"
                   name="phone"
                   type="tel"
-                  placeholder="+48 000 000 000"
+                  placeholder="+48 783 232 971"
+                  className={fieldClassName}
+                />
+              </div>
+            </div>
+
+            <div className="grid gap-4 sm:grid-cols-2">
+              <div className="space-y-2">
+                <Label htmlFor="contact-country" className="text-white/80">
+                  Kraj
+                </Label>
+                <Input
+                  id="contact-country"
+                  name="country"
+                  placeholder="Polska / Ukraina / Niemcy"
+                  className={fieldClassName}
+                />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="contact-city" className="text-white/80">
+                  Miasto lub kod dostawy
+                </Label>
+                <Input
+                  id="contact-city"
+                  name="destination"
+                  placeholder="Wrocław 50-001"
                   className={fieldClassName}
                 />
               </div>
@@ -148,10 +179,19 @@ export function ContactForm() {
 
             <Button
               type="submit"
+              disabled={submitting}
               className="w-full border-accent-light/20 bg-accent-light text-white shadow-lg shadow-accent-light/25 hover:bg-[#dbaa47]"
             >
-              {form.submitLabel}
+              {submitting ? "Wysyłanie..." : form.submitLabel}
             </Button>
+
+            <label className="flex items-start gap-2 text-xs text-white/60">
+              <input type="checkbox" name="consent" required className="mt-0.5 h-4 w-4" />
+              <span>
+                Wyrażam zgodę na kontakt w sprawie zapytania i akceptuję politykę
+                prywatności.
+              </span>
+            </label>
           </form>
         </>
       )}

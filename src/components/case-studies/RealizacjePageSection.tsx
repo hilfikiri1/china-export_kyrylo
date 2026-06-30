@@ -140,8 +140,7 @@ export function RealizacjePageSection({
       )}
 
       <p className="text-center text-xs text-white/40">
-        Treści zarządzane przez CMS — łatwa publikacja nowych case studies bez zmian
-        w kodzie ({caseStudies.length} projektów w portfolio).
+        {caseStudies.length} projektów w portfolio.
       </p>
 
       <CaseStudyDetailModal

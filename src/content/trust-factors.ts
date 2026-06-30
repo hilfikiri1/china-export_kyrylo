@@ -16,38 +16,38 @@ export type TrustFactor = {
 
 export const trustFactors: TrustFactor[] = [
   {
-    id: "local-entity",
+    id: "operations-china",
     icon: Building2,
-    label: "Podmiot lokalny w Chinach",
+    label: "Działamy na miejscu w Chinach",
     description:
-      "Zarejestrowana firma działająca lokalnie — legalne faktury i umowy.",
+      "Nasz zespół operacyjny w Foshan kontaktuje się z producentami, koordynuje zamówienia oraz organizuje kontrole i wysyłki.",
   },
   {
-    id: "on-ground",
+    id: "supplier-verification",
     icon: MapPin,
-    label: "Obecność na miejscu",
+    label: "Weryfikujemy producentów",
     description:
-      "Fizyczny zespół w Chinach z możliwością bezpośrednich wizyt w fabrykach.",
+      "Sprawdzamy dane firmy, możliwości produkcyjne, dokumentację oraz zgodność oferty z wymaganiami projektu.",
   },
   {
-    id: "pre-audit",
+    id: "quality-control",
     icon: Eye,
-    label: "Audyty przed produkcją",
+    label: "Kontrolujemy towar przed wysyłką",
     description:
-      "Weryfikacja producenta przed jakąkolwiek płatnością lub startem produkcji.",
+      "W zależności od projektu organizujemy kontrolę przedprodukcyjną, kontrolę w trakcie produkcji lub inspekcję przed wysyłką.",
   },
   {
-    id: "qa",
+    id: "logistics",
     icon: ShieldCheck,
-    label: "Kontrola jakości",
+    label: "Organizujemy dostawę od fabryki do magazynu",
     description:
-      "Ścisłe inspekcje QA przed ostateczną płatnością i wysyłką towaru.",
+      "Koordynujemy eksport, transport morski, kolejowy, lotniczy lub drogowy, odprawę celną i dostawę końcową.",
   },
   {
-    id: "e2e",
+    id: "flexible-cooperation",
     icon: Truck,
-    label: "Logistyka end-to-end",
+    label: "Pełny proces lub wybrana usługa",
     description:
-      "Kompletny spedycja i obsługa frachtu prosto pod wskazany adres klienta.",
+      "Możesz zlecić nam kompleksową obsługę albo tylko wyszukanie producenta, kontrolę jakości, konsolidację lub transport.",
   },
 ];

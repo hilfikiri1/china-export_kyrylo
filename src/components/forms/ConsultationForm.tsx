@@ -15,13 +15,19 @@ const fieldClassName =
 
 export function ConsultationForm() {
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
   const [topic, setTopic] = useState("full");
   const { form } = konsultacjaLayout;
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    if (submitting) return;
+    setSubmitting(true);
     // TODO: wire to API / Formspree / Calendly
-    setSubmitted(true);
+    setTimeout(() => {
+      setSubmitted(true);
+      setSubmitting(false);
+    }, 500);
   }
 
   return (
@@ -132,11 +138,62 @@ export function ConsultationForm() {
                 />
               </div>
 
+              <div className="grid gap-4 sm:grid-cols-2">
+                <div className="space-y-2">
+                  <Label htmlFor="consultation-contact-method" className="text-white/80">
+                    Preferowany kontakt
+                  </Label>
+                  <Input
+                    id="consultation-contact-method"
+                    name="contactMethod"
+                    placeholder="Telefon / WhatsApp / E-mail"
+                    className={fieldClassName}
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="consultation-date" className="text-white/80">
+                    Preferowana data
+                  </Label>
+                  <Input
+                    id="consultation-date"
+                    name="preferredDate"
+                    type="date"
+                    className={fieldClassName}
+                  />
+                </div>
+              </div>
+
+              <div className="grid gap-4 sm:grid-cols-2">
+                <div className="space-y-2">
+                  <Label htmlFor="consultation-time-range" className="text-white/80">
+                    Przedział godzinowy
+                  </Label>
+                  <Input
+                    id="consultation-time-range"
+                    name="preferredTimeRange"
+                    placeholder="09:00–12:00"
+                    className={fieldClassName}
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="consultation-timezone" className="text-white/80">
+                    Strefa czasowa
+                  </Label>
+                  <Input
+                    id="consultation-timezone"
+                    name="timezone"
+                    placeholder="Europe/Warsaw"
+                    className={fieldClassName}
+                  />
+                </div>
+              </div>
+
               <Button
                 type="submit"
+                disabled={submitting}
                 className="w-full border-accent-light/20 bg-accent-light text-white shadow-lg shadow-accent-light/25 hover:bg-[#dbaa47] sm:w-auto"
               >
-                {form.submitLabel}
+                {submitting ? "Wysyłanie..." : "Poproś o kontakt"}
               </Button>
 
               <p className="text-center text-xs text-white/40 sm:text-left">

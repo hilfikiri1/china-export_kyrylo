@@ -126,18 +126,49 @@ function calc(
 
   const duty = customs * (dutyRate / 100);
   const vat = (customs + duty + after) * VAT_RATE;
-  const broker =
+  const brokerDefault =
     BROKER_BASE_PLN + Math.max(0, input.cnCodes - 1) * BROKER_EXTRA_CN_PLN;
+  const broker =
+    input.customsBrokerCost && input.customsBrokerCost > 0
+      ? input.customsBrokerCost
+      : brokerDefault;
 
   let total: number;
   let transport: number;
+  const customsHandling = Math.max(0, input.customsHandling ?? 0);
+  const terminalCharges = Math.max(0, input.terminalCharges ?? 0);
+  const finalDelivery = Math.max(0, input.finalDelivery ?? 0);
+  const serviceCost = Math.max(0, input.serviceCost ?? 0);
+  const additionalOrigin = Math.max(0, input.originCosts ?? 0);
 
   if (input.incoterm === "CIF") {
-    total = g + after + duty + vat + broker;
-    transport = after;
+    total =
+      g +
+      after +
+      additionalOrigin +
+      duty +
+      vat +
+      broker +
+      customsHandling +
+      terminalCharges +
+      finalDelivery +
+      serviceCost;
+    transport = after + additionalOrigin + finalDelivery;
   } else {
-    total = g + border + after + ins + duty + vat + broker;
-    transport = border + after;
+    total =
+      g +
+      border +
+      after +
+      additionalOrigin +
+      ins +
+      duty +
+      vat +
+      broker +
+      customsHandling +
+      terminalCharges +
+      finalDelivery +
+      serviceCost;
+    transport = border + after + additionalOrigin + finalDelivery;
   }
 
   const landed = total - vat;

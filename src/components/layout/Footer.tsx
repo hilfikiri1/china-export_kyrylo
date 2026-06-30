@@ -1,19 +1,27 @@
+"use client";
+
 import { LogisticsBackdrop } from "@/components/backgrounds/LogisticsBackdrop";
-import { navGroups } from "@/config/navigation";
+import { company } from "@/config/company";
+import { contacts, getPrimaryPhoneByLocale } from "@/config/contacts";
+import { getNavGroups } from "@/config/navigation";
+import { useCurrentLocale } from "@/i18n/use-current-locale";
 import Link from "next/link";
 
 const footerLinkClassName =
   "text-white/60 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-light focus-visible:ring-offset-2 focus-visible:ring-offset-navy";
 
-const footerServices =
-  navGroups.find((group) => group.label === "Usługi")?.items.filter(
-    (item) => item.serviceId,
-  ) ?? [];
-
-const footerPages =
-  navGroups.find((group) => group.label === "Narzędzia")?.items ?? [];
-
 export function Footer() {
+  const locale = useCurrentLocale();
+  const navGroups = getNavGroups(locale);
+  const footerServices =
+    navGroups.find((group) => group.items.some((item) => item.serviceId))?.items.filter(
+      (item) => item.serviceId,
+    ) ?? [];
+  const footerPages =
+    navGroups.find((group) => group.items.some((item) => item.href.includes("/kalkulator")))
+      ?.items ?? [];
+  const primaryPhone = getPrimaryPhoneByLocale(locale);
+
   return (
     <footer className="relative z-10 overflow-hidden border-t border-white/10 bg-navy py-12">
       <LogisticsBackdrop variant="footer" />
@@ -22,14 +30,14 @@ export function Footer() {
           <div>
             <div className="mb-4 flex items-center gap-2">
               <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-accent text-sm font-bold text-white">
-                CN
+                B&BS
               </div>
               <span className="text-sm font-semibold text-white">
-                China Export
+                {company.brandName}
               </span>
             </div>
             <p className="text-sm leading-relaxed text-white/50">
-              Import towarów, maszyn i materiałów z Chin do Polski i Europy.
+              Import, sourcing i produkcja w Chinach dla firm z Polski i Europy.
             </p>
           </div>
 
@@ -70,24 +78,42 @@ export function Footer() {
             <ul className="space-y-2 text-sm">
               <li>
                 <a
-                  href="mailto:kontakt@china-export.pl"
+                  href={`mailto:${contacts.email}`}
                   className={footerLinkClassName}
                 >
-                  kontakt@china-export.pl
+                  {contacts.email}
                 </a>
               </li>
               <li>
-                <a href="tel:+48000000000" className={footerLinkClassName}>
-                  +48 000 000 000
+                <a
+                  href={`tel:${primaryPhone.phone.replace(/\s+/g, "")}`}
+                  className={footerLinkClassName}
+                  aria-label={`Telefon ${primaryPhone.countryLabel}: ${primaryPhone.phone}`}
+                >
+                  {primaryPhone.phone}
                 </a>
               </li>
-              <li className="text-white/60">Warszawa, Polska</li>
+              <li className="text-white/60">{contacts.addresses.china}</li>
             </ul>
           </div>
         </div>
 
         <div className="mt-10 border-t border-white/10 pt-6 text-center text-xs text-white/30">
-          © {new Date().getFullYear()} China Export. Wszelkie prawa zastrzeżone.
+          <div className="mb-2 flex flex-wrap items-center justify-center gap-4">
+            <Link href={`/${locale}/polityka-prywatnosci`} className={footerLinkClassName}>
+              Polityka prywatności
+            </Link>
+            <Link href={`/${locale}/polityka-cookies`} className={footerLinkClassName}>
+              Polityka cookies
+            </Link>
+            <Link href={`/${locale}/regulamin`} className={footerLinkClassName}>
+              Regulamin
+            </Link>
+            <Link href={`/${locale}/zastrzezenie-kalkulatora`} className={footerLinkClassName}>
+              Zastrzeżenie kalkulatora
+            </Link>
+          </div>
+          © {new Date().getFullYear()} {company.brandName}. {company.copyrightLabel}
         </div>
       </div>
     </footer>

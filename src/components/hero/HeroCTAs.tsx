@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { HeroTooltip } from "@/components/hero/HeroTooltip";
+import { useCurrentLocale } from "@/i18n/use-current-locale";
+import { prefixPathWithLocale } from "@/i18n/routing";
 import { cn } from "@/lib/utils";
 
 type HeroButtonVariant = "primary" | "secondary" | "tertiary";
@@ -39,20 +41,30 @@ function HeroButton({
 }
 
 export function HeroCTAs({ className }: { className?: string }) {
+  const locale = useCurrentLocale();
+
   return (
     <div className={cn("mx-auto flex max-w-3xl flex-col items-center gap-4", className)}>
       <div className="flex flex-col items-center justify-center gap-3 sm:flex-row sm:flex-wrap">
-        <HeroButton variant="primary" href="/kontakt" className="sm:min-w-[180px]">
-          Wyślij zapytanie
+        <HeroButton
+          variant="primary"
+          href={prefixPathWithLocale("/kontakt", locale)}
+          className="sm:min-w-[180px]"
+        >
+          Opisz swój projekt
         </HeroButton>
         <HeroButton
           variant="secondary"
-          href="/kalkulator"
+          href={prefixPathWithLocale("/kalkulator", locale)}
           className="sm:min-w-[180px]"
         >
-          Oblicz transport
+          Oblicz orientacyjny koszt importu
         </HeroButton>
-        <HeroButton variant="primary" href="/konsultacja" className="sm:min-w-[180px]">
+        <HeroButton
+          variant="primary"
+          href={prefixPathWithLocale("/konsultacja", locale)}
+          className="sm:min-w-[180px]"
+        >
           Umów konsultację
         </HeroButton>
       </div>

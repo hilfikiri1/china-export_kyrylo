@@ -28,15 +28,19 @@ export function HeroSection() {
           transition={headerTransition}
         >
           <p className="mb-4 inline-flex items-center rounded-full border border-accent-light/30 bg-accent-light/10 px-4 py-1.5 text-xs font-medium uppercase tracking-widest text-accent-light">
-            Import z Chin · Polska &amp; Europa
+            Buy &amp; Bring Solutions · Polska — Chiny
           </p>
           <h1 className="track-text mx-auto max-w-4xl text-4xl font-bold leading-tight tracking-tight text-gray-100 sm:text-5xl lg:text-[2.75rem] lg:leading-tight xl:text-6xl">
-            Znajdujemy, weryfikujemy i dostarczamy Twoje towary z Chin do
-            Polski.
+            Import z Chin dla firm — od sprawdzonego producenta do Twojego
+            magazynu
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-gray-300/80 sm:text-xl">
-            Od wyszukiwania dostawców i audytów fabryk po odprawę celną i
-            dostawę door-to-door.
+            Wyszukujemy i weryfikujemy producentów, kontrolujemy produkcję i
+            jakość, organizujemy eksport, transport, odprawę celną oraz dostawę
+            do Polski i innych krajów Europy.
+          </p>
+          <p className="mx-auto mt-3 max-w-2xl text-sm leading-relaxed text-gray-400">
+            Możesz powierzyć nam cały proces albo zlecić tylko wybrany etap.
           </p>
         </motion.header>
 
@@ -56,7 +60,7 @@ export function HeroSection() {
           <HeroCTAs className="items-center" />
           <div className="mt-10 pt-2">
             <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-gray-400">
-              Dlaczego nam zaufać
+              Dlaczego firmy wybierają Buy &amp; Bring Solutions
             </p>
             <TrustStrip />
           </div>

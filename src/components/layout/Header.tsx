@@ -3,8 +3,14 @@
 import Link from "next/link";
 import { useState } from "react";
 import { Menu, X, Globe2 } from "lucide-react";
+import { company } from "@/config/company";
+import { getPrimaryPhoneByLocale } from "@/config/contacts";
+import { localeCookieName, localeMeta, locales } from "@/i18n/config";
+import { useCurrentLocale } from "@/i18n/use-current-locale";
+import { toLocalePath } from "@/i18n/routing";
 import { cn } from "@/lib/utils";
-import { ctaLink, navGroups } from "@/config/navigation";
+import { getNavGroups, getPrimaryCta } from "@/config/navigation";
+import { usePathname } from "next/navigation";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -16,16 +22,25 @@ import {
 
 export function Header() {
   const [open, setOpen] = useState(false);
+  const locale = useCurrentLocale();
+  const pathname = usePathname() || "/";
+  const navGroups = getNavGroups(locale);
+  const ctaLink = getPrimaryCta(locale);
+  const primaryPhone = getPrimaryPhoneByLocale(locale);
+
+  function handleLocaleSwitch(targetLocale: (typeof locales)[number]) {
+    document.cookie = `${localeCookieName}=${targetLocale}; path=/; max-age=31536000; samesite=lax`;
+  }
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-navy/80 backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        <Link href="/" className="flex items-center gap-2">
+        <Link href={`/${locale}`} className="flex items-center gap-2">
           <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-accent text-sm font-bold text-white">
-            CN
+            B&BS
           </div>
           <span className="hidden text-sm font-semibold text-white sm:block">
-            China Export
+            {company.brandName}
           </span>
         </Link>
 
@@ -58,14 +73,25 @@ export function Header() {
             </NavigationMenuList>
           </NavigationMenu>
 
-          <button
-            type="button"
-            aria-label="Język: Polski"
-            className="flex items-center gap-1.5 text-sm text-white/50"
-          >
+          <label className="flex items-center gap-1.5 text-sm text-white/50">
             <Globe2 className="h-4 w-4" />
-            PL
-          </button>
+            <span className="sr-only">Wybierz język</span>
+            <select
+              value={locale}
+              onChange={(event) => {
+                const target = event.target.value as (typeof locales)[number];
+                handleLocaleSwitch(target);
+                window.location.href = toLocalePath(pathname, target);
+              }}
+              className="rounded-md border border-white/20 bg-white/5 px-2 py-1 text-xs text-white"
+            >
+              {locales.map((itemLocale) => (
+                <option key={itemLocale} value={itemLocale} className="bg-navy text-white">
+                  {localeMeta[itemLocale].nativeLabel}
+                </option>
+              ))}
+            </select>
+          </label>
 
           <Link
             href={ctaLink.href}
@@ -110,6 +136,31 @@ export function Header() {
             </div>
           ))}
 
+          <div className="rounded-lg border border-white/10 p-2">
+            <p className="mb-2 px-2 text-xs font-semibold uppercase tracking-widest text-white/40">
+              <Globe2 className="mr-1 inline-block h-3.5 w-3.5" />
+              Język
+            </p>
+            <div className="grid grid-cols-2 gap-1">
+              {locales.map((itemLocale) => (
+                <Link
+                  key={itemLocale}
+                  href={toLocalePath(pathname, itemLocale)}
+                  onClick={() => {
+                    handleLocaleSwitch(itemLocale);
+                    setOpen(false);
+                  }}
+                  className={cn(
+                    "rounded-md px-3 py-2 text-center text-xs text-white/70 hover:bg-white/10 hover:text-white",
+                    locale === itemLocale && "bg-white/10 text-white",
+                  )}
+                >
+                  {localeMeta[itemLocale].nativeLabel}
+                </Link>
+              ))}
+            </div>
+          </div>
+
           <Link
             href={ctaLink.href}
             className="mt-2 rounded-lg border border-accent-light/20 bg-accent-light px-3 py-2.5 text-center text-sm font-semibold text-white shadow-lg shadow-accent-light/25 transition-colors hover:bg-[#dbaa47]"
@@ -117,6 +168,22 @@ export function Header() {
           >
             {ctaLink.label}
           </Link>
+          <a
+            href={`tel:${primaryPhone.phone.replace(/\s+/g, "")}`}
+            className="rounded-lg border border-white/20 px-3 py-2.5 text-center text-sm text-white/80 hover:bg-white/5"
+          >
+            {primaryPhone.phone}
+          </a>
+          {primaryPhone.whatsapp ? (
+            <a
+              href={primaryPhone.whatsapp}
+              target="_blank"
+              rel="noreferrer"
+              className="rounded-lg border border-emerald-400/20 bg-emerald-500/15 px-3 py-2.5 text-center text-sm font-medium text-emerald-200 hover:bg-emerald-500/20"
+            >
+              WhatsApp
+            </a>
+          ) : null}
         </nav>
       </div>
     </header>

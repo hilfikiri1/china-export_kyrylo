@@ -3,7 +3,7 @@ import type { DedicatedPageContent } from "./types";
 export const procesPage: DedicatedPageContent = {
   id: "proces",
   meta: {
-    title: "Proces importu — China Export",
+    title: "Proces importu — Buy & Bring Solutions",
     description:
       "Poznaj pełną ścieżkę importu z Chin — od briefu i weryfikacji dostawcy po fracht, odprawę celną i dostawę door-to-door.",
   },
@@ -15,7 +15,7 @@ export const procesPage: DedicatedPageContent = {
   sections: [
     {
       title: "Od briefu do pierwszej wyceny",
-      body: "Zaczynamy od krótkiego briefu: produkt, wolumen, budżet i harmonogram. Na tej podstawie proponujemy zakres — pełny import end-to-end albo wybrane moduły. Pierwsza wycena i plan działania trafiają do Ciebie zwykle w ciągu 48 godzin roboczych.",
+      body: "Zaczynamy od krótkiego briefu: produkt, wolumen, budżet i harmonogram. Na tej podstawie proponujemy zakres — pełny import albo wybrane moduły współpracy.",
       bullets: [
         "Analiza produktu i wymagań rynku UE",
         "Wstępna ocena ryzyk i harmonogramu",

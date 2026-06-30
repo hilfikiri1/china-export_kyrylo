@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useId, useState } from "react";
+import Link from "next/link";
 import { FieldHelp, HelpTooltip, ResultHelp } from "@/components/forms/FieldHelp";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import {
@@ -24,6 +25,8 @@ import {
   type NbpRates,
   type TransportMode,
 } from "@/lib/calculator";
+import { useCurrentLocale } from "@/i18n/use-current-locale";
+import { prefixPathWithLocale } from "@/i18n/routing";
 
 const inputClassName =
   "w-full rounded-lg border border-white/15 bg-white/5 px-3 py-2.5 text-sm text-white [color-scheme:dark] focus:border-accent-light focus:outline-none focus:ring-1 focus:ring-accent-light";
@@ -44,6 +47,17 @@ const defaultInput: CalculatorInput = {
   usdPln: 3.81,
   eurPln: 4.33,
   insurance: true,
+  originCosts: 0,
+  customsHandling: 0,
+  customsBrokerCost: 0,
+  terminalCharges: 0,
+  finalDelivery: 0,
+  serviceCost: 0,
+  units: 1,
+  packages: 1,
+  dimensions: "",
+  destinationCountry: "Polska",
+  destinationPostcode: "",
 };
 
 function BreakdownRow({
@@ -64,6 +78,7 @@ function BreakdownRow({
 }
 
 export function ImportCalculator() {
+  const locale = useCurrentLocale();
   const insuranceId = useId();
   const [input, setInput] = useState<CalculatorInput>(defaultInput);
   const [result, setResult] = useState<CalculatorOutput | null>(null);
@@ -132,15 +147,15 @@ export function ImportCalculator() {
           <header className="flex flex-col items-start justify-between gap-5 border-b border-white/10 px-[18px] py-6 sm:flex-row sm:items-end sm:px-[30px]">
             <div>
               <h2 className="text-[28px] leading-[1.12] font-semibold text-white">
-                Orientacyjny kalkulator importu z Chin
+                Kalkulator kosztu importu z Chin
               </h2>
               <p className="mt-2 text-sm text-white/70">
-                Transport, cło, VAT i koszt dostawy do Polski
+                Oblicz orientacyjny koszt zakupu, transportu, cła i podatku VAT
               </p>
               <p className="mt-1 text-xs text-accent-light">B&amp;BS Poland</p>
             </div>
             <div className="rounded-full border border-white/20 px-3 py-2 text-xs whitespace-normal text-white/60 sm:whitespace-nowrap">
-              Dane planistyczne: {formatRateDate(rateDate)} · wynik nie jest ofertą
+              Dane planistyczne: {formatRateDate(rateDate)} · wynik ma charakter informacyjny
               {ratesSource === "nbp" ? " · kursy NBP" : ""}
             </div>
           </header>
@@ -246,6 +261,36 @@ export function ImportCalculator() {
                         className={inputClassName}
                       />
                     </div>
+                    <div className="flex flex-col gap-1.5">
+                      <FieldHelp
+                        htmlFor="packages"
+                        label="Liczba paczek"
+                        help="Liczba kartonów lub opakowań transportowych."
+                      />
+                      <input
+                        id="packages"
+                        type="number"
+                        min={1}
+                        step={1}
+                        value={input.packages ?? 1}
+                        onChange={(e) => update("packages", Number(e.target.value))}
+                        className={inputClassName}
+                      />
+                    </div>
+                    <div className="flex flex-col gap-1.5">
+                      <FieldHelp
+                        htmlFor="dimensions"
+                        label="Wymiary (opcjonalnie)"
+                        help="Format przykładowy: 120x80x140 cm."
+                      />
+                      <input
+                        id="dimensions"
+                        type="text"
+                        value={input.dimensions ?? ""}
+                        onChange={(e) => update("dimensions", e.target.value)}
+                        className={inputClassName}
+                      />
+                    </div>
                   </>
                 )}
 
@@ -280,6 +325,146 @@ export function ImportCalculator() {
                     step={1}
                     value={input.cnCodes}
                     onChange={(e) => update("cnCodes", Number(e.target.value))}
+                    className={inputClassName}
+                  />
+                </div>
+                <div className="flex flex-col gap-1.5">
+                  <FieldHelp
+                    htmlFor="destinationCountry"
+                    label="Kraj docelowy"
+                    help="Kraj dostawy końcowej."
+                  />
+                  <input
+                    id="destinationCountry"
+                    type="text"
+                    value={input.destinationCountry ?? ""}
+                    onChange={(e) => update("destinationCountry", e.target.value)}
+                    className={inputClassName}
+                  />
+                </div>
+                <div className="flex flex-col gap-1.5">
+                  <FieldHelp
+                    htmlFor="destinationPostcode"
+                    label="Kod pocztowy docelowy"
+                    help="Kod pocztowy miejsca dostawy."
+                  />
+                  <input
+                    id="destinationPostcode"
+                    type="text"
+                    value={input.destinationPostcode ?? ""}
+                    onChange={(e) => update("destinationPostcode", e.target.value)}
+                    className={inputClassName}
+                  />
+                </div>
+                <div className="flex flex-col gap-1.5">
+                  <FieldHelp
+                    htmlFor="units"
+                    label="Liczba sztuk"
+                    help="Umożliwia obliczenie orientacyjnego kosztu landed na sztukę."
+                  />
+                  <input
+                    id="units"
+                    type="number"
+                    min={1}
+                    step={1}
+                    value={input.units ?? 1}
+                    onChange={(e) => update("units", Number(e.target.value))}
+                    className={inputClassName}
+                  />
+                </div>
+                <div className="flex flex-col gap-1.5">
+                  <FieldHelp
+                    htmlFor="serviceCost"
+                    label="Koszt usługi B&BS (opcjonalnie)"
+                    help="Opcjonalny koszt wsparcia projektowego."
+                  />
+                  <input
+                    id="serviceCost"
+                    type="number"
+                    min={0}
+                    step={10}
+                    value={input.serviceCost ?? 0}
+                    onChange={(e) => update("serviceCost", Number(e.target.value))}
+                    className={inputClassName}
+                  />
+                </div>
+                <div className="flex flex-col gap-1.5">
+                  <FieldHelp
+                    htmlFor="originCosts"
+                    label="Koszty pochodzenia (opcjonalnie)"
+                    help="Dodatkowe koszty po stronie kraju nadania."
+                  />
+                  <input
+                    id="originCosts"
+                    type="number"
+                    min={0}
+                    step={10}
+                    value={input.originCosts ?? 0}
+                    onChange={(e) => update("originCosts", Number(e.target.value))}
+                    className={inputClassName}
+                  />
+                </div>
+                <div className="flex flex-col gap-1.5">
+                  <FieldHelp
+                    htmlFor="customsHandling"
+                    label="Obsługa celna (opcjonalnie)"
+                    help="Dodatkowa opłata za obsługę celną."
+                  />
+                  <input
+                    id="customsHandling"
+                    type="number"
+                    min={0}
+                    step={10}
+                    value={input.customsHandling ?? 0}
+                    onChange={(e) => update("customsHandling", Number(e.target.value))}
+                    className={inputClassName}
+                  />
+                </div>
+                <div className="flex flex-col gap-1.5">
+                  <FieldHelp
+                    htmlFor="customsBrokerCost"
+                    label="Koszt agencji celnej (opcjonalnie)"
+                    help="Ręczne nadpisanie domyślnego kosztu brokera."
+                  />
+                  <input
+                    id="customsBrokerCost"
+                    type="number"
+                    min={0}
+                    step={10}
+                    value={input.customsBrokerCost ?? 0}
+                    onChange={(e) => update("customsBrokerCost", Number(e.target.value))}
+                    className={inputClassName}
+                  />
+                </div>
+                <div className="flex flex-col gap-1.5">
+                  <FieldHelp
+                    htmlFor="terminalCharges"
+                    label="Opłaty terminalowe (opcjonalnie)"
+                    help="Koszty terminalowe i portowe po stronie odbioru."
+                  />
+                  <input
+                    id="terminalCharges"
+                    type="number"
+                    min={0}
+                    step={10}
+                    value={input.terminalCharges ?? 0}
+                    onChange={(e) => update("terminalCharges", Number(e.target.value))}
+                    className={inputClassName}
+                  />
+                </div>
+                <div className="flex flex-col gap-1.5">
+                  <FieldHelp
+                    htmlFor="finalDelivery"
+                    label="Dostawa końcowa (opcjonalnie)"
+                    help="Koszt dostawy od terminala do magazynu."
+                  />
+                  <input
+                    id="finalDelivery"
+                    type="number"
+                    min={0}
+                    step={10}
+                    value={input.finalDelivery ?? 0}
+                    onChange={(e) => update("finalDelivery", Number(e.target.value))}
                     className={inputClassName}
                   />
                 </div>
@@ -389,9 +574,8 @@ export function ImportCalculator() {
               </button>
 
               <p className="mt-3.5 border-l-[3px] border-accent-light pl-3 text-xs leading-snug text-white/50">
-                Stawki są przykładowe i wymagają regularnej aktualizacji. Kalkulator
-                nie obsługuje automatycznie towarów niebezpiecznych, baterii, chemii,
-                żywności, akcyzy ani ceł antydumpingowych.
+                Stawki są orientacyjne i wymagają aktualizacji dla konkretnego
+                projektu. Wynik nie stanowi oferty handlowej ani porady podatkowej.
               </p>
             </section>
 
@@ -425,6 +609,12 @@ export function ImportCalculator() {
                       Zakres przy tej stawce cła: {formatMoney(result.low.total)} -{" "}
                       {formatMoney(result.high.total)} · {mid!.s.days}
                     </div>
+                    {(input.units ?? 0) > 0 ? (
+                      <div className="mt-1 text-xs text-white/50">
+                        Orientacyjny landed cost / szt.:{" "}
+                        {formatMoney(mid!.landed / Math.max(1, input.units ?? 1))}
+                      </div>
+                    ) : null}
                   </div>
 
                   <div className="mb-3.5 grid gap-2.5 sm:grid-cols-2">
@@ -525,6 +715,14 @@ export function ImportCalculator() {
                     pokazywana osobno, ponieważ dla czynnego podatnika może podlegać
                     rozliczeniu.
                   </p>
+                  <div className="mt-4">
+                    <Link
+                      href={prefixPathWithLocale("/kontakt", locale)}
+                      className="inline-flex rounded-lg border border-accent-light/20 bg-accent-light px-4 py-2 text-sm font-semibold text-white shadow-lg shadow-accent-light/25 hover:bg-[#dbaa47]"
+                    >
+                      Prześlij dane do weryfikacji
+                    </Link>
+                  </div>
                 </div>
               )}
             </section>
