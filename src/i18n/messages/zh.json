@@ -230,131 +230,212 @@
     },
     "heroMap": {
       "transportModes": {
-        "rail": "Kolej",
-        "air": "Lotniczy"
+        "rail": "铁路",
+        "air": "空运"
+      },
+      "instructions": {
+        "hover": "将鼠标悬停在标记的国家上以查看详细信息",
+        "tap": "点击标记的国家以查看详细信息"
+      },
+      "badges": {
+        "operations": "中国运营",
+        "company-presence": "公司据点",
+        "client-market": "客户市场"
       },
       "countries": [
         {
           "id": "CN",
-          "name": "Chiny",
-          "role": "Kraj źródłowy",
-          "description": "Operacje w Foshan: kontakt z producentami, inspekcje, konsolidacja i dokumentacja eksportowa.",
+          "name": "中国",
+          "role": "中国运营",
+          "description": "佛山运营：对接生产商、检验、拼箱及出口单证。",
           "hubs": [
-            "Foshan"
+            "佛山"
           ],
           "metrics": [
             {
-              "label": "Doświadczenie",
-              "value": "lat"
+              "label": "经验",
+              "value": "年"
             },
             {
-              "label": "Obsłużeni klienci",
+              "label": "服务客户",
               "value": "275+"
             },
             {
-              "label": "Baza operacyjna",
-              "value": "Foshan"
-            }
-          ]
-        },
-        {
-          "id": "PL",
-          "name": "Polska",
-          "role": "Główny kierunek dostaw",
-          "description": "Door-to-door do magazynu lub hali produkcyjnej. Odprawa celna i last mile w UE.",
-          "hubs": [
-            "Gdańsk",
-            "Gdynia",
-            "Wrocław"
-          ],
-          "metrics": [
-            {
-              "label": "Dostarczone kontenery",
-              "value": "110+"
-            },
-            {
-              "label": "Obsługa celna",
-              "value": "Pełna"
-            },
-            {
-              "label": "Dostawa",
-              "value": "Door-to-door"
-            }
-          ]
-        },
-        {
-          "id": "DE",
-          "name": "Niemcy",
-          "role": "Rynek docelowy",
-          "description": "Tranzyt i konsolidacja ładunków dla klientów w Europie Zachodniej z dostawą door-to-door.",
-          "hubs": [
-            "Hamburg",
-            "Frankfurt",
-            "Monachium",
-            "Berlin"
-          ],
-          "metrics": [
-            {
-              "label": "Tryby transportu",
-              "value": "Morski / kolej / lotniczy"
-            },
-            {
-              "label": "Obsługa FCL / LCL",
-              "value": "Tak"
-            },
-            {
-              "label": "Dostawa",
-              "value": "Door-to-door"
-            }
-          ]
-        },
-        {
-          "id": "CZ",
-          "name": "Czechy",
-          "role": "Rynek docelowy",
-          "description": "Dostawy B2B dla producentów i dystrybutorów w Czechach z pełną obsługą importu.",
-          "hubs": [
-            "Praga",
-            "Brno",
-            "Ostrawa"
-          ],
-          "metrics": [
-            {
-              "label": "Tryby transportu",
-              "value": "Morski / kolej / lotniczy"
-            },
-            {
-              "label": "Obsługa importu",
-              "value": "Pełna"
-            },
-            {
-              "label": "Last mile",
-              "value": "Door-to-door"
+              "label": "运营基地",
+              "value": "佛山"
             }
           ]
         },
         {
           "id": "UA",
-          "name": "Ukraina",
-          "role": "Rynek docelowy",
-          "description": "Import towarów i komponentów B2B z obsługą tranzytu lądowego i lotniczego do magazynów klienta.",
+          "name": "乌克兰",
+          "role": "公司据点",
+          "description": "Buy & Bring Solutions 乌克兰代表处——客户支持、项目协调及与中国团队沟通。",
           "hubs": [
-            "Odessa",
-            "Kijów",
-            "Lwów"
+            "基辅",
+            "利沃夫",
+            "敖德萨"
           ],
           "metrics": [
             {
-              "label": "Tryby transportu",
-              "value": "Morski / kolej / lotniczy"
+              "label": "服务",
+              "value": "全程"
             },
             {
-              "label": "Obsługa importu",
-              "value": "Pełna"
+              "label": "语言",
+              "value": "UK / PL / EN"
             },
             {
-              "label": "Last mile",
-              "value": "Door-to-door"
+              "label": "支持",
+              "value": "门到门"
+            }
+          ]
+        },
+        {
+          "id": "PL",
+          "name": "波兰",
+          "role": "公司据点",
+          "description": "Buy & Bring Solutions 波兰总部——进口协调、清关及交付至客户仓库。",
+          "hubs": [
+            "格但斯克",
+            "格丁尼亚",
+            "弗罗茨瓦夫"
+          ],
+          "metrics": [
+            {
+              "label": "已交付集装箱",
+              "value": "110+"
+            },
+            {
+              "label": "清关",
+              "value": "全程"
+            },
+            {
+              "label": "交付",
+              "value": "门到门"
+            }
+          ]
+        },
+        {
+          "id": "DE",
+          "name": "德国",
+          "role": "客户市场",
+          "description": "为德国客户提供货物中转、拼箱及门到门交付。",
+          "hubs": [
+            "汉堡",
+            "法兰克福",
+            "慕尼黑",
+            "柏林"
+          ],
+          "metrics": [
+            {
+              "label": "运输方式",
+              "value": "海运 / 铁路 / 空运"
+            },
+            {
+              "label": "FCL / LCL",
+              "value": "是"
+            },
+            {
+              "label": "交付",
+              "value": "门到门"
+            }
+          ]
+        },
+        {
+          "id": "EE",
+          "name": "爱沙尼亚",
+          "role": "客户市场",
+          "description": "为爱沙尼亚企业提供B2B交付及完整中国进口支持。",
+          "hubs": [
+            "塔林",
+            "塔尔图"
+          ],
+          "metrics": [
+            {
+              "label": "运输方式",
+              "value": "海运 / 铁路 / 空运"
+            },
+            {
+              "label": "进口",
+              "value": "全程"
+            },
+            {
+              "label": "交付",
+              "value": "门到门"
+            }
+          ]
+        },
+        {
+          "id": "LV",
+          "name": "拉脱维亚",
+          "role": "客户市场",
+          "description": "为拉脱维亚客户提供B2B货物与零部件进口。",
+          "hubs": [
+            "里加",
+            "利耶帕亚"
+          ],
+          "metrics": [
+            {
+              "label": "运输方式",
+              "value": "海运 / 铁路 / 空运"
+            },
+            {
+              "label": "进口",
+              "value": "全程"
+            },
+            {
+              "label": "交付",
+              "value": "门到门"
+            }
+          ]
+        },
+        {
+          "id": "LT",
+          "name": "立陶宛",
+          "role": "客户市场",
+          "description": "支持立陶宛企业进口中国产品与零部件。",
+          "hubs": [
+            "维尔纽斯",
+            "克莱佩达"
+          ],
+          "metrics": [
+            {
+              "label": "运输方式",
+              "value": "海运 / 铁路 / 空运"
+            },
+            {
+              "label": "进口",
+              "value": "全程"
+            },
+            {
+              "label": "交付",
+              "value": "门到门"
+            }
+          ]
+        },
+        {
+          "id": "BG",
+          "name": "保加利亚",
+          "role": "客户市场",
+          "description": "为保加利亚生产商与分销商提供B2B交付及完整进口支持。",
+          "hubs": [
+            "索非亚",
+            "普罗夫迪夫",
+            "瓦尔纳"
+          ],
+          "metrics": [
+            {
+              "label": "运输方式",
+              "value": "海运 / 铁路 / 空运"
+            },
+            {
+              "label": "进口",
+              "value": "全程"
+            },
+            {
+              "label": "交付",
+              "value": "门到门"
             }
           ]
         }
@@ -362,39 +443,63 @@
       "routes": [
         {
           "id": "cn-pl-rail",
-          "label": "Kolej: Chiny → Polska",
-          "volumeLabel": "Fracht kolejowy",
-          "transitDays": "Zależnie od trasy"
+          "label": "铁路：中国 → 波兰",
+          "volumeLabel": "铁路货运",
+          "transitDays": "视路线而定"
         },
         {
           "id": "cn-de-rail",
-          "label": "Kolej: Chiny → Niemcy",
-          "volumeLabel": "Fracht kolejowy",
-          "transitDays": "Zależnie od trasy"
-        },
-        {
-          "id": "cn-cz-rail",
-          "label": "Kolej: Chiny → Czechy",
-          "volumeLabel": "Fracht kolejowy",
-          "transitDays": "Zależnie od trasy"
+          "label": "铁路：中国 → 德国",
+          "volumeLabel": "铁路货运",
+          "transitDays": "视路线而定"
         },
         {
           "id": "cn-ua-rail",
-          "label": "Kolej: Chiny → Ukraina",
-          "volumeLabel": "Fracht kolejowy",
-          "transitDays": "Zależnie od trasy"
+          "label": "铁路：中国 → 乌克兰",
+          "volumeLabel": "铁路货运",
+          "transitDays": "视路线而定"
         },
         {
           "id": "cn-pl-air",
-          "label": "Lotniczy: Chiny → Polska",
-          "volumeLabel": "Fracht lotniczy",
-          "transitDays": "Zależnie od trasy"
+          "label": "空运：中国 → 波兰",
+          "volumeLabel": "空运",
+          "transitDays": "视路线而定"
         },
         {
           "id": "cn-de-air",
-          "label": "Lotniczy: Chiny → Niemcy",
-          "volumeLabel": "Fracht lotniczy",
-          "transitDays": "Zależnie od trasy"
+          "label": "空运：中国 → 德国",
+          "volumeLabel": "空运",
+          "transitDays": "视路线而定"
+        },
+        {
+          "id": "cn-ua-air",
+          "label": "空运：中国 → 乌克兰",
+          "volumeLabel": "空运",
+          "transitDays": "视路线而定"
+        },
+        {
+          "id": "cn-ee-air",
+          "label": "空运：中国 → 爱沙尼亚",
+          "volumeLabel": "空运",
+          "transitDays": "视路线而定"
+        },
+        {
+          "id": "cn-lv-air",
+          "label": "空运：中国 → 拉脱维亚",
+          "volumeLabel": "空运",
+          "transitDays": "视路线而定"
+        },
+        {
+          "id": "cn-lt-air",
+          "label": "空运：中国 → 立陶宛",
+          "volumeLabel": "空运",
+          "transitDays": "视路线而定"
+        },
+        {
+          "id": "cn-bg-air",
+          "label": "空运：中国 → 保加利亚",
+          "volumeLabel": "空运",
+          "transitDays": "视路线而定"
         }
       ]
     },

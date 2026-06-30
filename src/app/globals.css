@@ -14,6 +14,12 @@
   --navy-light: var(--surface-elevated);
   --accent: oklch(0.97 0 0);
   --accent-light: #dbaa47;
+
+  --map-operations: #dbaa47;
+  --map-operations-dim: #c8922a;
+  --map-presence: #60a5fa;
+  --map-client: #4ade80;
+  --map-muted: #6b7280;
   --background: var(--surface);
   --foreground: #f3f4f6;
   --card: var(--surface-elevated);
@@ -110,24 +116,14 @@ body {
   }
 }
 
-/* Hero background — full-width map via background-size */
-.hero-map-bg {
-  background-color: var(--surface-elevated);
-  background-image: url("/hero/world-map-outline.svg");
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: 100% auto;
-  opacity: 0.9;
-  filter: brightness(1.75) contrast(1.1);
-}
-
+/* Hero background scrims — map outline lives inside HeroFlowOverlay */
 .hero-header-scrim {
   background: linear-gradient(
     180deg,
-    rgba(28, 33, 40, 0.5) 0%,
-    rgba(28, 33, 40, 0.5) 28%,
-    rgba(28, 33, 40, 0.25) 42%,
-    transparent 58%
+    rgba(28, 33, 40, 0.72) 0%,
+    rgba(28, 33, 40, 0.45) 18%,
+    rgba(28, 33, 40, 0.12) 32%,
+    transparent 44%
   );
   pointer-events: none;
 }
@@ -136,11 +132,10 @@ body {
   background: linear-gradient(
     180deg,
     transparent 0%,
-    rgba(28, 33, 40, 0.05) 32%,
-    rgba(28, 33, 40, 0.1) 48%,
-    rgba(28, 33, 40, 0.22) 62%,
-    rgba(28, 33, 40, 0.42) 76%,
-    rgba(28, 33, 40, 0.68) 90%,
+    rgba(28, 33, 40, 0.04) 40%,
+    rgba(28, 33, 40, 0.16) 58%,
+    rgba(28, 33, 40, 0.38) 74%,
+    rgba(28, 33, 40, 0.62) 88%,
     var(--surface) 100%
   );
   pointer-events: none;
@@ -148,21 +143,67 @@ body {
 
 .hero-map-vignette {
   background: radial-gradient(
-    ellipse 90% 75% at 50% 50%,
-    transparent 35%,
-    rgb(20 24 30 / 0.28) 72%,
-    rgb(20 24 30 / 0.45) 100%
+    ellipse 88% 70% at 50% 58%,
+    transparent 30%,
+    rgb(20 24 30 / 0.22) 68%,
+    rgb(20 24 30 / 0.42) 100%
   );
+}
+
+.hero-title {
+  font-size: clamp(1.65rem, 3.2vw + 0.65rem, 3.15rem);
+  line-height: 1.12;
+}
+
+.hero-lead {
+  font-size: clamp(0.95rem, 0.55vw + 0.8rem, 1.15rem);
+  line-height: 1.55;
+}
+
+.hero-map-outline {
+  background-image: url("/hero/world-map-outline.svg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+  opacity: 0.58;
+  filter: brightness(1.55) contrast(1.08);
+  pointer-events: none;
+}
+
+.hero-map-instruction {
+  max-width: 28rem;
+  padding: 0 0.5rem;
+  text-shadow: 0 1px 3px rgb(0 0 0 / 0.65);
+}
+
+@keyframes hero-marker-pulse {
+  0%,
+  100% {
+    opacity: 0.2;
+    transform: scale(1);
+    transform-origin: center;
+    transform-box: fill-box;
+  }
+  50% {
+    opacity: 0.42;
+    transform: scale(1.12);
+    transform-origin: center;
+    transform-box: fill-box;
+  }
+}
+
+.hero-map-marker-pulse {
+  animation: hero-marker-pulse 2.8s ease-in-out infinite;
 }
 
 @media (max-width: 640px) {
   .hero-header-scrim {
     background: linear-gradient(
       180deg,
-      rgba(28, 33, 40, 0.5) 0%,
-      rgba(28, 33, 40, 0.5) 34%,
-      rgba(28, 33, 40, 0.3) 48%,
-      transparent 64%
+      rgba(28, 33, 40, 0.78) 0%,
+      rgba(28, 33, 40, 0.5) 22%,
+      rgba(28, 33, 40, 0.18) 36%,
+      transparent 50%
     );
   }
 
@@ -170,12 +211,18 @@ body {
     background: linear-gradient(
       180deg,
       transparent 0%,
-      rgba(28, 33, 40, 0.08) 38%,
-      rgba(28, 33, 40, 0.18) 52%,
-      rgba(28, 33, 40, 0.38) 68%,
-      rgba(28, 33, 40, 0.62) 84%,
+      rgba(28, 33, 40, 0.1) 44%,
+      rgba(28, 33, 40, 0.28) 60%,
+      rgba(28, 33, 40, 0.55) 78%,
       var(--surface) 100%
     );
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-map-marker-pulse {
+    animation: none;
+    opacity: 0.28;
   }
 }
 
@@ -189,6 +236,15 @@ body {
 
 .hero-flow-map-canvas {
   max-width: 100%;
+}
+
+.hero-flow-country path:focus-visible {
+  stroke: var(--country-stroke-focus, var(--map-operations));
+  stroke-width: 2px;
+}
+
+.hero-flow-country-active {
+  filter: drop-shadow(0 0 8px rgb(255 255 255 / 0.08));
 }
 
 .hero-flow-band {

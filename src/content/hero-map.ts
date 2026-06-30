@@ -1,9 +1,22 @@
 /**
- * CMS-ready configuration for the Hero flow map overlay.
+ * Centralized hero map configuration.
  * Country `id` uses ISO-2; `geoId` uses ISO-3 for GeoJSON polygon matching.
  */
 
 import { statistics } from "@/content/statistics";
+
+export type MapLocationType =
+  | "operations"
+  | "company-presence"
+  | "client-market";
+
+export type MapLocation = {
+  id: string;
+  countryCode: string;
+  geoId: string;
+  coordinates: [number, number];
+  type: MapLocationType;
+};
 
 export type HeroMapMetric = {
   label: string;
@@ -15,6 +28,7 @@ export type HeroMapCountry = {
   geoId: string;
   lat: number;
   lng: number;
+  type: MapLocationType;
   name: string;
   role: string;
   description: string;
@@ -27,7 +41,7 @@ export type FlowMode = "rail" | "air";
 export type HeroFlowRoute = {
   id: string;
   from: "CN";
-  to: "DE" | "PL" | "CZ" | "UA";
+  to: "DE" | "PL" | "UA" | "EE" | "LV" | "LT" | "BG";
   mode: FlowMode;
   label: string;
   volume: number;
@@ -35,6 +49,65 @@ export type HeroFlowRoute = {
   transitDays: string;
   waypoints: [number, number][];
 };
+
+export const heroMapLocations: MapLocation[] = [
+  {
+    id: "CN",
+    countryCode: "CN",
+    geoId: "CHN",
+    coordinates: [113.12, 23.02],
+    type: "operations",
+  },
+  {
+    id: "UA",
+    countryCode: "UA",
+    geoId: "UKR",
+    coordinates: [30, 50],
+    type: "company-presence",
+  },
+  {
+    id: "PL",
+    countryCode: "PL",
+    geoId: "POL",
+    coordinates: [19, 52],
+    type: "company-presence",
+  },
+  {
+    id: "DE",
+    countryCode: "DE",
+    geoId: "DEU",
+    coordinates: [10, 51],
+    type: "client-market",
+  },
+  {
+    id: "EE",
+    countryCode: "EE",
+    geoId: "EST",
+    coordinates: [25.5, 59],
+    type: "client-market",
+  },
+  {
+    id: "LV",
+    countryCode: "LV",
+    geoId: "LVA",
+    coordinates: [25, 57],
+    type: "client-market",
+  },
+  {
+    id: "LT",
+    countryCode: "LT",
+    geoId: "LTU",
+    coordinates: [24, 55.5],
+    type: "client-market",
+  },
+  {
+    id: "BG",
+    countryCode: "BG",
+    geoId: "BGR",
+    coordinates: [25, 43],
+    type: "client-market",
+  },
+];
 
 /** Shared Eurasian land-bridge corridor to Minsk */
 const CORRIDOR_TO_MINSK: [number, number][] = [
@@ -46,88 +119,128 @@ const CORRIDOR_TO_MINSK: [number, number][] = [
   [27, 54],
 ];
 
-export const heroMapCountries: HeroMapCountry[] = [
-  {
-    id: "CN",
-    geoId: "CHN",
-    lat: 23.02,
-    lng: 113.12,
-    name: "Chiny",
-    role: "Kraj źródłowy",
-    description:
-      "Operacje w Foshan: kontakt z producentami, inspekcje, konsolidacja i dokumentacja eksportowa.",
-    hubs: ["Foshan"],
-    metrics: [
-      { label: "Doświadczenie", value: `${statistics.experience.value} lat` },
-      { label: "Obsłużeni klienci", value: statistics.clients.value },
-      { label: "Baza operacyjna", value: statistics.foshan.value },
-    ],
-  },
-  {
-    id: "PL",
-    geoId: "POL",
-    lat: 52,
-    lng: 19,
-    name: "Polska",
-    role: "Główny kierunek dostaw",
-    description:
-      "Door-to-door do magazynu lub hali produkcyjnej. Odprawa celna i last mile w UE.",
-    hubs: ["Gdańsk", "Gdynia", "Wrocław"],
-    metrics: [
-      { label: "Dostarczone kontenery", value: statistics.containers.value },
-      { label: "Obsługa celna", value: "Pełna" },
-      { label: "Dostawa", value: "Door-to-door" },
-    ],
-  },
-  {
-    id: "DE",
-    geoId: "DEU",
-    lat: 51,
-    lng: 10,
-    name: "Niemcy",
-    role: "Rynek docelowy",
-    description:
-      "Tranzyt i konsolidacja ładunków dla klientów w Europie Zachodniej z dostawą door-to-door.",
-    hubs: ["Hamburg", "Frankfurt", "Monachium", "Berlin"],
-    metrics: [
-      { label: "Tryby transportu", value: "Morski / kolej / lotniczy" },
-      { label: "Obsługa FCL / LCL", value: "Tak" },
-      { label: "Dostawa", value: "Door-to-door" },
-    ],
-  },
-  {
-    id: "CZ",
-    geoId: "CZE",
-    lat: 50,
-    lng: 15,
-    name: "Czechy",
-    role: "Rynek docelowy",
-    description:
-      "Dostawy B2B dla producentów i dystrybutorów w Czechach z pełną obsługą importu.",
-    hubs: ["Praga", "Brno", "Ostrawa"],
-    metrics: [
-      { label: "Tryby transportu", value: "Morski / kolej / lotniczy" },
-      { label: "Obsługa importu", value: "Pełna" },
-      { label: "Last mile", value: "Door-to-door" },
-    ],
-  },
-  {
-    id: "UA",
-    geoId: "UKR",
-    lat: 50,
-    lng: 30,
-    name: "Ukraina",
-    role: "Rynek docelowy",
-    description:
-      "Import towarów i komponentów B2B z obsługą tranzytu lądowego i lotniczego do magazynów klienta.",
-    hubs: ["Odessa", "Kijów", "Lwów"],
-    metrics: [
-      { label: "Tryby transportu", value: "Morski / kolej / lotniczy" },
-      { label: "Obsługa importu", value: "Pełna" },
-      { label: "Last mile", value: "Door-to-door" },
-    ],
-  },
+const CORRIDOR_TO_POLAND: [number, number][] = [
+  ...CORRIDOR_TO_MINSK,
+  [21, 52],
 ];
+
+export const heroMapCountries: HeroMapCountry[] = heroMapLocations.map(
+  (location) => {
+    const [lng, lat] = location.coordinates;
+    const defaults: Record<string, Omit<HeroMapCountry, "id" | "geoId" | "lat" | "lng" | "type">> = {
+      CN: {
+        name: "Chiny",
+        role: "Operacje w Chinach",
+        description:
+          "Operacje w Foshan: kontakt z producentami, inspekcje, konsolidacja i dokumentacja eksportowa.",
+        hubs: ["Foshan"],
+        metrics: [
+          { label: "Doświadczenie", value: `${statistics.experience.value} lat` },
+          { label: "Obsłużeni klienci", value: statistics.clients.value },
+          { label: "Baza operacyjna", value: statistics.foshan.value },
+        ],
+      },
+      UA: {
+        name: "Ukraina",
+        role: "Baza firmy",
+        description:
+          "Reprezentacja Buy & Bring Solutions na Ukrainie — wsparcie klientów, koordynacja projektów i komunikacja z zespołem w Chinach.",
+        hubs: ["Kijów", "Lwów", "Odessa"],
+        metrics: [
+          { label: "Obsługa", value: "Pełna" },
+          { label: "Języki", value: "UK / PL / EN" },
+          { label: "Wsparcie", value: "Door-to-door" },
+        ],
+      },
+      PL: {
+        name: "Polska",
+        role: "Baza firmy",
+        description:
+          "Siedziba Buy & Bring Solutions w Polsce — koordynacja importu, odprawa celna i dostawa do magazynu klienta.",
+        hubs: ["Gdańsk", "Gdynia", "Wrocław"],
+        metrics: [
+          { label: "Dostarczone kontenery", value: statistics.containers.value },
+          { label: "Obsługa celna", value: "Pełna" },
+          { label: "Dostawa", value: "Door-to-door" },
+        ],
+      },
+      DE: {
+        name: "Niemcy",
+        role: "Rynek klientów",
+        description:
+          "Tranzyt i konsolidacja ładunków dla klientów w Niemczech z dostawą door-to-door.",
+        hubs: ["Hamburg", "Frankfurt", "Monachium", "Berlin"],
+        metrics: [
+          { label: "Tryby transportu", value: "Morski / kolej / lotniczy" },
+          { label: "Obsługa FCL / LCL", value: "Tak" },
+          { label: "Dostawa", value: "Door-to-door" },
+        ],
+      },
+      EE: {
+        name: "Estonia",
+        role: "Rynek klientów",
+        description:
+          "Dostawy B2B dla firm w Estonii z pełną obsługą importu z Chin.",
+        hubs: ["Tallinn", "Tartu"],
+        metrics: [
+          { label: "Tryby transportu", value: "Morski / kolej / lotniczy" },
+          { label: "Obsługa importu", value: "Pełna" },
+          { label: "Dostawa", value: "Door-to-door" },
+        ],
+      },
+      LV: {
+        name: "Łotwa",
+        role: "Rynek klientów",
+        description:
+          "Import towarów i komponentów B2B dla klientów na Łotwie.",
+        hubs: ["Ryga", "Liepāja"],
+        metrics: [
+          { label: "Tryby transportu", value: "Morski / kolej / lotniczy" },
+          { label: "Obsługa importu", value: "Pełna" },
+          { label: "Dostawa", value: "Door-to-door" },
+        ],
+      },
+      LT: {
+        name: "Litwa",
+        role: "Rynek klientów",
+        description:
+          "Wsparcie firm litewskich w imporcie produktów i komponentów z Chin.",
+        hubs: ["Wilno", "Kłajpeda"],
+        metrics: [
+          { label: "Tryby transportu", value: "Morski / kolej / lotniczy" },
+          { label: "Obsługa importu", value: "Pełna" },
+          { label: "Dostawa", value: "Door-to-door" },
+        ],
+      },
+      BG: {
+        name: "Bułgaria",
+        role: "Rynek klientów",
+        description:
+          "Dostawy B2B dla producentów i dystrybutorów w Bułgarii z pełną obsługą importu.",
+        hubs: ["Sofia", "Płowdiw", "Warna"],
+        metrics: [
+          { label: "Tryby transportu", value: "Morski / kolej / lotniczy" },
+          { label: "Obsługa importu", value: "Pełna" },
+          { label: "Dostawa", value: "Door-to-door" },
+        ],
+      },
+    };
+
+    const copy = defaults[location.id];
+    if (!copy) {
+      throw new Error(`Missing default copy for map location: ${location.id}`);
+    }
+
+    return {
+      id: location.id,
+      geoId: location.geoId,
+      lat,
+      lng,
+      type: location.type,
+      ...copy,
+    };
+  },
+);
 
 export const heroFlowRoutes: HeroFlowRoute[] = [
   {
@@ -139,7 +252,7 @@ export const heroFlowRoutes: HeroFlowRoute[] = [
     volume: 100,
     volumeLabel: "Fracht kolejowy",
     transitDays: "Zależnie od trasy",
-    waypoints: [...CORRIDOR_TO_MINSK, [21, 52]],
+    waypoints: CORRIDOR_TO_POLAND,
   },
   {
     id: "cn-de-rail",
@@ -150,18 +263,7 @@ export const heroFlowRoutes: HeroFlowRoute[] = [
     volume: 85,
     volumeLabel: "Fracht kolejowy",
     transitDays: "Zależnie od trasy",
-    waypoints: [...CORRIDOR_TO_MINSK, [21, 52], [13.4, 52.5]],
-  },
-  {
-    id: "cn-cz-rail",
-    from: "CN",
-    to: "CZ",
-    mode: "rail",
-    label: "Kolej: Chiny → Czechy",
-    volume: 55,
-    volumeLabel: "Fracht kolejowy",
-    transitDays: "Zależnie od trasy",
-    waypoints: [...CORRIDOR_TO_MINSK, [21, 52], [14.4, 50.1]],
+    waypoints: [...CORRIDOR_TO_POLAND, [13.4, 52.5]],
   },
   {
     id: "cn-ua-rail",
@@ -212,21 +314,6 @@ export const heroFlowRoutes: HeroFlowRoute[] = [
     ],
   },
   {
-    id: "cn-cz-air",
-    from: "CN",
-    to: "CZ",
-    mode: "air",
-    label: "Lotniczy: Chiny → Czechy",
-    volume: 15,
-    volumeLabel: "Fracht lotniczy",
-    transitDays: "Zależnie od trasy",
-    waypoints: [
-      [113.12, 23.02],
-      [50, 42],
-      [14.4, 50.1],
-    ],
-  },
-  {
     id: "cn-ua-air",
     from: "CN",
     to: "UA",
@@ -239,6 +326,66 @@ export const heroFlowRoutes: HeroFlowRoute[] = [
       [113.12, 23.02],
       [50, 44],
       [30.5, 50.4],
+    ],
+  },
+  {
+    id: "cn-ee-air",
+    from: "CN",
+    to: "EE",
+    mode: "air",
+    label: "Lotniczy: Chiny → Estonia",
+    volume: 12,
+    volumeLabel: "Fracht lotniczy",
+    transitDays: "Zależnie od trasy",
+    waypoints: [
+      [113.12, 23.02],
+      [55, 50],
+      [25.5, 59],
+    ],
+  },
+  {
+    id: "cn-lv-air",
+    from: "CN",
+    to: "LV",
+    mode: "air",
+    label: "Lotniczy: Chiny → Łotwa",
+    volume: 10,
+    volumeLabel: "Fracht lotniczy",
+    transitDays: "Zależnie od trasy",
+    waypoints: [
+      [113.12, 23.02],
+      [52, 48],
+      [25, 57],
+    ],
+  },
+  {
+    id: "cn-lt-air",
+    from: "CN",
+    to: "LT",
+    mode: "air",
+    label: "Lotniczy: Chiny → Litwa",
+    volume: 10,
+    volumeLabel: "Fracht lotniczy",
+    transitDays: "Zależnie od trasy",
+    waypoints: [
+      [113.12, 23.02],
+      [50, 46],
+      [24, 55.5],
+    ],
+  },
+  {
+    id: "cn-bg-air",
+    from: "CN",
+    to: "BG",
+    mode: "air",
+    label: "Lotniczy: Chiny → Bułgaria",
+    volume: 14,
+    volumeLabel: "Fracht lotniczy",
+    transitDays: "Zależnie od trasy",
+    waypoints: [
+      [113.12, 23.02],
+      [48, 40],
+      [25, 43],
     ],
   },
 ];
@@ -256,13 +403,45 @@ export function getFlowRoutes(): HeroFlowRoute[] {
   return heroFlowRoutes;
 }
 
-export function getFlowRoutesByDestination(
-  countryId: string,
-): HeroFlowRoute[] {
+export function getFlowRoutesByDestination(countryId: string): HeroFlowRoute[] {
   return heroFlowRoutes.filter((r) => r.to === countryId);
 }
 
-export function getRouteTooltip(route: HeroFlowRoute): string {
-  const modeLabel = route.mode === "rail" ? "Kolej" : "Lotniczy";
-  return `${route.label} · ${route.volumeLabel} · ${modeLabel}`;
+export function getMapLocationTypeColors(type: MapLocationType): {
+  fill: string;
+  fillHover: string;
+  stroke: string;
+  strokeHover: string;
+  marker: string;
+  badge: string;
+} {
+  switch (type) {
+    case "operations":
+      return {
+        fill: "rgba(219, 170, 71, 0.14)",
+        fillHover: "rgba(219, 170, 71, 0.24)",
+        stroke: "rgba(219, 170, 71, 0.42)",
+        strokeHover: "rgba(219, 170, 71, 0.75)",
+        marker: "var(--map-operations)",
+        badge: "var(--map-operations)",
+      };
+    case "company-presence":
+      return {
+        fill: "rgba(96, 165, 250, 0.12)",
+        fillHover: "rgba(96, 165, 250, 0.22)",
+        stroke: "rgba(96, 165, 250, 0.4)",
+        strokeHover: "rgba(96, 165, 250, 0.72)",
+        marker: "var(--map-presence)",
+        badge: "var(--map-presence)",
+      };
+    case "client-market":
+      return {
+        fill: "rgba(74, 222, 128, 0.1)",
+        fillHover: "rgba(74, 222, 128, 0.2)",
+        stroke: "rgba(74, 222, 128, 0.38)",
+        strokeHover: "rgba(74, 222, 128, 0.7)",
+        marker: "var(--map-client)",
+        badge: "var(--map-client)",
+      };
+  }
 }
