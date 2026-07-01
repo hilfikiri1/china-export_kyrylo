@@ -23,7 +23,7 @@ export function CaseStudyGridCard({
 
   return (
     <article
-      className={cn("group flex cursor-pointer flex-col", className)}
+      className={cn("case-study-card group flex cursor-pointer flex-col", className)}
       onClick={() => onOpenDetails(caseStudy.id)}
       onKeyDown={(e) => {
         if (e.key === "Enter" || e.key === " ") {

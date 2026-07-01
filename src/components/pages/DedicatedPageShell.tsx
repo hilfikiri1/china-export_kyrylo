@@ -28,7 +28,7 @@ export function DedicatedPageShell({
             aria-label={breadcrumbAriaLabel}
             className="mx-auto max-w-7xl px-4 pt-8 sm:px-6 lg:px-8"
           >
-            <ol className="flex flex-wrap items-center gap-1 text-sm text-white/50">
+            <ol className="page-breadcrumbs flex flex-wrap items-center gap-1 text-sm text-white/50">
               {breadcrumbs.map((item, index) => {
                 const isLast = index === breadcrumbs.length - 1;
 

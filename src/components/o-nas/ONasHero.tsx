@@ -22,7 +22,7 @@ export function ONasHero({
   secondaryCta,
 }: ONasHeroProps) {
   return (
-    <section className="relative flex min-h-[calc(100vh-4rem)] flex-col justify-end overflow-hidden bg-surface-deep">
+    <section className="dark-surface page-hero-banner relative flex min-h-[calc(100vh-4rem)] flex-col justify-end overflow-hidden bg-surface-deep">
       <div className="absolute inset-0">
         <Image
           src={image}
@@ -32,8 +32,8 @@ export function ONasHero({
           sizes="100vw"
           className="object-cover opacity-30"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-surface-deep via-surface-deep/60 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-r from-surface-deep/80 to-transparent" />
+        <div className="page-hero-scrim absolute inset-0 bg-gradient-to-t from-surface-deep via-surface-deep/60 to-transparent" />
+        <div className="page-hero-scrim absolute inset-0 bg-gradient-to-r from-surface-deep/80 to-transparent" />
       </div>
 
       <div
@@ -68,14 +68,14 @@ export function ONasHero({
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:gap-4">
             <Link
               href={primaryCta.href}
-              className="inline-flex items-center justify-center gap-3 bg-accent-light px-6 py-3.5 text-sm font-semibold tracking-wide text-white shadow-lg shadow-accent-light/25 transition-colors hover:bg-[#dbaa47] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-light focus-visible:ring-offset-2 focus-visible:ring-offset-surface-deep"
+              className="gold-cta hero-cta-primary inline-flex items-center justify-center gap-3 bg-accent-light px-6 py-3.5 text-sm font-semibold tracking-wide text-white shadow-lg shadow-accent-light/25 transition-colors hover:bg-[#dbaa47] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-light focus-visible:ring-offset-2 focus-visible:ring-offset-surface-deep"
             >
               {primaryCta.label}
               <ArrowRight size={16} aria-hidden />
             </Link>
             <Link
               href={secondaryCta.href}
-              className="inline-flex items-center justify-center gap-3 border border-white/20 bg-white/5 px-6 py-3.5 text-sm font-semibold tracking-wide text-white transition-colors hover:border-accent-light/50 hover:text-accent-light focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-light focus-visible:ring-offset-2 focus-visible:ring-offset-surface-deep"
+              className="muted-cta-on-dark inline-flex items-center justify-center gap-3 border border-white/20 bg-white/5 px-6 py-3.5 text-sm font-semibold tracking-wide text-white transition-colors hover:border-accent-light/50 hover:text-accent-light focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-light focus-visible:ring-offset-2 focus-visible:ring-offset-surface-deep"
             >
               {secondaryCta.label}
             </Link>

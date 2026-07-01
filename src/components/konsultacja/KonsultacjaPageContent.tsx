@@ -13,11 +13,11 @@ export function KonsultacjaPageContent() {
   const { hero, agenda, footerCta } = getKonsultacjaLayout(messages, locale);
 
   return (
-    <div className="relative overflow-hidden pb-16 sm:pb-20">
+    <div className="konsultacja-page relative overflow-hidden pb-16 sm:pb-20">
       <SectionEdgeFade top />
 
       <div
-        className="pointer-events-none absolute inset-0 opacity-60"
+        className="konsultacja-page-grid pointer-events-none absolute inset-0 opacity-60"
         style={{
           backgroundImage:
             "linear-gradient(rgba(255,255,255,0.022) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.022) 1px, transparent 1px)",

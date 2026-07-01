@@ -47,7 +47,7 @@ export function ServicesPhaseTabs({
   }
 
   return (
-    <div className={cn(isDedicated ? "" : "mt-12")}>
+    <div className={cn(isDedicated ? "services-phase-tabs-dedicated" : "", isDedicated ? "" : "mt-12")}>
       <Tabs value={activePhase} onValueChange={handlePhaseChange}>
         <div
           className={cn(

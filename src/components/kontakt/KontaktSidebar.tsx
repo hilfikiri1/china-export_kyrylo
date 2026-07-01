@@ -53,7 +53,7 @@ export function KontaktSidebar() {
     getKontaktLayout(locale, messages, t);
 
   return (
-    <div className="space-y-10">
+    <div className="kontakt-sidebar space-y-10">
       <div>
         <p className="mb-3 text-xs font-semibold uppercase tracking-[0.3em] text-accent-light">
           {hero.eyebrow}

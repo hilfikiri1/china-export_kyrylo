@@ -11,7 +11,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { cn } from "@/lib/utils";
 
 const fieldClassName =
-  "border-white/15 bg-white/5 text-white placeholder:text-white/30";
+  "light-form-field border-white/15 bg-white/5 text-white placeholder:text-white/30";
 
 export function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
@@ -24,7 +24,7 @@ export function ContactForm() {
   }
 
   return (
-    <div className="rounded-2xl border border-white/10 bg-navy-light p-6 shadow-xl shadow-black/20 sm:p-8">
+    <div className="contact-form-panel rounded-2xl border border-white/10 bg-navy-light p-6 shadow-xl shadow-black/20 sm:p-8">
       {submitted ? (
         <div className="py-6 text-center sm:py-8">
           <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-accent-light/15 text-accent-light">
@@ -149,7 +149,7 @@ export function ContactForm() {
 
             <Button
               type="submit"
-              className="w-full border-accent-light/20 bg-accent-light text-white shadow-lg shadow-accent-light/25 hover:bg-[#dbaa47]"
+              className="gold-cta w-full border-accent-light/20 bg-accent-light text-white shadow-lg shadow-accent-light/25 hover:bg-[#dbaa47]"
             >
               {form.submitLabel}
             </Button>

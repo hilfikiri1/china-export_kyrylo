@@ -12,7 +12,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { cn } from "@/lib/utils";
 
 const fieldClassName =
-  "border-white/15 bg-white/5 text-white placeholder:text-white/30";
+  "light-form-field border-white/15 bg-white/5 text-white placeholder:text-white/30";
 
 export function ConsultationForm() {
   const [submitted, setSubmitted] = useState(false);
@@ -26,7 +26,7 @@ export function ConsultationForm() {
   }
 
   return (
-    <div className="relative overflow-hidden rounded-2xl border border-accent-light/20 bg-navy-light/70 p-6 shadow-[0_0_64px_rgba(219,170,71,0.07)] sm:p-8">
+    <div className="consultation-form-panel relative overflow-hidden rounded-2xl border border-accent-light/20 bg-navy-light/70 p-6 shadow-[0_0_64px_rgba(219,170,71,0.07)] sm:p-8">
       <div
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,rgba(219,170,71,0.08)_0%,transparent_60%)]"
         aria-hidden
@@ -135,7 +135,7 @@ export function ConsultationForm() {
 
               <Button
                 type="submit"
-                className="w-full border-accent-light/20 bg-accent-light text-white shadow-lg shadow-accent-light/25 hover:bg-[#dbaa47] sm:w-auto"
+                className="gold-cta w-full border-accent-light/20 bg-accent-light text-white shadow-lg shadow-accent-light/25 hover:bg-[#dbaa47] sm:w-auto"
               >
                 {form.submitLabel}
               </Button>
