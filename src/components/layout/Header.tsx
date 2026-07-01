@@ -6,7 +6,6 @@ import Image from "next/image";
 import { Menu, X, Phone } from "lucide-react";
 import { LanguageSwitcher } from "@/components/layout/LanguageSwitcher";
 import { ThemeToggle } from "@/components/theme/ThemeToggle";
-import { useTheme } from "@/components/theme/ThemeProvider";
 import {
   getCtaLink,
   getNavGroups,
@@ -31,22 +30,19 @@ export function Header() {
   const [open, setOpen] = useState(false);
   const { locale } = useLocale();
   const messages = useMessages();
-  const { theme } = useTheme();
   const navGroups = getNavGroups(locale);
   const ctaLink = getCtaLink(locale);
   const primaryPhone = getPrimaryPhone(locale);
-  const logoSrc =
-    theme === "light" ? "/brand/logo-on-light.svg" : "/brand/logo.svg";
 
   return (
-    <header className="site-header fixed inset-x-0 top-0 z-50 border-b backdrop-blur-md">
+    <header className="site-header dark-surface fixed inset-x-0 top-0 z-50 border-b backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link
           href={localizedPath(locale)}
           className="flex items-center gap-2"
         >
           <Image
-            src={logoSrc}
+            src="/brand/logo.svg"
             alt={company.name}
             width={120}
             height={32}
@@ -89,7 +85,7 @@ export function Header() {
 
           <Link
             href={ctaLink.href}
-            className="rounded-lg border border-accent-light/20 bg-accent-light px-4 py-2 text-sm font-semibold text-white shadow-lg shadow-accent-light/25 transition-colors hover:bg-brand-primary-hover"
+            className="header-cta rounded-lg border border-accent-light/20 bg-accent-light px-4 py-2 text-sm font-semibold text-white shadow-lg shadow-accent-light/25 transition-colors hover:bg-brand-primary-hover"
           >
             {messages.nav.cta}
           </Link>
@@ -159,7 +155,7 @@ export function Header() {
 
           <Link
             href={ctaLink.href}
-            className="mt-2 rounded-lg border border-accent-light/20 bg-accent-light px-3 py-2.5 text-center text-sm font-semibold text-white shadow-lg shadow-accent-light/25 transition-colors hover:bg-brand-primary-hover"
+            className="header-cta mt-2 rounded-lg border border-accent-light/20 bg-accent-light px-3 py-2.5 text-center text-sm font-semibold text-white shadow-lg shadow-accent-light/25 transition-colors hover:bg-brand-primary-hover"
             onClick={() => setOpen(false)}
           >
             {messages.nav.cta}

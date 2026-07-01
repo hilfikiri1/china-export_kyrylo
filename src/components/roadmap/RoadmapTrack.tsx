@@ -57,7 +57,7 @@ export function RoadmapTrack({
         onKeyDown={onKeyDown}
       >
         <div className="relative h-10">
-          <div className="absolute inset-x-0 top-1/2 h-2 -translate-y-1/2 rounded-full bg-white/20">
+          <div className="roadmap-track-inactive absolute inset-x-0 top-1/2 h-2 -translate-y-1/2 rounded-full bg-white/20">
             <div
               className="absolute left-0 top-0 h-full rounded-full bg-accent-light transition-[width] duration-75"
               style={{ width: handlePosition }}
@@ -125,8 +125,8 @@ export function RoadmapTrack({
                 className={cn(
                   "track-text absolute hidden w-max max-w-[88px] -translate-x-1/2 text-center text-[10px] leading-tight sm:block lg:max-w-[110px] lg:text-xs",
                   isActive
-                    ? "font-semibold text-white"
-                    : "font-medium text-white/80",
+                    ? "roadmap-stage-label-active font-semibold text-white"
+                    : "roadmap-stage-label-inactive font-medium text-white/80",
                 )}
                 style={{ left: position }}
               >

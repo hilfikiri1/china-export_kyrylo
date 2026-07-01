@@ -12,11 +12,11 @@ export function ProcesPageContent() {
   const { hero, steps, cta, stepsAriaLabel } = getProcesLayout(messages, locale);
 
   return (
-    <div className="relative overflow-hidden pb-16 sm:pb-20">
+    <div className="proces-page relative overflow-hidden pb-16 sm:pb-20">
       <SectionEdgeFade top />
 
       <div
-        className="pointer-events-none absolute inset-0 opacity-60"
+        className="proces-page-grid pointer-events-none absolute inset-0 opacity-60"
         style={{
           backgroundImage:
             "linear-gradient(rgba(255,255,255,0.022) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.022) 1px, transparent 1px)",

@@ -19,7 +19,7 @@ export function SpecializationsSection() {
   return (
     <section
       id="specjalizacje"
-      className="relative overflow-hidden py-20 sm:py-28"
+      className="section-alt relative overflow-hidden py-20 sm:py-28"
       aria-label={content.ariaLabel}
     >
       <SectionEdgeFade top />

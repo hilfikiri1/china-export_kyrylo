@@ -26,7 +26,7 @@ export function StatsBanner() {
 
   return (
     <section
-      className="stats-banner relative w-full border-y border-white/10 bg-surface-elevated"
+      className="stats-banner dark-surface relative w-full border-y border-white/10 bg-surface-elevated"
       aria-label={t("home.stats.ariaLabel")}
     >
       <div className="mx-auto flex min-h-[9.375rem] max-w-7xl items-center px-4 py-8 sm:min-h-[10rem] sm:px-6 lg:px-8">

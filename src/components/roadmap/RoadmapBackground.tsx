@@ -29,8 +29,7 @@ export function RoadmapBackground({ stage }: RoadmapBackgroundProps) {
           priority={stage.id === "brief"}
         />
 
-        {/* Uniform scrim — ≥40% dark overlay */}
-        <div className="absolute inset-0 bg-black/50" />
+        <div className="roadmap-photo-scrim absolute inset-0 bg-black/50" />
       </motion.div>
     </AnimatePresence>
   );

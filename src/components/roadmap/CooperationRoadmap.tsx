@@ -34,7 +34,7 @@ export function CooperationRoadmap({ embedded = false }: { embedded?: boolean })
       {!embedded && <LogisticsBackdrop variant="roadmap" />}
       {!embedded && <SectionEdgeFade top />}
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="relative overflow-hidden rounded-3xl border border-white/10">
+        <div className="roadmap-panel dark-surface relative overflow-hidden rounded-3xl border border-white/10">
           <RoadmapBackground stage={activeStage} />
 
           <div className="relative p-8 sm:p-12 lg:p-16">

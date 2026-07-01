@@ -24,7 +24,7 @@ export function SpecializationCard({
   return (
     <article
       className={cn(
-        "group flex cursor-pointer flex-col rounded-xl border border-white/10 bg-navy-light/40 transition-colors duration-300 hover:border-accent-light/30 hover:bg-navy-light/70",
+        "specialization-card group flex cursor-pointer flex-col rounded-xl border border-white/10 bg-navy-light/40 transition-colors duration-300 hover:border-accent-light/30 hover:bg-navy-light/70",
         compact ? "p-5" : "p-6 sm:p-7",
         className,
       )}

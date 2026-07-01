@@ -14,7 +14,7 @@ export function HeroSection() {
 
   return (
     <section
-      className="relative flex min-h-screen flex-col overflow-hidden"
+      className="dark-surface hero-section relative flex min-h-screen flex-col overflow-hidden"
       aria-label={t("home.hero.ariaLabel")}
     >
       <HeroBackground />

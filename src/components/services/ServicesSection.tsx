@@ -29,7 +29,7 @@ export function ServicesSection({ embedded = false }: { embedded?: boolean }) {
       {!embedded && <SectionEdgeFade top bottom />}
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="services-media-card relative overflow-hidden rounded-3xl border border-white/10">
+        <div className="services-media-card dark-surface relative overflow-hidden rounded-3xl border border-white/10">
           <ServicesBackground />
 
           <div

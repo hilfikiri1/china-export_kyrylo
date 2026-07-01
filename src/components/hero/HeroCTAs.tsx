@@ -10,9 +10,9 @@ type HeroButtonVariant = "primary" | "secondary" | "tertiary";
 
 const variants: Record<HeroButtonVariant, string> = {
   primary:
-    "bg-accent-light hover:bg-[#dbaa47] text-white shadow-lg shadow-accent-light/25 border border-accent-light/20",
+    "hero-cta-primary bg-accent-light hover:bg-[#dbaa47] text-white shadow-lg shadow-accent-light/25 border border-accent-light/20",
   secondary:
-    "bg-white/10 hover:bg-white/15 text-white border border-white/30 backdrop-blur-sm",
+    "hero-cta-secondary bg-white/10 hover:bg-white/15 text-white border border-white/30 backdrop-blur-sm",
   tertiary:
     "bg-transparent hover:bg-white/5 text-white/80 hover:text-white border border-transparent underline-offset-4 hover:underline",
 };

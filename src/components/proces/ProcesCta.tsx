@@ -30,7 +30,7 @@ export function ProcesCta({
       transition={{ duration: 0.65 }}
       className="mt-14 text-center md:mt-16"
     >
-      <div className="relative overflow-hidden rounded-2xl border border-accent-light/20 bg-navy-light/70 p-8 shadow-[0_0_64px_rgba(219,170,71,0.07)] md:p-10">
+      <div className="dark-surface proces-cta-band relative overflow-hidden rounded-2xl border border-accent-light/20 bg-navy-light/70 p-8 shadow-[0_0_64px_rgba(219,170,71,0.07)] md:p-10">
         <div
           className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,rgba(219,170,71,0.08)_0%,transparent_60%)]"
           aria-hidden
@@ -50,7 +50,7 @@ export function ProcesCta({
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
             <Link
               href={primary.href}
-              className="inline-flex items-center gap-2 rounded-lg border border-accent-light/20 bg-accent-light px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-accent-light/25 transition-all hover:bg-[#dbaa47] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-light focus-visible:ring-offset-2 focus-visible:ring-offset-surface"
+              className="proces-cta-primary gold-cta inline-flex items-center gap-2 rounded-lg border border-accent-light/20 bg-accent-light px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-accent-light/25 transition-all hover:bg-[#dbaa47] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-light focus-visible:ring-offset-2 focus-visible:ring-offset-surface"
             >
               {primary.label}
               <ArrowRight size={15} aria-hidden />
@@ -58,7 +58,7 @@ export function ProcesCta({
             {secondary && (
               <Link
                 href={secondary.href}
-                className="inline-flex items-center gap-2 rounded-lg border border-white/20 bg-white/5 px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:border-accent-light/50 hover:text-accent-light focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-light focus-visible:ring-offset-2 focus-visible:ring-offset-surface"
+                className="muted-cta-on-dark inline-flex items-center gap-2 rounded-lg border border-white/20 bg-white/5 px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:border-accent-light/50 hover:text-accent-light focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-light focus-visible:ring-offset-2 focus-visible:ring-offset-surface"
               >
                 {secondary.label}
               </Link>

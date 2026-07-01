@@ -33,7 +33,8 @@ export function ProcesStepRow({ step, index, totalSteps }: ProcesStepRowProps) {
       initial={{ opacity: 0, y: 48 }}
       animate={visible ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.7, delay: 0.04, ease: [0.25, 0.46, 0.45, 0.94] }}
-      className="relative flex gap-5 md:gap-8"
+      className="proces-step-row relative flex gap-5 md:gap-8"
+      data-step={step.num}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
@@ -48,7 +49,7 @@ export function ProcesStepRow({ step, index, totalSteps }: ProcesStepRowProps) {
             stiffness: 220,
             damping: 18,
           }}
-          className="relative z-10 flex h-[52px] w-[52px] items-center justify-center rounded-full border-2 text-xs font-bold tracking-wider transition-all duration-300"
+          className="proces-step-marker relative z-10 flex h-[52px] w-[52px] items-center justify-center rounded-full border-2 text-xs font-bold tracking-wider transition-all duration-300"
           style={{
             background: hovered ? step.theme.accent : "var(--surface-deep)",
             borderColor: step.theme.accent,
@@ -66,7 +67,7 @@ export function ProcesStepRow({ step, index, totalSteps }: ProcesStepRowProps) {
             initial={{ scaleY: 0, opacity: 0 }}
             animate={visible ? { scaleY: 1, opacity: 1 } : {}}
             transition={{ duration: 0.9, delay: 0.35 }}
-            className="mt-1.5 min-h-8 flex-1 origin-top rounded-sm"
+            className="proces-step-line mt-1.5 min-h-8 flex-1 origin-top rounded-sm"
             style={{
               width: 2,
               background: `linear-gradient(to bottom, ${step.theme.accent}88 0%, transparent 100%)`,
@@ -77,7 +78,7 @@ export function ProcesStepRow({ step, index, totalSteps }: ProcesStepRowProps) {
       </div>
 
       <div
-        className="mb-5 flex-1 overflow-hidden rounded-2xl border transition-all duration-300 md:mb-6"
+        className="proces-step-card mb-5 flex-1 overflow-hidden rounded-2xl border transition-all duration-300 md:mb-6"
         style={{
           background: hovered
             ? `linear-gradient(140deg, rgba(20,24,30,0.97) 0%, ${step.theme.glow} 100%)`
@@ -89,7 +90,7 @@ export function ProcesStepRow({ step, index, totalSteps }: ProcesStepRowProps) {
         }}
       >
         <div
-          className="h-[3px] transition-opacity duration-300"
+          className="proces-step-top-bar h-[3px] transition-opacity duration-300"
           style={{
             background: `linear-gradient(90deg, ${step.theme.accent} 0%, transparent 100%)`,
             opacity: hovered ? 1 : 0,
@@ -100,7 +101,7 @@ export function ProcesStepRow({ step, index, totalSteps }: ProcesStepRowProps) {
         <div className="p-6 md:p-8">
           <div className="mb-5 flex items-start justify-between">
             <div
-              className="flex h-[46px] w-[46px] items-center justify-center rounded-xl transition-all duration-300"
+              className="proces-step-icon-wrap flex h-[46px] w-[46px] items-center justify-center rounded-xl transition-all duration-300"
               style={{
                 background: step.theme.glow,
                 border: `1px solid ${step.theme.glowBorder}`,
@@ -109,7 +110,7 @@ export function ProcesStepRow({ step, index, totalSteps }: ProcesStepRowProps) {
               <Icon size={20} style={{ color: step.theme.accent }} aria-hidden />
             </div>
             <span
-              className="select-none text-5xl font-bold leading-none transition-colors duration-300 sm:text-6xl md:text-7xl"
+              className="proces-step-decor-num select-none text-5xl font-bold leading-none transition-colors duration-300 sm:text-6xl md:text-7xl"
               style={{
                 color: hovered ? `${step.theme.accent}22` : "rgba(255,255,255,0.05)",
               }}
@@ -121,18 +122,18 @@ export function ProcesStepRow({ step, index, totalSteps }: ProcesStepRowProps) {
 
           {step.tagline ? (
             <p
-              className="mb-2 text-xs font-semibold uppercase tracking-widest"
+              className="proces-step-tagline mb-2 text-xs font-semibold uppercase tracking-widest"
               style={{ color: step.theme.accent }}
             >
               {step.tagline}
             </p>
           ) : null}
 
-          <h3 className="mb-3 text-xl font-bold leading-tight tracking-tight text-white sm:text-2xl">
+          <h3 className="proces-step-title mb-3 text-xl font-bold leading-tight tracking-tight text-white sm:text-2xl">
             {step.title}
           </h3>
 
-          <p className="mb-6 text-sm leading-relaxed text-white/60 sm:text-base">
+          <p className="proces-step-body mb-6 text-sm leading-relaxed text-white/60 sm:text-base">
             {step.body}
           </p>
 
@@ -146,7 +147,7 @@ export function ProcesStepRow({ step, index, totalSteps }: ProcesStepRowProps) {
                 className="flex items-start gap-3"
               >
                 <span
-                  className="mt-0.5 flex h-[18px] w-[18px] shrink-0 items-center justify-center rounded-full"
+                  className="proces-step-check mt-0.5 flex h-[18px] w-[18px] shrink-0 items-center justify-center rounded-full"
                   style={{
                     background: step.theme.glow,
                     border: `1px solid ${step.theme.glowBorder}`,
@@ -159,7 +160,7 @@ export function ProcesStepRow({ step, index, totalSteps }: ProcesStepRowProps) {
                     aria-hidden
                   />
                 </span>
-                <span className="text-sm text-white/75">{bullet}</span>
+                <span className="proces-step-bullet text-sm text-white/75">{bullet}</span>
               </motion.li>
             ))}
           </ul>

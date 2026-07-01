@@ -20,7 +20,7 @@ export function RealizacjeTeaserSection() {
   return (
     <section
       id="realizacje"
-      className="relative overflow-hidden py-20 sm:py-28"
+      className="section-alt relative overflow-hidden py-20 sm:py-28"
       aria-labelledby="realizacje-teaser-heading"
     >
       <LogisticsBackdrop variant="caseStudies" />

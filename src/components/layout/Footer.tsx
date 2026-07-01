@@ -14,7 +14,7 @@ import { useLocale, useMessages } from "@/i18n/LocaleProvider";
 import { localizedPath, routes } from "@/i18n/routing";
 
 const footerLinkClassName =
-  "text-white/60 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-light focus-visible:ring-offset-2 focus-visible:ring-offset-navy";
+  "footer-link text-white/60 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-light focus-visible:ring-offset-2 focus-visible:ring-offset-navy";
 
 export function Footer() {
   const { locale } = useLocale();
@@ -28,7 +28,7 @@ export function Footer() {
     navGroups.find((group) => group.labelKey === "tools")?.items ?? [];
 
   return (
-    <footer className="relative z-10 overflow-hidden border-t border-white/10 bg-navy py-12">
+    <footer className="site-footer dark-surface relative z-10 overflow-hidden border-t border-white/10 bg-navy py-12">
       <LogisticsBackdrop variant="footer" />
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
@@ -42,13 +42,13 @@ export function Footer() {
                 className="h-8 w-auto"
               />
             </div>
-            <p className="text-sm leading-relaxed text-white/50">
+            <p className="footer-muted text-sm leading-relaxed text-white/50">
               {company.tagline[locale]}
             </p>
           </div>
 
           <div>
-            <h3 className="mb-3 text-xs font-semibold uppercase tracking-widest text-white/40">
+            <h3 className="footer-heading mb-3 text-xs font-semibold uppercase tracking-widest text-white/40">
               {messages.common.footerServices}
             </h3>
             <ul className="space-y-2 text-sm">
@@ -63,7 +63,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="mb-3 text-xs font-semibold uppercase tracking-widest text-white/40">
+            <h3 className="footer-heading mb-3 text-xs font-semibold uppercase tracking-widest text-white/40">
               {messages.common.footerPages}
             </h3>
             <ul className="space-y-2 text-sm">
@@ -78,7 +78,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="mb-3 text-xs font-semibold uppercase tracking-widest text-white/40">
+            <h3 className="footer-heading mb-3 text-xs font-semibold uppercase tracking-widest text-white/40">
               {messages.common.footerContact}
             </h3>
             <ul className="space-y-2 text-sm">
@@ -160,7 +160,7 @@ export function Footer() {
           </Link>
         </div>
 
-        <div className="mt-6 text-center text-xs text-white/30">
+        <div className="footer-muted mt-6 text-center text-xs text-white/30">
           © {new Date().getFullYear()} {company.name}.{" "}
           {messages.common.allRightsReserved}
         </div>

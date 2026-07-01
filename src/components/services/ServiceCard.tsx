@@ -48,7 +48,7 @@ export function ServiceCard({
     >
       <Card
         className={cn(
-          "flex h-full flex-col border-white/10 bg-white/5 text-white shadow-none ring-white/10 backdrop-blur-sm transition-[border-color,box-shadow] duration-300 [--card-spacing:--spacing(5)]",
+          "service-card flex h-full flex-col border-white/10 bg-white/5 text-white shadow-none ring-white/10 backdrop-blur-sm transition-[border-color,box-shadow] duration-300 [--card-spacing:--spacing(5)]",
           "group-hover:border-accent-light/40 group-hover:shadow-lg group-hover:shadow-black/20",
           "group-focus-within:border-accent-light/40 group-focus-within:shadow-lg group-focus-within:shadow-black/20",
         )}

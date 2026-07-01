@@ -22,7 +22,7 @@ export function AboutGridPanel({
     <article
       id={panel.id}
       className={cn(
-        "relative overflow-hidden bg-navy",
+        "dark-surface relative overflow-hidden bg-navy",
         variant === "hero"
           ? "min-h-[17.5rem] md:min-h-[20rem]"
           : "min-h-[15rem] md:min-h-[17.5rem]",
