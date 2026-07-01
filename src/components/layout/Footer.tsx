@@ -37,9 +37,9 @@ export function Footer() {
               <Image
                 src="/brand/logo.svg"
                 alt={company.name}
-                width={120}
-                height={32}
-                className="h-8 w-auto"
+                width={232}
+                height={48}
+                className="h-8 w-auto sm:h-9"
               />
             </div>
             <p className="footer-muted text-sm leading-relaxed text-white/50">

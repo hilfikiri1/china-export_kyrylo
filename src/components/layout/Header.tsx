@@ -44,9 +44,9 @@ export function Header() {
           <Image
             src="/brand/logo.svg"
             alt={company.name}
-            width={120}
-            height={32}
-            className="h-8 w-auto"
+            width={232}
+            height={48}
+            className="h-8 w-auto sm:h-9"
             priority
           />
         </Link>
