@@ -65,7 +65,8 @@
     "calculator": "Rechner",
     "contact": "Kontakt",
     "cta": "Projekt beschreiben",
-    "specializations": "Spezialisierungen"
+    "specializations": "Spezialisierungen",
+    "clientPortal": "Kundenportal"
   },
   "layout": {
     "breadcrumb": {

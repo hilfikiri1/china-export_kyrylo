@@ -1,28 +1,80 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
-import { CheckCircle2 } from "lucide-react";
+import { useRef, useState } from "react";
+import { CheckCircle2, Loader2 } from "lucide-react";
 import { getKonsultacjaLayout } from "@/content/i18n/konsultacja-layout";
 import { useTranslation } from "@/i18n/LocaleProvider";
+import { localizedPath, routes } from "@/i18n/routing";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { cn } from "@/lib/utils";
 
+type SubmitState = "idle" | "submitting" | "success" | "error";
+
 const fieldClassName =
   "border-white/15 bg-white/5 text-white placeholder:text-white/30";
 
 export function ConsultationForm() {
-  const [submitted, setSubmitted] = useState(false);
+  const [submitState, setSubmitState] = useState<SubmitState>("idle");
+  const [errorMessage, setErrorMessage] = useState("");
   const [topic, setTopic] = useState("full");
+  const formRef = useRef<HTMLFormElement>(null);
   const { locale, messages } = useTranslation();
   const { form } = getKonsultacjaLayout(messages, locale);
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setSubmitted(true);
+    if (submitState === "submitting") return;
+
+    const formEl = e.currentTarget;
+    const data = new FormData(formEl);
+
+    setSubmitState("submitting");
+    setErrorMessage("");
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          formType: "consultation",
+          language: locale,
+          pageUrl: window.location.href,
+          name: data.get("name"),
+          company: "",
+          email: data.get("email"),
+          phone: data.get("phone"),
+          topic,
+          description: data.get("notes"),
+          consent: data.get("consent") === "on",
+          _hp: data.get("_hp"),
+        }),
+      });
+
+      if (res.ok) {
+        setSubmitState("success");
+        formEl.reset();
+        setTopic("full");
+      } else {
+        const json = (await res.json().catch(() => ({}))) as {
+          error?: string;
+        };
+        if (json.error === "too_many_requests") {
+          setErrorMessage(
+            "Zbyt wiele prób. Poczekaj chwilę i spróbuj ponownie.",
+          );
+        } else {
+          setErrorMessage("Spróbuj ponownie później lub skontaktuj się z nami bezpośrednio.");
+        }
+        setSubmitState("error");
+      }
+    } catch {
+      setErrorMessage("Spróbuj ponownie później lub skontaktuj się z nami bezpośrednio.");
+      setSubmitState("error");
+    }
   }
 
   return (
@@ -33,12 +85,14 @@ export function ConsultationForm() {
       />
 
       <div className="relative z-10">
-        {submitted ? (
+        {submitState === "success" ? (
           <div className="py-6 text-center sm:py-8">
             <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-accent-light/15 text-accent-light">
               <CheckCircle2 className="h-7 w-7" aria-hidden />
             </div>
-            <h2 className="text-xl font-bold text-white">{form.success.title}</h2>
+            <h2 className="text-xl font-bold text-white">
+              {form.success.title}
+            </h2>
             <p className="mx-auto mt-3 max-w-sm text-sm leading-relaxed text-white/60">
               {form.success.description}
             </p>
@@ -46,7 +100,7 @@ export function ConsultationForm() {
               type="button"
               variant="outline"
               className="mt-8 border-white/20 bg-transparent text-white hover:bg-white/5"
-              onClick={() => setSubmitted(false)}
+              onClick={() => setSubmitState("idle")}
             >
               {form.sendAnother}
             </Button>
@@ -60,13 +114,26 @@ export function ConsultationForm() {
               </p>
             </div>
 
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <form ref={formRef} onSubmit={handleSubmit} className="space-y-4">
+              {/* Honeypot — hidden from real users */}
+              <input
+                type="text"
+                name="_hp"
+                aria-hidden="true"
+                tabIndex={-1}
+                autoComplete="off"
+                className="absolute -left-[9999px] h-0 w-0 overflow-hidden opacity-0"
+              />
               <input type="hidden" name="topic" value={topic} />
 
               <div className="grid gap-4 sm:grid-cols-2">
                 <div className="space-y-2">
-                  <Label htmlFor="consultation-name" className="text-white/80">
-                    {form.fields.name}
+                  <Label
+                    htmlFor="consultation-name"
+                    className="text-white/80"
+                  >
+                    {form.fields.name}{" "}
+                    <span className="text-accent-light">*</span>
                   </Label>
                   <Input
                     id="consultation-name"
@@ -77,8 +144,12 @@ export function ConsultationForm() {
                   />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="consultation-email" className="text-white/80">
-                    {form.fields.email}
+                  <Label
+                    htmlFor="consultation-email"
+                    className="text-white/80"
+                  >
+                    {form.fields.email}{" "}
+                    <span className="text-accent-light">*</span>
                   </Label>
                   <Input
                     id="consultation-email"
@@ -89,6 +160,19 @@ export function ConsultationForm() {
                     className={fieldClassName}
                   />
                 </div>
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="consultation-phone" className="text-white/80">
+                  {messages.common.phone}
+                </Label>
+                <Input
+                  id="consultation-phone"
+                  name="phone"
+                  type="tel"
+                  placeholder="+48 783 232 971"
+                  className={fieldClassName}
+                />
               </div>
 
               <div className="space-y-2">
@@ -121,7 +205,10 @@ export function ConsultationForm() {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="consultation-notes" className="text-white/80">
+                <Label
+                  htmlFor="consultation-notes"
+                  className="text-white/80"
+                >
                   {form.notesLabel}
                 </Label>
                 <Textarea
@@ -133,11 +220,60 @@ export function ConsultationForm() {
                 />
               </div>
 
+              {/* Privacy consent */}
+              <div className="flex items-start gap-3">
+                <input
+                  id="consultation-consent"
+                  name="consent"
+                  type="checkbox"
+                  required
+                  className="mt-0.5 h-4 w-4 shrink-0 rounded border-white/20 bg-white/5 accent-accent-light"
+                />
+                <Label
+                  htmlFor="consultation-consent"
+                  className="text-xs leading-relaxed text-white/50"
+                >
+                  {messages.common.privacyConsent}{" "}
+                  <Link
+                    href={localizedPath(locale, routes.privacy)}
+                    className="text-accent-light/80 underline underline-offset-2 hover:text-accent-light"
+                    target="_blank"
+                  >
+                    {messages.common.privacyPolicy}
+                  </Link>
+                  . <span className="text-accent-light">*</span>
+                </Label>
+              </div>
+
+              {submitState === "error" && (
+                <div className="rounded-lg border border-red-500/20 bg-red-500/10 px-4 py-3 text-sm text-red-400">
+                  <strong className="block font-medium">
+                    Nie udało się wysłać formularza
+                  </strong>
+                  {errorMessage && (
+                    <span className="mt-0.5 block text-red-400/80">
+                      {errorMessage}
+                    </span>
+                  )}
+                </div>
+              )}
+
               <Button
                 type="submit"
-                className="w-full border-accent-light/20 bg-accent-light text-white shadow-lg shadow-accent-light/25 hover:bg-[#dbaa47] sm:w-auto"
+                disabled={submitState === "submitting"}
+                className="w-full border-accent-light/20 bg-accent-light text-white shadow-lg shadow-accent-light/25 hover:bg-[#dbaa47] disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
               >
-                {form.submitLabel}
+                {submitState === "submitting" ? (
+                  <>
+                    <Loader2
+                      className="mr-2 h-4 w-4 animate-spin"
+                      aria-hidden
+                    />
+                    {messages.common.loading}
+                  </>
+                ) : (
+                  form.submitLabel
+                )}
               </Button>
 
               <p className="text-center text-xs text-white/40 sm:text-left">
