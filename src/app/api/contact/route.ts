@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
+import { forwardLeadToWebhook } from "@/lib/lead-delivery/forward-lead";
 
 // Simple in-memory rate limiter (per IP, resets per process restart)
 const rateLimitStore = new Map<string, { count: number; resetAt: number }>();
@@ -75,8 +76,7 @@ export async function POST(request: NextRequest) {
     );
   }
 
-  const webhookUrl = process.env.CONTACT_WEBHOOK_URL;
-  if (!webhookUrl) {
+  if (!process.env.CONTACT_WEBHOOK_URL) {
     console.error("[contact-api] CONTACT_WEBHOOK_URL is not set");
     return NextResponse.json({ error: "service_unavailable" }, { status: 503 });
   }
@@ -95,14 +95,9 @@ export async function POST(request: NextRequest) {
   };
 
   try {
-    const res = await fetch(webhookUrl, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload),
-    });
-
-    if (!res.ok) {
-      console.error("[contact-api] Webhook responded with", res.status);
+    const result = await forwardLeadToWebhook(payload);
+    if (!result.ok) {
+      console.error("[contact-api] Webhook responded with", result.status);
       return NextResponse.json({ error: "webhook_failed" }, { status: 502 });
     }
   } catch (err) {
