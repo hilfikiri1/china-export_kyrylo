@@ -65,7 +65,8 @@
     "calculator": "Калькулятор",
     "contact": "Контакты",
     "cta": "Опишите проект",
-    "specializations": "Специализации"
+    "specializations": "Специализации",
+    "clientPortal": "Панель клиента"
   },
   "layout": {
     "breadcrumb": {

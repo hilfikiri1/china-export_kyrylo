@@ -110,8 +110,10 @@ export function Header() {
 
       <div
         className={cn(
-          "mobile-nav-panel overflow-hidden border-t transition-all duration-300 md:hidden",
-          open ? "max-h-[44rem] opacity-100" : "max-h-0 opacity-0",
+          "mobile-nav-panel border-t transition-all duration-300 md:hidden",
+          open
+            ? "max-h-[calc(100dvh-4rem)] overflow-y-auto opacity-100"
+            : "max-h-0 overflow-hidden opacity-0",
         )}
       >
         <nav className="flex flex-col gap-4 px-4 py-4">

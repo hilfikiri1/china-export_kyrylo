@@ -65,7 +65,8 @@
     "calculator": "计算器",
     "contact": "联系",
     "cta": "描述项目",
-    "specializations": "专业领域"
+    "specializations": "专业领域",
+    "clientPortal": "客户门户"
   },
   "layout": {
     "breadcrumb": {
