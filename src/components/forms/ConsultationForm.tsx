@@ -139,6 +139,7 @@ export function ConsultationForm() {
                     id="consultation-name"
                     name="name"
                     required
+                    autoComplete="name"
                     placeholder={form.placeholders.name}
                     className={fieldClassName}
                   />
@@ -156,6 +157,8 @@ export function ConsultationForm() {
                     name="email"
                     type="email"
                     required
+                    autoComplete="email"
+                    inputMode="email"
                     placeholder={form.placeholders.email}
                     className={fieldClassName}
                   />
@@ -170,6 +173,8 @@ export function ConsultationForm() {
                   id="consultation-phone"
                   name="phone"
                   type="tel"
+                  autoComplete="tel"
+                  inputMode="tel"
                   placeholder="+48 783 232 971"
                   className={fieldClassName}
                 />

@@ -17,6 +17,7 @@ export const routes = {
   terms: "regulamin",
   calculatorDisclaimer: "zastrzezenie-kalkulatora",
   panel: "panel",
+  blog: "blog",
 } as const;
 
 export type RouteKey = keyof typeof routes;

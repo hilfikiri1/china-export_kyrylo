@@ -66,7 +66,8 @@
     "contact": "Kontakt",
     "cta": "Opisz projekt",
     "specializations": "Specjalizacje",
-    "clientPortal": "Panel klienta"
+    "clientPortal": "Panel klienta",
+    "blog": "Blog"
   },
   "layout": {
     "breadcrumb": {
