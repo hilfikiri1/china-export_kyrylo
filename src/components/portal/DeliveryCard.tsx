@@ -2,6 +2,16 @@ import { ExternalLink, MapPin, Package2, Truck } from "lucide-react";
 import type { ProjectDelivery } from "@/lib/portal/types";
 import { CopyButton } from "./CopyButton";
 
+function isSafeUrl(url: string | undefined): url is string {
+  if (!url) return false;
+  try {
+    const p = new URL(url);
+    return p.protocol === "https:" || p.protocol === "http:";
+  } catch {
+    return false;
+  }
+}
+
 function Row({
   icon: Icon,
   label,
@@ -27,12 +37,12 @@ function Row({
             {value}
           </p>
           {copyable && <CopyButton value={value} label={`Kopiuj ${label}`} />}
-          {link && (
+          {isSafeUrl(link) && (
             <a
               href={link}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label={`Śledź: ${value}`}
+              aria-label={`Śledź przesyłkę: ${value}`}
               className="ml-1 shrink-0 text-accent-light/60 hover:text-accent-light"
             >
               <ExternalLink className="h-3.5 w-3.5" aria-hidden />

@@ -66,7 +66,8 @@
     "contact": "Контакты",
     "cta": "Опишите проект",
     "specializations": "Специализации",
-    "clientPortal": "Панель клиента"
+    "clientPortal": "Панель клиента",
+    "blog": "Blog"
   },
   "layout": {
     "breadcrumb": {

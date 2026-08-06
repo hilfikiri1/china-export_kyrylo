@@ -129,6 +129,7 @@ export function ContactForm() {
               id="contact-name"
               name="name"
               required
+              autoComplete="name"
               placeholder={form.placeholders?.name}
               className={fieldClassName}
             />
@@ -140,6 +141,7 @@ export function ContactForm() {
             <Input
               id="contact-company"
               name="company"
+              autoComplete="organization"
               placeholder={form.placeholders?.company}
               className={fieldClassName}
             />
@@ -157,6 +159,8 @@ export function ContactForm() {
               name="email"
               type="email"
               required
+              autoComplete="email"
+              inputMode="email"
               placeholder={form.placeholders?.email}
               className={fieldClassName}
             />
@@ -169,6 +173,8 @@ export function ContactForm() {
               id="contact-phone"
               name="phone"
               type="tel"
+              autoComplete="tel"
+              inputMode="tel"
               placeholder={form.placeholders?.phone}
               className={fieldClassName}
             />

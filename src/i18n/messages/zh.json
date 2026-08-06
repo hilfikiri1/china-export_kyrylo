@@ -66,7 +66,8 @@
     "contact": "联系",
     "cta": "描述项目",
     "specializations": "专业领域",
-    "clientPortal": "客户门户"
+    "clientPortal": "客户门户",
+    "blog": "Blog"
   },
   "layout": {
     "breadcrumb": {

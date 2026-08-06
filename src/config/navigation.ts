@@ -36,6 +36,7 @@ export const navLabelKeys = {
   consultation: "consultation",
   contact: "contact",
   clientPortal: "clientPortal",
+  blog: "blog",
 } as const;
 
 export function getNavGroups(locale: Locale): NavGroup[] {
@@ -85,7 +86,12 @@ export function getNavGroups(locale: Locale): NavGroup[] {
         { href: localizedPath(locale, routes.calculator), labelKey: "calculator" },
         { href: localizedPath(locale, routes.consultation), labelKey: "consultation" },
         { href: localizedPath(locale, routes.contact), labelKey: "contact" },
-        { href: localizedPath(locale, routes.panel), labelKey: "clientPortal" },
+        ...(locale === "pl"
+          ? [
+              { href: localizedPath(locale, routes.panel), labelKey: "clientPortal" as const },
+              { href: localizedPath(locale, routes.blog), labelKey: "blog" as const },
+            ]
+          : []),
       ],
     },
   ];
@@ -130,6 +136,7 @@ export function resolveNavLabel(
     consultation: messages.common.bookConsultationNav,
     contact: messages.nav.contact,
     clientPortal: messages.nav.clientPortal,
+    blog: messages.nav.blog,
   };
   return navMap[labelKey] ?? labelKey;
 }
