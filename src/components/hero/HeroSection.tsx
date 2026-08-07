@@ -1,15 +1,17 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { CantonFairTicker } from "@/components/canton-fair/CantonFairTicker";
 import { HeroBackground } from "@/components/hero/HeroBackground";
 import { HeroCTAs } from "@/components/hero/HeroCTAs";
 import { HeroFlowOverlay } from "@/components/hero/HeroFlowOverlay";
 import { TrustStrip } from "@/components/hero/TrustStrip";
-import { useT } from "@/i18n/LocaleProvider";
+import { useCurrentLocale, useT } from "@/i18n/LocaleProvider";
 import { useMotionConfig, viewportOnce } from "@/lib/motion";
 
 export function HeroSection() {
   const t = useT();
+  const locale = useCurrentLocale();
   const { fadeUp, headerTransition } = useMotionConfig();
 
   return (
@@ -19,9 +21,15 @@ export function HeroSection() {
     >
       <HeroBackground />
 
+      {locale === "pl" ? (
+        <div className="relative z-20 shrink-0">
+          <CantonFairTicker />
+        </div>
+      ) : null}
+
       <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-1 flex-col px-4 sm:px-6 lg:px-8">
         <motion.header
-          className="pointer-events-auto shrink-0 pt-14 text-center sm:pt-16 lg:pt-[4.25rem]"
+          className="pointer-events-auto shrink-0 pt-8 text-center sm:pt-10 lg:pt-12"
           initial="hidden"
           whileInView="visible"
           viewport={viewportOnce}
