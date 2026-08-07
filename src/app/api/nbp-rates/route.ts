@@ -8,6 +8,7 @@ type NbpResponse = {
 
 const DEFAULT_USD = 3.81;
 const DEFAULT_EUR = 4.33;
+const DEFAULT_RATES_EFFECTIVE_DATE = "2026-06-27";
 
 async function fetchNbpRate(code: string): Promise<{ mid: number; effectiveDate: string } | null> {
   const response = await fetch(
@@ -27,11 +28,12 @@ async function fetchNbpRate(code: string): Promise<{ mid: number; effectiveDate:
 export async function GET() {
   try {
     const [usd, eur] = await Promise.all([fetchNbpRate("USD"), fetchNbpRate("EUR")]);
+    const usingFallback = !usd || !eur;
 
     const payload: NbpRates = {
       usdPln: usd?.mid ?? DEFAULT_USD,
       eurPln: eur?.mid ?? DEFAULT_EUR,
-      effectiveDate: usd?.effectiveDate ?? eur?.effectiveDate ?? new Date().toISOString().slice(0, 10),
+      effectiveDate: usingFallback ? DEFAULT_RATES_EFFECTIVE_DATE : usd.effectiveDate,
     };
 
     return NextResponse.json(payload);
@@ -39,7 +41,7 @@ export async function GET() {
     const payload: NbpRates = {
       usdPln: DEFAULT_USD,
       eurPln: DEFAULT_EUR,
-      effectiveDate: new Date().toISOString().slice(0, 10),
+      effectiveDate: DEFAULT_RATES_EFFECTIVE_DATE,
     };
 
     return NextResponse.json(payload);
