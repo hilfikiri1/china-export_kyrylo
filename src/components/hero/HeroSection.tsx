@@ -12,6 +12,7 @@ import { useMotionConfig, viewportOnce } from "@/lib/motion";
 export function HeroSection() {
   const t = useT();
   const locale = useCurrentLocale();
+  const showCantonTicker = locale === "pl";
   const { fadeUp, headerTransition } = useMotionConfig();
 
   return (
@@ -21,15 +22,17 @@ export function HeroSection() {
     >
       <HeroBackground />
 
-      {locale === "pl" ? (
-        <div className="relative z-20 shrink-0">
-          <CantonFairTicker />
+      {showCantonTicker ? (
+        <div className="pointer-events-none absolute inset-x-0 top-0 z-20">
+          <div className="pointer-events-auto">
+            <CantonFairTicker />
+          </div>
         </div>
       ) : null}
 
       <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-1 flex-col px-4 sm:px-6 lg:px-8">
         <motion.header
-          className="pointer-events-auto shrink-0 pt-8 text-center sm:pt-10 lg:pt-12"
+          className="pointer-events-auto shrink-0 pt-14 text-center sm:pt-16 lg:pt-[4.25rem]"
           initial="hidden"
           whileInView="visible"
           viewport={viewportOnce}
