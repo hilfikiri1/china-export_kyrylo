@@ -1,15 +1,18 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { CantonFairTicker } from "@/components/canton-fair/CantonFairTicker";
 import { HeroBackground } from "@/components/hero/HeroBackground";
 import { HeroCTAs } from "@/components/hero/HeroCTAs";
 import { HeroFlowOverlay } from "@/components/hero/HeroFlowOverlay";
 import { TrustStrip } from "@/components/hero/TrustStrip";
-import { useT } from "@/i18n/LocaleProvider";
+import { useCurrentLocale, useT } from "@/i18n/LocaleProvider";
 import { useMotionConfig, viewportOnce } from "@/lib/motion";
 
 export function HeroSection() {
   const t = useT();
+  const locale = useCurrentLocale();
+  const showCantonTicker = locale === "pl";
   const { fadeUp, headerTransition } = useMotionConfig();
 
   return (
@@ -18,6 +21,14 @@ export function HeroSection() {
       aria-label={t("home.hero.ariaLabel")}
     >
       <HeroBackground />
+
+      {showCantonTicker ? (
+        <div className="pointer-events-none absolute inset-x-0 top-0 z-20">
+          <div className="pointer-events-auto">
+            <CantonFairTicker />
+          </div>
+        </div>
+      ) : null}
 
       <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-1 flex-col px-4 sm:px-6 lg:px-8">
         <motion.header

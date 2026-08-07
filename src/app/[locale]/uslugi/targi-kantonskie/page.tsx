@@ -19,6 +19,8 @@ import {
   UsersRound,
 } from "lucide-react";
 import { CantonCountdown } from "@/components/canton-fair/CantonCountdown";
+import { CantonFairBlogTeaser } from "@/components/canton-fair/CantonFairBlogTeaser";
+import { CantonFairGallery } from "@/components/canton-fair/CantonFairGallery";
 import { DedicatedPageShell } from "@/components/pages/DedicatedPageShell";
 import {
   CANTON_FAIR_BUYER_URL,
@@ -270,9 +272,13 @@ export default async function CantonFairPage({ params }: PageProps) {
           ))}
         </div>
 
+        <CantonFairBlogTeaser locale={locale} />
+
         <div className="mt-12 sm:mt-16">
           <CantonCountdown />
         </div>
+
+        <CantonFairGallery />
 
         <section id="fazy" aria-labelledby="fazy-heading" className="scroll-mt-24 pt-20">
           <div className="mx-auto max-w-3xl text-center">
