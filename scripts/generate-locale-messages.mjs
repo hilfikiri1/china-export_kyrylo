@@ -671,7 +671,7 @@ function buildPl() {
             title: "Dane kontaktowe",
             body: "Preferujesz rozmowę telefoniczną? Zadzwoń lub napisz — umówimy termin konsultacji.",
             bullets: [
-              "E-mail: contact@buybringsolutions.com",
+              "E-mail: buybringsolutionspol@gmail.com",
               "Telefon (PL): +48 783 232 971",
               "Telefon (UA): +380 66 496 38 81",
               "Telefon (CN): +86 139 2994 3320",
@@ -998,7 +998,7 @@ function buildPl() {
     },
     legal: {
       placeholder:
-        "Treść dokumentu prawnego jest w przygotowaniu. W razie pytań skontaktuj się z nami: contact@buybringsolutions.com",
+        "Treść dokumentu prawnego jest w przygotowaniu. W razie pytań skontaktuj się z nami: buybringsolutionspol@gmail.com",
     },
   };
 }

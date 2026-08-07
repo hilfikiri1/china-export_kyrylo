@@ -5,6 +5,7 @@ import Link from "next/link";
 import { LogisticsBackdrop } from "@/components/backgrounds/LogisticsBackdrop";
 import { company } from "@/config/company";
 import { contacts } from "@/config/contacts";
+import { getBrandLogo, getBrandLogoAlt } from "@/config/brand";
 import {
   getNavGroups,
   resolveNavGroupLabel,
@@ -26,6 +27,8 @@ export function Footer() {
     ) ?? [];
   const footerPages =
     navGroups.find((group) => group.labelKey === "tools")?.items ?? [];
+  const logoSrc = getBrandLogo(locale, "dark");
+  const logoAlt = getBrandLogoAlt(locale);
 
   return (
     <footer className="relative z-10 overflow-hidden border-t border-white/10 bg-navy py-12">
@@ -35,10 +38,10 @@ export function Footer() {
           <div>
             <div className="mb-4">
               <Image
-                src="/brand/logo.svg"
-                alt={company.name}
-                width={120}
-                height={32}
+                src={logoSrc}
+                alt={logoAlt}
+                width={locale === "pl" ? 156 : 176}
+                height={40}
                 className="h-8 w-auto"
               />
             </div>

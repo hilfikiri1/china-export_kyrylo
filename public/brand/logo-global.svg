@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 176 40" fill="none" aria-hidden="true">
+  <path d="M4 30V18l4-2 6.5 4 6.5-4 6.5 4 6.5-4 4 2v12H4z" stroke="#ffffff" stroke-width="1.4" stroke-linejoin="round"/>
+  <path d="M8 22.5 14.5 26l6.5-3.5L27.5 26 34 22.5" stroke="#ffffff" stroke-width="1.2" stroke-linecap="round"/>
+  <path d="M14.5 18v8M27.5 18v8M21 16.5v9.5" stroke="#ffffff" stroke-width="1.1" stroke-linecap="round"/>
+  <text x="46" y="22" fill="#ffffff" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="18" font-weight="700" letter-spacing="-0.5">B&amp;B</text>
+  <text x="46" y="34" fill="#ffffff" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="8.5" font-weight="500" letter-spacing="2.4">SOLUTIONS</text>
+</svg>

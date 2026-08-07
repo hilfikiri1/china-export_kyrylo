@@ -1,7 +1,7 @@
 import type { Locale } from "@/i18n/config";
 
 export const contacts = {
-  email: "contact@buybringsolutions.com",
+  email: "buybringsolutionspol@gmail.com",
   social: {
     instagram: "https://www.instagram.com/buybring_solutions",
     facebook: "https://www.facebook.com/profile.php?id=61585041982322",
