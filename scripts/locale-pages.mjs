@@ -2,25 +2,25 @@
 
 const contactBullets = {
   uk: [
-    "E-mail: contact@buybringsolutions.com",
+    "E-mail: buybringsolutionspol@gmail.com",
     "Телефон (PL): +48 783 232 971",
     "Телефон (UA): +380 66 496 38 81",
     "Телефон (CN): +86 139 2994 3320",
   ],
   ru: [
-    "E-mail: contact@buybringsolutions.com",
+    "E-mail: buybringsolutionspol@gmail.com",
     "Телефон (PL): +48 783 232 971",
     "Телефон (UA): +380 66 496 38 81",
     "Телефон (CN): +86 139 2994 3320",
   ],
   de: [
-    "E-Mail: contact@buybringsolutions.com",
+    "E-Mail: buybringsolutionspol@gmail.com",
     "Telefon (PL): +48 783 232 971",
     "Telefon (UA): +380 66 496 38 81",
     "Telefon (CN): +86 139 2994 3320",
   ],
   zh: [
-    "电子邮件：contact@buybringsolutions.com",
+    "电子邮件：buybringsolutionspol@gmail.com",
     "电话（波兰）：+48 783 232 971",
     "电话（乌克兰）：+380 66 496 38 81",
     "电话（中国）：+86 139 2994 3320",

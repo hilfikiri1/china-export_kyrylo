@@ -41,6 +41,22 @@ export const navLabelKeys = {
   cantonFair: "cantonFair",
 } as const;
 
+export type NavStandaloneLink = {
+  href: string;
+  labelKey: keyof typeof navLabelKeys;
+};
+
+export function getStandaloneNavLinks(locale: Locale): NavStandaloneLink[] {
+  if (locale !== "pl") return [];
+
+  return [
+    {
+      href: localizedPath(locale, CANTON_FAIR_PATH),
+      labelKey: "cantonFair",
+    },
+  ];
+}
+
 export function getNavGroups(locale: Locale): NavGroup[] {
   return [
     {
@@ -80,14 +96,6 @@ export function getNavGroups(locale: Locale): NavGroup[] {
           labelKey: "freight",
           serviceId: "freight",
         },
-        ...(locale === "pl"
-          ? [
-              {
-                href: localizedPath(locale, CANTON_FAIR_PATH),
-                labelKey: "cantonFair" as const,
-              },
-            ]
-          : []),
       ],
     },
     {

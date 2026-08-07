@@ -250,7 +250,7 @@ export const localeFullOverrides = {
     },
     legal: {
       placeholder:
-        "Текст правового документа готується. З питаннями звертайтеся: contact@buybringsolutions.com",
+        "Текст правового документа готується. З питаннями звертайтеся: buybringsolutionspol@gmail.com",
     },
   },
   ru: {
@@ -506,7 +506,7 @@ export const localeFullOverrides = {
     },
     legal: {
       placeholder:
-        "Текст правового документа готовится. По вопросам обращайтесь: contact@buybringsolutions.com",
+        "Текст правового документа готовится. По вопросам обращайтесь: buybringsolutionspol@gmail.com",
     },
   },
   de: {
@@ -750,7 +750,7 @@ export const localeFullOverrides = {
     },
     legal: {
       placeholder:
-        "Rechtstext wird vorbereitet. Bei Fragen: contact@buybringsolutions.com",
+        "Rechtstext wird vorbereitet. Bei Fragen: buybringsolutionspol@gmail.com",
     },
   },
   zh: {
@@ -980,7 +980,7 @@ export const localeFullOverrides = {
     },
     legal: {
       placeholder:
-        "法律文件内容准备中。如有疑问请联系：contact@buybringsolutions.com",
+        "法律文件内容准备中。如有疑问请联系：buybringsolutionspol@gmail.com",
     },
   },
 };

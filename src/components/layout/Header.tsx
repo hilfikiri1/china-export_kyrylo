@@ -10,11 +10,12 @@ import { useTheme } from "@/components/theme/ThemeProvider";
 import {
   getCtaLink,
   getNavGroups,
+  getStandaloneNavLinks,
   resolveNavGroupLabel,
   resolveNavLabel,
 } from "@/config/navigation";
+import { getBrandLogo, getBrandLogoAlt } from "@/config/brand";
 import { getPrimaryPhone } from "@/config/contacts";
-import { company } from "@/config/company";
 import { useLocale, useMessages } from "@/i18n/LocaleProvider";
 import { localizedPath } from "@/i18n/routing";
 import {
@@ -33,10 +34,11 @@ export function Header() {
   const messages = useMessages();
   const { theme } = useTheme();
   const navGroups = getNavGroups(locale);
+  const standaloneLinks = getStandaloneNavLinks(locale);
   const ctaLink = getCtaLink(locale);
   const primaryPhone = getPrimaryPhone(locale);
-  const logoSrc =
-    theme === "light" ? "/brand/logo-on-light.svg" : "/brand/logo.svg";
+  const logoSrc = getBrandLogo(locale, theme === "light" ? "light" : "dark");
+  const logoAlt = getBrandLogoAlt(locale);
 
   return (
     <header className="site-header fixed inset-x-0 top-0 z-50 border-b backdrop-blur-md">
@@ -47,9 +49,9 @@ export function Header() {
         >
           <Image
             src={logoSrc}
-            alt={company.name}
-            width={120}
-            height={32}
+            alt={logoAlt}
+            width={locale === "pl" ? 156 : 176}
+            height={40}
             className="h-8 w-auto"
             priority
           />
@@ -58,29 +60,51 @@ export function Header() {
         <nav className="hidden items-center gap-3 md:flex">
           <NavigationMenu viewport={false}>
             <NavigationMenuList className="gap-1">
-              {navGroups.map((group) => (
-                <NavigationMenuItem key={group.labelKey}>
-                  <NavigationMenuTrigger className="nav-link h-auto bg-transparent px-3 py-2 text-sm font-normal data-open:bg-transparent">
-                    {resolveNavGroupLabel(group.labelKey, messages)}
-                  </NavigationMenuTrigger>
-                  <NavigationMenuContent className="site-header-dropdown min-w-[240px] overflow-hidden rounded-lg border p-1 backdrop-blur-md">
-                    <ul className="flex flex-col">
-                      {group.items.map((item) => (
-                        <li key={`${group.labelKey}-${item.labelKey}`}>
-                          <NavigationMenuLink asChild>
-                            <Link
-                              href={item.href}
-                              className="nav-link block rounded-md px-3 py-2 text-sm transition-colors"
-                            >
-                              {resolveNavLabel(item.labelKey, messages)}
-                            </Link>
-                          </NavigationMenuLink>
-                        </li>
-                      ))}
-                    </ul>
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
-              ))}
+              {navGroups.flatMap((group) => {
+                const groupNode = (
+                  <NavigationMenuItem key={group.labelKey}>
+                    <NavigationMenuTrigger className="nav-link h-auto bg-transparent px-3 py-2 text-sm font-normal data-open:bg-transparent">
+                      {resolveNavGroupLabel(group.labelKey, messages)}
+                    </NavigationMenuTrigger>
+                    <NavigationMenuContent className="site-header-dropdown min-w-[240px] overflow-hidden rounded-lg border p-1 backdrop-blur-md">
+                      <ul className="flex flex-col">
+                        {group.items.map((item) => (
+                          <li key={`${group.labelKey}-${item.labelKey}`}>
+                            <NavigationMenuLink asChild>
+                              <Link
+                                href={item.href}
+                                className="nav-link block rounded-md px-3 py-2 text-sm transition-colors"
+                              >
+                                {resolveNavLabel(item.labelKey, messages)}
+                              </Link>
+                            </NavigationMenuLink>
+                          </li>
+                        ))}
+                      </ul>
+                    </NavigationMenuContent>
+                  </NavigationMenuItem>
+                );
+
+                if (group.labelKey !== "services") {
+                  return [groupNode];
+                }
+
+                return [
+                  ...standaloneLinks.map((item) => (
+                    <NavigationMenuItem key={item.labelKey}>
+                      <NavigationMenuLink asChild>
+                        <Link
+                          href={item.href}
+                          className="nav-link inline-flex h-auto items-center rounded-md px-3 py-2 text-sm font-normal transition-colors"
+                        >
+                          {resolveNavLabel(item.labelKey, messages)}
+                        </Link>
+                      </NavigationMenuLink>
+                    </NavigationMenuItem>
+                  )),
+                  groupNode,
+                ];
+              })}
             </NavigationMenuList>
           </NavigationMenu>
 
@@ -117,23 +141,43 @@ export function Header() {
         )}
       >
         <nav className="flex flex-col gap-4 px-4 py-4">
-          {navGroups.map((group) => (
-            <div key={group.labelKey}>
-              <p className="nav-group-label mb-1 px-3 text-xs font-semibold uppercase tracking-widest">
-                {resolveNavGroupLabel(group.labelKey, messages)}
-              </p>
-              {group.items.map((item) => (
+          {navGroups.flatMap((group) => {
+            const groupBlock = (
+              <div key={group.labelKey}>
+                <p className="nav-group-label mb-1 px-3 text-xs font-semibold uppercase tracking-widest">
+                  {resolveNavGroupLabel(group.labelKey, messages)}
+                </p>
+                {group.items.map((item) => (
+                  <Link
+                    key={`${group.labelKey}-${item.labelKey}`}
+                    href={item.href}
+                    className="nav-link block rounded-lg px-3 py-2.5 text-sm"
+                    onClick={() => setOpen(false)}
+                  >
+                    {resolveNavLabel(item.labelKey, messages)}
+                  </Link>
+                ))}
+              </div>
+            );
+
+            if (group.labelKey !== "services") {
+              return [groupBlock];
+            }
+
+            return [
+              ...standaloneLinks.map((item) => (
                 <Link
-                  key={`${group.labelKey}-${item.labelKey}`}
+                  key={item.labelKey}
                   href={item.href}
-                  className="nav-link block rounded-lg px-3 py-2.5 text-sm"
+                  className="nav-link block rounded-lg px-3 py-2.5 text-sm font-semibold"
                   onClick={() => setOpen(false)}
                 >
                   {resolveNavLabel(item.labelKey, messages)}
                 </Link>
-              ))}
-            </div>
-          ))}
+              )),
+              groupBlock,
+            ];
+          })}
 
           <LanguageSwitcher variant="mobile" className="px-3" />
 

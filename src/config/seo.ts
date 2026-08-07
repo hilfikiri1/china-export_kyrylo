@@ -160,11 +160,11 @@ export const pageSeo: Record<PageSeoKey, SeoEntry> = {
       zh: "联系我们 | Buy & Bring Solutions",
     },
     description: {
-      pl: "Opowiedz o swoim projekcie importu z Chin. Kontakt: contact@buybringsolutions.com",
-      uk: "Розкажіть про свій проєкт імпорту з Китаю. Контакт: contact@buybringsolutions.com",
-      ru: "Расскажите о своём проекте импорта из Китая. Контакт: contact@buybringsolutions.com",
-      de: "Erzählen Sie uns von Ihrem Importprojekt aus China. Kontakt: contact@buybringsolutions.com",
-      zh: "介绍您的中国进口项目。联系：contact@buybringsolutions.com",
+      pl: "Opowiedz o swoim projekcie importu z Chin. Kontakt: buybringsolutionspol@gmail.com",
+      uk: "Розкажіть про свій проєкт імпорту з Китаю. Контакт: buybringsolutionspol@gmail.com",
+      ru: "Расскажите о своём проекте импорта из Китая. Контакт: buybringsolutionspol@gmail.com",
+      de: "Erzählen Sie uns von Ihrem Importprojekt aus China. Kontakt: buybringsolutionspol@gmail.com",
+      zh: "介绍您的中国进口项目。联系：buybringsolutionspol@gmail.com",
     },
   },
   privacy: {
@@ -273,7 +273,7 @@ export const organizationStructuredData = {
   "@type": "Organization",
   name: company.name,
   url: siteUrl,
-  email: "contact@buybringsolutions.com",
+  email: "buybringsolutionspol@gmail.com",
   contactPoint: [
     {
       "@type": "ContactPoint",
