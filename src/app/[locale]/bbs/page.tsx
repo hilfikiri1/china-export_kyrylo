@@ -50,10 +50,9 @@ export default async function BbsPage({
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-10 sm:px-6 sm:py-16 lg:px-8">
-      {/* Dev/Preview banner */}
-      <div className="mb-8 rounded-lg border border-yellow-500/30 bg-yellow-500/5 px-4 py-3 text-xs text-yellow-400">
-        <strong>Panel wewnętrzny B&BS</strong> — dostępny tylko w środowisku
-        developerskim i Vercel Preview. W produkcji wymaga uwierzytelnienia.
+      <div className="mb-8 rounded-lg border border-accent-light/20 bg-accent-light/5 px-4 py-3 text-xs text-white/60">
+        <strong className="text-white/80">Panel wewnętrzny B&amp;BS</strong> — dostęp
+        chroniony uwierzytelnieniem administratora.
       </div>
 
       <h1 className="text-2xl font-bold text-white sm:text-3xl">
