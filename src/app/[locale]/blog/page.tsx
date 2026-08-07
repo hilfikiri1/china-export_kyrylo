@@ -12,6 +12,8 @@ import { buildBreadcrumbs } from "@/lib/breadcrumbs";
 
 type PageProps = { params: Promise<{ locale: string }> };
 
+export const dynamic = "force-dynamic";
+
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale: l } = await params;
   if (l !== "pl") return {};
@@ -33,7 +35,7 @@ export default async function BlogPage({ params }: PageProps) {
   if (locale !== "pl") notFound();
 
   const { t } = await getServerTranslation(locale);
-  const posts = getPublishedBlogPosts(locale);
+  const posts = await getPublishedBlogPosts(locale);
 
   return (
     <DedicatedPageShell

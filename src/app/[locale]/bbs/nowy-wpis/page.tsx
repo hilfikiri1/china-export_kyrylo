@@ -30,7 +30,7 @@ export default async function NowyWpisPage({
         </a>
         <h1 className="mt-2 text-2xl font-bold text-white">Nowy wpis blogowy</h1>
         <p className="mt-1 text-sm text-white/50">
-          Podgląd lokalny — zapis do produkcji wymaga integracji CMS/Notion.
+          Utwórz Draft albo opublikuj artykuł bezpośrednio przez Notion.
         </p>
       </div>
       <NewBlogPostForm locale={locale} />
