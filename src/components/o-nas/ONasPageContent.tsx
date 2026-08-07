@@ -3,7 +3,6 @@
 import { PageTrustGrid } from "@/components/pages/PageTrustGrid";
 import { ONasCtaBand } from "@/components/o-nas/ONasCtaBand";
 import { ONasHero } from "@/components/o-nas/ONasHero";
-import { ONasPagePl } from "@/components/o-nas/pl/ONasPagePl";
 import { ONasStatsStrip } from "@/components/o-nas/ONasStatsStrip";
 import { ONasStorySection } from "@/components/o-nas/ONasStorySection";
 import { ONasValuesSection } from "@/components/o-nas/ONasValuesSection";
@@ -12,11 +11,6 @@ import { useTranslation } from "@/i18n/LocaleProvider";
 
 export function ONasPageContent() {
   const { messages, locale } = useTranslation();
-
-  if (locale === "pl") {
-    return <ONasPagePl />;
-  }
-
   const { hero, highlights, story, values, cta } = getONasLayout(messages, locale);
 
   return (

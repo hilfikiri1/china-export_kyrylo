@@ -106,6 +106,21 @@ function pageCoverUrl(page: PageObjectResponse) {
   return undefined;
 }
 
+function isAllowedExternalCoverUrl(url: string) {
+  try {
+    const { protocol, hostname } = new URL(url);
+    if (protocol !== "https:") return false;
+
+    return (
+      hostname.endsWith(".amazonaws.com") ||
+      hostname.endsWith(".notion.so") ||
+      hostname === "images.unsplash.com"
+    );
+  } catch {
+    return false;
+  }
+}
+
 function websiteCoverPath(url: string | undefined) {
   if (!url) return undefined;
   if (url.startsWith("/")) return url;
@@ -113,12 +128,16 @@ function websiteCoverPath(url: string | undefined) {
     const parsed = new URL(url);
     const site = getSiteUrl();
     if (parsed.origin === site.origin) return `${parsed.pathname}${parsed.search}`;
+    if (isAllowedExternalCoverUrl(url)) return url;
   } catch {
     return undefined;
   }
-  // The website intentionally does not proxy arbitrary third-party image URLs.
   return undefined;
 }
+
+const LOCAL_BLOG_COVERS: Record<string, string> = {
+  "canton-fair-2026": "/image/business_trips.jpg",
+};
 
 function mapPage(page: PageObjectResponse, content = ""): BlogPost | undefined {
   const title = readText(page.properties, "Tytuł");
@@ -132,9 +151,10 @@ function mapPage(page: PageObjectResponse, content = ""): BlogPost | undefined {
     title,
     excerpt,
     content,
-    coverImage: websiteCoverPath(
-      fileUrlFromProperty(page.properties, "Zdjęcie główne") ?? pageCoverUrl(page),
-    ),
+    coverImage:
+      websiteCoverPath(
+        fileUrlFromProperty(page.properties, "Zdjęcie główne") ?? pageCoverUrl(page),
+      ) ?? LOCAL_BLOG_COVERS[slug],
     date: readDate(page.properties, "Data publikacji") || page.created_time.slice(0, 10),
     author: readText(page.properties, "Autor") || "Buy & Bring Solutions",
     category: readText(page.properties, "Kategoria") || "Import z Chin",
