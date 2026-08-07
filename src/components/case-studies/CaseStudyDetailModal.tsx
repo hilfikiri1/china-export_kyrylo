@@ -96,6 +96,28 @@ export function CaseStudyDetailModal({
                 </div>
               )}
 
+              {caseStudy.requirements && caseStudy.requirements.length > 0 && (
+                <div className="mt-6">
+                  <h3 className="text-sm font-semibold text-white">
+                    {messages.cases.requirements}
+                  </h3>
+                  <ul className="mt-3 space-y-2">
+                    {caseStudy.requirements.map((item) => (
+                      <li
+                        key={item}
+                        className="flex gap-2 text-sm text-white/70"
+                      >
+                        <CheckCircle2
+                          className="mt-0.5 h-4 w-4 shrink-0 text-accent-light"
+                          aria-hidden
+                        />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
               <div className="mt-6">
                 <h3 className="text-sm font-semibold text-white">
                   {messages.cases.scope}
@@ -115,6 +137,28 @@ export function CaseStudyDetailModal({
                   ))}
                 </ul>
               </div>
+
+              {caseStudy.products && caseStudy.products.length > 0 && (
+                <div className="mt-6">
+                  <h3 className="text-sm font-semibold text-white">
+                    {messages.cases.products}
+                  </h3>
+                  <ul className="mt-3 space-y-2">
+                    {caseStudy.products.map((item) => (
+                      <li
+                        key={item}
+                        className="flex gap-2 text-sm text-white/70"
+                      >
+                        <CheckCircle2
+                          className="mt-0.5 h-4 w-4 shrink-0 text-accent-light"
+                          aria-hidden
+                        />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
 
               <div className="mt-6 rounded-lg border border-white/10 bg-white/5 p-4">
                 <h3 className="text-sm font-semibold text-white">

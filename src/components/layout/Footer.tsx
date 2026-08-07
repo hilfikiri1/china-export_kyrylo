@@ -130,6 +130,40 @@ export function Footer() {
                 </a>
               </li>
             </ul>
+            <div className="mt-4">
+              <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-white/40">
+                {messages.common.followUs}
+              </p>
+              <div className="flex flex-wrap gap-3">
+                <a
+                  href={contacts.social.whatsapp}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={footerLinkClassName}
+                  aria-label="WhatsApp"
+                >
+                  {messages.common.whatsapp}
+                </a>
+                <a
+                  href={contacts.social.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={footerLinkClassName}
+                  aria-label="Instagram"
+                >
+                  Instagram
+                </a>
+                <a
+                  href={contacts.social.facebook}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={footerLinkClassName}
+                  aria-label="Facebook"
+                >
+                  Facebook
+                </a>
+              </div>
+            </div>
           </div>
         </div>
 

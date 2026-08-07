@@ -5,6 +5,10 @@ import { StatsBanner } from "@/components/stats/StatsBanner";
 import { ServicesSection } from "@/components/services/ServicesSection";
 import { RealizacjeTeaserSection } from "@/components/case-studies/RealizacjeTeaserSection";
 import { AboutGridSection } from "@/components/about/AboutGridSection";
+import { HomeAudienceSection } from "@/components/home/HomeAudienceSection";
+import { HomeFaqSection } from "@/components/home/HomeFaqSection";
+import { HomeMissionSection } from "@/components/home/HomeMissionSection";
+import { HomeUrgencyCtaSection } from "@/components/home/HomeUrgencyCtaSection";
 import { SpecializationsSection } from "@/components/specializations/SpecializationsSection";
 import {
   getAlternateLanguages,
@@ -66,9 +70,13 @@ export default async function Home({ params }: PageProps) {
       <CooperationRoadmap />
       <StatsBanner />
       <ServicesSection />
+      <HomeAudienceSection />
       <RealizacjeTeaserSection />
       <AboutGridSection />
       <SpecializationsSection />
+      <HomeMissionSection />
+      <HomeUrgencyCtaSection />
+      <HomeFaqSection />
     </>
   );
 }

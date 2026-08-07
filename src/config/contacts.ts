@@ -2,6 +2,11 @@ import type { Locale } from "@/i18n/config";
 
 export const contacts = {
   email: "contact@buybringsolutions.com",
+  social: {
+    instagram: "https://www.instagram.com/buybring_solutions",
+    facebook: "https://www.facebook.com/profile.php?id=61585041982322",
+    whatsapp: "https://wa.me/48783232971",
+  },
   phones: {
     poland: {
       display: "+48 783 232 971",

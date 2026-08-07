@@ -53,7 +53,8 @@
     "submitForVerification": "Daten zur Prüfung senden",
     "requestContact": "Kontakt anfragen",
     "sendAnotherInquiry": "Weitere Anfrage senden",
-    "specializations": "Spezialisierungen"
+    "specializations": "Spezialisierungen",
+    "followUs": "Folgen Sie uns"
   },
   "nav": {
     "home": "Startseite",
@@ -512,6 +513,103 @@
       "closing": "Ihre Kategorie fehlt? Beschreiben Sie das Produkt — wir prüfen Produktions- und Importmöglichkeiten.",
       "ctaLabel": "Alle Spezialisierungen ansehen",
       "ariaLabel": "Spezialisierungsbereiche"
+    },
+    "audience": {
+      "eyebrow": "Für wen",
+      "title": "Wir arbeiten mit Unternehmen in jeder Entwicklungsphase",
+      "lead": "Unabhängig vom Umfang — wir helfen beim direkten Einkauf von Waren, Maschinen und Rohstoffen bei Herstellern in China.",
+      "ariaLabel": "Für wen ist Buy & Bring Solutions",
+      "segments": [
+        {
+          "id": "entrepreneurs",
+          "title": "Unternehmer",
+          "description": "Schneller Warenkauf für den Wiederverkauf — von der ersten Charge bis zu regelmäßigen Lieferungen."
+        },
+        {
+          "id": "wholesale",
+          "title": "Großhandel",
+          "description": "Lieferungen großer Warenmengen mit Qualitätskontrolle und planbarer Logistik."
+        },
+        {
+          "id": "startups",
+          "title": "Start-ups",
+          "description": "Alles für den Geschäftsstart und die Suche nach geprüften Lieferanten."
+        },
+        {
+          "id": "manufacturers",
+          "title": "Hersteller",
+          "description": "Einkauf von Maschinen und Materialien für Ihre Produktion."
+        }
+      ]
+    },
+    "mission": {
+      "eyebrow": "Unsere Mission",
+      "title": "Wir geben Unternehmen alles, was sie für ihr Wachstum brauchen",
+      "lead": "Wir eröffnen neue Möglichkeiten durch Lieferungen von Industrieausrüstung, Rohstoffen und Energieressourcen — von der Lieferantenauswahl bis zur Lieferung.",
+      "ariaLabel": "Mission und Werte von Buy & Bring Solutions",
+      "pillars": [
+        {
+          "id": "expertise",
+          "title": "Expertise und Erfahrung",
+          "description": "Über 17 Jahre Zusammenarbeit mit China."
+        },
+        {
+          "id": "approach",
+          "title": "Professioneller Ansatz",
+          "description": "Für jeden Kunden."
+        },
+        {
+          "id": "quality",
+          "title": "Garantierte Qualität",
+          "description": "Und Kontrolle in jeder Phase."
+        }
+      ]
+    },
+    "urgencyCta": {
+      "portsTitle": "Lieferungen aus chinesischen Häfen — schnell und sicher, von Nord bis Süd!",
+      "portsBody": "Wir koordinieren den Export aus den wichtigsten chinesischen Häfen — See, Schiene und Luft. Wir wählen die Route passend zu Produkt, Budget und Zeitplan.",
+      "urgencyTitle": "Verlieren Sie keine Zeit — Ihre Konkurrenten arbeiten bereits mit China!",
+      "urgencyBody": "Wenn Sie der Konkurrenz voraus sein, Kosten optimieren und Gewinne steigern möchten — beschreiben Sie Ihr Projekt. Wir finden die besten Lieferanten und organisieren Lieferung mit Qualitätskontrolle.",
+      "ctaLabel": "Formular ausfüllen",
+      "ariaLabel": "Zusammenarbeit mit Buy & Bring Solutions starten"
+    },
+    "faq": {
+      "eyebrow": "FAQ",
+      "title": "Häufig gestellte Fragen",
+      "lead": "Antworten auf die Fragen, die wir vor einer Zusammenarbeit am häufigsten hören.",
+      "ariaLabel": "Häufig gestellte Fragen",
+      "items": [
+        {
+          "id": "supplier",
+          "question": "Wie wählt man einen Lieferanten für ein bestimmtes Produkt?",
+          "answer": "Unsere Experten helfen, zuverlässige Lieferanten für spezifische Produkte zu finden — unter Berücksichtigung Ihrer Anforderungen und Ziele."
+        },
+        {
+          "id": "quality",
+          "question": "Welche Qualitätsgarantien bieten Sie?",
+          "answer": "Vollständige Qualitätskontrolle in jeder Phase — von der Lieferantenauswahl bis zur Prüfung vor dem Versand. Inklusive Konformitätszertifikaten."
+        },
+        {
+          "id": "terms",
+          "question": "Welche Kooperationsbedingungen gelten?",
+          "answer": "Die Zusammenarbeit beginnt mit einer Beratung, Lieferantenauswahl und Vereinbarung der Lieferbedingungen. Danach begleiten wir den gesamten Prozess."
+        },
+        {
+          "id": "contact",
+          "question": "Wie können wir Sie kontaktieren?",
+          "answer": "Über das Formular auf der Website, WhatsApp, Instagram, Facebook oder E-Mail. Unsere Manager beantworten gerne alle Fragen."
+        },
+        {
+          "id": "delivery",
+          "question": "Wie lange dauert die Lieferung?",
+          "answer": "Abhängig von Menge und Produktart. In der Regel 7 bis 21 Tage. Wir nennen immer genaue Termine zur Planung."
+        },
+        {
+          "id": "products",
+          "question": "Welche Produkte liefern Sie?",
+          "answer": "Wir spezialisieren uns auf Industrieausrüstung, Rohstoffe, Energieressourcen und Kontraktproduktion."
+        }
+      ]
     }
   },
   "services": {
@@ -1506,10 +1604,11 @@
     "heading": "Referenzen",
     "viewCase": "Referenz ansehen",
     "category": "Kategorie",
-    "scope": "Leistungsumfang",
+    "scope": "Was wir gemacht haben",
     "result": "Ergebnis",
     "challenge": "Herausforderung",
-    "requirements": "Anforderungen"
+    "requirements": "Hauptanforderungen",
+    "products": "Produzierte Produkte"
   },
   "cookie": {
     "message": "Diese Website verwendet Cookies für den Betrieb und — mit Ihrer Zustimmung — für Analysezwecke.",

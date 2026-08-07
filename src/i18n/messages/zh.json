@@ -53,7 +53,8 @@
     "submitForVerification": "提交资料核验",
     "requestContact": "请求联系",
     "sendAnotherInquiry": "再次发送询盘",
-    "specializations": "专业领域"
+    "specializations": "专业领域",
+    "followUs": "关注我们"
   },
   "nav": {
     "home": "首页",
@@ -512,6 +513,103 @@
       "closing": "未找到您的品类？描述产品需求——我们将评估生产与进口可行性。",
       "ctaLabel": "查看全部专业领域",
       "ariaLabel": "专业领域"
+    },
+    "audience": {
+      "eyebrow": "服务对象",
+      "title": "与各发展阶段的企业合作",
+      "lead": "无论规模大小——我们帮助您直接向中国生产商采购商品、设备和原材料。",
+      "ariaLabel": "Buy & Bring Solutions 服务对象",
+      "segments": [
+        {
+          "id": "entrepreneurs",
+          "title": "创业者",
+          "description": "快速采购销售商品——从首批到定期供货。"
+        },
+        {
+          "id": "wholesale",
+          "title": "批发企业",
+          "description": "大批量供货，配合质量检验与可预测物流。"
+        },
+        {
+          "id": "startups",
+          "title": "初创企业",
+          "description": "创业所需的一切及寻找可靠供应商。"
+        },
+        {
+          "id": "manufacturers",
+          "title": "制造商",
+          "description": "为生产采购设备与原材料。"
+        }
+      ]
+    },
+    "mission": {
+      "eyebrow": "我们的使命",
+      "title": "为企业提供发展所需的一切",
+      "lead": "通过工业设备、原材料和能源资源供应开拓新机遇——从供应商选择到交付。",
+      "ariaLabel": "Buy & Bring Solutions 使命与价值观",
+      "pillars": [
+        {
+          "id": "expertise",
+          "title": "专业与经验",
+          "description": "与中国合作超过17年。"
+        },
+        {
+          "id": "approach",
+          "title": "专业态度",
+          "description": "面向每一位客户。"
+        },
+        {
+          "id": "quality",
+          "title": "品质保障",
+          "description": "每个环节严格把控。"
+        }
+      ]
+    },
+    "urgencyCta": {
+      "portsTitle": "中国港口发货——快速安全，贯穿南北！",
+      "portsBody": "协调中国主要海港、铁路及空运出口，根据产品、预算与时间表选择合适路线。",
+      "urgencyTitle": "别浪费时间——您的竞争对手已与中国合作！",
+      "urgencyBody": "若想领先竞争、优化成本、提高利润——请描述您的项目。我们将寻找最佳供应商并安排质量检验与交付。",
+      "ctaLabel": "填写表单",
+      "ariaLabel": "开始与 Buy & Bring Solutions 合作"
+    },
+    "faq": {
+      "eyebrow": "FAQ",
+      "title": "常见问题",
+      "lead": "合作前客户最常问的问题与解答。",
+      "ariaLabel": "常见问题",
+      "items": [
+        {
+          "id": "supplier",
+          "question": "如何为特定产品选择供应商？",
+          "answer": "我们的专家将根据您的要求和业务目标，帮助寻找可靠的供应商。仅与经过验证的合作伙伴合作。"
+        },
+        {
+          "id": "quality",
+          "question": "提供哪些质量保障？",
+          "answer": "在每个环节进行完整质量检验——从供应商选择到发货前核验，并提供合规证书。"
+        },
+        {
+          "id": "terms",
+          "question": "合作条件是什么？",
+          "answer": "从咨询、供应商选择和交货条件商定开始，随后全程支持从采购到交付。"
+        },
+        {
+          "id": "contact",
+          "question": "如何联系你们？",
+          "answer": "可通过网站表单、WhatsApp、Instagram、Facebook 或电子邮件联系。"
+        },
+        {
+          "id": "delivery",
+          "question": "交货需要多久？",
+          "answer": "取决于数量和品类，通常7至21天。我们会提供准确交期以便规划。"
+        },
+        {
+          "id": "products",
+          "question": "供应哪些产品？",
+          "answer": "专注于工业设备、原材料、能源资源及代工生产。"
+        }
+      ]
     }
   },
   "services": {
@@ -1506,10 +1604,11 @@
     "heading": "案例",
     "viewCase": "查看案例",
     "category": "类别",
-    "scope": "服务范围",
+    "scope": "我们做了什么",
     "result": "成果",
     "challenge": "挑战",
-    "requirements": "要求"
+    "requirements": "主要要求",
+    "products": "交付产品"
   },
   "cookie": {
     "message": "本网站使用 Cookie 以保障基本功能；经您同意后，亦用于分析用途。",
