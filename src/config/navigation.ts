@@ -1,5 +1,6 @@
 import type { Locale } from "@/i18n/config";
 import { routes, localizedPath } from "@/i18n/routing";
+import { CANTON_FAIR_PATH } from "@/content/canton-fair";
 
 export type NavItem = {
   href: string;
@@ -37,6 +38,7 @@ export const navLabelKeys = {
   contact: "contact",
   clientPortal: "clientPortal",
   blog: "blog",
+  cantonFair: "cantonFair",
 } as const;
 
 export function getNavGroups(locale: Locale): NavGroup[] {
@@ -78,6 +80,14 @@ export function getNavGroups(locale: Locale): NavGroup[] {
           labelKey: "freight",
           serviceId: "freight",
         },
+        ...(locale === "pl"
+          ? [
+              {
+                href: localizedPath(locale, CANTON_FAIR_PATH),
+                labelKey: "cantonFair" as const,
+              },
+            ]
+          : []),
       ],
     },
     {
@@ -137,6 +147,7 @@ export function resolveNavLabel(
     contact: messages.nav.contact,
     clientPortal: messages.nav.clientPortal,
     blog: messages.nav.blog,
+    cantonFair: messages.nav.cantonFair ?? "Canton Fair 2026",
   };
   return navMap[labelKey] ?? labelKey;
 }
