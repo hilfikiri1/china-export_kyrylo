@@ -9,18 +9,17 @@ let _provider: ProjectDataProvider | null = null;
 async function resolveProvider(): Promise<ProjectDataProvider> {
   if (_provider) return _provider;
 
+  const { isNotionPortalConfigured, NotionProjectProvider } = await import("./notion");
+  if (isNotionPortalConfigured()) {
+    _provider = new NotionProjectProvider();
+    return _provider;
+  }
+
   if (process.env.NODE_ENV === "development") {
     const { DemoProjectProvider } = await import("./demo");
     _provider = new DemoProjectProvider();
     return _provider;
   }
-
-  // Future: swap in Notion provider when credentials are present
-  // if (process.env.NOTION_API_KEY && process.env.NOTION_PROJECTS_DATABASE_ID) {
-  //   const { NotionProjectProvider } = await import("./notion");
-  //   _provider = new NotionProjectProvider();
-  //   return _provider;
-  // }
 
   _provider = { getProjectByToken: async () => null };
   return _provider;

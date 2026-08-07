@@ -80,3 +80,21 @@ export type Project = {
   delivery: ProjectDelivery;
   active: boolean;
 };
+
+export type PortalProjectSummary = {
+  pageId: string;
+  name: string;
+  company: string;
+  contactName: string;
+  projectNumber: string;
+  currentStage: string;
+  internalStatus: string;
+  nextStep: string;
+  plannedDate: string;
+  managerName: string;
+  active: boolean;
+  token: string;
+  accessUrl: string;
+  updatedAt: string;
+  notionUrl: string;
+};

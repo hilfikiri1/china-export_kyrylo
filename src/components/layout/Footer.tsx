@@ -3,11 +3,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import { LogisticsBackdrop } from "@/components/backgrounds/LogisticsBackdrop";
+import { SocialIcon } from "@/components/icons/SocialIcon";
 import { company } from "@/config/company";
 import { contacts } from "@/config/contacts";
 import {
   getNavGroups,
-  resolveNavGroupLabel,
   resolveNavLabel,
 } from "@/config/navigation";
 import { useLocale, useMessages } from "@/i18n/LocaleProvider";
@@ -139,27 +139,30 @@ export function Footer() {
                   href={contacts.social.whatsapp}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={footerLinkClassName}
+                  className={`${footerLinkClassName} inline-flex items-center gap-1.5`}
                   aria-label="WhatsApp"
                 >
+                  <SocialIcon network="whatsapp" className="h-4 w-4" />
                   {messages.common.whatsapp}
                 </a>
                 <a
                   href={contacts.social.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={footerLinkClassName}
+                  className={`${footerLinkClassName} inline-flex items-center gap-1.5`}
                   aria-label="Instagram"
                 >
+                  <SocialIcon network="instagram" className="h-4 w-4" />
                   Instagram
                 </a>
                 <a
                   href={contacts.social.facebook}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={footerLinkClassName}
+                  className={`${footerLinkClassName} inline-flex items-center gap-1.5`}
                   aria-label="Facebook"
                 >
+                  <SocialIcon network="facebook" className="h-4 w-4" />
                   Facebook
                 </a>
               </div>
