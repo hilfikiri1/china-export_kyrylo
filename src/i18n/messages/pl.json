@@ -989,12 +989,12 @@
     "about": {
       "meta": {
         "title": "O nas — Buy & Bring Solutions",
-        "description": "Buy & Bring Solutions wspiera firmy w wyszukiwaniu producentów, organizacji produkcji, kontroli jakości i dostawach z Chin do Polski, Ukrainy i Europy."
+        "description": "Twój niezawodny przedstawiciel w Chinach. Weryfikacja dostawców, negocjacje, kontrola jakości i dostawa do Polski. Oficjalna firma w Foshan."
       },
       "hero": {
         "eyebrow": "Kim jesteśmy",
-        "title": "Most między rynkiem chińskim a Twoją firmą w Europie",
-        "lead": "17 lat doświadczenia we współpracy z Chinami. Nie jesteśmy pośrednikiem z katalogu — jesteśmy operatorem, który bierze odpowiedzialność za każdy etap."
+        "title": "Twój niezawodny przedstawiciel w Chinach",
+        "lead": "Znajdujemy producentów i dostawców. Pracujemy bezpośrednio z fabrykami: weryfikacja, negocjacje, kontrola jakości i bezpieczna wysyłka do Polski."
       },
       "sections": [
         {
@@ -1075,6 +1075,64 @@
           "eyebrow": "Kontakt",
           "title": "Gotowy na import z Chin?",
           "body": "Niezależnie od skali — od audytu fabryki po pełną logistykę door-to-door. Porozmawiajmy o Twoim projekcie."
+        }
+      },
+      "plLayout": {
+        "hero": {
+          "titleBefore": "Twój niezawodny ",
+          "titleHighlight": "przedstawiciel",
+          "titleAfter": " w Chinach.",
+          "lead": "Znajdujemy producentów i dostawców. Pracujemy bezpośrednio z fabrykami: weryfikacja, negocjacje, kontrola jakości i bezpieczna wysyłka do Polski.",
+          "bullets": [
+            "Zweryfikowani dostawcy",
+            "Doświadczenie w negocjacjach z chińskimi fabrykami",
+            "Kontrola jakości produktów",
+            "Pełne wsparcie na każdym etapie"
+          ],
+          "portraitAlt": "Zespół Buy & Bring Solutions w Chinach",
+          "primaryCta": "Zamów usługę"
+        },
+        "intro": {
+          "titleBefore": "Wsparcie biznesu z Chinami ",
+          "titleHighlight": "pod klucz",
+          "titleAfter": "",
+          "subtitle": "Wyszukiwanie, dobór i dostawa sprzętu produkcyjnego z Chin do Polski.",
+          "body": "Pomagamy szybko znaleźć właściwy produkt lub producenta pod Twoje wymagania. Mamy bazę sprawdzonych dostawców i doświadczenie w różnych branżach. Obsługujemy zarówno proste zapytania, jak i złożone projekty wymagające dogłębnej analizy rynku."
+        },
+        "pillars": [
+          {
+            "title": "Ekspertyza i doświadczenie",
+            "description": "Ponad 17 lat pracy z Chinami."
+          },
+          {
+            "title": "Profesjonalne podejście",
+            "description": "Do każdego klienta."
+          },
+          {
+            "title": "Gwarantowana jakość",
+            "description": "I kontrola na każdym etapie."
+          }
+        ],
+        "gallery": {
+          "title": "Jak pracujemy na miejscu w Chinach",
+          "slides": [
+            {
+              "alt": "Wizyta w fabryce i rozmowy z producentem w Chinach"
+            },
+            {
+              "alt": "Kontrola jakości i produkcja w chińskim zakładzie"
+            },
+            {
+              "alt": "Magazyn i logistyka — przygotowanie towaru do wysyłki"
+            }
+          ]
+        },
+        "license": {
+          "title": "Jesteśmy oficjalną firmą w Chinach",
+          "subtitle": "Nasza licencja na prowadzenie działalności (Foshan, Chiny)",
+          "imageAlt": "Chińska licencja biznesowa Foshan Bangbangshun Import and Export Co., Ltd.",
+          "companyName": "佛山市帮帮顺进出口有限公司 (Foshan Bangbangshun Import and Export Co., Ltd.)",
+          "registrationCode": "91440605MADL11HKB8"
         }
       }
     },
