@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { locales } from "@/i18n/config";
 import { routes } from "@/i18n/routing";
 import { siteUrl } from "@/config/seo";
+import { CANTON_FAIR_PATH } from "@/content/canton-fair";
 
 const staticPaths = [
   "",
@@ -47,6 +48,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       });
     }
   }
+
+  entries.push({
+    url: `${siteUrl}/pl/${CANTON_FAIR_PATH}`,
+    lastModified: new Date("2026-08-07"),
+    changeFrequency: "weekly",
+    priority: 0.9,
+  });
 
   return entries;
 }
