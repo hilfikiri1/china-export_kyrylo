@@ -1,6 +1,14 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
-import { forwardLeadToWebhook } from "@/lib/lead-delivery/forward-lead";
+import {
+  forwardLeadToWebhook,
+  type LeadPayload,
+} from "@/lib/lead-delivery/forward-lead";
+import { INTERNAL_PROJECT_STATUSES, PORTAL_STAGES } from "@/lib/portal/constants";
+import {
+  createPortalProject,
+  isNotionPortalConfigured,
+} from "@/lib/portal/notion";
 
 const rateLimitStore = new Map<string, { count: number; resetAt: number }>();
 const RATE_LIMIT_MAX = 5;
@@ -37,6 +45,68 @@ function str(value: unknown, maxLen: number): string {
 
 const ALLOWED_LOCALES = new Set(["pl", "uk", "ru", "de", "zh"]);
 const ALLOWED_FORM_TYPES = new Set(["contact", "consultation"]);
+
+const TOPIC_LABELS: Record<string, string> = {
+  sourcing: "Wyszukiwanie producenta",
+  audit: "Weryfikacja / audyt fabryki",
+  qc: "Kontrola jakości",
+  oem: "Private Label / OEM",
+  consolidation: "Konsolidacja",
+  freight: "Transport i odprawa",
+  full: "Kompleksowa obsługa importu",
+  other: "Inne",
+  logistics: "Logistyka i transport",
+};
+
+function oneLine(value: string) {
+  return value.replace(/\s+/g, " ").trim();
+}
+
+function projectNameFromLead(payload: LeadPayload) {
+  const topic = TOPIC_LABELS[payload.topic] || payload.topic;
+  return (
+    oneLine(payload.description) ||
+    oneLine(topic) ||
+    `Zapytanie WWW — ${oneLine(payload.name)}`
+  ).slice(0, 200);
+}
+
+function projectDescriptionFromLead(payload: LeadPayload) {
+  const topic = TOPIC_LABELS[payload.topic] || payload.topic;
+  return [
+    topic ? `Usługa: ${topic}` : "",
+    payload.description ? `Opis: ${payload.description}` : "",
+    `Źródło: formularz WWW (${payload.formType}, ${payload.language.toUpperCase()})`,
+    payload.pageUrl ? `Strona: ${payload.pageUrl}` : "",
+  ]
+    .filter(Boolean)
+    .join("\n")
+    .slice(0, 2_000);
+}
+
+async function createProjectFromWebsiteLead(
+  payload: LeadPayload,
+  kommoId?: number,
+) {
+  if (!isNotionPortalConfigured()) {
+    console.warn("[contact-api] Notion portal is not configured; project creation skipped");
+    return false;
+  }
+
+  await createPortalProject({
+    name: projectNameFromLead(payload),
+    company: payload.company || undefined,
+    contactName: payload.name || undefined,
+    email: payload.email || undefined,
+    phone: payload.phone || undefined,
+    description: projectDescriptionFromLead(payload),
+    kommoId,
+    internalStatus: INTERNAL_PROJECT_STATUSES[0],
+    currentStage: PORTAL_STAGES[0],
+    managerName: "Buy & Bring Solutions",
+  });
+  return true;
+}
 
 export async function POST(request: NextRequest) {
   const ip = getClientIp(request);
@@ -83,7 +153,7 @@ export async function POST(request: NextRequest) {
   }
 
   // Explicit allowlist payload — no spread of request body
-  const payload = {
+  const payload: LeadPayload = {
     language,
     pageUrl,
     formType,
@@ -96,16 +166,27 @@ export async function POST(request: NextRequest) {
     description,
   };
 
+  let leadId: number | undefined;
   try {
     const result = await forwardLeadToWebhook(payload);
     if (!result.ok) {
       console.error("[contact-api] Webhook responded with", result.status);
       return NextResponse.json({ error: "webhook_failed" }, { status: 502 });
     }
+    leadId = result.leadId;
   } catch (err) {
     console.error("[contact-api] Webhook request error", err);
     return NextResponse.json({ error: "webhook_failed" }, { status: 502 });
   }
 
-  return NextResponse.json({ success: true });
+  let projectCreated = false;
+  try {
+    projectCreated = await createProjectFromWebsiteLead(payload, leadId);
+  } catch (err) {
+    // Kommo / Telegram delivery has already succeeded. A transient Notion
+    // failure must not make the customer resubmit and create a duplicate lead.
+    console.error("[contact-api] Notion project creation failed", err);
+  }
+
+  return NextResponse.json({ success: true, projectCreated });
 }

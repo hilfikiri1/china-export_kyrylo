@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { ArrowRight, Building2, Mail, Phone } from "lucide-react";
+import { SocialIcon, type SocialNetwork } from "@/components/icons/SocialIcon";
 import {
   getKontaktLayout,
   type KontaktChannel,
@@ -9,6 +10,9 @@ import {
 import { useTranslation } from "@/i18n/LocaleProvider";
 
 function ContactChannelCard({ channel }: { channel: KontaktChannel }) {
+  const socialNetwork = (["whatsapp", "instagram", "facebook"] as const).find(
+    (network) => network === channel.id,
+  ) as SocialNetwork | undefined;
   const Icon =
     channel.id === "email"
       ? Mail
@@ -18,7 +22,11 @@ function ContactChannelCard({ channel }: { channel: KontaktChannel }) {
   const inner = (
     <>
       <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-accent-light/15 text-accent-light">
-        <Icon className="h-5 w-5" aria-hidden />
+        {socialNetwork ? (
+          <SocialIcon network={socialNetwork} className="h-5 w-5" />
+        ) : (
+          <Icon className="h-5 w-5" aria-hidden />
+        )}
       </div>
       <div className="min-w-0">
         <p className="text-xs font-medium uppercase tracking-wider text-white/45">
