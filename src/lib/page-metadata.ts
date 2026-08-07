@@ -21,7 +21,7 @@ export async function createLocalizedPageMetadata(
     description: content.meta.description,
     alternates: {
       canonical: getCanonicalUrl(locale, path),
-      languages: getAlternateLanguages(),
+      languages: getAlternateLanguages(path),
     },
     openGraph: {
       title: content.meta.title,
