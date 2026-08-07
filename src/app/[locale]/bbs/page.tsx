@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { FileText, Newspaper, Users } from "lucide-react";
-import { createProjectAccessRecord } from "@/lib/token/generate";
+import { FileText, FolderKanban, Newspaper, Users } from "lucide-react";
 import { locales } from "@/i18n/config";
 import type { Locale } from "@/i18n/config";
 import { notFound } from "next/navigation";
@@ -24,9 +23,6 @@ export default async function BbsPage({
   if (!locales.includes(localeParam as Locale)) notFound();
   const locale = localeParam as Locale;
 
-  // Generate a demo token for UI preview — never stored, never production-visible
-  const demoRecord = createProjectAccessRecord("BBS-DEMO");
-
   const sections = [
     {
       href: `/${locale}/bbs/nowy-case`,
@@ -44,7 +40,13 @@ export default async function BbsPage({
       href: `/${locale}/bbs/nowy-projekt`,
       icon: Users,
       title: "Nowy projekt klienta",
-      description: "Wygeneruj bezpieczny link do panelu klienta (wkrótce).",
+      description: "Utwórz projekt i stały link do panelu klienta.",
+    },
+    {
+      href: `/${locale}/bbs/projekty`,
+      icon: FolderKanban,
+      title: "Projekty klientów",
+      description: "Zmień etap, status i dodaj zdjęcia do panelu klienta.",
     },
   ];
 
@@ -62,7 +64,7 @@ export default async function BbsPage({
         Narzędzia robocze dla zespołu Buy &amp; Bring Solutions.
       </p>
 
-      <div className="mt-8 grid gap-4 sm:grid-cols-3">
+      <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {sections.map(({ href, icon: Icon, title, description }) => (
           <Link
             key={href}
@@ -78,25 +80,6 @@ export default async function BbsPage({
         ))}
       </div>
 
-      {/* Token generation preview */}
-      <div className="mt-10 rounded-2xl border border-white/10 bg-navy-light p-5 sm:p-6">
-        <h2 className="mb-1 text-sm font-semibold uppercase tracking-widest text-white/40">
-          Generowanie linku klienta (podgląd)
-        </h2>
-        <p className="mt-2 text-xs text-white/50">
-          Docelowo: pracownik tworzy projekt → system generuje bezpieczny token → pracownik kopiuje link i wysyła klientowi.
-          Zapis do bazy danych wymaga przyszłej integracji (Notion / CMS).
-        </p>
-        <div className="mt-4 rounded-lg border border-white/8 bg-white/3 px-3 py-3">
-          <p className="mb-1 text-xs text-white/30">Przykładowy link (jednorazowy, nie zapisany):</p>
-          <p className="break-all font-mono text-xs text-accent-light/80">
-            {demoRecord.accessUrl}
-          </p>
-        </div>
-        <p className="mt-2 text-xs text-white/30">
-          Token generowany przy każdym odświeżeniu strony, nie jest przechowywany.
-        </p>
-      </div>
     </div>
   );
 }
