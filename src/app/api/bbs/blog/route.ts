@@ -6,6 +6,7 @@ import {
   type BlogPublicationStatus,
   type NewBlogPostInput,
 } from "@/lib/blog/notion";
+import { hasBbsAdminSession } from "@/lib/bbs/auth";
 
 const MAX = {
   title: 200,
@@ -18,10 +19,6 @@ const MAX = {
   seoDescription: 600,
   coverImage: 2_000,
 } as const;
-
-function isWriteEnvironment() {
-  return process.env.NODE_ENV === "development" || process.env.VERCEL_ENV === "preview";
-}
 
 function hidden() {
   return Response.json({ error: "Not found" }, { status: 404 });
@@ -116,13 +113,13 @@ function validate(body: unknown): { data?: NewBlogPostInput; error?: string } {
   };
 }
 
-export function GET() {
-  if (!isWriteEnvironment()) return hidden();
+export async function GET() {
+  if (!(await hasBbsAdminSession())) return hidden();
   return Response.json({ configured: isNotionBlogConfigured() });
 }
 
 export async function POST(request: Request) {
-  if (!isWriteEnvironment()) return hidden();
+  if (!(await hasBbsAdminSession())) return hidden();
   if (!sameOrigin(request)) return Response.json({ error: "Forbidden" }, { status: 403 });
 
   let body: unknown;
