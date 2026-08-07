@@ -17,7 +17,7 @@ export function CantonFairTicker() {
   ));
 
   return (
-    <div className="relative overflow-hidden border-y border-accent-light/15 bg-[linear-gradient(90deg,rgba(200,146,42,0.12),rgba(28,33,40,0.95),rgba(185,28,28,0.08))] py-3">
+    <div className="canton-fair-ticker fixed inset-x-0 top-0 z-[60] overflow-hidden border-b border-accent-light/15 bg-[linear-gradient(90deg,rgba(200,146,42,0.12),rgba(28,33,40,0.98),rgba(185,28,28,0.08))] py-2.5">
       <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-[color:var(--surface-deep)] to-transparent" />
       <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-[color:var(--surface-deep)] to-transparent" />
 

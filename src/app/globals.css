@@ -489,6 +489,18 @@ body {
   }
 }
 
+.canton-fair-ticker {
+  height: var(--canton-ticker-height, 2.75rem);
+}
+
+html[data-canton-ticker] .site-header {
+  top: var(--canton-ticker-height, 2.75rem);
+}
+
+html[data-canton-ticker] main {
+  padding-top: calc(4rem + var(--canton-ticker-height, 2.75rem));
+}
+
 @keyframes canton-fair-ticker-scroll {
   0% {
     transform: translateX(0);

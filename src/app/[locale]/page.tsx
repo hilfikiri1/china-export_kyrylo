@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { HeroSection } from "@/components/hero/HeroSection";
-import { CantonFairTicker } from "@/components/canton-fair/CantonFairTicker";
 import { CooperationRoadmap } from "@/components/roadmap/CooperationRoadmap";
 import { StatsBanner } from "@/components/stats/StatsBanner";
 import { ServicesSection } from "@/components/services/ServicesSection";
@@ -68,7 +67,6 @@ export default async function Home({ params }: PageProps) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <HeroSection />
-      {locale === "pl" ? <CantonFairTicker /> : null}
       <CooperationRoadmap />
       <StatsBanner />
       <ServicesSection />

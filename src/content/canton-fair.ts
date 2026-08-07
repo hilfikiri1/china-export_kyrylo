@@ -1,4 +1,5 @@
 export const CANTON_FAIR_PATH = "uslugi/targi-kantonskie";
+export const CANTON_FAIR_BLOG_SLUG = "canton-fair-2026";
 
 export const CANTON_FAIR_OFFICIAL_URL = "https://www.cantonfair.org.cn/en-US";
 export const CANTON_FAIR_BUYER_URL = "https://buyer.cantonfair.org.cn/";
