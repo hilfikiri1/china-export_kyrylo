@@ -11,13 +11,17 @@ export type LeadPayload = {
   description: string;
 };
 
+export type LeadDeliveryResult =
+  | { ok: true; leadId?: number }
+  | { ok: false; status: number };
+
 /**
  * Forwards a validated lead to bot_lead (`POST /webhook/website-form`).
  * Requires CONTACT_WEBHOOK_URL and CONTACT_WEBHOOK_SECRET.
  */
 export async function forwardLeadToWebhook(
   payload: LeadPayload,
-): Promise<{ ok: true } | { ok: false; status: number }> {
+): Promise<LeadDeliveryResult> {
   const webhookUrl = process.env.CONTACT_WEBHOOK_URL;
   if (!webhookUrl) {
     return { ok: false, status: 503 };
@@ -42,5 +46,15 @@ export async function forwardLeadToWebhook(
     return { ok: false, status: res.status };
   }
 
-  return { ok: true };
+  const responseBody = (await res.json().catch(() => null)) as
+    | { lead_id?: unknown }
+    | null;
+  const leadId = responseBody?.lead_id;
+  return {
+    ok: true,
+    leadId:
+      typeof leadId === "number" && Number.isSafeInteger(leadId) && leadId > 0
+        ? leadId
+        : undefined,
+  };
 }
