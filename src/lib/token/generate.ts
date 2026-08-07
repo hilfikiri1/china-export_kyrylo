@@ -1,5 +1,7 @@
 import { randomBytes } from "crypto";
 
+const DEFAULT_PORTAL_ORIGIN = "https://china-exportkyrylo.vercel.app";
+
 /**
  * Server-side only. Generates a cryptographically secure, URL-safe token
  * with ≥128 bits of entropy (32 hex chars = 128 bits).
@@ -11,12 +13,13 @@ export function generateProjectAccessToken(): string {
 
 /**
  * Builds the full client portal URL for a given token.
- * Uses NEXT_PUBLIC_SITE_URL in production, localhost fallback in dev.
+ * Client links must always point to the public portal, even when an employee
+ * creates the project from a local or preview deployment.
  */
 export function buildProjectAccessUrl(token: string): string {
   const origin =
-    process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ||
-    "http://localhost:3000";
+    process.env.BBS_PORTAL_SITE_URL?.trim().replace(/\/$/, "") ||
+    DEFAULT_PORTAL_ORIGIN;
   return `${origin}/pl/panel/${token}`;
 }
 
