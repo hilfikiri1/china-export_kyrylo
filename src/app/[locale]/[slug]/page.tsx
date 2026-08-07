@@ -56,7 +56,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 export default async function LegalPage({ params }: PageProps) {
   const { locale: localeParam, slug } = await params;
   const locale = localeParam as Locale;
-  const seoKey = slugToSeoKey[slug as LegalSlug];
+  const legalSlug = slug as LegalSlug;
+  const seoKey = slugToSeoKey[legalSlug];
 
   if (!seoKey) notFound();
 
@@ -70,7 +71,11 @@ export default async function LegalPage({ params }: PageProps) {
         { label: seo.title.split(" | ")[0] ?? seo.title },
       ]}
     >
-      <LegalPageContent title={seo.title.split(" | ")[0] ?? seo.title} locale={locale} />
+      <LegalPageContent
+        title={seo.title.split(" | ")[0] ?? seo.title}
+        locale={locale}
+        slug={legalSlug}
+      />
     </DedicatedPageShell>
   );
 }
