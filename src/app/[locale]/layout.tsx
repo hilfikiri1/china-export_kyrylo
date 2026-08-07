@@ -3,7 +3,6 @@ import { Plus_Jakarta_Sans, Inter, Noto_Sans_SC } from "next/font/google";
 import { notFound } from "next/navigation";
 import Script from "next/script";
 import { LogisticsBackdrop } from "@/components/backgrounds/LogisticsBackdrop";
-import { CantonFairTicker } from "@/components/canton-fair/CantonFairTicker";
 import { CookieBanner } from "@/components/layout/CookieBanner";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
@@ -63,7 +62,6 @@ export default async function LocaleLayout({
     <html
       lang={htmlLang[locale]}
       data-theme="dark"
-      {...(locale === "pl" ? { "data-canton-ticker": "" } : {})}
       suppressHydrationWarning
       className={cn(
         "h-full antialiased",
@@ -82,7 +80,6 @@ export default async function LocaleLayout({
         <ThemeProvider>
           <LocaleProvider locale={locale} messages={messages}>
             <LogisticsBackdrop variant="site" />
-            {locale === "pl" ? <CantonFairTicker /> : null}
             <Header />
             <main className="relative z-10 flex-1 pt-16">{children}</main>
             <Footer />
