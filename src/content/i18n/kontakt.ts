@@ -105,6 +105,24 @@ export function getKontaktLayout(
         label: channelLabels?.officeChina ?? "",
         value: contacts.addresses.china[locale],
       },
+      {
+        id: "whatsapp",
+        label: messages.common.whatsapp,
+        value: contacts.phones.poland.display,
+        href: contacts.social.whatsapp,
+      },
+      {
+        id: "instagram",
+        label: "Instagram",
+        value: "@buybring_solutions",
+        href: contacts.social.instagram,
+      },
+      {
+        id: "facebook",
+        label: "Facebook",
+        value: "Buy & Bring Solutions",
+        href: contacts.social.facebook,
+      },
     ] satisfies KontaktChannel[],
     consultationLink: {
       label: page?.cta?.primary?.label ?? t("common.bookConsultation"),

@@ -43,6 +43,7 @@
     "email": "E-mail",
     "phone": "Telefon",
     "whatsapp": "WhatsApp",
+    "followUs": "Obserwuj nas",
     "allRightsReserved": "Wszelkie prawa zastrzeżone.",
     "modularServices": "Usługi modułowe",
     "importCalculator": "Kalkulator importu",
@@ -513,6 +514,103 @@
       "closing": "Nie widzisz swojej kategorii? Opisz produkt — sprawdzimy możliwości produkcji i importu.",
       "ctaLabel": "Zobacz wszystkie specjalizacje",
       "ariaLabel": "Obszary specjalizacji"
+    },
+    "audience": {
+      "eyebrow": "Dla kogo",
+      "title": "Współpracujemy z firmami na każdym etapie rozwoju",
+      "lead": "Niezależnie od skali — pomagamy w zakupie towarów, sprzętu i surowców bezpośrednio od producentów w Chinach.",
+      "ariaLabel": "Dla kogo jest Buy & Bring Solutions",
+      "segments": [
+        {
+          "id": "entrepreneurs",
+          "title": "Przedsiębiorców",
+          "description": "Szybki zakup towarów na sprzedaż — od pierwszej partii po regularne dostawy."
+        },
+        {
+          "id": "wholesale",
+          "title": "Firm hurtowych",
+          "description": "Dostawy dużych partii towarów z kontrolą jakości i przewidywalną logistyką."
+        },
+        {
+          "id": "startups",
+          "title": "Startupów",
+          "description": "Wszystko, co potrzebne do rozpoczęcia biznesu i znalezienia sprawdzonych dostawców."
+        },
+        {
+          "id": "manufacturers",
+          "title": "Producentów",
+          "description": "Zakup sprzętu i materiałów dla Twojej produkcji — maszyny, komponenty i surowce."
+        }
+      ]
+    },
+    "mission": {
+      "eyebrow": "Nasza misja",
+      "title": "Zapewniamy firmom wszystko, co potrzebne do rozwoju",
+      "lead": "Otwieramy nowe możliwości dzięki dostawom sprzętu przemysłowego, surowców i zasobów energetycznych — od wyboru dostawcy po dostawę pod Twój adres.",
+      "ariaLabel": "Misja i wartości Buy & Bring Solutions",
+      "pillars": [
+        {
+          "id": "expertise",
+          "title": "Ekspertyza i doświadczenie",
+          "description": "Ponad 17 lat pracy z Chinami."
+        },
+        {
+          "id": "approach",
+          "title": "Profesjonalne podejście",
+          "description": "Do każdego klienta."
+        },
+        {
+          "id": "quality",
+          "title": "Gwarantowana jakość",
+          "description": "I kontrola na każdym etapie."
+        }
+      ]
+    },
+    "urgencyCta": {
+      "portsTitle": "Dostawy z portów Chin — szybko i bezpiecznie, od północy po południe!",
+      "portsBody": "Koordynujemy eksport z głównych portów chińskich — morskich, kolejowych i lotniczych. Dobieramy trasę do Twojego produktu, budżetu i harmonogramu, z pełną dokumentacją i odprawą celną po stronie UE.",
+      "urgencyTitle": "Nie trać czasu — Twoi konkurenci już współpracują z Chinami!",
+      "urgencyBody": "Jeżeli chcesz wyprzedzić konkurencję, uzyskać lepsze dostawy, zoptymalizować koszty i zwiększyć zyski — opisz swój projekt. Znajdziemy najlepszych dostawców, pomożemy z szybką dostawą i kontrolą jakości.",
+      "ctaLabel": "Wypełnij formularz",
+      "ariaLabel": "Zacznij współpracę z Buy & Bring Solutions"
+    },
+    "faq": {
+      "eyebrow": "FAQ",
+      "title": "Najczęściej zadawane pytania",
+      "lead": "Odpowiedzi na pytania, które słyszymy najczęściej przed rozpoczęciem współpracy.",
+      "ariaLabel": "Często zadawane pytania",
+      "items": [
+        {
+          "id": "supplier",
+          "question": "Jak wybrać dostawcę dla konkretnego produktu?",
+          "answer": "Nasi eksperci pomogą Ci znaleźć wiarygodnych dostawców dla specyficznych produktów, uwzględniając Twoje wymagania i cele biznesowe. Współpracujemy wyłącznie ze sprawdzonymi partnerami i zapewniamy pełne wsparcie na każdym etapie współpracy."
+        },
+        {
+          "id": "quality",
+          "question": "Jakie gwarancje jakości oferujecie?",
+          "answer": "Przeprowadzamy pełną kontrolę jakości na każdym etapie — od wyboru dostawcy po weryfikację produktów przed wysyłką. Dodatkowo zapewniamy certyfikaty zgodności dla produktów."
+        },
+        {
+          "id": "terms",
+          "question": "Jakie są warunki współpracy?",
+          "answer": "Współpraca zaczyna się od konsultacji, wyboru dostawcy i uzgodnienia wszystkich warunków dostawy. Następnie zapewniamy pełne wsparcie całego procesu — od zakupu po dostawę, z indywidualnym podejściem do każdego klienta."
+        },
+        {
+          "id": "contact",
+          "question": "Jak się z Wami skontaktować?",
+          "answer": "Skontaktować się można przez formularz na stronie, WhatsApp, Instagram, Facebook lub pocztę elektroniczną. Nasi menedżerowie są gotowi odpowiedzieć na wszystkie pytania i pomóc Ci w każdej kwestii."
+        },
+        {
+          "id": "delivery",
+          "question": "Jak długo trwa dostawa?",
+          "answer": "Czas dostawy zależy od ilości i rodzaju produktów. Zazwyczaj trwa od 7 do 21 dni. Zawsze podajemy dokładne terminy, abyś mógł planować pracę bez opóźnień."
+        },
+        {
+          "id": "products",
+          "question": "Jakie produkty dostarczacie?",
+          "answer": "Specjalizujemy się w dostawach sprzętu przemysłowego, surowców, zasobów energetycznych oraz produkcji kontraktowej. Współpracujemy z dużymi przedsiębiorstwami i rozwiązujemy złożone wyzwania logistyczne."
+        }
+      ]
     }
   },
   "services": {
@@ -1510,7 +1608,9 @@
     "scope": "Zakres prac",
     "result": "Rezultat",
     "challenge": "Wyzwanie",
-    "requirements": "Wymagania"
+    "requirements": "Główne wymagania",
+    "scope": "Co zrobiliśmy",
+    "products": "Wyprodukowane produkty"
   },
   "cookie": {
     "message": "Ta strona używa plików cookie w celach niezbędnych do działania oraz — za Twoją zgodą — analitycznych.",
