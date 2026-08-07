@@ -1,4 +1,10 @@
+import { cache } from "react";
 import type { BlogPost } from "./types";
+import {
+  getNotionBlogPostBySlug,
+  getNotionPublishedBlogPosts,
+  isNotionBlogConfigured,
+} from "./notion";
 
 /**
  * Static blog posts. Replace with Notion/CMS fetch when persistence is available.
@@ -89,10 +95,28 @@ Oferujemy również bezpłatną wstępną konsultację dla firm, które dopiero 
   },
 ];
 
-export function getBlogPostBySlug(slug: string, locale = "pl"): BlogPost | undefined {
-  return blogPosts.find((p) => p.slug === slug && p.locale === locale && p.published);
-}
+export const getBlogPostBySlug = cache(
+  async (slug: string, locale = "pl"): Promise<BlogPost | undefined> => {
+    if (isNotionBlogConfigured()) {
+      try {
+        return await getNotionBlogPostBySlug(slug, locale);
+      } catch (error) {
+        console.error("[blog] Notion article fetch failed; using static fallback.", error);
+      }
+    }
 
-export function getPublishedBlogPosts(locale = "pl"): BlogPost[] {
+    return blogPosts.find((p) => p.slug === slug && p.locale === locale && p.published);
+  },
+);
+
+export const getPublishedBlogPosts = cache(async (locale = "pl"): Promise<BlogPost[]> => {
+  if (isNotionBlogConfigured()) {
+    try {
+      return await getNotionPublishedBlogPosts(locale);
+    } catch (error) {
+      console.error("[blog] Notion index fetch failed; using static fallback.", error);
+    }
+  }
+
   return blogPosts.filter((p) => p.locale === locale && p.published);
-}
+});

@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
+import type { ReactNode } from "react";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { Calendar, User } from "lucide-react";
-import { getBlogPostBySlug, getPublishedBlogPosts } from "@/lib/blog/posts";
+import { getBlogPostBySlug } from "@/lib/blog/posts";
 import { locales } from "@/i18n/config";
 import type { Locale } from "@/i18n/config";
 import { DedicatedPageShell } from "@/components/pages/DedicatedPageShell";
@@ -11,15 +12,98 @@ import { buildBreadcrumbs } from "@/lib/breadcrumbs";
 
 type PageProps = { params: Promise<{ locale: string; slug: string }> };
 
-export async function generateStaticParams() {
-  return locales.flatMap((locale) =>
-    getPublishedBlogPosts(locale).map((p) => ({ locale, slug: p.slug })),
-  );
+export const dynamic = "force-dynamic";
+
+function renderBlogContent(content: string): ReactNode[] {
+  const lines = content.split(/\r?\n/);
+  const blocks: ReactNode[] = [];
+
+  for (let i = 0; i < lines.length; i += 1) {
+    const line = lines[i].trim();
+    if (!line) continue;
+
+    if (line.startsWith("### ")) {
+      blocks.push(
+        <h3 key={`h3-${i}`} className="mt-6 text-base font-semibold text-white/90">
+          {line.slice(4)}
+        </h3>,
+      );
+      continue;
+    }
+
+    if (line.startsWith("## ")) {
+      blocks.push(
+        <h2 key={`h2-${i}`} className="mt-8 text-lg font-bold text-white">
+          {line.slice(3)}
+        </h2>,
+      );
+      continue;
+    }
+
+    if (line.startsWith("# ")) {
+      blocks.push(
+        <h2 key={`h1-${i}`} className="mt-8 text-lg font-bold text-white">
+          {line.slice(2)}
+        </h2>,
+      );
+      continue;
+    }
+
+    if (line.startsWith("- ")) {
+      const items: string[] = [];
+      let cursor = i;
+      while (cursor < lines.length && lines[cursor].trim().startsWith("- ")) {
+        items.push(lines[cursor].trim().slice(2));
+        cursor += 1;
+      }
+      blocks.push(
+        <ul key={`ul-${i}`} className="space-y-1.5 pl-1">
+          {items.map((item, itemIndex) => (
+            <li key={`${i}-${itemIndex}`} className="flex items-start gap-2">
+              <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent-light" aria-hidden />
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>,
+      );
+      i = cursor - 1;
+      continue;
+    }
+
+    if (/^\d+\.\s/.test(line)) {
+      const items: string[] = [];
+      let cursor = i;
+      while (cursor < lines.length && /^\d+\.\s/.test(lines[cursor].trim())) {
+        items.push(lines[cursor].trim().replace(/^\d+\.\s+/, ""));
+        cursor += 1;
+      }
+      blocks.push(
+        <ol key={`ol-${i}`} className="list-decimal space-y-1.5 pl-5 marker:text-accent-light">
+          {items.map((item, itemIndex) => (
+            <li key={`${i}-${itemIndex}`} className="pl-1">
+              {item}
+            </li>
+          ))}
+        </ol>,
+      );
+      i = cursor - 1;
+      continue;
+    }
+
+    if (line === "---") {
+      blocks.push(<hr key={`hr-${i}`} className="my-8 border-white/10" />);
+      continue;
+    }
+
+    blocks.push(<p key={`p-${i}`}>{line}</p>);
+  }
+
+  return blocks;
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale, slug } = await params;
-  const post = getBlogPostBySlug(slug, locale);
+  const post = await getBlogPostBySlug(slug, locale);
   if (!post) return {};
   return {
     title: post.seoTitle ?? post.title,
@@ -35,7 +119,7 @@ export default async function BlogPostPage({ params }: PageProps) {
 
   if (locale !== "pl") notFound();
 
-  const post = getBlogPostBySlug(slug, locale);
+  const post = await getBlogPostBySlug(slug, locale);
   if (!post) notFound();
 
   const { t } = await getServerTranslation(locale);
@@ -86,36 +170,7 @@ export default async function BlogPostPage({ params }: PageProps) {
 
         {/* Content — rendered as markdown-like text using prose styles */}
         <div className="blog-content space-y-4 text-sm leading-relaxed text-white/75">
-          {post.content.split("\n\n").map((block, i) => {
-            if (block.startsWith("## ")) {
-              return (
-                <h2 key={i} className="mt-8 text-lg font-bold text-white">
-                  {block.slice(3)}
-                </h2>
-              );
-            }
-            if (block.startsWith("### ")) {
-              return (
-                <h3 key={i} className="mt-6 text-base font-semibold text-white/90">
-                  {block.slice(4)}
-                </h3>
-              );
-            }
-            if (block.startsWith("- ")) {
-              const items = block.split("\n").filter((l) => l.startsWith("- "));
-              return (
-                <ul key={i} className="space-y-1.5 pl-1">
-                  {items.map((item, j) => (
-                    <li key={j} className="flex items-start gap-2">
-                      <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent-light" aria-hidden />
-                      <span>{item.slice(2)}</span>
-                    </li>
-                  ))}
-                </ul>
-              );
-            }
-            return <p key={i}>{block}</p>;
-          })}
+          {renderBlogContent(post.content)}
         </div>
 
         {/* CTA */}
