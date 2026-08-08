@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { Archive, Eye, Pencil, Plus, RotateCcw } from "lucide-react";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import { locales, type Locale } from "@/i18n/config";
+import { hasBbsAdminSession } from "@/lib/bbs/auth";
 import { listAdminNotionCases } from "@/lib/cases/notion";
 import {
   archiveCaseAction,
@@ -20,6 +21,8 @@ export default async function CasesAdminPage({
   const { locale: localeParam } = await params;
   if (!locales.includes(localeParam as Locale)) notFound();
   const locale = localeParam as Locale;
+  if (!(await hasBbsAdminSession())) redirect(`/${locale}/bbs`);
+
   const cases = await listAdminNotionCases();
 
   return (
