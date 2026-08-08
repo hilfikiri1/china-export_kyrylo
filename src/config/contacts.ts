@@ -13,6 +13,7 @@ export const contacts = {
       tel: "+48783232971",
       country: {
         pl: "Polska",
+        en: "Poland",
         uk: "Польща",
         ru: "Польша",
         de: "Polen",
@@ -25,6 +26,7 @@ export const contacts = {
       tel: "+380664963881",
       country: {
         pl: "Ukraina",
+        en: "Ukraine",
         uk: "Україна",
         ru: "Украина",
         de: "Ukraine",
@@ -37,6 +39,7 @@ export const contacts = {
       tel: "+8613929943320",
       country: {
         pl: "Chiny",
+        en: "China",
         uk: "Китай",
         ru: "Китай",
         de: "China",
@@ -48,6 +51,7 @@ export const contacts = {
   addresses: {
     ukraine: {
       pl: "65074, M. Babadzhanyana 25B, Odesa, Ukraine",
+      en: "65074, M. Babadzhanyana 25B, Odesa, Ukraine",
       uk: "65074, вул. М. Бабаджаняна 25Б, Одеса, Україна",
       ru: "65074, ул. М. Бабаджаняна 25Б, Одесса, Украина",
       de: "65074, M. Babadzhanyana 25B, Odessa, Ukraine",
@@ -55,6 +59,7 @@ export const contacts = {
     },
     china: {
       pl: "4th floor, B lift, Block D8, Core District of Guangdong New Lighting Base, Shishan Town, Foshan City, Guangdong Province, China, 528200",
+      en: "4th floor, B lift, Block D8, Core District of Guangdong New Lighting Base, Shishan Town, Foshan City, Guangdong Province, China, 528200",
       uk: "4-й поверх, ліфт B, блок D8, Core District of Guangdong New Lighting Base, Shishan Town, Foshan City, Guangdong Province, China, 528200",
       ru: "4-й этаж, лифт B, блок D8, Core District of Guangdong New Lighting Base, Shishan Town, Foshan City, Guangdong Province, China, 528200",
       de: "4. Etage, Aufzug B, Block D8, Core District of Guangdong New Lighting Base, Shishan Town, Foshan City, Guangdong Province, China, 528200",
@@ -71,6 +76,7 @@ export function getPrimaryPhone(locale: Locale) {
       return contacts.phones.ukraine;
     case "zh":
       return contacts.phones.china;
+    case "en":
     case "pl":
     case "de":
     default:

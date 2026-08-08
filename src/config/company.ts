@@ -4,6 +4,7 @@ export const company = {
   regionalName: "B&BS Poland",
   tagline: {
     pl: "Import, sourcing i produkcja w Chinach dla firm",
+    en: "Import, sourcing and production in China for businesses",
     uk: "Імпорт, сорсинг і виробництво в Китаї для бізнесу",
     ru: "Импорт, сорсинг и производство в Китае для компаний",
     de: "Import, Sourcing und Produktion in China für Unternehmen",

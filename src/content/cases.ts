@@ -1,26 +1,28 @@
 import type { Locale } from "@/i18n/config";
 
+type CaseBaseLocale = Exclude<Locale, "en">;
+
 export type CaseStudyImage = {
   src: string;
-  alt: Record<Locale, string>;
+  alt: Record<CaseBaseLocale, string>;
 };
 
 export type CaseStudy = {
   id: string;
   slug: string;
-  title: Record<Locale, string>;
-  summary: Record<Locale, string>;
-  category: Record<Locale, string>;
-  challenge?: Record<Locale, string>;
-  requirements?: Record<Locale, string[]>;
-  scope: Record<Locale, string[]>;
-  products?: Record<Locale, string[]>;
-  result: Record<Locale, string>;
+  title: Record<CaseBaseLocale, string>;
+  summary: Record<CaseBaseLocale, string>;
+  category: Record<CaseBaseLocale, string>;
+  challenge?: Record<CaseBaseLocale, string>;
+  requirements?: Record<CaseBaseLocale, string[]>;
+  scope: Record<CaseBaseLocale, string[]>;
+  products?: Record<CaseBaseLocale, string[]>;
+  result: Record<CaseBaseLocale, string>;
   coverImage: string;
   gallery: CaseStudyImage[];
-  country?: Record<Locale, string>;
+  country?: Record<CaseBaseLocale, string>;
   date?: string;
-  status?: Record<Locale, string>;
+  status?: Record<CaseBaseLocale, string>;
 };
 
 export const caseStudies: CaseStudy[] = [
@@ -159,10 +161,10 @@ export const caseStudies: CaseStudy[] = [
       de: "Der Kunde erhielt eine fertige Produktserie zur Vermarktung unter eigener Marke.",
       zh: "客户获得可直接以自有品牌销售的产品批次。",
     },
-    coverImage: "/cases/cookware.jpg",
+    coverImage: "/cases/cookware-real.png",
     gallery: [
       {
-        src: "/cases/cookware.jpg",
+        src: "/cases/cookware-real.png",
         alt: {
           pl: "Naczynia kuchenne z logo klienta",
           uk: "Кухонний посуд з логотипом клієнта",
@@ -321,10 +323,10 @@ export const caseStudies: CaseStudy[] = [
       de: "Es wurden Akkupacks produziert, die auf die technischen Parameter des Kundenfahrzeugs abgestimmt sind.",
       zh: "生产出符合客户车辆技术参数的电池包。",
     },
-    coverImage: "/cases/battery.jpg",
+    coverImage: "/cases/battery-real.png",
     gallery: [
       {
-        src: "/cases/battery.jpg",
+        src: "/cases/battery-real.png",
         alt: {
           pl: "Pakiety akumulatorowe do motocykli elektrycznych",
           uk: "Акумуляторні пакети для електромотоциклів",
@@ -477,10 +479,10 @@ export const caseStudies: CaseStudy[] = [
       de: "Waren von neun Herstellern wurden zu einer Containerlieferung zusammengeführt.",
       zh: "九家生产商的货物合并为一票集装箱发运。",
     },
-    coverImage: "/image/consolidation.jpg",
+    coverImage: "/cases/consolidation-real.png",
     gallery: [
       {
-        src: "/image/consolidation.jpg",
+        src: "/cases/consolidation-real.png",
         alt: {
           pl: "Konsolidacja towarów w magazynie w Chinach",
           uk: "Консолідація товарів на складі в Китаї",
@@ -657,10 +659,10 @@ export const caseStudies: CaseStudy[] = [
       de: "Die für den Kunden ausgewählte Ausrüstung wurde gemäß der vereinbarten Linienkonfiguration geliefert.",
       zh: "为客户选型的设备已按约定的生产线配置完成交付。",
     },
-    coverImage: "/cases/paper-machines.jpg",
+    coverImage: "/cases/paper-machines-real.png",
     gallery: [
       {
-        src: "/cases/paper-machines.jpg",
+        src: "/cases/paper-machines-real.png",
         alt: {
           pl: "Maszyny do produkcji wyrobów papierniczych",
           uk: "Машини для виробництва паперових виробів",
@@ -820,10 +822,10 @@ export const caseStudies: CaseStudy[] = [
       de: "Der Kunde erhielt eine Liste potenzieller Hersteller und Materialien für weitere Verhandlungen.",
       zh: "客户获得潜在生产商名单及后续谈判所需资料。",
     },
-    coverImage: "/image/business_trips.jpg",
+    coverImage: "/cases/trade-fair-real.png",
     gallery: [
       {
-        src: "/image/business_trips.jpg",
+        src: "/cases/trade-fair-real.png",
         alt: {
           pl: "Targi branżowe w Chinach",
           uk: "Галузеві виставки в Китаї",
@@ -836,26 +838,186 @@ export const caseStudies: CaseStudy[] = [
   },
 ];
 
+type EnglishCaseStudy = {
+  title: string;
+  summary: string;
+  category: string;
+  challenge: string;
+  requirements: string[];
+  scope: string[];
+  products: string[];
+  result: string;
+  galleryAlt: string;
+};
+
+const englishCaseStudies: Record<string, EnglishCaseStudy> = {
+  "cs-cookware": {
+    title: "Private-label cookware production",
+    summary: "Supplier selection, cookware production with the client's logo, branded packaging, quality control and delivery coordination.",
+    category: "Private Label",
+    challenge: "A European kitchen-accessories company needed to organize production of pots and pans under its own brand.",
+    requirements: [
+      "apply the client's logo to the products",
+      "branded packaging",
+      "consistent product quality",
+      "competitive production cost",
+      "delivery from China",
+    ],
+    scope: [
+      "selected several verified factories in China",
+      "organized production of pots and pans with the client's logo",
+      "developed custom branded boxes",
+      "carried out quality control at the factory",
+      "organized logistics and delivery to the client",
+    ],
+    products: ["stainless-steel pots", "frying pans", "branded packaging"],
+    result: "A complete private-label batch was produced with custom packaging, consistent quality and delivery to the client, ready for sale under the client's own brand.",
+    galleryAlt: "Cookware with the client's branding",
+  },
+  "cs-battery": {
+    title: "Electric-motorcycle batteries built to client specifications",
+    summary: "Manufacturer selection, technical specification, cell configuration, BMS verification, pre-shipment quality control and delivery.",
+    category: "Battery technologies",
+    challenge: "An electric-motorcycle supplier needed battery packs manufactured to specific technical parameters and dimensions.",
+    requirements: [
+      "custom battery parameters",
+      "fit for the specified battery compartment",
+      "consistent cell quality",
+      "BMS protection system",
+      "reliable battery-pack assembly",
+      "production and delivery from China",
+    ],
+    scope: [
+      "selected a lithium-ion battery manufacturer in China",
+      "agreed the battery's technical parameters with the factory",
+      "organized production in the required cell configuration",
+      "verified the BMS and battery safety",
+      "performed pre-shipment quality control",
+      "organized delivery to the client",
+    ],
+    products: ["electric-motorcycle batteries", "battery packs with BMS", "custom battery configuration"],
+    result: "Battery packs were manufactured to the client's requirements with the required reliability and safety, then delivered as ready-to-use electric-motorcycle components.",
+    galleryAlt: "Battery packs for electric motorcycles",
+  },
+  "cs-consolidation": {
+    title: "Consolidation of goods from 9 manufacturers",
+    summary: "Coordination of deliveries from nine factories, receiving at a China warehouse, completeness checks and one consolidated container shipment.",
+    category: "Logistics and consolidation",
+    challenge: "The client purchased products from nine factories and needed the full assortment collected, checked, prepared, loaded into one container and shipped internationally.",
+    requirements: [
+      "collect the full assortment in one location",
+      "verify products against the orders",
+      "prepare the cargo for shipment",
+      "load the container",
+      "organize international transport",
+    ],
+    scope: [
+      "coordinated deliveries from 9 manufacturers",
+      "organized transport to a consolidation warehouse in China",
+      "checked products against the orders",
+      "assembled the complete assortment",
+      "optimized container loading",
+      "prepared export documents",
+      "shipped the container to the client in Europe",
+    ],
+    products: ["multiple product categories from 9 factories", "different packaging types", "one container instead of 9 separate shipments"],
+    result: "The client received one consolidated container instead of nine separate shipments, reducing logistics costs while ensuring correct order completion and one coordinated delivery.",
+    galleryAlt: "Goods consolidation at a warehouse in China",
+  },
+  "cs-paper-machines": {
+    title: "Selection and delivery of paper-product manufacturing machinery",
+    summary: "Production-needs analysis, manufacturer sourcing, model comparison, supplier verification and equipment delivery.",
+    category: "Industrial machinery",
+    challenge: "A company expanding its paper-product production needed the right equipment, a reliable Chinese manufacturer, offer comparison and delivery coordination.",
+    requirements: [
+      "select suitable production equipment",
+      "find a reliable manufacturer in China",
+      "compare several offers",
+      "organize equipment delivery",
+    ],
+    scope: [
+      "analyzed production requirements",
+      "selected several equipment manufacturers in China",
+      "compared technical specifications",
+      "negotiated with factories",
+      "verified manufacturers",
+      "prepared commercial offers",
+      "organized equipment delivery",
+    ],
+    products: ["paper-cup machine", "laminating machine", "paper-cutting machine", "laser engraver for logo marking"],
+    result: "A manufacturer was selected, the production-line configuration was optimized, technical support was secured and the equipment was delivered to the client.",
+    galleryAlt: "Machinery for manufacturing paper products",
+  },
+  "cs-trade-fair": {
+    title: "Manufacturer sourcing at specialist trade fairs in China",
+    summary: "Trade-fair visits, exhibitor meetings, product analysis and preparation of a shortlist of potential manufacturers.",
+    category: "Sourcing in China",
+    challenge: "A European company wanted to identify new manufacturers, understand market offers, compare suppliers and establish direct factory contacts at a specialist trade fair in China.",
+    requirements: [
+      "identify new manufacturers",
+      "review current market offers",
+      "compare several suppliers",
+      "establish direct factory contacts",
+    ],
+    scope: [
+      "visited a specialist manufacturer trade fair",
+      "negotiated with potential suppliers",
+      "analyzed products and factory capabilities",
+      "collected manufacturer contacts",
+      "prepared a shortlist of potential partners",
+      "provided the client with photos, videos and supplier information",
+    ],
+    products: ["shortlist of suitable manufacturers", "factory contacts", "product photos", "trade-fair video", "supplier-selection recommendations"],
+    result: "Several potential manufacturers were identified and initially assessed. The client received factory contacts and offers, and negotiations began with selected suppliers.",
+    galleryAlt: "Specialist trade fair in China",
+  },
+};
+
 export function getCaseStudies(locale: Locale) {
+  if (locale === "en") {
+    return caseStudies.map((cs) => {
+      const content = englishCaseStudies[cs.id];
+      if (!content) throw new Error(`Missing English case study: ${cs.id}`);
+      return {
+        id: cs.id,
+        slug: cs.slug,
+        title: content.title,
+        summary: content.summary,
+        category: content.category,
+        challenge: content.challenge,
+        requirements: content.requirements,
+        scope: content.scope,
+        products: content.products,
+        result: content.result,
+        coverImage: cs.coverImage,
+        gallery: cs.gallery.map((img) => ({ src: img.src, alt: content.galleryAlt })),
+        country: undefined,
+        date: cs.date,
+        status: undefined,
+      };
+    });
+  }
+
+  const baseLocale: CaseBaseLocale = locale;
   return caseStudies.map((cs) => ({
     id: cs.id,
     slug: cs.slug,
-    title: cs.title[locale],
-    summary: cs.summary[locale],
-    category: cs.category[locale],
-    challenge: cs.challenge?.[locale],
-    requirements: cs.requirements?.[locale],
-    scope: cs.scope[locale],
-    products: cs.products?.[locale],
-    result: cs.result[locale],
+    title: cs.title[baseLocale],
+    summary: cs.summary[baseLocale],
+    category: cs.category[baseLocale],
+    challenge: cs.challenge?.[baseLocale],
+    requirements: cs.requirements?.[baseLocale],
+    scope: cs.scope[baseLocale],
+    products: cs.products?.[baseLocale],
+    result: cs.result[baseLocale],
     coverImage: cs.coverImage,
     gallery: cs.gallery.map((img) => ({
       src: img.src,
-      alt: img.alt[locale],
+      alt: img.alt[baseLocale],
     })),
-    country: cs.country?.[locale],
+    country: cs.country?.[baseLocale],
     date: cs.date,
-    status: cs.status?.[locale],
+    status: cs.status?.[baseLocale],
   }));
 }
 
