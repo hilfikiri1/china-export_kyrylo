@@ -16,6 +16,7 @@ export default async function EditCasePage({
   const { locale: localeParam, id } = await params;
   if (!locales.includes(localeParam as Locale)) notFound();
   const locale = localeParam as Locale;
+  const ru = locale === "ru";
   if (!(await hasBbsAdminSession())) redirect(`/${locale}/bbs`);
 
   const item = await getAdminNotionCaseById(id);
@@ -26,9 +27,9 @@ export default async function EditCasePage({
       <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
         <div>
           <Link href={`/${locale}/bbs/cases`} className="text-xs text-white/45 hover:text-white/75">
-            ← Wszystkie case&apos;y
+            ← {ru ? "Все кейсы" : "Wszystkie case'y"}
           </Link>
-          <h1 className="mt-3 text-2xl font-bold text-white sm:text-3xl">Edytuj case</h1>
+          <h1 className="mt-3 text-2xl font-bold text-white sm:text-3xl">{ru ? "Редактировать кейс" : "Edytuj case"}</h1>
           <p className="mt-2 text-sm text-white/50">{item.title}</p>
         </div>
         <div className="flex flex-wrap gap-2">
@@ -37,7 +38,7 @@ export default async function EditCasePage({
             target="_blank"
             className="inline-flex h-9 items-center gap-1.5 rounded-md border border-white/15 px-3 text-xs text-white/70 hover:bg-white/5 hover:text-white"
           >
-            Podgląd <ExternalLink className="h-3.5 w-3.5" aria-hidden />
+            {ru ? "Просмотр" : "Podgląd"} <ExternalLink className="h-3.5 w-3.5" aria-hidden />
           </Link>
           <a
             href={item.notionUrl}
