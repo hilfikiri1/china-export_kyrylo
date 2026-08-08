@@ -17,11 +17,11 @@ export async function createLocalizedPageMetadata(
   const content = getRequiredPageContent(messages, locale, pageKey);
 
   return {
-    title: content.meta.title,
+    title: { absolute: content.meta.title },
     description: content.meta.description,
     alternates: {
       canonical: getCanonicalUrl(locale, path),
-      languages: getAlternateLanguages(),
+      languages: getAlternateLanguages(path),
     },
     openGraph: {
       title: content.meta.title,
@@ -36,7 +36,7 @@ export async function createHomeMetadata(locale: Locale): Promise<Metadata> {
   const seo = getPageSeo("home", locale);
 
   return {
-    title: seo.title,
+    title: { absolute: seo.title },
     description: seo.description,
     alternates: {
       canonical: getCanonicalUrl(locale),

@@ -54,7 +54,7 @@ export default async function PortalTokenPage({
   return (
     <div className="mx-auto max-w-3xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
       {/* Header summary */}
-      <div className="mb-8 rounded-2xl border border-accent-light/20 bg-navy-light/70 p-5 sm:p-6">
+      <div className="relative mb-8 overflow-hidden rounded-2xl border border-accent-light/20 bg-navy-light/70 p-5 sm:p-6">
         <div
           className="pointer-events-none absolute inset-0 rounded-2xl"
           style={{

@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const cs = getCaseStudyBySlug(slug, locale);
   if (!cs) return {};
   return {
-    title: `${cs.title} — Buy & Bring Solutions`,
+    title: { absolute: `${cs.title} — Buy & Bring Solutions` },
     description: cs.summary,
   };
 }
