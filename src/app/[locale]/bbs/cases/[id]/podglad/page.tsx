@@ -1,6 +1,8 @@
 import Link from "next/link";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
+import { locales, type Locale } from "@/i18n/config";
 import { CaseStudyArticle } from "@/components/cases/CaseStudyArticle";
+import { hasBbsAdminSession } from "@/lib/bbs/auth";
 import { getAdminNotionCaseById, getAdminPreviewCaseById } from "@/lib/cases/notion";
 
 export const dynamic = "force-dynamic";
@@ -10,7 +12,11 @@ export default async function CasePreviewPage({
 }: {
   params: Promise<{ locale: string; id: string }>;
 }) {
-  const { locale, id } = await params;
+  const { locale: localeParam, id } = await params;
+  if (!locales.includes(localeParam as Locale)) notFound();
+  const locale = localeParam as Locale;
+  if (!(await hasBbsAdminSession())) redirect(`/${locale}/bbs`);
+
   const [adminCase, preview] = await Promise.all([
     getAdminNotionCaseById(id),
     getAdminPreviewCaseById(id, "pl"),
