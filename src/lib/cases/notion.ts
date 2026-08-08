@@ -186,17 +186,24 @@ function mapNotionCase(page: PageObjectResponse, locale: Locale): LocalizedCaseS
 }
 
 async function queryPublishedNotionCases(slug?: string) {
-  const filters = [
-    { property: "Status publikacji", select: { equals: "Published" } },
-    { property: "Locale", select: { equals: "pl" } },
-  ];
-  if (slug) filters.push({ property: "Slug", rich_text: { equals: slug } });
-
   return getClient().dataSources.query({
     data_source_id: casesDataSourceId(),
     result_type: "page",
     page_size: slug ? 1 : 100,
-    filter: { and: filters },
+    filter: slug
+      ? {
+          and: [
+            { property: "Status publikacji", select: { equals: "Published" } },
+            { property: "Locale", select: { equals: "pl" } },
+            { property: "Slug", rich_text: { equals: slug } },
+          ],
+        }
+      : {
+          and: [
+            { property: "Status publikacji", select: { equals: "Published" } },
+            { property: "Locale", select: { equals: "pl" } },
+          ],
+        },
     sorts: [
       { property: "Featured", direction: "descending" },
       { property: "Data publikacji", direction: "descending" },
