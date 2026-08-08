@@ -33,7 +33,7 @@ export default async function NowyCasePage({
         </a>
         <h1 className="mt-2 text-2xl font-bold text-white">Nowy case</h1>
         <p className="mt-1 text-sm text-white/50">
-          Formularz do dodania zamkniętego case&apos;u. Podgląd dostępny lokalnie — zapis do produkcji wymaga integracji CMS/Notion.
+          Dodaj zamknięty projekt do bazy Notion. Rekord ze statusem Published pojawi się automatycznie w polskiej sekcji Realizacje; Draft pozostanie niewidoczny publicznie.
         </p>
       </div>
       <NewCaseForm locale={locale} />

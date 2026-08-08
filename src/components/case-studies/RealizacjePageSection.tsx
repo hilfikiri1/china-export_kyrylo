@@ -2,11 +2,11 @@
 
 import { useMemo, useState } from "react";
 import { motion } from "framer-motion";
-import { getCaseStudies } from "@/content/cases";
 import { CaseStudyDetailModal } from "@/components/case-studies/CaseStudyDetailModal";
 import { CaseStudyFeaturedPage } from "@/components/case-studies/CaseStudyFeaturedPage";
 import { CaseStudyGridCard } from "@/components/case-studies/CaseStudyGridCard";
-import { useCurrentLocale, useMessages } from "@/i18n/LocaleProvider";
+import { useMessages } from "@/i18n/LocaleProvider";
+import type { LocalizedCaseStudy } from "@/lib/cases/types";
 import { useMotionConfig, viewportOnce } from "@/lib/motion";
 import { cn } from "@/lib/utils";
 
@@ -14,16 +14,17 @@ type RealizacjePageSectionProps = {
   eyebrow: string;
   title: string;
   lead: string;
+  cases: LocalizedCaseStudy[];
 };
 
 export function RealizacjePageSection({
   eyebrow,
   title,
   lead,
+  cases,
 }: RealizacjePageSectionProps) {
-  const locale = useCurrentLocale();
   const messages = useMessages();
-  const allCases = getCaseStudies(locale);
+  const allCases = cases;
 
   const categories = useMemo(() => {
     const unique = [...new Set(allCases.map((c) => c.category))];
