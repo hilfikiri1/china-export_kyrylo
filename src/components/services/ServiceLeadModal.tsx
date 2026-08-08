@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { getServiceById } from "@/content/i18n/services";
 import { Button } from "@/components/ui/button";
@@ -32,11 +32,12 @@ export function ServiceLeadModal({
   const [submitted, setSubmitted] = useState(false);
   const prefersReducedMotion = useReducedMotion();
 
-  useEffect(() => {
-    if (!open) {
+  function handleOpenChange(nextOpen: boolean) {
+    if (!nextOpen) {
       setSubmitted(false);
     }
-  }, [open]);
+    onOpenChange(nextOpen);
+  }
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -44,7 +45,7 @@ export function ServiceLeadModal({
   }
 
   return (
-    <Dialog open={open} onOpenChange={onOpenChange}>
+    <Dialog open={open} onOpenChange={handleOpenChange}>
       <DialogContent className="border-white/10 bg-navy-light text-white ring-white/10 sm:max-w-lg">
         {submitted ? (
           <div className="py-4 text-center">
@@ -61,7 +62,7 @@ export function ServiceLeadModal({
             <Button
               type="button"
               className="mt-6 border-accent-light/20 bg-accent-light text-white hover:bg-[#dbaa47]"
-              onClick={() => onOpenChange(false)}
+              onClick={() => handleOpenChange(false)}
             >
               {t("forms.serviceLead.close")}
             </Button>
