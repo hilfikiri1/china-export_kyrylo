@@ -1,4 +1,4 @@
-export const locales = ["pl", "uk", "ru", "de", "zh"] as const;
+export const locales = ["pl", "en", "uk", "ru", "de", "zh"] as const;
 
 export type Locale = (typeof locales)[number];
 
@@ -6,6 +6,7 @@ export const defaultLocale: Locale = "pl";
 
 export const localeLabels: Record<Locale, string> = {
   pl: "Polski",
+  en: "English",
   uk: "Українська",
   ru: "Русский",
   de: "Deutsch",
@@ -15,6 +16,7 @@ export const localeLabels: Record<Locale, string> = {
 /** HTML lang attribute — zh uses zh-CN for Simplified Chinese */
 export const htmlLang: Record<Locale, string> = {
   pl: "pl",
+  en: "en",
   uk: "uk",
   ru: "ru",
   de: "de",

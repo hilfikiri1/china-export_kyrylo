@@ -4,6 +4,7 @@ export type Messages = typeof import("./messages/pl.json");
 
 const dictionaries: Record<Locale, () => Promise<Messages>> = {
   pl: () => import("./messages/pl.json").then((m) => m.default),
+  en: () => import("./messages/en.json").then((m) => m.default as Messages),
   uk: () => import("./messages/uk.json").then((m) => m.default),
   ru: () => import("./messages/ru.json").then((m) => m.default),
   de: () => import("./messages/de.json").then((m) => m.default),

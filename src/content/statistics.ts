@@ -9,6 +9,7 @@ export const statistics = {
     value: "17",
     suffix: {
       pl: "lat",
+      en: "years",
       uk: "років",
       ru: "лет",
       de: "Jahre",
@@ -16,6 +17,7 @@ export const statistics = {
     } satisfies LocalizedString,
     label: {
       pl: "doświadczenia we współpracy z Chinami",
+      en: "of experience working with China",
       uk: "досвіду співпраці з Китаєм",
       ru: "опыта работы с Китаем",
       de: "Erfahrung in der Zusammenarbeit mit China",
@@ -26,6 +28,7 @@ export const statistics = {
     value: "275+",
     label: {
       pl: "obsłużonych klientów",
+      en: "clients served",
       uk: "обслугованих клієнтів",
       ru: "обслуженных клиентов",
       de: "betreute Kunden",
@@ -36,6 +39,7 @@ export const statistics = {
     value: "110+",
     label: {
       pl: "dostarczonych kontenerów",
+      en: "containers delivered",
       uk: "доставлених контейнерів",
       ru: "доставленных контейнеров",
       de: "gelieferte Container",
@@ -46,6 +50,7 @@ export const statistics = {
     value: "Foshan",
     label: {
       pl: "operacje i wsparcie na miejscu w Chinach",
+      en: "operations and on-site support in China",
       uk: "операції та підтримка на місці в Китаї",
       ru: "операции и поддержка на месте в Китае",
       de: "Operative Präsenz und Support vor Ort in China",

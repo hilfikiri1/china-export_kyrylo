@@ -1,4 +1,4 @@
-import { caseStudies } from "@/content/cases";
+import { caseStudies, getCaseStudies } from "@/content/cases";
 import { statistics } from "@/content/statistics";
 import type { Locale } from "@/i18n/config";
 
@@ -16,6 +16,7 @@ export type RealizacjeTeaserContent = {
 const copy = {
   eyebrow: {
     pl: "Realizacje",
+    en: "Case studies",
     uk: "Реалізації",
     ru: "Реализованные проекты",
     de: "Referenzen",
@@ -23,6 +24,7 @@ const copy = {
   },
   title: {
     pl: "Wybrane projekty importu z Chin",
+    en: "Selected import projects from China",
     uk: "Обрані проєкти імпорту з Китаю",
     ru: "Избранные проекты импорта из Китая",
     de: "Ausgewählte Importprojekte aus China",
@@ -30,6 +32,7 @@ const copy = {
   },
   lead: {
     pl: "Poniżej przykłady współpracy w różnych branżach. Ze względu na poufność nie publikujemy danych klientów — na stronie Realizacje znajdziesz zakres, proces i rezultaty.",
+    en: "Below are examples of projects across different industries. For confidentiality, we do not publish client details — the Case Studies page shows the scope, process and results.",
     uk: "Нижче — приклади співпраці в різних галузях. Через конфіденційність ми не публікуємо дані клієнтів — на сторінці Реалізації ви знайдете обсяг, процес і результати.",
     ru: "Ниже — примеры сотрудничества в разных отраслях. Из‑за конфиденциальности мы не публикуем данные клиентов — на странице Реализованные проекты вы найдёте объём, процесс и результаты.",
     de: "Nachfolgend Beispiele aus verschiedenen Branchen. Aus Vertraulichkeitsgründen veröffentlichen wir keine Kundendaten — auf der Seite Referenzen finden Sie Umfang, Ablauf und Ergebnisse.",
@@ -37,6 +40,7 @@ const copy = {
   },
   highlightProjects: {
     pl: "Projektów w portfolio",
+    en: "Projects in portfolio",
     uk: "Проєктів у портфоліо",
     ru: "Проектов в портфолио",
     de: "Projekte im Portfolio",
@@ -44,6 +48,7 @@ const copy = {
   },
   highlightCategories: {
     pl: "Branż w realizacjach",
+    en: "Industries represented",
     uk: "Галузей у реалізаціях",
     ru: "Отраслей в проектах",
     de: "Branchen in Referenzen",
@@ -51,6 +56,7 @@ const copy = {
   },
   imageAlt: {
     pl: "Kontenery cargo — logistyka i realizacje importu z Chin",
+    en: "Cargo containers — logistics and China import projects",
     uk: "Вантажні контейнери — логістика та реалізації імпорту з Китаю",
     ru: "Грузовые контейнеры — логистика и реализация импорта из Китая",
     de: "Frachtcontainer — Logistik und Importreferenzen aus China",
@@ -58,6 +64,7 @@ const copy = {
   },
   ctaLabel: {
     pl: "Zobacz realizacje",
+    en: "View case studies",
     uk: "Переглянути реалізації",
     ru: "Смотреть проекты",
     de: "Referenzen ansehen",
@@ -68,6 +75,7 @@ const copy = {
 const uniqueCategories = new Set(caseStudies.map((study) => study.category.pl));
 
 export function getRealizacjeTeaser(locale: Locale): RealizacjeTeaserContent {
+  const localizedCases = getCaseStudies(locale);
   return {
     eyebrow: copy.eyebrow[locale],
     title: copy.title[locale],
@@ -86,7 +94,7 @@ export function getRealizacjeTeaser(locale: Locale): RealizacjeTeaserContent {
         label: statistics.clients.label[locale],
       },
     ],
-    bullets: caseStudies.map((study) => study.title[locale]),
+    bullets: localizedCases.map((study) => study.title),
     image: "/image/plane_shipment.jpg",
     imageAlt: copy.imageAlt[locale],
     cta: {

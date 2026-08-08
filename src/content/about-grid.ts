@@ -17,6 +17,7 @@ export type AboutGridContent = {
 const copy = {
   sectionCta: {
     pl: "Poznaj nasz zespół w Chinach",
+    en: "Meet our team in China",
     uk: "Познайомтеся з нашою командою в Китаї",
     ru: "Познакомьтесь с нашей командой в Китае",
     de: "Lernen Sie unser Team in China kennen",
@@ -24,6 +25,7 @@ const copy = {
   },
   teamTitle: {
     pl: "Zespół w Chinach",
+    en: "Team in China",
     uk: "Команда в Китаї",
     ru: "Команда в Китае",
     de: "Team in China",
@@ -31,6 +33,7 @@ const copy = {
   },
   teamDescription: {
     pl: "Zespół operacyjny w Foshan — od weryfikacji dostawców po koordynację produkcji i wysyłki.",
+    en: "Our operations team in Foshan supports supplier verification, production coordination and shipments.",
     uk: "Операційна команда в Foshan — від верифікації постачальників до координації виробництва та відправлень.",
     ru: "Операционная команда в Foshan — от верификации поставщиков до координации производства и отгрузок.",
     de: "Operatives Team in Foshan — von der Lieferantenprüfung bis zur Produktions- und Versandkoordination.",
@@ -38,6 +41,7 @@ const copy = {
   },
   teamImageAlt: {
     pl: "Zespół Buy & Bring Solutions w Foshan",
+    en: "Buy & Bring Solutions team in Foshan",
     uk: "Команда Buy & Bring Solutions у Foshan",
     ru: "Команда Buy & Bring Solutions в Foshan",
     de: "Team von Buy & Bring Solutions in Foshan",
@@ -45,6 +49,7 @@ const copy = {
   },
   qcTitle: {
     pl: "Kontrola jakości i dokumentacja",
+    en: "Quality control and documentation",
     uk: "Контроль якості та документація",
     ru: "Контроль качества и документация",
     de: "Qualitätskontrolle und Dokumentation",
@@ -52,6 +57,7 @@ const copy = {
   },
   qcDescription: {
     pl: "Inspekcje QA, raporty z kontroli, certyfikaty i pełna dokumentacja zgodna z wymogami importu do UE.",
+    en: "QA inspections, inspection reports, certificates and complete documentation aligned with EU import requirements.",
     uk: "Інспекції QA, звіти з перевірок, сертифікати та повна документація відповідно до вимог імпорту в ЄС.",
     ru: "Инспекции QA, отчёты о проверках, сертификаты и полная документация в соответствии с требованиями импорта в ЕС.",
     de: "QA-Inspektionen, Prüfberichte, Zertifikate und vollständige Dokumentation gemäß EU-Importanforderungen.",
@@ -59,6 +65,7 @@ const copy = {
   },
   qcImageAlt: {
     pl: "Kontrola jakości towarów przed wysyłką z Chin",
+    en: "Quality control before shipment from China",
     uk: "Контроль якості товарів перед відправленням з Китаю",
     ru: "Контроль качества товаров перед отгрузкой из Китая",
     de: "Qualitätskontrolle vor Versand aus China",
@@ -66,6 +73,7 @@ const copy = {
   },
   tripsTitle: {
     pl: "Wyjazdy biznesowe do Chin",
+    en: "Business trips to China",
     uk: "Ділові поїздки до Китаю",
     ru: "Деловые поездки в Китай",
     de: "Geschäftsreisen nach China",
@@ -73,6 +81,7 @@ const copy = {
   },
   tripsDescription: {
     pl: "Organizujemy wizyty w fabrykach, tłumaczenia na miejscu i wsparcie podczas negocjacji z dostawcami.",
+    en: "We organize factory visits, on-site interpretation and support during supplier negotiations.",
     uk: "Організовуємо візити на фабрики, переклад на місці та підтримку під час переговорів із постачальниками.",
     ru: "Организуем визиты на фабрики, перевод на месте и поддержку во время переговоров с поставщиками.",
     de: "Wir organisieren Fabrikbesuche, Dolmetschen vor Ort und Unterstützung bei Verhandlungen mit Lieferanten.",
@@ -80,6 +89,7 @@ const copy = {
   },
   tripsImageAlt: {
     pl: "Wyjazdy biznesowe do fabryk w Chinach",
+    en: "Business trips to factories in China",
     uk: "Ділові поїздки на фабрики в Китаї",
     ru: "Деловые поездки на фабрики в Китае",
     de: "Geschäftsreisen zu Fabriken in China",

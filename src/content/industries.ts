@@ -11,6 +11,7 @@ export const industryCategories: IndustryCategory[] = [
     id: "machinery",
     title: {
       pl: "Maszyny i urządzenia przemysłowe",
+      en: "Industrial machinery and equipment",
       uk: "Промислові машини та обладнання",
       ru: "Промышленные машины и оборудование",
       de: "Industriemaschinen und Anlagen",
@@ -23,6 +24,13 @@ export const industryCategories: IndustryCategory[] = [
         "linie do przetwórstwa i produkcji",
         "urządzenia medyczne i SPA",
         "maszyny budowlane",
+      ],
+      en: [
+        "packaging and paper-industry machinery",
+        "food-processing machinery",
+        "processing and production lines",
+        "medical and SPA equipment",
+        "construction machinery",
       ],
       uk: [
         "машини для пакувальної та паперової галузі",
@@ -58,6 +66,7 @@ export const industryCategories: IndustryCategory[] = [
     id: "battery",
     title: {
       pl: "Technologie akumulatorowe i rozwiązania energetyczne",
+      en: "Battery technologies and energy solutions",
       uk: "Акумуляторні технології та енергетичні рішення",
       ru: "Аккумуляторные технологии и энергетические решения",
       de: "Batterietechnologien und Energielösungen",
@@ -72,6 +81,15 @@ export const industryCategories: IndustryCategory[] = [
         "akumulatory przemysłowe",
         "magazyny energii ESS",
         "stacje ładowania",
+      ],
+      en: [
+        "LFP and NMC cells",
+        "prismatic and cylindrical cells",
+        "BMS systems",
+        "battery packs",
+        "industrial batteries",
+        "ESS energy-storage systems",
+        "charging stations",
       ],
       uk: [
         "елементи LFP та NMC",
@@ -115,6 +133,7 @@ export const industryCategories: IndustryCategory[] = [
     id: "emobility",
     title: {
       pl: "Elektromobilność i komponenty",
+      en: "E-mobility and components",
       uk: "Електромобільність та компоненти",
       ru: "Электромобильность и компоненты",
       de: "Elektromobilität und Komponenten",
@@ -129,6 +148,15 @@ export const industryCategories: IndustryCategory[] = [
         "pojazdy",
         "opony",
         "części samochodowe",
+      ],
+      en: [
+        "electric motorcycles",
+        "motors and controllers",
+        "battery solutions",
+        "drones",
+        "vehicles",
+        "tires",
+        "automotive parts",
       ],
       uk: [
         "електромотоцикли",
@@ -172,6 +200,7 @@ export const industryCategories: IndustryCategory[] = [
     id: "chemistry",
     title: {
       pl: "Chemia i surowce",
+      en: "Chemicals and raw materials",
       uk: "Хімія та сировина",
       ru: "Химия и сырьё",
       de: "Chemie und Rohstoffe",
@@ -185,6 +214,14 @@ export const industryCategories: IndustryCategory[] = [
         "LLDPE, LDPE i HDPE",
         "chemia przemysłowa",
         "materiały klejące",
+      ],
+      en: [
+        "feed additives",
+        "functional ingredients",
+        "industrial raw materials",
+        "LLDPE, LDPE and HDPE",
+        "industrial chemicals",
+        "adhesive materials",
       ],
       uk: [
         "кормові добавки",
@@ -224,6 +261,7 @@ export const industryCategories: IndustryCategory[] = [
     id: "packaging",
     title: {
       pl: "Papier, opakowania i materiały",
+      en: "Paper, packaging and materials",
       uk: "Папір, упаковка та матеріали",
       ru: "Бумага, упаковка и материалы",
       de: "Papier, Verpackungen und Materialien",
@@ -237,6 +275,14 @@ export const industryCategories: IndustryCategory[] = [
         "folia PET",
         "surowce opakowaniowe",
         "papiery specjalistyczne i termoodporne",
+      ],
+      en: [
+        "kraft paper",
+        "GC1, GC2 and FBB board",
+        "paper for cup production",
+        "PET film",
+        "packaging raw materials",
+        "specialty and heat-resistant papers",
       ],
       uk: [
         "крафт-папір",
@@ -276,6 +322,7 @@ export const industryCategories: IndustryCategory[] = [
     id: "textiles",
     title: {
       pl: "Tekstylia i materiały techniczne",
+      en: "Textiles and technical materials",
       uk: "Текстиль та технічні матеріали",
       ru: "Текстиль и технические материалы",
       de: "Textilien und technische Materialien",
@@ -289,6 +336,14 @@ export const industryCategories: IndustryCategory[] = [
         "tkaniny techniczne",
         "materiały specjalistyczne",
         "produkty tekstylne",
+      ],
+      en: [
+        "fleece",
+        "cotton and synthetic fabrics",
+        "blended fabrics",
+        "technical textiles",
+        "specialty materials",
+        "textile products",
       ],
       uk: [
         "фліс",
@@ -328,6 +383,7 @@ export const industryCategories: IndustryCategory[] = [
     id: "construction",
     title: {
       pl: "Budownictwo i wyposażenie specjalistyczne",
+      en: "Construction and specialist equipment",
       uk: "Будівництво та спеціалізоване обладнання",
       ru: "Строительство и специализированное оборудование",
       de: "Bauwesen und Spezialausrüstung",
@@ -339,6 +395,12 @@ export const industryCategories: IndustryCategory[] = [
         "wyposażenie kolejowe",
         "materiały budowlane",
         "maszyny i wyposażenie specjalistyczne",
+      ],
+      en: [
+        "container and modular buildings",
+        "railway equipment",
+        "construction materials",
+        "specialist machinery and equipment",
       ],
       uk: [
         "контейнерні та модульні будинки",
@@ -370,6 +432,7 @@ export const industryCategories: IndustryCategory[] = [
     id: "consumer",
     title: {
       pl: "Produkty konsumenckie i Private Label",
+      en: "Consumer products and Private Label",
       uk: "Споживчі товари та Private Label",
       ru: "Потребительские товары и Private Label",
       de: "Konsumgüter und Private Label",
@@ -384,6 +447,15 @@ export const industryCategories: IndustryCategory[] = [
         "folie",
         "artykuły dla zwierząt",
         "inne produkty wykonywane pod marką klienta",
+      ],
+      en: [
+        "tableware",
+        "clothing",
+        "toys",
+        "cast-iron products",
+        "films",
+        "pet products",
+        "other products manufactured under the client's brand",
       ],
       uk: [
         "посуд",
