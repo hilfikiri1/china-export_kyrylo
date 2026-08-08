@@ -370,19 +370,20 @@ function coverUrlFromMedia(media: EditableCaseMediaState) {
   return media.cover?.kind === "url" ? media.cover.value : "";
 }
 
-function resolveUploadRefs(refs: EditableCaseMediaRef[], files: NotionFileEntry[]) {
+function resolveUploadRefs(
+  refs: EditableCaseMediaRef[],
+  files: NotionFileEntry[],
+): EditableCaseMediaRef[] {
   const consumed = new Set<number>();
-  return refs.flatMap((ref) => {
-    if (ref.kind === "url") return [{ ...ref, previewUrl: ref.value } satisfies EditableCaseMediaRef];
+  return refs.map((ref): EditableCaseMediaRef => {
+    if (ref.kind === "url") return { ...ref, previewUrl: ref.value };
     let index = files.findIndex((file, candidateIndex) => !consumed.has(candidateIndex) && file.name === ref.name);
     if (index < 0) index = files.findIndex((_, candidateIndex) => !consumed.has(candidateIndex));
     if (index >= 0) consumed.add(index);
-    return [
-      {
-        ...ref,
-        previewUrl: index >= 0 ? files[index].url : undefined,
-      } satisfies EditableCaseMediaRef,
-    ];
+    return {
+      ...ref,
+      previewUrl: index >= 0 ? files[index]?.url : undefined,
+    };
   });
 }
 
@@ -424,7 +425,7 @@ function resolvedMediaSources(page: PageObjectResponse) {
   const coverImage = media.cover?.previewUrl || DEFAULT_COVER_IMAGE;
   const gallery = media.gallery
     .map((ref) => ref.previewUrl)
-    .filter((src): src is string => Boolean(src) && isSupportedCaseImageReference(src));
+    .filter((src): src is string => typeof src === "string" && isSupportedCaseImageReference(src));
   return { coverImage, gallery };
 }
 
