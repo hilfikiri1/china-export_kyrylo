@@ -1,27 +1,45 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
 import Link from "next/link";
 import { useMessages, useLocale } from "@/i18n/LocaleProvider";
 import { localizedPath, routes } from "@/i18n/routing";
 
 const CONSENT_KEY = "bbs_cookie_consent";
+const CONSENT_EVENT = "bbs-cookie-consent-change";
+
+function subscribeToConsent(callback: () => void) {
+  window.addEventListener("storage", callback);
+  window.addEventListener(CONSENT_EVENT, callback);
+
+  return () => {
+    window.removeEventListener("storage", callback);
+    window.removeEventListener(CONSENT_EVENT, callback);
+  };
+}
+
+function getConsentSnapshot() {
+  return localStorage.getItem(CONSENT_KEY) === null;
+}
+
+function getServerConsentSnapshot() {
+  return false;
+}
 
 export function CookieBanner() {
   const messages = useMessages();
   const { locale } = useLocale();
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    const consent = localStorage.getItem(CONSENT_KEY);
-    if (!consent) setVisible(true);
-  }, []);
+  const visible = useSyncExternalStore(
+    subscribeToConsent,
+    getConsentSnapshot,
+    getServerConsentSnapshot,
+  );
 
   if (!visible) return null;
 
   function accept(all = true) {
     localStorage.setItem(CONSENT_KEY, all ? "all" : "essential");
-    setVisible(false);
+    window.dispatchEvent(new Event(CONSENT_EVENT));
   }
 
   return (

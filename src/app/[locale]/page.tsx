@@ -33,7 +33,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const seo = getPageSeo("home", locale);
 
   return {
-    title: seo.title,
+    title: { absolute: seo.title },
     description: seo.description,
     alternates: {
       canonical: getCanonicalUrl(locale),
