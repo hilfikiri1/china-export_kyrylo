@@ -3,11 +3,11 @@
 import { useState } from "react";
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
-import { getCaseStudies } from "@/content/cases";
+import type { LocalizedCaseStudy } from "@/lib/cases/types";
 import { useMessages } from "@/i18n/LocaleProvider";
 import { cn } from "@/lib/utils";
 
-export type LocalizedCaseStudy = ReturnType<typeof getCaseStudies>[number];
+export type { LocalizedCaseStudy } from "@/lib/cases/types";
 
 type CaseStudyFeaturedPageProps = {
   caseStudy: LocalizedCaseStudy;

@@ -2,17 +2,20 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { CheckCircle2 } from "lucide-react";
-import { caseStudies, getCaseStudyBySlug } from "@/content/cases";
+import { caseStudies } from "@/content/cases";
 import { locales } from "@/i18n/config";
 import type { Locale } from "@/i18n/config";
 import { localizedPath, routes } from "@/i18n/routing";
 import { DedicatedPageShell } from "@/components/pages/DedicatedPageShell";
 import { getServerTranslation } from "@/i18n/server";
 import { buildBreadcrumbs } from "@/lib/breadcrumbs";
+import { getCaseForSlug } from "@/lib/cases/notion";
 
 type PageProps = {
   params: Promise<{ locale: string; slug: string }>;
 };
+
+export const revalidate = 300;
 
 export async function generateStaticParams() {
   return locales.flatMap((locale) =>
@@ -22,8 +25,9 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale: localeParam, slug } = await params;
+  if (!locales.includes(localeParam as Locale)) return {};
   const locale = localeParam as Locale;
-  const cs = getCaseStudyBySlug(slug, locale);
+  const cs = await getCaseForSlug(slug, locale);
   if (!cs) return {};
   return {
     title: { absolute: `${cs.title} — Buy & Bring Solutions` },
@@ -37,7 +41,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
   const locale = localeParam as Locale;
   const { t } = await getServerTranslation(locale);
 
-  const cs = getCaseStudyBySlug(slug, locale);
+  const cs = await getCaseForSlug(slug, locale);
   if (!cs) notFound();
 
   return (
