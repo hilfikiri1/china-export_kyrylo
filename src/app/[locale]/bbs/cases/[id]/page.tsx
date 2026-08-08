@@ -1,8 +1,9 @@
 import Link from "next/link";
 import { ExternalLink } from "lucide-react";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import { locales, type Locale } from "@/i18n/config";
 import { CaseEditorForm } from "@/components/bbs/CaseEditorForm";
+import { hasBbsAdminSession } from "@/lib/bbs/auth";
 import { getAdminNotionCaseById } from "@/lib/cases/notion";
 
 export const dynamic = "force-dynamic";
@@ -15,6 +16,8 @@ export default async function EditCasePage({
   const { locale: localeParam, id } = await params;
   if (!locales.includes(localeParam as Locale)) notFound();
   const locale = localeParam as Locale;
+  if (!(await hasBbsAdminSession())) redirect(`/${locale}/bbs`);
+
   const item = await getAdminNotionCaseById(id);
   if (!item) notFound();
 
