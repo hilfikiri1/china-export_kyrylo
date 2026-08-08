@@ -3,6 +3,10 @@ import { locales } from "@/i18n/config";
 import { routes } from "@/i18n/routing";
 import { siteUrl } from "@/config/seo";
 import { CANTON_FAIR_PATH } from "@/content/canton-fair";
+import { caseStudies } from "@/content/cases";
+import { getCasesForLocale } from "@/lib/cases/notion";
+
+export const revalidate = 300;
 
 const staticPaths = [
   "",
@@ -25,7 +29,15 @@ const staticPaths = [
   `${routes.services}/spedycja-i-logistyka`,
 ];
 
-export default function sitemap(): MetadataRoute.Sitemap {
+const staticCaseSlugs = new Set(caseStudies.map((item) => item.slug));
+
+function safeDate(value?: string) {
+  if (!value) return undefined;
+  const date = new Date(value);
+  return Number.isNaN(date.getTime()) ? undefined : date;
+}
+
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const entries: MetadataRoute.Sitemap = [];
 
   for (const locale of locales) {
@@ -34,7 +46,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
         url: path
           ? `${siteUrl}/${locale}/${path}`
           : `${siteUrl}/${locale}`,
-        lastModified: new Date(),
         changeFrequency: path === "" ? "weekly" : "monthly",
         priority: path === "" ? 1 : 0.8,
         alternates: {
@@ -45,6 +56,29 @@ export default function sitemap(): MetadataRoute.Sitemap {
             ]),
           ),
         },
+      });
+    }
+
+    const localizedCases = await getCasesForLocale(locale);
+    for (const item of localizedCases) {
+      const isStaticCase = staticCaseSlugs.has(item.slug);
+      entries.push({
+        url: `${siteUrl}/${locale}/${routes.cases}/${item.slug}`,
+        lastModified: safeDate(item.date),
+        changeFrequency: "monthly",
+        priority: 0.7,
+        ...(isStaticCase
+          ? {
+              alternates: {
+                languages: Object.fromEntries(
+                  locales.map((l) => [
+                    l,
+                    `${siteUrl}/${l}/${routes.cases}/${item.slug}`,
+                  ]),
+                ),
+              },
+            }
+          : {}),
       });
     }
   }
