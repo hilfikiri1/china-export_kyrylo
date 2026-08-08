@@ -15,6 +15,11 @@ const DEFAULT_COVER_IMAGE = "/image/road_shipment.jpg";
 
 let client: Client | undefined;
 
+export type NotionCaseUpload = {
+  id: string;
+  name: string;
+};
+
 export type NewNotionCaseInput = {
   clientLabel: string;
   title: string;
@@ -33,9 +38,17 @@ export type NewNotionCaseInput = {
   publishedAt?: string;
   coverImage?: string;
   galleryUrls?: string[];
+  coverUpload?: NotionCaseUpload;
+  galleryUploads?: NotionCaseUpload[];
   videoUrl?: string;
   featured: boolean;
   published: boolean;
+};
+
+export type LegacyCasesMigrationResult = {
+  imported: string[];
+  skipped: string[];
+  failed: { slug: string; message: string }[];
 };
 
 export class NotionCasesConfigurationError extends Error {
@@ -127,6 +140,16 @@ function unique(values: string[]) {
   return [...new Set(values.filter(Boolean))];
 }
 
+function uploadFilesProperty(uploads: NotionCaseUpload[] = []) {
+  return {
+    files: uploads.map((upload) => ({
+      type: "file_upload" as const,
+      file_upload: { id: upload.id },
+      name: upload.name,
+    })),
+  };
+}
+
 export function isSupportedCaseImageReference(value: string) {
   const trimmed = value.trim();
   if (!trimmed) return false;
@@ -144,6 +167,20 @@ export function isSupportedCaseImageReference(value: string) {
   } catch {
     return false;
   }
+}
+
+export async function uploadNotionCaseImage(file: File): Promise<NotionCaseUpload> {
+  const notion = getClient();
+  const upload = await notion.fileUploads.create({
+    mode: "single_part",
+    filename: file.name,
+    content_type: file.type || "application/octet-stream",
+  });
+  await notion.fileUploads.send({
+    file_upload_id: upload.id,
+    file: { filename: file.name, data: file },
+  });
+  return { id: upload.id, name: file.name };
 }
 
 function mapNotionCase(page: PageObjectResponse, locale: Locale): LocalizedCaseStudy {
@@ -268,11 +305,21 @@ async function notionSlugExists(slug: string) {
   return response.results.some(isFullPage);
 }
 
-export async function createNotionCase(input: NewNotionCaseInput) {
-  if (caseStudies.some((item) => item.slug === input.slug) || (await notionSlugExists(input.slug))) {
-    throw new DuplicateCaseSlugError(input.slug);
-  }
+async function existingNotionSlugs() {
+  const response = await getClient().dataSources.query({
+    data_source_id: casesDataSourceId(),
+    result_type: "page",
+    page_size: 100,
+  });
+  return new Set(
+    response.results
+      .filter(isFullPage)
+      .map((page) => readText(page.properties, "Slug"))
+      .filter(Boolean),
+  );
+}
 
+async function createCasePage(input: NewNotionCaseInput) {
   const publishedAt = input.publishedAt || new Date().toISOString().slice(0, 10);
   const page = await getClient().pages.create({
     parent: { data_source_id: casesDataSourceId() },
@@ -295,6 +342,8 @@ export async function createNotionCase(input: NewNotionCaseInput) {
       "Data publikacji": { date: { start: publishedAt } },
       "Cover URL": textProperty(input.coverImage),
       "Galeria URL": textProperty((input.galleryUrls ?? []).join("\n")),
+      "Zdjęcie główne": uploadFilesProperty(input.coverUpload ? [input.coverUpload] : []),
+      "Galeria": uploadFilesProperty(input.galleryUploads),
       "Video URL": { url: input.videoUrl?.trim() || null },
       "Featured": { checkbox: input.featured },
       "Status publikacji": { select: { name: input.published ? "Published" : "Draft" } },
@@ -306,5 +355,76 @@ export async function createNotionCase(input: NewNotionCaseInput) {
     notionUrl: "url" in page ? page.url : "",
     slug: input.slug,
     published: input.published,
+  };
+}
+
+export async function createNotionCase(input: NewNotionCaseInput) {
+  if (caseStudies.some((item) => item.slug === input.slug) || (await notionSlugExists(input.slug))) {
+    throw new DuplicateCaseSlugError(input.slug);
+  }
+  return createCasePage(input);
+}
+
+const MIGRATION_COUNTRIES = new Set([
+  "Polska",
+  "Ukraina",
+  "Niemcy",
+  "Łotwa",
+  "Bułgaria",
+  "Hiszpania",
+  "Chiny",
+  "Inny",
+]);
+
+function migrationCountry(value?: string) {
+  return value && MIGRATION_COUNTRIES.has(value) ? value : "Inny";
+}
+
+export async function migrateStaticPolishCases(): Promise<LegacyCasesMigrationResult> {
+  const existing = await existingNotionSlugs();
+  const imported: string[] = [];
+  const skipped: string[] = [];
+  const failed: { slug: string; message: string }[] = [];
+
+  for (const item of [...caseStudies].reverse()) {
+    if (existing.has(item.slug)) {
+      skipped.push(item.slug);
+      continue;
+    }
+
+    try {
+      await createCasePage({
+        clientLabel: "Dotychczasowy klient B&BS",
+        title: item.title.pl,
+        slug: item.slug,
+        excerpt: item.summary.pl,
+        category: item.category.pl,
+        country: migrationCountry(item.country?.pl),
+        challenge: item.challenge?.pl || item.summary.pl,
+        requirements: item.requirements?.pl ?? [],
+        work: item.scope.pl,
+        products: item.products?.pl ?? [],
+        result: item.result.pl,
+        outcome: item.status?.pl,
+        publishedAt: item.date,
+        coverImage: item.coverImage,
+        galleryUrls: item.gallery.map((image) => image.src),
+        featured: false,
+        published: true,
+      });
+      existing.add(item.slug);
+      imported.push(item.slug);
+    } catch (error) {
+      failed.push({
+        slug: item.slug,
+        message: error instanceof Error ? error.message : "Unknown migration error",
+      });
+    }
+  }
+
+  return {
+    imported: imported.reverse(),
+    skipped: skipped.reverse(),
+    failed: failed.reverse(),
   };
 }

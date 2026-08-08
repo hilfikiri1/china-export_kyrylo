@@ -7,6 +7,8 @@ import {
   DuplicateCaseSlugError,
   isNotionCasesConfigured,
   isSupportedCaseImageReference,
+  migrateStaticPolishCases,
+  type NotionCaseUpload,
 } from "@/lib/cases/notion";
 
 export type NewCaseActionState = {
@@ -17,7 +19,16 @@ export type NewCaseActionState = {
   published?: boolean;
 };
 
+export type LegacyMigrationActionState = {
+  status: "idle" | "success" | "error";
+  message?: string;
+  imported?: number;
+  skipped?: number;
+  failed?: number;
+};
+
 export const initialNewCaseState: NewCaseActionState = { status: "idle" };
+export const initialLegacyMigrationState: LegacyMigrationActionState = { status: "idle" };
 
 const COUNTRIES = new Set([
   "Polska",
@@ -51,6 +62,35 @@ function isHttpsUrl(value: string) {
   }
 }
 
+function isUploadId(value: string) {
+  return /^[0-9a-f]{8}-?[0-9a-f]{4}-?[0-9a-f]{4}-?[0-9a-f]{4}-?[0-9a-f]{12}$/i.test(value);
+}
+
+function readCoverUpload(formData: FormData): NotionCaseUpload | undefined {
+  const id = readText(formData, "coverUploadId", 80);
+  const name = readText(formData, "coverUploadName", 255);
+  return id && name && isUploadId(id) ? { id, name } : undefined;
+}
+
+function readGalleryUploads(formData: FormData): NotionCaseUpload[] {
+  const raw = readText(formData, "galleryUploadsJson", 12000);
+  if (!raw) return [];
+  try {
+    const parsed = JSON.parse(raw);
+    if (!Array.isArray(parsed)) return [];
+    return parsed
+      .flatMap((item): NotionCaseUpload[] => {
+        if (!item || typeof item !== "object") return [];
+        const id = typeof item.id === "string" ? item.id.trim() : "";
+        const name = typeof item.name === "string" ? item.name.trim().slice(0, 255) : "";
+        return id && name && isUploadId(id) ? [{ id, name }] : [];
+      })
+      .slice(0, 12);
+  } catch {
+    return [];
+  }
+}
+
 export async function createCaseAction(
   _previousState: NewCaseActionState,
   formData: FormData,
@@ -78,6 +118,8 @@ export async function createCaseAction(
   const publishedAt = readText(formData, "publishedAt", 10);
   const coverImage = readText(formData, "coverImage", 1000);
   const galleryUrls = readList(formData, "galleryUrls");
+  const coverUpload = readCoverUpload(formData);
+  const galleryUploads = readGalleryUploads(formData);
   const videoUrl = readText(formData, "videoUrl", 1000);
   const published = formData.get("published") === "on";
   const featured = formData.get("featured") === "on";
@@ -141,6 +183,8 @@ export async function createCaseAction(
       publishedAt,
       coverImage,
       galleryUrls,
+      coverUpload,
+      galleryUploads,
       videoUrl,
       featured,
       published,
@@ -148,6 +192,7 @@ export async function createCaseAction(
 
     revalidatePath("/pl/realizacje");
     revalidatePath(`/pl/realizacje/${slug}`);
+    revalidatePath("/sitemap.xml");
 
     return {
       status: "success",
@@ -166,6 +211,53 @@ export async function createCaseAction(
     return {
       status: "error",
       message: "Nie udało się zapisać case'u w Notion. Sprawdź konfigurację i spróbuj ponownie.",
+    };
+  }
+}
+
+export async function migrateLegacyCasesAction(
+  _previousState: LegacyMigrationActionState,
+  _formData: FormData,
+): Promise<LegacyMigrationActionState> {
+  if (!(await hasBbsAdminSession())) {
+    return { status: "error", message: "Sesja wygasła. Zaloguj się ponownie do panelu." };
+  }
+  if (!isNotionCasesConfigured()) {
+    return { status: "error", message: "Integracja Notion nie jest skonfigurowana na serwerze." };
+  }
+
+  try {
+    const result = await migrateStaticPolishCases();
+    revalidatePath("/pl/realizacje");
+    revalidatePath("/sitemap.xml");
+
+    const imported = result.imported.length;
+    const skipped = result.skipped.length;
+    const failed = result.failed.length;
+
+    if (failed > 0) {
+      console.error("[bbs/cases] Legacy case migration failures", result.failed);
+      return {
+        status: "error",
+        message: `Migracja częściowa: dodano ${imported}, pominięto ${skipped}, błędy ${failed}.`,
+        imported,
+        skipped,
+        failed,
+      };
+    }
+
+    return {
+      status: "success",
+      message: `Migracja zakończona: dodano ${imported}, pominięto istniejące ${skipped}.`,
+      imported,
+      skipped,
+      failed: 0,
+    };
+  } catch (error) {
+    console.error("[bbs/cases] Failed to migrate legacy cases", error);
+    return {
+      status: "error",
+      message: "Nie udało się przenieść istniejących case'ów do Notion.",
     };
   }
 }
