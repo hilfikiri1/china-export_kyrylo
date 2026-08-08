@@ -34,3 +34,5 @@ jobs:
 
       - name: Full dependency audit
         run: npm audit || true
+
+      # This workflow is temporary and will be removed after the final audit.
