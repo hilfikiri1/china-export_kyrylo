@@ -31,8 +31,8 @@ jobs:
 
       - name: Upgrade framework dependencies
         run: |
-          npm install --save-exact next@16.2.12 react@19.2.8 react-dom@19.2.8
-          npm install --save-dev --save-exact eslint-config-next@16.2.12
+          npm install --save-exact next@16.3.0 react@19.2.8 react-dom@19.2.8
+          npm install --save-dev --save-exact eslint-config-next@16.3.0
 
       - name: Apply non-breaking npm audit fixes
         run: npm audit fix
@@ -55,5 +55,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add package.json package-lock.json
-          git commit -m "Refresh transitive dependencies [deps-refresh]"
+          git commit -m "Upgrade Next.js to 16.3.0 and refresh dependencies [deps-refresh]"
           git push
