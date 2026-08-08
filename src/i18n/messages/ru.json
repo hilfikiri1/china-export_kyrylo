@@ -41,7 +41,7 @@
     "footerContact": "Контакты",
     "footerLegal": "Правовая информация",
     "email": "E-mail",
-    "phone": "Telefon",
+    "phone": "Телефон",
     "whatsapp": "WhatsApp",
     "allRightsReserved": "Все права защищены.",
     "modularServices": "Модульные услуги",
@@ -68,7 +68,7 @@
     "cta": "Опишите проект",
     "specializations": "Специализации",
     "clientPortal": "Панель клиента",
-    "blog": "Blog",
+    "blog": "Блог",
     "cantonFair": "Кантонская ярмарка 2026"
   },
   "layout": {
@@ -127,7 +127,7 @@
       }
     },
     "roadmap": {
-      "heading": "Jak przebiega import z Chin",
+      "heading": "Как проходит импорт из Китая",
       "stages": [
         {
           "id": "brief",
@@ -178,13 +178,13 @@
           "imageAlt": "Транспорт и доставка door-to-door"
         }
       ],
-      "eyebrow": "Mapa współpracy",
-      "title": "Twój import krok po kroku",
-      "lead": "Interaktywna ścieżka — od briefu po dostawę pod Twój adres.",
-      "dragHint": "Przeciągnij kontener, użyj kółka myszy lub strzałek ← →",
-      "stageCounter": "Etap {current} / {total}",
-      "trackAriaLabel": "Etapy współpracy",
-      "stageAriaLabel": "Etap {n}: {title}"
+      "eyebrow": "Карта сотрудничества",
+      "title": "Ваш импорт шаг за шагом",
+      "lead": "Интерактивный путь — от брифа до доставки по вашему адресу.",
+      "dragHint": "Перетащите контейнер, используйте колёсико мыши или стрелки ← →",
+      "stageCounter": "Этап {current} / {total}",
+      "trackAriaLabel": "Этапы сотрудничества",
+      "stageAriaLabel": "Этап {n}: {title}"
     },
     "casesTeaser": {
       "eyebrow": "Реализованные проекты",
@@ -197,12 +197,12 @@
         "categories": "Отраслей в проектах",
         "clients": "Обслуженных клиентов"
       },
-      "overlayTitle": "Logistyka i realizacja",
-      "overlayBody": "Od weryfikacji dostawcy po dostawę do magazynu w UE — pełny proces importu w jednym miejscu.",
+      "overlayTitle": "Логистика и реализация",
+      "overlayBody": "От проверки поставщика до доставки на склад в ЕС — полный процесс импорта в одном месте.",
       "bullets": [
-        "Case studies z różnych branż — maszyny, materiały budowlane, EV, opakowania",
-        "Zakres, proces i rezultaty bez ujawniania danych klientów",
-        "275+ obsłużonych firm w 17 lat działalności"
+        "Кейсы из разных отраслей — машины, стройматериалы, EV, упаковка",
+        "Объём, процесс и результаты без раскрытия данных клиентов",
+        "275+ обслуженных компаний за 17 лет работы"
       ]
     },
     "industries": {
@@ -214,22 +214,22 @@
       "description": "Поиск и проверка производителей, контроль качества, производство под собственным брендом, транспортировка, таможенное оформление и доставка из Китая в Польшу, Украину и Европу."
     },
     "aboutGrid": {
-      "sectionAriaLabel": "Zespół i usługi na miejscu w Chinach",
-      "sectionCta": "Poznaj nasz zespół w Chinach",
+      "sectionAriaLabel": "Команда и услуги на месте в Китае",
+      "sectionCta": "Познакомьтесь с нашей командой в Китае",
       "hero": {
-        "title": "Zespół w Chinach",
-        "description": "Zespół operacyjny w Foshan — od weryfikacji dostawców po koordynację produkcji i wysyłki.",
-        "imageAlt": "Zespół Buy & Bring Solutions w Foshan"
+        "title": "Команда в Китае",
+        "description": "Операционная команда в Фошане — от проверки поставщиков до координации производства и отгрузки.",
+        "imageAlt": "Команда Buy & Bring Solutions в Фошане"
       },
       "qualityControl": {
-        "title": "Kontrola jakości i dokumentacja",
-        "description": "Inspekcje QA, raporty z kontroli, certyfikaty i pełna dokumentacja zgodna z wymogami importu do UE.",
-        "imageAlt": "Kontrola jakości towarów przed wysyłką z Chin"
+        "title": "Контроль качества и документация",
+        "description": "Инспекции QA, отчёты по контролю, сертификаты и полная документация в соответствии с требованиями импорта в ЕС.",
+        "imageAlt": "Контроль качества товаров перед отгрузкой из Китая"
       },
       "businessTrips": {
-        "title": "Wyjazdy biznesowe do Chin",
-        "description": "Organizujemy wizyty w fabrykach, tłumaczenia na miejscu i wsparcie podczas negocjacji z dostawcami.",
-        "imageAlt": "Wyjazdy biznesowe do fabryk w Chinach"
+        "title": "Деловые поездки в Китай",
+        "description": "Организуем визиты на фабрики, перевод на месте и поддержку при переговорах с поставщиками.",
+        "imageAlt": "Деловые поездки на фабрики в Китае"
       }
     },
     "heroMap": {
@@ -617,9 +617,9 @@
     "section": {
       "heading": "Услуги под этап вашего проекта",
       "supporting": "Мы можем провести весь процесс импорта или поддержать вас только на выбранном этапе.",
-      "phasesAriaLabel": "Fazy importu",
-      "helpCtaLong": "Potrzebujesz pomocy tylko na tym etapie?",
-      "relatedStagePrefix": "Powiązany etap"
+      "phasesAriaLabel": "Этапы импорта",
+      "helpCtaLong": "Нужна помощь только на этом этапе?",
+      "relatedStagePrefix": "Связанный этап"
     },
     "phases": {
       "pre-production": {
@@ -672,7 +672,7 @@
   },
   "process": {
     "section": {
-      "heading": "Jak przebiega import z Chin",
+      "heading": "Как проходит импорт из Китая",
       "steps": [
         {
           "title": "Бриф и спецификация",
@@ -709,12 +709,12 @@
         "eyebrow": "Карта сотрудничества",
         "title": "Импорт из Китая шаг за шагом",
         "lead": "Каждый проект проходит предсказуемые этапы. Вы знаете, что происходит сейчас, что будет дальше и кто за это отвечает — со стороны Польши и Китая.",
-        "titleLead": "Import z Chin",
-        "titleAccent": "krok po kroku",
+        "titleLead": "Импорт из Китая",
+        "titleAccent": "шаг за шагом",
         "stats": {
-          "experience": "lat doświadczenia",
-          "clients": "obsłużonych klientów",
-          "containers": "dostarczonych kontenerów"
+          "experience": "лет опыта",
+          "clients": "обслуженных клиентов",
+          "containers": "доставленных контейнеров"
         }
       },
       "sections": [
@@ -747,11 +747,11 @@
           "href": "/konsultacja"
         }
       },
-      "stepsAriaLabel": "Etapy procesu importu",
+      "stepsAriaLabel": "Этапы процесса импорта",
       "ctaBand": {
-        "eyebrow": "Gotowy na swój pierwszy import?",
-        "title": "Zacznij bez ryzyka",
-        "body": "Pierwsza konsultacja i wycena są bezpłatne. Zero zobowiązań."
+        "eyebrow": "Готовы к первому импорту?",
+        "title": "Начните без риска",
+        "body": "Первая консультация и оценка бесплатны. Без обязательств."
       }
     }
   },
@@ -854,7 +854,7 @@
         "title": "Спасибо за запрос",
         "description": "Мы свяжемся с вами по выбранной услуге с предложением следующих шагов."
       },
-      "successWithService": "Skontaktujemy się w sprawie wybranej usługi: {service}."
+      "successWithService": "Мы свяжемся по выбранной услуге: {service}."
     }
   },
   "calculator": {
@@ -1027,110 +1027,110 @@
         }
       },
       "layout": {
-        "heroImageAlt": "Kontenery cargo — logistyka i import z Chin",
+        "heroImageAlt": "Грузовые контейнеры — логистика и импорт из Китая",
         "primaryCta": {
-          "label": "Nasza historia",
+          "label": "Наша история",
           "href": "#o-nas-story"
         },
-        "storyEyebrow": "Zespół",
-        "storyImageAlt": "Kontrola jakości towarów przed wysyłką z Chin",
-        "storyAccentLabel": "LAT",
-        "valuesEyebrow": "Współpraca",
+        "storyEyebrow": "Команда",
+        "storyImageAlt": "Контроль качества товаров перед отгрузкой из Китая",
+        "storyAccentLabel": "ГОД",
+        "valuesEyebrow": "Сотрудничество",
         "valueCards": [
           {
             "icon": "layers",
-            "label": "MODUŁOWOŚĆ",
-            "title": "Bez sztywnego pakietu"
+            "label": "МОДУЛЬНОСТЬ",
+            "title": "Без жёсткого пакета"
           },
           {
             "icon": "shield-check",
-            "label": "BEZPIECZEŃSTWO",
-            "title": "Weryfikacja przed płatnością"
+            "label": "БЕЗОПАСНОСТЬ",
+            "title": "Проверка перед оплатой"
           },
           {
             "icon": "file-check",
-            "label": "DOKUMENTACJA",
-            "title": "Zgodność z wymogami UE"
+            "label": "ДОКУМЕНТАЦИЯ",
+            "title": "Соответствие требованиям ЕС"
           }
         ],
         "highlights": {
           "experience": {
-            "mono": "DOŚWIADCZENIE",
-            "label": "Lat doświadczenia"
+            "mono": "ОПЫТ",
+            "label": "Лет опыта"
           },
           "clients": {
-            "mono": "KLIENCI",
-            "label": "Obsłużonych klientów"
+            "mono": "КЛИЕНТЫ",
+            "label": "Обслуженных клиентов"
           },
           "containers": {
-            "mono": "KONTENERY",
-            "label": "Dostarczonych kontenerów"
+            "mono": "КОНТЕЙНЕРЫ",
+            "label": "Доставленных контейнеров"
           },
           "foshan": {
-            "mono": "CHINY",
-            "label": "Operacje w Foshan"
+            "mono": "КИТАЙ",
+            "label": "Операции в Фошане"
           }
         },
         "ctaBand": {
-          "eyebrow": "Kontakt",
-          "title": "Gotowy na import z Chin?",
-          "body": "Niezależnie od skali — od audytu fabryki po pełną logistykę door-to-door. Porozmawiajmy o Twoim projekcie."
+          "eyebrow": "Контакты",
+          "title": "Готовы к импорту из Китая?",
+          "body": "Независимо от масштаба — от аудита завода до полной логистики door-to-door. Обсудим ваш проект."
         }
       },
       "plLayout": {
         "hero": {
-          "titleBefore": "Twój niezawodny ",
-          "titleHighlight": "przedstawiciel",
-          "titleAfter": " w Chinach.",
-          "lead": "Znajdujemy producentów i dostawców. Pracujemy bezpośrednio z fabrykami: weryfikacja, negocjacje, kontrola jakości i bezpieczna wysyłka do Polski.",
+          "titleBefore": "Ваш надёжный ",
+          "titleHighlight": "представитель",
+          "titleAfter": " в Китае.",
+          "lead": "Находим производителей и поставщиков. Работаем напрямую с фабриками: проверка, переговоры, контроль качества и безопасная отгрузка в Польшу.",
           "bullets": [
-            "Zweryfikowani dostawcy",
-            "Doświadczenie w negocjacjach z chińskimi fabrykami",
-            "Kontrola jakości produktów",
-            "Pełne wsparcie na każdym etapie"
+            "Проверенные поставщики",
+            "Опыт переговоров с китайскими фабриками",
+            "Контроль качества продукции",
+            "Полная поддержка на каждом этапе"
           ],
-          "portraitAlt": "Zespół Buy & Bring Solutions w Chinach",
-          "primaryCta": "Zamów usługę"
+          "portraitAlt": "Команда Buy & Bring Solutions в Китае",
+          "primaryCta": "Заказать услугу"
         },
         "intro": {
-          "titleBefore": "Wsparcie biznesu z Chinami ",
-          "titleHighlight": "pod klucz",
+          "titleBefore": "Поддержка бизнеса с Китаем ",
+          "titleHighlight": "под ключ",
           "titleAfter": "",
-          "subtitle": "Wyszukiwanie, dobór i dostawa sprzętu produkcyjnego z Chin do Polski.",
-          "body": "Pomagamy szybko znaleźć właściwy produkt lub producenta pod Twoje wymagania. Mamy bazę sprawdzonych dostawców i doświadczenie w różnych branżach. Obsługujemy zarówno proste zapytania, jak i złożone projekty wymagające dogłębnej analizy rynku."
+          "subtitle": "Поиск, подбор и доставка производственного оборудования из Китая в Польшу.",
+          "body": "Помогаем быстро найти нужный продукт или производителя под ваши требования. У нас есть база проверенных поставщиков и опыт в разных отраслях. Берёмся как за простые запросы, так и за сложные проекты, требующие глубокого анализа рынка."
         },
         "pillars": [
           {
-            "title": "Ekspertyza i doświadczenie",
-            "description": "Ponad 17 lat pracy z Chinami."
+            "title": "Экспертиза и опыт",
+            "description": "Более 17 лет работы с Китаем."
           },
           {
-            "title": "Profesjonalne podejście",
-            "description": "Do każdego klienta."
+            "title": "Профессиональный подход",
+            "description": "К каждому клиенту."
           },
           {
-            "title": "Gwarantowana jakość",
-            "description": "I kontrola na każdym etapie."
+            "title": "Гарантированное качество",
+            "description": "И контроль на каждом этапе."
           }
         ],
         "gallery": {
-          "title": "Jak pracujemy na miejscu w Chinach",
+          "title": "Как мы работаем на месте в Китае",
           "slides": [
             {
-              "alt": "Wizyta w fabryce i rozmowy z producentem w Chinach"
+              "alt": "Визит на фабрику и переговоры с производителем в Китае"
             },
             {
-              "alt": "Kontrola jakości i produkcja w chińskim zakładzie"
+              "alt": "Контроль качества и производство на китайском заводе"
             },
             {
-              "alt": "Magazyn i logistyka — przygotowanie towaru do wysyłki"
+              "alt": "Склад и логистика — подготовка товара к отгрузке"
             }
           ]
         },
         "license": {
-          "title": "Jesteśmy oficjalną firmą w Chinach",
-          "subtitle": "Nasza licencja na prowadzenie działalności (Foshan, Chiny)",
-          "imageAlt": "Chińska licencja biznesowa Foshan Bangbangshun Import and Export Co., Ltd.",
+          "title": "Мы — официальная компания в Китае",
+          "subtitle": "Наша лицензия на ведение деятельности (Фошань, Китай)",
+          "imageAlt": "Китайская бизнес-лицензия Foshan Bangbangshun Import and Export Co., Ltd.",
           "companyName": "佛山市帮帮顺进出口有限公司 (Foshan Bangbangshun Import and Export Co., Ltd.)",
           "registrationCode": "91440605MADL11HKB8"
         }
@@ -1182,26 +1182,26 @@
         "highlights": [
           {
             "value": "17 lat",
-            "label": "Doświadczenia z Chinami"
+            "label": "Опыта работы с Китаем"
           },
           {
             "value": "PL + UA + CN",
-            "label": "Zespół w Polsce, Ukrainie i Chinach"
+            "label": "Команда в Польше, Украине и Китае"
           },
           {
-            "value": "Moduły",
-            "label": "Elastyczny zakres usług"
+            "value": "Модули",
+            "label": "Гибкий объём услуг"
           }
         ],
         "channels": {
           "email": "E-mail",
-          "phonePoland": "Telefon — Polska",
-          "phoneUkraine": "Telefon — Ukraina",
-          "phoneChina": "Telefon — Chiny",
-          "officeUkraine": "Biuro — Ukraina",
-          "officeChina": "Biuro — Chiny (Foshan)"
+          "phonePoland": "Телефон — Польша",
+          "phoneUkraine": "Телефон — Украина",
+          "phoneChina": "Телефон — Китай",
+          "officeUkraine": "Офис — Украина",
+          "officeChina": "Офис — Китай (Фошань)"
         },
-        "consultationHint": "Preferujesz rozmowę telefoniczną? Zadzwoń lub napisz — umówimy termin konsultacji."
+        "consultationHint": "Предпочитаете звонок? Позвоните или напишите — договоримся о консультации."
       }
     },
     "consultation": {
@@ -1242,53 +1242,53 @@
       },
       "layout": {
         "hero": {
-          "badge": "Bezpłatna · 30 min",
-          "titleLead": "Umów konsultację",
-          "titleAccent": "bez zobowiązań",
+          "badge": "Бесплатно · 30 мин",
+          "titleLead": "Записаться на консультацию",
+          "titleAccent": "без обязательств",
           "stats": [
             {
               "value": "30 min",
-              "label": "Czas rozmowy"
+              "label": "Время разговора"
             },
             {
               "value": "Online",
-              "label": "Zoom / Meet / telefon"
+              "label": "Zoom / Meet / телефон"
             },
             {
-              "value": "0 zł",
-              "label": "Bez opłat wstępnych"
+              "value": "0 PLN",
+              "label": "Без предоплаты"
             }
           ]
         },
         "agenda": {
-          "title": "Jak wygląda rozmowa",
+          "title": "Как проходит разговор",
           "steps": [
             {
               "num": "01",
-              "title": "Analiza produktu",
-              "description": "Analiza produktu i wymagań rynku UE"
+              "title": "Анализ продукта",
+              "description": "Анализ продукта и требований рынка ЕС"
             },
             {
               "num": "02",
-              "title": "Ocena ryzyk",
-              "description": "Ocena ryzyk — dostawca, certyfikaty, logistyka"
+              "title": "Оценка рисков",
+              "description": "Оценка рисков — поставщик, сертификаты, логистика"
             },
             {
               "num": "03",
-              "title": "Rekomendacja planu",
-              "description": "Rekomendacja modułów i orientacyjny harmonogram"
+              "title": "Рекомендация плана",
+              "description": "Рекомендация модулей и ориентировочный график"
             },
             {
               "num": "04",
-              "title": "Pytania i koszty",
-              "description": "Odpowiedzi na pytania o proces i koszty"
+              "title": "Вопросы и стоимость",
+              "description": "Ответы на вопросы о процессе и стоимости"
             }
           ],
-          "facilitatorTitle": "Z kim rozmawiasz"
+          "facilitatorTitle": "С кем вы разговариваете"
         },
         "footerCta": {
-          "label": "Zobacz proces importu",
-          "hint": "Poznaj pełną ścieżkę współpracy — od briefu po dostawę door-to-door."
+          "label": "Смотреть процесс импорта",
+          "hint": "Полный путь сотрудничества — от брифа до доставки door-to-door."
         }
       }
     },
@@ -1432,47 +1432,47 @@
         }
       },
       "layout": {
-        "heroImageAlt": "Logistyka i operacje na miejscu w Foshan, Chiny",
+        "heroImageAlt": "Логистика и операции на месте в Фошане, Китай",
         "highlights": [
           {
             "value": "Foshan",
-            "label": "Baza operacyjna w Chinach"
+            "label": "Операционная база в Китае"
           },
           {
             "value": "PL/EN/CN",
-            "label": "Języki zespołu"
+            "label": "Языки команды"
           },
           {
-            "value": "Na miejscu",
-            "label": "Inspekcje i audyty QA"
+            "value": "На месте",
+            "label": "Инспекции и аудиты QA"
           },
           {
             "value": "17 lat",
-            "label": "Doświadczenia z Chinami"
+            "label": "Опыта работы с Китаем"
           }
         ],
         "pillars": [
           {
             "id": "zespol",
-            "imageAlt": "Zespół Buy & Bring Solutions w Foshan"
+            "imageAlt": "Команда Buy & Bring Solutions в Фошане"
           },
           {
             "id": "kontrola-jakosci",
-            "imageAlt": "Kontrola jakości towarów przed wysyłką z Chin"
+            "imageAlt": "Контроль качества товаров перед отгрузкой из Китая"
           },
           {
             "id": "wyjazdy",
-            "imageAlt": "Wyjazdy biznesowe do fabryk w Chinach"
+            "imageAlt": "Деловые поездки на фабрики в Китае"
           }
         ],
         "locations": {
-          "sectionTitle": "Gdzie działamy",
-          "sectionLead": "Nasze operacje w Chinach są koordynowane z Foshan w prowincji Guangdong — blisko producentów i portów eksportowych.",
-          "stepImageAlt": "Operacje Buy & Bring Solutions w Foshan"
+          "sectionTitle": "Где мы работаем",
+          "sectionLead": "Наши операции в Китае координируются из Фошаня, провинция Гуандун — рядом с производителями и экспортными портами.",
+          "stepImageAlt": "Операции Buy & Bring Solutions в Фошане"
         },
-        "heroOverlayTitle": "Operacje terenowe",
-        "heroOverlayBody": "Sourcing, kontrola jakości i wsparcie negocjacyjne — wszystko koordynowane lokalnie, z raportowaniem do Polski.",
-        "statsAriaLabel": "Kluczowe dane zespołu w Chinach"
+        "heroOverlayTitle": "Полевые операции",
+        "heroOverlayBody": "Сорсинг, контроль качества и поддержка переговоров — всё координируется локально с отчётностью в Польшу.",
+        "statsAriaLabel": "Ключевые данные команды в Китае"
       }
     },
     "servicesSourcing": {
