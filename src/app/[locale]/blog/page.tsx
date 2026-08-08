@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Calendar } from "lucide-react";
 import { notFound } from "next/navigation";
+import { isMarketingLocale } from "@/config/marketing-locales";
 import { getPublishedBlogPosts } from "@/lib/blog/posts";
 import { locales } from "@/i18n/config";
 import type { Locale } from "@/i18n/config";
@@ -16,10 +17,11 @@ export const dynamic = "force-dynamic";
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale: l } = await params;
-  if (l !== "pl") return {};
+  if (!isMarketingLocale(l)) return {};
+  const { t } = await getServerTranslation(l as Locale);
   return {
-    title: "Blog — Buy & Bring Solutions",
-    description: "Artykuły o imporcie z Chin, sourcingu i logistyce dla firm.",
+    title: t("pages.blog.meta.title"),
+    description: t("pages.blog.meta.description"),
   };
 }
 
@@ -32,7 +34,7 @@ export default async function BlogPage({ params }: PageProps) {
   if (!locales.includes(localeParam as Locale)) notFound();
   const locale = localeParam as Locale;
 
-  if (locale !== "pl") notFound();
+  if (!isMarketingLocale(locale)) notFound();
 
   const { t } = await getServerTranslation(locale);
   const posts = await getPublishedBlogPosts(locale);
@@ -40,23 +42,23 @@ export default async function BlogPage({ params }: PageProps) {
   return (
     <DedicatedPageShell
       breadcrumbAriaLabel={t("layout.breadcrumb.ariaLabel")}
-      breadcrumbs={buildBreadcrumbs(t, locale, [{ label: "Blog" }])}
+      breadcrumbs={buildBreadcrumbs(t, locale, [{ label: t("pages.blog.eyebrow") }])}
     >
       <div className="mx-auto max-w-3xl px-4 pb-16 pt-8 sm:px-6 sm:pb-20 lg:px-8 lg:pt-12">
         <div className="mb-10">
           <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-accent-light">
-            Blog
+            {t("pages.blog.eyebrow")}
           </p>
           <h1 className="text-3xl font-bold text-white sm:text-4xl">
-            Wiedza o imporcie z Chin
+            {t("pages.blog.title")}
           </h1>
           <p className="mt-3 text-base leading-relaxed text-white/60">
-            Praktyczne artykuły dla firm importujących produkty z Chin.
+            {t("pages.blog.lead")}
           </p>
         </div>
 
         {posts.length === 0 ? (
-          <p className="text-white/50">Brak opublikowanych artykułów.</p>
+          <p className="text-white/50">{t("pages.blog.empty")}</p>
         ) : (
           <ul className="space-y-6">
             {posts.map((post) => (
@@ -93,7 +95,7 @@ export default async function BlogPage({ params }: PageProps) {
                       {post.excerpt}
                     </p>
                     <p className="mt-4 text-xs font-medium text-accent-light">
-                      Czytaj więcej →
+                      {t("pages.blog.readMore")}
                     </p>
                   </div>
                 </Link>

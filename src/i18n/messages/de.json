@@ -85,6 +85,10 @@
       "trustHeading": "Warum Unternehmen Buy & Bring Solutions wählen",
       "ariaLabel": "Startseite"
     },
+    "cantonFairTicker": {
+      "text": "Canton Fair 2026 • Guangzhou • Oktober 2026 • Größte Messe der Welt",
+      "ariaLabel": "Canton Fair 2026 — zur Canton-Fair-Seite"
+    },
     "stats": {
       "ariaLabel": "Wichtige Kennzahlen des Unternehmens",
       "experience": {
@@ -1657,6 +1661,40 @@
           "href": "/realizacje"
         }
       }
+    },
+    "blog": {
+      "meta": {
+        "title": "Blog — Buy & Bring Solutions",
+        "description": "Artikel über Import aus China, Sourcing und Logistik für Unternehmen."
+      },
+      "eyebrow": "Blog",
+      "title": "Wissen über Import aus China",
+      "lead": "Praktische Artikel für Unternehmen, die Produkte aus China importieren.",
+      "empty": "Keine veröffentlichten Artikel.",
+      "readMore": "Weiterlesen →",
+      "postCta": {
+        "title": "Interessiert Sie Import aus China?",
+        "body": "Beschreiben Sie Ihr Projekt — wir schlagen den passenden Umfang vor.",
+        "button": "Kontakt aufnehmen"
+      }
+    },
+    "panel": {
+      "meta": {
+        "title": "Kundenportal — Buy & Bring Solutions"
+      },
+      "title": "Kundenportal",
+      "lead": "Der Zugang zum Kundenportal erfolgt über einen individuellen, sicheren Link von Ihrem Projektbetreuer.",
+      "infoBeforeEmail": "Wenn Sie unser Kunde sind und noch keinen Link zu Ihrem Projekt erhalten haben, wenden Sie sich direkt an Ihren Betreuer oder schreiben Sie an",
+      "infoAfterEmail": ".",
+      "writeUs": "Schreiben Sie uns",
+      "devOnly": "Nur Dev:",
+      "devDemoLabel": "Demo-Projekt:"
+    },
+    "cantonFairBlogTeaser": {
+      "eyebrow": "Im B&BS-Blog",
+      "cta": "Artikel über die Gruppenreise lesen",
+      "defaultTitle": "Canton Fair 2026 mit B&BS — wir organisieren eine Gruppen-Geschäftsreise nach China",
+      "defaultExcerpt": "Im Oktober organisieren wir Gruppenreisen für Unternehmer zur Canton Fair in Guangzhou — mit Sourcing-Unterstützung, Fabrikbesuchen und Auftragsabwicklung."
     }
   },
   "cases": {

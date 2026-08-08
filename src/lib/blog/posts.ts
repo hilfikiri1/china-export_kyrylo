@@ -97,26 +97,38 @@ Oferujemy również bezpłatną wstępną konsultację dla firm, które dopiero 
 
 export const getBlogPostBySlug = cache(
   async (slug: string, locale = "pl"): Promise<BlogPost | undefined> => {
-    if (isNotionBlogConfigured()) {
-      try {
-        return await getNotionBlogPostBySlug(slug, locale);
-      } catch (error) {
-        console.error("[blog] Notion article fetch failed; using static fallback.", error);
+    const fetchPost = async (targetLocale: string) => {
+      if (isNotionBlogConfigured()) {
+        try {
+          return await getNotionBlogPostBySlug(slug, targetLocale);
+        } catch (error) {
+          console.error("[blog] Notion article fetch failed; using static fallback.", error);
+        }
       }
-    }
 
-    return blogPosts.find((p) => p.slug === slug && p.locale === locale && p.published);
+      return blogPosts.find((p) => p.slug === slug && p.locale === targetLocale && p.published);
+    };
+
+    const post = await fetchPost(locale);
+    if (post || locale === "pl") return post;
+    return fetchPost("pl");
   },
 );
 
 export const getPublishedBlogPosts = cache(async (locale = "pl"): Promise<BlogPost[]> => {
-  if (isNotionBlogConfigured()) {
-    try {
-      return await getNotionPublishedBlogPosts(locale);
-    } catch (error) {
-      console.error("[blog] Notion index fetch failed; using static fallback.", error);
+  const fetchPosts = async (targetLocale: string) => {
+    if (isNotionBlogConfigured()) {
+      try {
+        return await getNotionPublishedBlogPosts(targetLocale);
+      } catch (error) {
+        console.error("[blog] Notion index fetch failed; using static fallback.", error);
+      }
     }
-  }
 
-  return blogPosts.filter((p) => p.locale === locale && p.published);
+    return blogPosts.filter((p) => p.locale === targetLocale && p.published);
+  };
+
+  const posts = await fetchPosts(locale);
+  if (posts.length > 0 || locale === "pl") return posts;
+  return fetchPosts("pl");
 });

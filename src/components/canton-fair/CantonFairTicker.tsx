@@ -1,14 +1,14 @@
+"use client";
+
 import Link from "next/link";
-import { localizedPath } from "@/i18n/routing";
 import { CANTON_FAIR_PATH } from "@/content/canton-fair";
+import { useCurrentLocale, useT } from "@/i18n/LocaleProvider";
+import { localizedPath } from "@/i18n/routing";
 
-const TICKER_TEXT =
-  "Canton Fair 2026 • Guangzhou • Październik 2026 • Największe targi świata";
-
-function TickerSequence() {
+function TickerSequence({ text }: { text: string }) {
   const items = Array.from({ length: 6 }, (_, index) => (
     <span key={index} className="inline-flex shrink-0 items-center gap-8 px-8">
-      <span>{TICKER_TEXT}</span>
+      <span>{text}</span>
       <span aria-hidden className="text-accent-light/70">
         ✦
       </span>
@@ -16,17 +16,17 @@ function TickerSequence() {
   ));
 
   return (
-    <span
-      className="flex shrink-0 items-center"
-      style={{ minWidth: "100vw" }}
-    >
+    <span className="flex shrink-0 items-center" style={{ minWidth: "100vw" }}>
       {items}
     </span>
   );
 }
 
 export function CantonFairTicker() {
-  const href = localizedPath("pl", CANTON_FAIR_PATH);
+  const locale = useCurrentLocale();
+  const t = useT();
+  const text = t("home.cantonFairTicker.text");
+  const href = localizedPath(locale, CANTON_FAIR_PATH);
 
   return (
     <div className="canton-fair-ticker relative w-full overflow-hidden border-b border-accent-light/20 bg-[linear-gradient(90deg,rgba(200,146,42,0.18),rgba(20,24,30,0.96),rgba(185,28,28,0.12))] py-2.5 backdrop-blur-sm">
@@ -36,11 +36,11 @@ export function CantonFairTicker() {
       <Link
         href={href}
         className="group block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-light focus-visible:ring-offset-2 focus-visible:ring-offset-surface-deep"
-        aria-label={`${TICKER_TEXT} — przejdź do strony Canton Fair`}
+        aria-label={t("home.cantonFairTicker.ariaLabel")}
       >
         <div className="canton-fair-ticker-track flex items-center text-sm font-semibold uppercase tracking-[0.18em] text-white/85 transition group-hover:text-white">
-          <TickerSequence />
-          <TickerSequence />
+          <TickerSequence text={text} />
+          <TickerSequence text={text} />
         </div>
       </Link>
     </div>

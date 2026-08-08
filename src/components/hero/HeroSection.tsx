@@ -6,13 +6,14 @@ import { HeroBackground } from "@/components/hero/HeroBackground";
 import { HeroCTAs } from "@/components/hero/HeroCTAs";
 import { HeroFlowOverlay } from "@/components/hero/HeroFlowOverlay";
 import { TrustStrip } from "@/components/hero/TrustStrip";
+import { isMarketingLocale } from "@/config/marketing-locales";
 import { useCurrentLocale, useT } from "@/i18n/LocaleProvider";
 import { useMotionConfig, viewportOnce } from "@/lib/motion";
 
 export function HeroSection() {
   const t = useT();
   const locale = useCurrentLocale();
-  const showCantonTicker = locale === "pl";
+  const showCantonTicker = isMarketingLocale(locale);
   const { fadeUp, headerTransition } = useMotionConfig();
 
   return (

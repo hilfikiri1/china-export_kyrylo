@@ -1,4 +1,5 @@
 import type { Locale } from "@/i18n/config";
+import { isMarketingLocale } from "@/config/marketing-locales";
 import { routes, localizedPath } from "@/i18n/routing";
 import { CANTON_FAIR_PATH } from "@/content/canton-fair";
 
@@ -47,7 +48,7 @@ export type NavStandaloneLink = {
 };
 
 export function getStandaloneNavLinks(locale: Locale): NavStandaloneLink[] {
-  if (locale !== "pl") return [];
+  if (!isMarketingLocale(locale)) return [];
 
   return [
     {
@@ -104,7 +105,7 @@ export function getNavGroups(locale: Locale): NavGroup[] {
         { href: localizedPath(locale, routes.calculator), labelKey: "calculator" },
         { href: localizedPath(locale, routes.consultation), labelKey: "consultation" },
         { href: localizedPath(locale, routes.contact), labelKey: "contact" },
-        ...(locale === "pl"
+        ...(isMarketingLocale(locale)
           ? [
               { href: localizedPath(locale, routes.panel), labelKey: "clientPortal" as const },
               { href: localizedPath(locale, routes.blog), labelKey: "blog" as const },
