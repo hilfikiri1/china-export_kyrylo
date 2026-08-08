@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { FileText, FolderKanban, Newspaper, Users } from "lucide-react";
+import { FilePlus2, Files, FolderKanban, Newspaper, Users } from "lucide-react";
 import { locales } from "@/i18n/config";
 import type { Locale } from "@/i18n/config";
 import { notFound } from "next/navigation";
@@ -25,8 +25,14 @@ export default async function BbsPage({
 
   const sections = [
     {
+      href: `/${locale}/bbs/cases`,
+      icon: Files,
+      title: "Case'y",
+      description: "Edytuj, publikuj, ukrywaj, archiwizuj i zarządzaj zdjęciami.",
+    },
+    {
       href: `/${locale}/bbs/nowy-case`,
-      icon: FileText,
+      icon: FilePlus2,
       title: "Nowy case",
       description: "Dodaj zamknięty case do sekcji Realizacje.",
     },
@@ -51,20 +57,18 @@ export default async function BbsPage({
   ];
 
   return (
-    <div className="mx-auto max-w-3xl px-4 py-10 sm:px-6 sm:py-16 lg:px-8">
+    <div className="mx-auto max-w-4xl px-4 py-10 sm:px-6 sm:py-16 lg:px-8">
       <div className="mb-8 rounded-lg border border-accent-light/20 bg-accent-light/5 px-4 py-3 text-xs text-white/60">
         <strong className="text-white/80">Panel wewnętrzny B&amp;BS</strong> — dostęp
         chroniony uwierzytelnieniem administratora.
       </div>
 
-      <h1 className="text-2xl font-bold text-white sm:text-3xl">
-        Panel wewnętrzny
-      </h1>
+      <h1 className="text-2xl font-bold text-white sm:text-3xl">Panel wewnętrzny</h1>
       <p className="mt-2 text-sm text-white/50">
         Narzędzia robocze dla zespołu Buy &amp; Bring Solutions.
       </p>
 
-      <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {sections.map(({ href, icon: Icon, title, description }) => (
           <Link
             key={href}
@@ -73,13 +77,10 @@ export default async function BbsPage({
           >
             <Icon className="mb-3 h-6 w-6 text-accent-light" aria-hidden />
             <p className="font-semibold text-white">{title}</p>
-            <p className="mt-1 text-xs leading-relaxed text-white/50">
-              {description}
-            </p>
+            <p className="mt-1 text-xs leading-relaxed text-white/50">{description}</p>
           </Link>
         ))}
       </div>
-
     </div>
   );
 }
