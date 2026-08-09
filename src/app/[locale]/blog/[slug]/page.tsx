@@ -16,10 +16,19 @@ type PageProps = { params: Promise<{ locale: string; slug: string }> };
 
 export const revalidate = 300;
 
-function absoluteMediaUrl(value?: string) {
-  if (!value) return `${siteUrl}/image/plane_shipment.jpg`;
-  if (/^https?:\/\//i.test(value)) return value;
-  return `${siteUrl}${value.startsWith("/") ? value : `/${value}`}`;
+const DEFAULT_OG_IMAGE = `${siteUrl}/image/plane_shipment.jpg`;
+
+function stableSeoImage(value?: string) {
+  if (!value) return DEFAULT_OG_IMAGE;
+  if (value.startsWith("/")) return `${siteUrl}${value}`;
+  try {
+    const url = new URL(value);
+    const signed = [...url.searchParams.keys()].some((key) => key.toLowerCase().startsWith("x-amz-"));
+    const temporaryHost = url.hostname.endsWith("amazonaws.com") || url.hostname.includes("notion");
+    return signed || temporaryHost ? DEFAULT_OG_IMAGE : url.toString();
+  } catch {
+    return DEFAULT_OG_IMAGE;
+  }
 }
 
 function renderBlogContent(content: string): ReactNode[] {
@@ -118,7 +127,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const title = post.seoTitle ?? post.title;
   const description = post.seoDescription ?? post.excerpt;
   const url = `${siteUrl}/pl/blog/${post.slug}`;
-  const image = absoluteMediaUrl(post.coverImage);
+  const image = stableSeoImage(post.coverImage);
 
   return {
     title: { absolute: title },
@@ -162,7 +171,7 @@ export default async function BlogPostPage({ params }: PageProps) {
 
   const { t } = await getServerTranslation(locale);
   const canonicalUrl = `${siteUrl}/pl/blog/${post.slug}`;
-  const image = absoluteMediaUrl(post.coverImage);
+  const image = stableSeoImage(post.coverImage);
   const description = post.seoDescription ?? post.excerpt;
   const relatedPosts = allPosts
     .filter((item) => item.slug !== post.slug)
