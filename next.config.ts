@@ -35,6 +35,18 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
+        source: "/:path*",
+        has: [{ type: "host", value: "china-exportkyrylo.vercel.app" }],
+        destination: "https://global.buybringsolutions.com/:path*",
+        permanent: true,
+      },
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "china-exportkyrylo-kkkyri.vercel.app" }],
+        destination: "https://global.buybringsolutions.com/:path*",
+        permanent: true,
+      },
+      {
         source: "/wyjazdy-do-chin",
         destination: "/pl/zespol-w-chinach",
         permanent: true,
