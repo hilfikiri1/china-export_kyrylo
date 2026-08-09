@@ -2,7 +2,7 @@
 
 import Script from "next/script";
 import { usePathname } from "next/navigation";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useSyncExternalStore } from "react";
 import {
   COOKIE_CONSENT_EVENT,
   getCookieConsent,
@@ -15,12 +15,30 @@ const META_PIXEL_ID = process.env.NEXT_PUBLIC_META_PIXEL_ID?.trim() ?? "";
 const PRIVATE_PATH_RE = /^\/(?:pl|en|uk|ru|de|zh)\/(?:bbs|panel)(?:\/|$)/;
 const CASE_PATH_RE = /^\/(?:pl|en|uk|ru|de|zh)\/realizacje\/[^/]+\/?$/;
 
+function subscribeToConsent(callback: () => void) {
+  window.addEventListener(COOKIE_CONSENT_EVENT, callback);
+  window.addEventListener("storage", callback);
+  return () => {
+    window.removeEventListener(COOKIE_CONSENT_EVENT, callback);
+    window.removeEventListener("storage", callback);
+  };
+}
+
+function getConsentSnapshot(): CookieConsent {
+  return getCookieConsent();
+}
+
+function getServerConsentSnapshot(): CookieConsent {
+  return null;
+}
+
 function formTypeFromBody(body: BodyInit | null | undefined) {
   if (body instanceof FormData) {
     const formType = body.get("formType");
+    const budget = body.get("budget");
     return {
       formType: typeof formType === "string" ? formType : "contact",
-      budget: typeof body.get("budget") === "string" ? String(body.get("budget")) : undefined,
+      budget: typeof budget === "string" ? budget : undefined,
     };
   }
 
@@ -44,28 +62,27 @@ function isContactEndpoint(input: RequestInfo | URL) {
 
 export function MarketingAnalytics() {
   const pathname = usePathname();
-  const [consent, setConsent] = useState<CookieConsent>(null);
+  const consent = useSyncExternalStore(
+    subscribeToConsent,
+    getConsentSnapshot,
+    getServerConsentSnapshot,
+  );
   const startedForms = useRef(new WeakSet<HTMLFormElement>());
   const lastCaseView = useRef("");
 
   useEffect(() => {
-    setConsent(getCookieConsent());
-    const onConsent = () => setConsent(getCookieConsent());
-    window.addEventListener(COOKIE_CONSENT_EVENT, onConsent);
-    window.addEventListener("storage", onConsent);
-    return () => {
-      window.removeEventListener(COOKIE_CONSENT_EVENT, onConsent);
-      window.removeEventListener("storage", onConsent);
-    };
-  }, []);
-
-  useEffect(() => {
     if (consent !== "all" || PRIVATE_PATH_RE.test(pathname)) return;
-    trackEvent("page_view", { page_path: pathname });
-    if (CASE_PATH_RE.test(pathname) && lastCaseView.current !== pathname) {
-      lastCaseView.current = pathname;
-      trackEvent("case_view", { case_slug: pathname.split("/").filter(Boolean).at(-1), page_path: pathname });
-    }
+    const timer = window.setTimeout(() => {
+      trackEvent("page_view", { page_path: pathname });
+      if (CASE_PATH_RE.test(pathname) && lastCaseView.current !== pathname) {
+        lastCaseView.current = pathname;
+        trackEvent("case_view", {
+          case_slug: pathname.split("/").filter(Boolean).at(-1),
+          page_path: pathname,
+        });
+      }
+    }, 100);
+    return () => window.clearTimeout(timer);
   }, [consent, pathname]);
 
   useEffect(() => {
@@ -79,7 +96,11 @@ export function MarketingAnalytics() {
       if (!form.querySelector('[name="email"]')) return;
 
       startedForms.current.add(form);
-      const formType = form.querySelector('[name="budget"]') ? "contact" : form.querySelector('[name="topic"]') ? "consultation" : "other";
+      const formType = form.querySelector('[name="budget"]')
+        ? "contact"
+        : form.querySelector('[name="topic"]')
+          ? "consultation"
+          : "other";
       trackEvent("form_start", { form_type: formType, page_path: pathname });
     };
 
@@ -96,7 +117,7 @@ export function MarketingAnalytics() {
       }
 
       if (!pathname.includes("/kalkulator")) return;
-      const button = target.closest("button[type=\"button\"]");
+      const button = target.closest('button[type="button"]');
       if (!(button instanceof HTMLButtonElement)) return;
       const inputSection = button.closest("section");
       if (!inputSection?.querySelector("#goods") || !inputSection.querySelector("#mode")) return;
