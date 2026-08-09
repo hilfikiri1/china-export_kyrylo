@@ -52,26 +52,31 @@ function title(value: string) {
   };
 }
 
-function numberFromPage(page: Parameters<typeof isFullPage>[0], propertyName: string) {
-  if (!isFullPage(page)) return null;
-  const property = page.properties[propertyName];
-  return property?.type === "number" ? property.number : null;
-}
-
 export async function getPortalProjectKommoIds() {
-  const response = await notion().dataSources.query({
-    data_source_id: dataSourceId(),
-    result_type: "page",
-    page_size: 100,
-    filter: { property: "Тип записи", select: { equals: "Проект" } },
-  });
-
   const result = new Map<string, number>();
-  for (const item of response.results) {
-    if (!isFullPage(item)) continue;
-    const kommoId = numberFromPage(item, "Kommo ID");
-    if (typeof kommoId === "number" && Number.isFinite(kommoId)) result.set(item.id, kommoId);
-  }
+  let startCursor: string | undefined;
+
+  do {
+    const response = await notion().dataSources.query({
+      data_source_id: dataSourceId(),
+      result_type: "page",
+      page_size: 100,
+      ...(startCursor ? { start_cursor: startCursor } : {}),
+      filter: { property: "Тип записи", select: { equals: "Проект" } },
+    });
+
+    for (const item of response.results) {
+      if (!isFullPage(item)) continue;
+      const property = item.properties["Kommo ID"];
+      const kommoId = property?.type === "number" ? property.number : null;
+      if (typeof kommoId === "number" && Number.isFinite(kommoId)) {
+        result.set(item.id, kommoId);
+      }
+    }
+
+    startCursor = response.has_more ? (response.next_cursor ?? undefined) : undefined;
+  } while (startCursor);
+
   return result;
 }
 
