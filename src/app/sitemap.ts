@@ -5,6 +5,7 @@ import { siteUrl } from "@/config/seo";
 import { CANTON_FAIR_PATH } from "@/content/canton-fair";
 import { caseStudies } from "@/content/cases";
 import { getCasesForLocale } from "@/lib/cases/notion";
+import { getPublishedBlogPosts } from "@/lib/blog/posts";
 
 export const revalidate = 300;
 
@@ -37,25 +38,28 @@ function safeDate(value?: string) {
   return Number.isNaN(date.getTime()) ? undefined : date;
 }
 
+function alternateMap(path: string) {
+  return {
+    ...Object.fromEntries(
+      locales.map((locale) => [
+        locale,
+        path ? `${siteUrl}/${locale}/${path}` : `${siteUrl}/${locale}`,
+      ]),
+    ),
+    "x-default": path ? `${siteUrl}/pl/${path}` : `${siteUrl}/pl`,
+  };
+}
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const entries: MetadataRoute.Sitemap = [];
 
   for (const locale of locales) {
     for (const path of staticPaths) {
       entries.push({
-        url: path
-          ? `${siteUrl}/${locale}/${path}`
-          : `${siteUrl}/${locale}`,
+        url: path ? `${siteUrl}/${locale}/${path}` : `${siteUrl}/${locale}`,
         changeFrequency: path === "" ? "weekly" : "monthly",
         priority: path === "" ? 1 : 0.8,
-        alternates: {
-          languages: Object.fromEntries(
-            locales.map((l) => [
-              l,
-              path ? `${siteUrl}/${l}/${path}` : `${siteUrl}/${l}`,
-            ]),
-          ),
-        },
+        alternates: { languages: alternateMap(path) },
       });
     }
 
@@ -68,19 +72,28 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         changeFrequency: "monthly",
         priority: 0.7,
         ...(isStaticCase
-          ? {
-              alternates: {
-                languages: Object.fromEntries(
-                  locales.map((l) => [
-                    l,
-                    `${siteUrl}/${l}/${routes.cases}/${item.slug}`,
-                  ]),
-                ),
-              },
-            }
+          ? { alternates: { languages: alternateMap(`${routes.cases}/${item.slug}`) } }
           : {}),
       });
     }
+  }
+
+  const blogPosts = await getPublishedBlogPosts("pl");
+  entries.push({
+    url: `${siteUrl}/pl/blog`,
+    lastModified: blogPosts.map((post) => safeDate(post.date)?.getTime() ?? 0).reduce((max, value) => Math.max(max, value), 0)
+      ? new Date(Math.max(...blogPosts.map((post) => safeDate(post.date)?.getTime() ?? 0)))
+      : undefined,
+    changeFrequency: "weekly",
+    priority: 0.85,
+  });
+  for (const post of blogPosts) {
+    entries.push({
+      url: `${siteUrl}/pl/blog/${post.slug}`,
+      lastModified: safeDate(post.date),
+      changeFrequency: "monthly",
+      priority: 0.75,
+    });
   }
 
   entries.push({

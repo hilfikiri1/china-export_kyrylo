@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, Inter, Noto_Sans_SC } from "next/font/google";
 import { notFound } from "next/navigation";
 import Script from "next/script";
+import { MarketingAnalytics } from "@/components/analytics/MarketingAnalytics";
 import { LogisticsBackdrop } from "@/components/backgrounds/LogisticsBackdrop";
 import { CookieBanner } from "@/components/layout/CookieBanner";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { getThemeInitScript } from "@/components/theme/theme-init-script";
 import { ThemeProvider } from "@/components/theme/ThemeProvider";
-import { company } from "@/config/company";
 import { htmlLang, locales, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/get-dictionary";
 import { LocaleProvider } from "@/i18n/LocaleProvider";
@@ -84,6 +84,7 @@ export default async function LocaleLayout({
             <main className="relative z-10 flex-1 pt-16">{children}</main>
             <Footer />
             <CookieBanner />
+            <MarketingAnalytics />
           </LocaleProvider>
         </ThemeProvider>
       </body>

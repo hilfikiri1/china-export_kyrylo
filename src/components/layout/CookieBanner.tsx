@@ -4,22 +4,24 @@ import { useSyncExternalStore } from "react";
 import Link from "next/link";
 import { useMessages, useLocale } from "@/i18n/LocaleProvider";
 import { localizedPath, routes } from "@/i18n/routing";
-
-const CONSENT_KEY = "bbs_cookie_consent";
-const CONSENT_EVENT = "bbs-cookie-consent-change";
+import {
+  COOKIE_CONSENT_EVENT,
+  COOKIE_CONSENT_KEY,
+  setCookieConsent,
+} from "@/lib/analytics";
 
 function subscribeToConsent(callback: () => void) {
   window.addEventListener("storage", callback);
-  window.addEventListener(CONSENT_EVENT, callback);
+  window.addEventListener(COOKIE_CONSENT_EVENT, callback);
 
   return () => {
     window.removeEventListener("storage", callback);
-    window.removeEventListener(CONSENT_EVENT, callback);
+    window.removeEventListener(COOKIE_CONSENT_EVENT, callback);
   };
 }
 
 function getConsentSnapshot() {
-  return localStorage.getItem(CONSENT_KEY) === null;
+  return localStorage.getItem(COOKIE_CONSENT_KEY) === null;
 }
 
 function getServerConsentSnapshot() {
@@ -36,11 +38,6 @@ export function CookieBanner() {
   );
 
   if (!visible) return null;
-
-  function accept(all = true) {
-    localStorage.setItem(CONSENT_KEY, all ? "all" : "essential");
-    window.dispatchEvent(new Event(CONSENT_EVENT));
-  }
 
   return (
     <div
@@ -62,14 +59,14 @@ export function CookieBanner() {
         <div className="flex shrink-0 flex-wrap gap-2">
           <button
             type="button"
-            onClick={() => accept(false)}
+            onClick={() => setCookieConsent("essential")}
             className="rounded-lg border border-white/20 px-4 py-2 text-sm text-white/80 hover:bg-white/5"
           >
             {messages.cookie.reject}
           </button>
           <button
             type="button"
-            onClick={() => accept(true)}
+            onClick={() => setCookieConsent("all")}
             className="rounded-lg border border-accent-light/20 bg-accent-light px-4 py-2 text-sm font-semibold text-white hover:bg-[#dbaa47]"
           >
             {messages.cookie.accept}

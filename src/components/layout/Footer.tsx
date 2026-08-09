@@ -13,9 +13,19 @@ import {
 } from "@/config/navigation";
 import { useLocale, useMessages } from "@/i18n/LocaleProvider";
 import { localizedPath, routes } from "@/i18n/routing";
+import { resetCookieConsent } from "@/lib/analytics";
 
 const footerLinkClassName =
   "text-white/60 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-light focus-visible:ring-offset-2 focus-visible:ring-offset-navy";
+
+const cookieSettingsLabel = {
+  pl: "Ustawienia cookies",
+  en: "Cookie settings",
+  uk: "Налаштування cookies",
+  ru: "Настройки cookies",
+  de: "Cookie-Einstellungen",
+  zh: "Cookie 设置",
+} as const;
 
 export function Footer() {
   const { locale } = useLocale();
@@ -186,6 +196,13 @@ export function Footer() {
           >
             {messages.common.cookiePolicy}
           </Link>
+          <button
+            type="button"
+            onClick={resetCookieConsent}
+            className={footerLinkClassName}
+          >
+            {cookieSettingsLabel[locale]}
+          </button>
           <Link
             href={localizedPath(locale, routes.terms)}
             className={footerLinkClassName}

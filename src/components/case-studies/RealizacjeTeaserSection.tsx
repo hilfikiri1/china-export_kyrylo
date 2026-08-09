@@ -3,19 +3,40 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { LogisticsBackdrop } from "@/components/backgrounds/LogisticsBackdrop";
 import { SectionEdgeFade } from "@/components/backgrounds/SectionEdgeFade";
 import { getRealizacjeTeaser } from "@/content/i18n/realizacje-teaser";
 import { useTranslation } from "@/i18n/LocaleProvider";
+import type { LocalizedCaseStudy } from "@/lib/cases/types";
 import { useMotionConfig, viewportOnce } from "@/lib/motion";
 
-export function RealizacjeTeaserSection() {
+type Props = {
+  cases: LocalizedCaseStudy[];
+};
+
+const recentLabels: Record<string, string> = {
+  pl: "Najnowsze realizacje",
+  en: "Latest case studies",
+  uk: "Останні кейси",
+  ru: "Последние кейсы",
+  de: "Neueste Projekte",
+  zh: "最新案例",
+};
+
+export function RealizacjeTeaserSection({ cases }: Props) {
   const [imageError, setImageError] = useState(false);
   const { fadeUp, headerTransition } = useMotionConfig();
   const { locale, messages } = useTranslation();
   const content = getRealizacjeTeaser(messages, locale);
+  const recentCases = cases.slice(0, 3);
+  const categoryCount = new Set(cases.map((item) => item.category.trim()).filter(Boolean)).size;
+  const highlights = content.highlights.map((item, index) => {
+    if (index === 0) return { ...item, value: String(cases.length) };
+    if (index === 1) return { ...item, value: String(categoryCount) };
+    return item;
+  });
 
   return (
     <section
@@ -49,7 +70,7 @@ export function RealizacjeTeaserSection() {
             </p>
 
             <div className="mt-8 grid grid-cols-3 gap-3">
-              {content.highlights.map((item) => (
+              {highlights.map((item) => (
                 <div
                   key={item.label}
                   className="rounded-xl border border-white/10 bg-navy-light/50 px-3 py-4 text-center sm:px-4 sm:py-5"
@@ -98,8 +119,8 @@ export function RealizacjeTeaserSection() {
           >
             {!imageError ? (
               <Image
-                src={content.image}
-                alt={content.imageAlt}
+                src={recentCases[0]?.coverImage || content.image}
+                alt={recentCases[0]?.title || content.imageAlt}
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover"
@@ -112,19 +133,64 @@ export function RealizacjeTeaserSection() {
               />
             )}
             <div
-              className="absolute inset-0 bg-gradient-to-t from-navy/80 via-navy/20 to-transparent"
+              className="absolute inset-0 bg-gradient-to-t from-navy/90 via-navy/25 to-transparent"
               aria-hidden
             />
             <div className="absolute inset-x-0 bottom-0 z-10 p-6 sm:p-8">
               <p className="text-xs font-semibold tracking-widest text-accent-light uppercase">
-                {content.overlayTitle}
+                {recentCases[0]?.category || content.overlayTitle}
               </p>
-              <p className="mt-2 max-w-sm text-sm leading-relaxed text-white/80">
-                {content.overlayBody}
+              <p className="mt-2 max-w-sm text-lg font-semibold leading-relaxed text-white">
+                {recentCases[0]?.title || content.overlayBody}
               </p>
+              {recentCases[0] && (
+                <Link
+                  href={`${content.cta.href}/${recentCases[0].slug}`}
+                  className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-white/75 hover:text-accent-light"
+                >
+                  {content.cta.label} <ArrowUpRight className="h-4 w-4" aria-hidden />
+                </Link>
+              )}
             </div>
           </motion.div>
         </div>
+
+        {recentCases.length > 1 && (
+          <div className="mt-14 border-t border-white/10 pt-8">
+            <div className="mb-5 flex items-center justify-between gap-4">
+              <p className="text-xs font-semibold tracking-widest text-white/45 uppercase">
+                {recentLabels[locale] || recentLabels.en}
+              </p>
+              <Link href={content.cta.href} className="text-xs font-medium text-accent-light hover:underline">
+                {content.cta.label}
+              </Link>
+            </div>
+            <div className="grid gap-4 md:grid-cols-3">
+              {recentCases.map((caseStudy) => (
+                <Link
+                  key={caseStudy.slug}
+                  href={`${content.cta.href}/${caseStudy.slug}`}
+                  className="group overflow-hidden rounded-xl border border-white/10 bg-navy-light/55 transition hover:border-accent-light/30"
+                >
+                  <div className="relative aspect-[16/9] overflow-hidden bg-navy">
+                    <Image
+                      src={caseStudy.coverImage || content.image}
+                      alt={caseStudy.title}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                      className="object-cover opacity-80 transition duration-500 group-hover:scale-105 group-hover:opacity-100"
+                    />
+                  </div>
+                  <div className="p-4">
+                    <p className="text-[10px] font-semibold tracking-wider text-accent-light uppercase">{caseStudy.category}</p>
+                    <h3 className="mt-1 line-clamp-2 text-sm font-semibold leading-snug text-white">{caseStudy.title}</h3>
+                    <p className="mt-2 line-clamp-2 text-xs leading-relaxed text-white/45">{caseStudy.summary}</p>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );

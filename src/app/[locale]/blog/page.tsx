@@ -9,17 +9,54 @@ import type { Locale } from "@/i18n/config";
 import { DedicatedPageShell } from "@/components/pages/DedicatedPageShell";
 import { getServerTranslation } from "@/i18n/server";
 import { buildBreadcrumbs } from "@/lib/breadcrumbs";
+import { siteUrl } from "@/config/seo";
 
 type PageProps = { params: Promise<{ locale: string }> };
 
-export const dynamic = "force-dynamic";
+export const revalidate = 300;
+
+const BLOG_TITLE = "Blog o imporcie z Chin, sourcingu i logistyce — Buy & Bring Solutions";
+const BLOG_DESCRIPTION =
+  "Praktyczne artykuły B2B o imporcie z Chin: sourcing dostawców, audyty fabryk, kontrola jakości, logistyka, negocjacje i bezpieczna organizacja zakupów.";
+const BLOG_URL = `${siteUrl}/pl/blog`;
+const DEFAULT_OG_IMAGE = `${siteUrl}/image/plane_shipment.jpg`;
+
+function stableSeoImage(value?: string) {
+  if (!value) return DEFAULT_OG_IMAGE;
+  if (value.startsWith("/")) return `${siteUrl}${value}`;
+  try {
+    const url = new URL(value);
+    const signed = [...url.searchParams.keys()].some((key) => key.toLowerCase().startsWith("x-amz-"));
+    const temporaryHost = url.hostname.endsWith("amazonaws.com") || url.hostname.includes("notion");
+    return signed || temporaryHost ? DEFAULT_OG_IMAGE : url.toString();
+  } catch {
+    return DEFAULT_OG_IMAGE;
+  }
+}
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale: l } = await params;
-  if (l !== "pl") return {};
+  if (l !== "pl") return { robots: { index: false, follow: false } };
   return {
-    title: "Blog — Buy & Bring Solutions",
-    description: "Artykuły o imporcie z Chin, sourcingu i logistyce dla firm.",
+    title: { absolute: BLOG_TITLE },
+    description: BLOG_DESCRIPTION,
+    alternates: { canonical: BLOG_URL },
+    robots: { index: true, follow: true },
+    openGraph: {
+      title: BLOG_TITLE,
+      description: BLOG_DESCRIPTION,
+      url: BLOG_URL,
+      siteName: "Buy & Bring Solutions",
+      locale: "pl_PL",
+      type: "website",
+      images: [{ url: DEFAULT_OG_IMAGE, alt: "Buy & Bring Solutions — import z Chin" }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: BLOG_TITLE,
+      description: BLOG_DESCRIPTION,
+      images: [DEFAULT_OG_IMAGE],
+    },
   };
 }
 
@@ -36,12 +73,47 @@ export default async function BlogPage({ params }: PageProps) {
 
   const { t } = await getServerTranslation(locale);
   const posts = await getPublishedBlogPosts(locale);
+  const blogJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    name: "Buy & Bring Solutions — Blog",
+    description: BLOG_DESCRIPTION,
+    url: BLOG_URL,
+    inLanguage: "pl-PL",
+    publisher: {
+      "@type": "Organization",
+      name: "Buy & Bring Solutions",
+      url: siteUrl,
+      logo: { "@type": "ImageObject", url: `${siteUrl}/brand/logo.svg` },
+    },
+    blogPost: posts.slice(0, 20).map((post) => ({
+      "@type": "BlogPosting",
+      headline: post.title,
+      description: post.seoDescription ?? post.excerpt,
+      datePublished: post.date,
+      url: `${BLOG_URL}/${post.slug}`,
+      author: { "@type": "Organization", name: post.author || "Buy & Bring Solutions" },
+      image: stableSeoImage(post.coverImage),
+    })),
+  };
+  const listJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    itemListElement: posts.map((post, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      url: `${BLOG_URL}/${post.slug}`,
+      name: post.title,
+    })),
+  };
 
   return (
     <DedicatedPageShell
       breadcrumbAriaLabel={t("layout.breadcrumb.ariaLabel")}
       breadcrumbs={buildBreadcrumbs(t, locale, [{ label: "Blog" }])}
     >
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(blogJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(listJsonLd) }} />
       <div className="mx-auto max-w-3xl px-4 pb-16 pt-8 sm:px-6 sm:pb-20 lg:px-8 lg:pt-12">
         <div className="mb-10">
           <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-accent-light">
@@ -51,7 +123,7 @@ export default async function BlogPage({ params }: PageProps) {
             Wiedza o imporcie z Chin
           </h1>
           <p className="mt-3 text-base leading-relaxed text-white/60">
-            Praktyczne artykuły dla firm importujących produkty z Chin.
+            Praktyczne artykuły dla firm importujących produkty z Chin: sourcing, weryfikacja fabryk, kontrola jakości, negocjacje i logistyka.
           </p>
         </div>
 
@@ -86,10 +158,10 @@ export default async function BlogPage({ params }: PageProps) {
                         {post.date}
                       </span>
                     </div>
-                    <h2 className="text-lg font-bold text-white group-hover:text-accent-light/90 transition-colors">
+                    <h2 className="text-lg font-bold text-white transition-colors group-hover:text-accent-light/90">
                       {post.title}
                     </h2>
-                    <p className="mt-2 text-sm leading-relaxed text-white/60 line-clamp-2">
+                    <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-white/60">
                       {post.excerpt}
                     </p>
                     <p className="mt-4 text-xs font-medium text-accent-light">

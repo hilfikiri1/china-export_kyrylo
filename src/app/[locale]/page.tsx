@@ -18,10 +18,13 @@ import {
   siteUrl,
 } from "@/config/seo";
 import { locales, type Locale } from "@/i18n/config";
+import { getCasesForLocale } from "@/lib/cases/notion";
 
 type PageProps = {
   params: Promise<{ locale: string }>;
 };
+
+export const revalidate = 300;
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -54,6 +57,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 export default async function Home({ params }: PageProps) {
   const { locale: localeParam } = await params;
   const locale = localeParam as Locale;
+  const cases = await getCasesForLocale(locale);
 
   const jsonLd = {
     ...organizationStructuredData,
@@ -71,7 +75,7 @@ export default async function Home({ params }: PageProps) {
       <StatsBanner />
       <ServicesSection />
       <HomeAudienceSection />
-      <RealizacjeTeaserSection />
+      <RealizacjeTeaserSection cases={cases} />
       <AboutGridSection />
       <SpecializationsSection />
       <HomeMissionSection />
