@@ -21,6 +21,19 @@ const BLOG_DESCRIPTION =
 const BLOG_URL = `${siteUrl}/pl/blog`;
 const DEFAULT_OG_IMAGE = `${siteUrl}/image/plane_shipment.jpg`;
 
+function stableSeoImage(value?: string) {
+  if (!value) return DEFAULT_OG_IMAGE;
+  if (value.startsWith("/")) return `${siteUrl}${value}`;
+  try {
+    const url = new URL(value);
+    const signed = [...url.searchParams.keys()].some((key) => key.toLowerCase().startsWith("x-amz-"));
+    const temporaryHost = url.hostname.endsWith("amazonaws.com") || url.hostname.includes("notion");
+    return signed || temporaryHost ? DEFAULT_OG_IMAGE : url.toString();
+  } catch {
+    return DEFAULT_OG_IMAGE;
+  }
+}
+
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale: l } = await params;
   if (l !== "pl") return { robots: { index: false, follow: false } };
@@ -80,7 +93,7 @@ export default async function BlogPage({ params }: PageProps) {
       datePublished: post.date,
       url: `${BLOG_URL}/${post.slug}`,
       author: { "@type": "Organization", name: post.author || "Buy & Bring Solutions" },
-      ...(post.coverImage ? { image: post.coverImage } : {}),
+      image: stableSeoImage(post.coverImage),
     })),
   };
   const listJsonLd = {
