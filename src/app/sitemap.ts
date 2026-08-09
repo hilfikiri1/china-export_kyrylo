@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { locales } from "@/i18n/config";
 import { routes } from "@/i18n/routing";
 import { siteUrl } from "@/config/seo";
+import { marketingLocales } from "@/config/marketing-locales";
 import { CANTON_FAIR_PATH } from "@/content/canton-fair";
 import { caseStudies } from "@/content/cases";
 import { getCasesForLocale } from "@/lib/cases/notion";
@@ -83,12 +84,20 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }
   }
 
-  entries.push({
-    url: `${siteUrl}/pl/${CANTON_FAIR_PATH}`,
-    lastModified: new Date("2026-08-07"),
-    changeFrequency: "weekly",
-    priority: 0.9,
-  });
+  for (const locale of marketingLocales) {
+    entries.push({
+      url: `${siteUrl}/${locale}/${CANTON_FAIR_PATH}`,
+      lastModified: new Date("2026-08-07"),
+      changeFrequency: "weekly",
+      priority: 0.9,
+    });
+    entries.push({
+      url: `${siteUrl}/${locale}/${routes.blog}`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.7,
+    });
+  }
 
   return entries;
 }

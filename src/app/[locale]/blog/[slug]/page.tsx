@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import Image from "next/image";
 import { notFound } from "next/navigation";
+import { isMarketingLocale } from "@/config/marketing-locales";
 import { Calendar, User } from "lucide-react";
 import { getBlogPostBySlug } from "@/lib/blog/posts";
 import { locales } from "@/i18n/config";
@@ -117,7 +118,7 @@ export default async function BlogPostPage({ params }: PageProps) {
   if (!locales.includes(localeParam as Locale)) notFound();
   const locale = localeParam as Locale;
 
-  if (locale !== "pl") notFound();
+  if (!isMarketingLocale(locale)) notFound();
 
   const post = await getBlogPostBySlug(slug, locale);
   if (!post) notFound();
@@ -128,7 +129,7 @@ export default async function BlogPostPage({ params }: PageProps) {
     <DedicatedPageShell
       breadcrumbAriaLabel={t("layout.breadcrumb.ariaLabel")}
       breadcrumbs={buildBreadcrumbs(t, locale, [
-        { label: "Blog", href: `/${locale}/blog` },
+        { label: t("pages.blog.eyebrow"), href: `/${locale}/blog` },
         { label: post.title },
       ])}
     >
@@ -175,15 +176,15 @@ export default async function BlogPostPage({ params }: PageProps) {
 
         {/* CTA */}
         <div className="mt-12 rounded-2xl border border-accent-light/20 bg-accent-light/5 p-5 sm:p-6">
-          <p className="font-semibold text-white">Interesuje Cię import z Chin?</p>
+          <p className="font-semibold text-white">{t("pages.blog.postCta.title")}</p>
           <p className="mt-1 text-sm text-white/60">
-            Opisz swój projekt — zaproponujemy zakres wsparcia.
+            {t("pages.blog.postCta.body")}
           </p>
           <a
             href={`/${locale}/kontakt`}
             className="mt-4 inline-block rounded-lg border border-accent-light/20 bg-accent-light px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-accent-light/25 hover:bg-[#dbaa47]"
           >
-            Skontaktuj się
+            {t("pages.blog.postCta.button")}
           </a>
         </div>
       </article>

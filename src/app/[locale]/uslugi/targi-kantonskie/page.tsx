@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { isMarketingLocale } from "@/config/marketing-locales";
 import {
   ArrowRight,
   BadgeCheck,
@@ -179,7 +180,7 @@ const eventJsonLd = {
 export default async function CantonFairPage({ params }: PageProps) {
   const { locale: localeParam } = await params;
 
-  if (localeParam !== "pl") {
+  if (!isMarketingLocale(localeParam)) {
     notFound();
   }
 

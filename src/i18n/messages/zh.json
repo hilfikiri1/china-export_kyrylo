@@ -85,6 +85,10 @@
       "trustHeading": "企业选择 Buy & Bring Solutions 的原因",
       "ariaLabel": "首页"
     },
+    "cantonFairTicker": {
+      "text": "Canton Fair 2026 • 广州 • 2026年10月 • 世界最大贸易展",
+      "ariaLabel": "Canton Fair 2026 — 前往广交会页面"
+    },
     "stats": {
       "ariaLabel": "公司关键数据",
       "experience": {
@@ -1657,6 +1661,40 @@
           "href": "/realizacje"
         }
       }
+    },
+    "blog": {
+      "meta": {
+        "title": "博客 — Buy & Bring Solutions",
+        "description": "关于中国进口、采购与物流的企业文章。"
+      },
+      "eyebrow": "博客",
+      "title": "中国进口知识",
+      "lead": "为从中国进口产品的企业提供的实用文章。",
+      "empty": "暂无已发布文章。",
+      "readMore": "阅读更多 →",
+      "postCta": {
+        "title": "对中国进口感兴趣？",
+        "body": "描述您的项目——我们将建议支持范围。",
+        "button": "联系我们"
+      }
+    },
+    "panel": {
+      "meta": {
+        "title": "客户门户 — Buy & Bring Solutions"
+      },
+      "title": "客户门户",
+      "lead": "客户门户可通过项目负责人提供的个人安全链接访问。",
+      "infoBeforeEmail": "如果您是我们的客户但尚未收到项目链接，请直接联系负责人或发送邮件至",
+      "infoAfterEmail": "。",
+      "writeUs": "给我们写信",
+      "devOnly": "仅开发环境：",
+      "devDemoLabel": "演示项目："
+    },
+    "cantonFairBlogTeaser": {
+      "eyebrow": "B&BS 博客",
+      "cta": "阅读团体出行文章",
+      "defaultTitle": "B&BS 广交会 2026 — 组织团体商务赴华行程",
+      "defaultExcerpt": "十月我们为企业家组织赴广州广交会的团体行程——含采购支持、工厂参观与订单执行。"
     }
   },
   "cases": {

@@ -85,6 +85,10 @@
       "trustHeading": "Dlaczego firmy wybierają Buy & Bring Solutions",
       "ariaLabel": "Strona główna"
     },
+    "cantonFairTicker": {
+      "text": "Canton Fair 2026 • Guangzhou • Październik 2026 • Największe targi świata",
+      "ariaLabel": "Canton Fair 2026 — przejdź do strony Canton Fair"
+    },
     "stats": {
       "ariaLabel": "Kluczowe wskaźniki firmy",
       "experience": {
@@ -1657,6 +1661,40 @@
           "href": "/realizacje"
         }
       }
+    },
+    "blog": {
+      "meta": {
+        "title": "Blog — Buy & Bring Solutions",
+        "description": "Artykuły o imporcie z Chin, sourcingu i logistyce dla firm."
+      },
+      "eyebrow": "Blog",
+      "title": "Wiedza o imporcie z Chin",
+      "lead": "Praktyczne artykuły dla firm importujących produkty z Chin.",
+      "empty": "Brak opublikowanych artykułów.",
+      "readMore": "Czytaj więcej →",
+      "postCta": {
+        "title": "Interesuje Cię import z Chin?",
+        "body": "Opisz swój projekt — zaproponujemy zakres wsparcia.",
+        "button": "Skontaktuj się"
+      }
+    },
+    "panel": {
+      "meta": {
+        "title": "Panel klienta — Buy & Bring Solutions"
+      },
+      "title": "Panel klienta",
+      "lead": "Dostęp do panelu klienta jest możliwy poprzez indywidualny, bezpieczny link otrzymany od opiekuna projektu.",
+      "infoBeforeEmail": "Jeśli jesteś naszym klientem i nie otrzymałeś jeszcze linka do swojego projektu, skontaktuj się bezpośrednio ze swoim opiekunem lub napisz na",
+      "infoAfterEmail": ".",
+      "writeUs": "Napisz do nas",
+      "devOnly": "Dev only:",
+      "devDemoLabel": "Demo projekt:"
+    },
+    "cantonFairBlogTeaser": {
+      "eyebrow": "Na blogu B&BS",
+      "cta": "Przeczytaj wpis o grupowym wyjeździe",
+      "defaultTitle": "Canton Fair 2026 z B&BS Poland – organizujemy grupowy wyjazd biznesowy do Chin",
+      "defaultExcerpt": "W październiku organizujemy grupowe wyjazdy dla przedsiębiorców z Polski na Canton Fair w Guangzhou — z wsparciem sourcingu, wizytami w fabrykach i realizacją zamówień."
     }
   },
   "cases": {

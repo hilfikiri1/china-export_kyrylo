@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowRight, Newspaper } from "lucide-react";
 import { CANTON_FAIR_BLOG_SLUG } from "@/content/canton-fair";
 import type { Locale } from "@/i18n/config";
+import { getServerTranslation } from "@/i18n/server";
 import { getBlogPostBySlug } from "@/lib/blog/posts";
 
 type CantonFairBlogTeaserProps = {
@@ -10,15 +11,12 @@ type CantonFairBlogTeaserProps = {
 };
 
 export async function CantonFairBlogTeaser({ locale }: CantonFairBlogTeaserProps) {
+  const { t } = await getServerTranslation(locale);
   const post = await getBlogPostBySlug(CANTON_FAIR_BLOG_SLUG, locale);
   const href = `/${locale}/blog/${CANTON_FAIR_BLOG_SLUG}`;
 
-  const title =
-    post?.title ??
-    "Canton Fair 2026 z B&BS Poland – organizujemy grupowy wyjazd biznesowy do Chin";
-  const excerpt =
-    post?.excerpt ??
-    "W październiku organizujemy grupowe wyjazdy dla przedsiębiorców z Polski na Canton Fair w Guangzhou — z wsparciem sourcingu, wizytami w fabrykach i realizacją zamówień.";
+  const title = post?.title ?? t("pages.cantonFairBlogTeaser.defaultTitle");
+  const excerpt = post?.excerpt ?? t("pages.cantonFairBlogTeaser.defaultExcerpt");
   const coverImage = post?.coverImage ?? "/image/business_trips.jpg";
   const date = post?.date ?? "2026-08-07";
 
@@ -43,7 +41,7 @@ export async function CantonFairBlogTeaser({ locale }: CantonFairBlogTeaserProps
           <div className="flex flex-col justify-center p-5 sm:p-7 lg:p-8">
             <p className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-accent-light">
               <Newspaper className="h-4 w-4" aria-hidden />
-              Na blogu B&BS
+              {t("pages.cantonFairBlogTeaser.eyebrow")}
             </p>
             <h2 id="canton-blog-heading" className="mt-3 text-xl font-bold leading-tight text-white sm:text-2xl">
               {title}
@@ -54,7 +52,7 @@ export async function CantonFairBlogTeaser({ locale }: CantonFairBlogTeaserProps
               href={href}
               className="mt-6 inline-flex min-h-11 w-fit items-center justify-center gap-2 rounded-xl border border-accent-light/20 bg-accent-light/10 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-accent-light/20"
             >
-              Przeczytaj wpis o grupowym wyjeździe
+              {t("pages.cantonFairBlogTeaser.cta")}
               <ArrowRight className="h-4 w-4" aria-hidden />
             </Link>
           </div>
