@@ -28,9 +28,44 @@ export function getCookieConsent(): CookieConsent {
   return value === "all" || value === "essential" ? value : null;
 }
 
+function notifyConsent(value: CookieConsent) {
+  window.dispatchEvent(new CustomEvent(COOKIE_CONSENT_EVENT, { detail: value }));
+}
+
 export function setCookieConsent(value: Exclude<CookieConsent, null>) {
   window.localStorage.setItem(COOKIE_CONSENT_KEY, value);
-  window.dispatchEvent(new CustomEvent(COOKIE_CONSENT_EVENT, { detail: value }));
+
+  if (value === "all") {
+    window.gtag?.("consent", "update", {
+      analytics_storage: "granted",
+      ad_storage: "granted",
+      ad_user_data: "granted",
+      ad_personalization: "granted",
+    });
+    window.fbq?.("consent", "grant");
+  } else {
+    window.gtag?.("consent", "update", {
+      analytics_storage: "denied",
+      ad_storage: "denied",
+      ad_user_data: "denied",
+      ad_personalization: "denied",
+    });
+    window.fbq?.("consent", "revoke");
+  }
+
+  notifyConsent(value);
+}
+
+export function resetCookieConsent() {
+  window.localStorage.removeItem(COOKIE_CONSENT_KEY);
+  window.gtag?.("consent", "update", {
+    analytics_storage: "denied",
+    ad_storage: "denied",
+    ad_user_data: "denied",
+    ad_personalization: "denied",
+  });
+  window.fbq?.("consent", "revoke");
+  notifyConsent(null);
 }
 
 export function analyticsAllowed() {
