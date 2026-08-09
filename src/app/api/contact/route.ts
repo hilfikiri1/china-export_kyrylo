@@ -5,6 +5,7 @@ import {
   type LeadAttachment,
   type LeadPayload,
 } from "@/lib/lead-delivery/forward-lead";
+import { createProjectFromQualifiedLead } from "@/lib/portal/qualified-project";
 
 const rateLimitStore = new Map<string, { count: number; resetAt: number }>();
 const RATE_LIMIT_MAX = 5;
@@ -59,6 +60,7 @@ function str(value: unknown, maxLen: number): string {
   return value.trim().slice(0, maxLen);
 }
 
+// Keep every public locale explicit here. In particular, do not regress English to Polish.
 const ALLOWED_LOCALES = new Set(["pl", "en", "uk", "ru", "de", "zh"]);
 const ALLOWED_FORM_TYPES = new Set(["contact", "consultation"]);
 
@@ -107,6 +109,34 @@ async function parseIncomingRequest(request: NextRequest) {
 
   const body = (await request.json()) as Record<string, unknown>;
   return { body, attachments: [] as File[] };
+}
+
+function isCompleteQualifiedApplication(input: {
+  formType: string;
+  name: string;
+  email: string;
+  phone: string;
+  topic: string;
+  product: string;
+  quantity: string;
+  budget: string;
+  destination: string;
+  deadline: string;
+  description: string;
+}) {
+  if (input.formType !== "contact") return false;
+  return [
+    input.name,
+    input.email,
+    input.phone,
+    input.topic,
+    input.product,
+    input.quantity,
+    input.budget,
+    input.destination,
+    input.deadline,
+    input.description,
+  ].every((value) => value.trim().length > 0);
 }
 
 export async function POST(request: NextRequest) {
@@ -208,7 +238,53 @@ export async function POST(request: NextRequest) {
       console.error("[contact-api] Webhook responded with", result.status);
       return NextResponse.json({ error: "webhook_failed" }, { status: 502 });
     }
-    return NextResponse.json({ success: true, leadId: result.leadId });
+
+    let projectCreated = false;
+    let projectPageId: string | undefined;
+    const complete = isCompleteQualifiedApplication({
+      formType,
+      name,
+      email,
+      phone,
+      topic,
+      product,
+      quantity,
+      budget,
+      destination,
+      deadline,
+      description,
+    });
+
+    if (complete && result.leadId) {
+      try {
+        const project = await createProjectFromQualifiedLead({
+          kommoId: result.leadId,
+          name: product || topic || `Lead ${result.leadId}`,
+          company,
+          contactName: name,
+          email,
+          phone,
+          product,
+          quantity,
+          budget,
+          destination,
+          deadline,
+          description,
+        });
+        projectCreated = project.created;
+        projectPageId = project.pageId;
+      } catch (projectError) {
+        // CRM delivery is the primary operation. A temporary Notion failure must never lose the lead.
+        console.error("[contact-api] Qualified lead project sync failed", projectError);
+      }
+    }
+
+    return NextResponse.json({
+      success: true,
+      leadId: result.leadId,
+      projectCreated,
+      projectPageId,
+    });
   } catch (err) {
     console.error("[contact-api] Webhook request error", err);
     return NextResponse.json({ error: "webhook_failed" }, { status: 502 });
