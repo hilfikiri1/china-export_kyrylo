@@ -9,11 +9,11 @@ import { LogisticsBackdrop } from "@/components/backgrounds/LogisticsBackdrop";
 import { SectionEdgeFade } from "@/components/backgrounds/SectionEdgeFade";
 import { getRealizacjeTeaser } from "@/content/i18n/realizacje-teaser";
 import { useTranslation } from "@/i18n/LocaleProvider";
-import type { CaseStudy } from "@/lib/cases/types";
+import type { LocalizedCaseStudy } from "@/lib/cases/types";
 import { useMotionConfig, viewportOnce } from "@/lib/motion";
 
 type Props = {
-  cases: CaseStudy[];
+  cases: LocalizedCaseStudy[];
 };
 
 const recentLabels: Record<string, string> = {
@@ -184,7 +184,7 @@ export function RealizacjeTeaserSection({ cases }: Props) {
                   <div className="p-4">
                     <p className="text-[10px] font-semibold tracking-wider text-accent-light uppercase">{caseStudy.category}</p>
                     <h3 className="mt-1 line-clamp-2 text-sm font-semibold leading-snug text-white">{caseStudy.title}</h3>
-                    <p className="mt-2 line-clamp-2 text-xs leading-relaxed text-white/45">{caseStudy.excerpt}</p>
+                    <p className="mt-2 line-clamp-2 text-xs leading-relaxed text-white/45">{caseStudy.summary}</p>
                   </div>
                 </Link>
               ))}
