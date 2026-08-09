@@ -7,7 +7,7 @@ import { listPortalProjects } from "@/lib/portal/notion";
 import type { PortalProjectSummary } from "@/lib/portal/types";
 
 export const metadata: Metadata = {
-  title: "Projekty klientów — Panel wewnętrzny",
+  title: "Client projects — B&BS Admin",
   robots: { index: false, follow: false },
 };
 
@@ -17,6 +17,7 @@ export default async function PortalProjectsPage({ params }: { params: Promise<{
   const { locale: localeParam } = await params;
   if (!isLocale(localeParam)) notFound();
   const locale = localeParam as Locale;
+  const ru = locale === "ru";
 
   let projects: PortalProjectSummary[] = [];
   let loadError = false;
@@ -32,29 +33,38 @@ export default async function PortalProjectsPage({ params }: { params: Promise<{
       <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
         <div>
           <Link href={`/${locale}/bbs`} className="text-xs text-white/40 hover:text-white/70">
-            ← Panel wewnętrzny
+            ← {ru ? "Внутренняя панель" : "Panel wewnętrzny"}
           </Link>
-          <h1 className="mt-2 text-2xl font-bold text-white">Projekty klientów</h1>
-          <p className="mt-1 text-sm text-white/50">Wybierz klienta, aby zmienić etap, status lub dodać zdjęcia.</p>
+          <h1 className="mt-2 text-2xl font-bold text-white">{ru ? "Проекты клиентов" : "Projekty klientów"}</h1>
+          <p className="mt-1 text-sm text-white/50">
+            {ru
+              ? "Выберите клиента, чтобы изменить этап, статус или добавить фотографии."
+              : "Wybierz klienta, aby zmienić etap, status lub dodać zdjęcia."}
+          </p>
         </div>
         <Link
           href={`/${locale}/bbs/nowy-projekt`}
           className="inline-flex h-9 items-center justify-center rounded-md bg-accent-light px-3 text-sm font-medium text-white transition-colors hover:bg-[#dbaa47]"
         >
-          + Nowy projekt
+          + {ru ? "Новый проект" : "Nowy projekt"}
         </Link>
       </div>
 
       {loadError ? (
         <div role="alert" className="mt-8 rounded-xl border border-yellow-500/25 bg-yellow-500/5 p-5 text-sm leading-relaxed text-yellow-200/80">
-          Nie udało się odczytać bazy projektów. Sprawdź, czy integracja Notion strony ma dostęp do baz
-          <strong> Klienci i projekty</strong> oraz <strong>Portal klienta — aktualizacje</strong>.
+          {ru ? (
+            <>Не удалось прочитать базу проектов. Проверьте, что интеграция Notion имеет доступ к базам <strong>Klienci i projekty</strong> и <strong>Portal klienta — aktualizacje</strong>.</>
+          ) : (
+            <>Nie udało się odczytać bazy projektów. Sprawdź, czy integracja Notion strony ma dostęp do baz <strong>Klienci i projekty</strong> oraz <strong>Portal klienta — aktualizacje</strong>.</>
+          )}
         </div>
       ) : projects.length === 0 ? (
         <div className="mt-8 rounded-2xl border border-dashed border-white/15 bg-white/3 p-8 text-center">
-          <p className="text-sm text-white/60">Nie ma jeszcze projektów z aktywnym panelem klienta.</p>
+          <p className="text-sm text-white/60">
+            {ru ? "Пока нет проектов с активным кабинетом клиента." : "Nie ma jeszcze projektów z aktywnym panelem klienta."}
+          </p>
           <Link href={`/${locale}/bbs/nowy-projekt`} className="mt-3 inline-block text-sm text-accent-light underline">
-            Utwórz pierwszy projekt
+            {ru ? "Создать первый проект" : "Utwórz pierwszy projekt"}
           </Link>
         </div>
       ) : (
@@ -64,13 +74,13 @@ export default async function PortalProjectsPage({ params }: { params: Promise<{
               <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
                 <div className="min-w-0">
                   <div className="flex flex-wrap items-center gap-2">
-                    <h2 className="font-semibold text-white">{project.name || "Projekt bez nazwy"}</h2>
+                    <h2 className="font-semibold text-white">{project.name || (ru ? "Проект без названия" : "Projekt bez nazwy")}</h2>
                     <span className={project.active ? "rounded-full bg-emerald-400/10 px-2 py-0.5 text-[11px] text-emerald-300" : "rounded-full bg-white/5 px-2 py-0.5 text-[11px] text-white/40"}>
-                      {project.active ? "link aktywny" : "link wyłączony"}
+                      {project.active ? (ru ? "ссылка активна" : "link aktywny") : ru ? "ссылка отключена" : "link wyłączony"}
                     </span>
                   </div>
                   <p className="mt-1 text-xs text-white/40">
-                    {project.projectNumber || "Bez numeru"}
+                    {project.projectNumber || (ru ? "Без номера" : "Bez numeru")}
                     {project.company ? ` · ${project.company}` : ""}
                     {project.contactName ? ` · ${project.contactName}` : ""}
                   </p>
@@ -83,7 +93,7 @@ export default async function PortalProjectsPage({ params }: { params: Promise<{
                   href={`/${locale}/bbs/projekty/${project.pageId}`}
                   className="shrink-0 rounded-md border border-white/15 px-3 py-2 text-xs font-medium text-white/80 transition-colors hover:bg-white/5 hover:text-white"
                 >
-                  Edytuj projekt
+                  {ru ? "Редактировать проект" : "Edytuj projekt"}
                 </Link>
               </div>
 
@@ -92,7 +102,7 @@ export default async function PortalProjectsPage({ params }: { params: Promise<{
                   <a href={project.accessUrl} target="_blank" rel="noreferrer" className="min-w-0 flex-1 truncate font-mono text-xs text-white/40 hover:text-accent-light">
                     {project.accessUrl}
                   </a>
-                  <CopyButton value={project.accessUrl} label="Kopiuj link klienta" />
+                  <CopyButton value={project.accessUrl} label={ru ? "Копировать ссылку клиента" : "Kopiuj link klienta"} />
                 </div>
               )}
             </article>

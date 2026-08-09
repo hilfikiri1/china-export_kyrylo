@@ -18,7 +18,16 @@ type Props = {
 };
 
 export function CaseStudyArticle({ caseStudy: cs, labels, previewBanner }: Props) {
-  const gallery = cs.gallery.filter((image) => image.src !== cs.coverImage);
+  const media = Array.from(
+    new Map(
+      [
+        ...(cs.coverImage ? [{ src: cs.coverImage, alt: cs.title }] : []),
+        ...cs.gallery,
+      ].map((item) => [item.src, item]),
+    ).values(),
+  );
+  const gallery = media.filter((image) => image.src !== cs.coverImage);
+  const coverIndex = cs.coverImage ? media.findIndex((image) => image.src === cs.coverImage) : -1;
 
   return (
     <article className="mx-auto max-w-3xl px-4 pb-16 pt-8 sm:px-6 sm:pb-20 lg:px-8 lg:pt-12">
@@ -43,6 +52,8 @@ export function CaseStudyArticle({ caseStudy: cs, labels, previewBanner }: Props
           sizes="(max-width: 768px) 100vw, 768px"
           priority
           className="relative mb-8 aspect-video w-full rounded-2xl border border-white/10 bg-white/5"
+          gallery={media}
+          initialIndex={Math.max(0, coverIndex)}
         />
       )}
 
@@ -104,15 +115,20 @@ export function CaseStudyArticle({ caseStudy: cs, labels, previewBanner }: Props
         <section>
           <h2 className="mb-3 text-sm font-semibold uppercase tracking-widest text-white/40">{labels.photos}</h2>
           <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
-            {gallery.map((img, index) => (
-              <ZoomableCaseImage
-                key={`${img.src}-${index}`}
-                src={img.src}
-                alt={img.alt}
-                sizes="(max-width: 640px) 50vw, 33vw"
-                className="relative aspect-video rounded-xl border border-white/8 bg-white/5"
-              />
-            ))}
+            {gallery.map((img) => {
+              const index = media.findIndex((item) => item.src === img.src);
+              return (
+                <ZoomableCaseImage
+                  key={img.src}
+                  src={img.src}
+                  alt={img.alt}
+                  sizes="(max-width: 640px) 50vw, 33vw"
+                  className="relative aspect-video rounded-xl border border-white/8 bg-white/5"
+                  gallery={media}
+                  initialIndex={Math.max(0, index)}
+                />
+              );
+            })}
           </div>
         </section>
       )}

@@ -35,6 +35,15 @@ type ConsultationFormMessages = {
   success: { title: string; description: string };
 };
 
+const requestSlotLabel: Record<Locale, string> = {
+  pl: "Poproś o termin konsultacji",
+  en: "Request a consultation time",
+  uk: "Запросити час консультації",
+  ru: "Запросить время консультации",
+  de: "Beratungstermin anfragen",
+  zh: "申请咨询时间",
+};
+
 export function getKonsultacjaLayout(messages: Messages, locale: Locale) {
   const page = getMessageObject<ConsultationPageMessages>(
     messages,
@@ -67,7 +76,7 @@ export function getKonsultacjaLayout(messages: Messages, locale: Locale) {
       },
     },
     form: {
-      title: formMessages.title,
+      title: requestSlotLabel[locale],
       description: formMessages.description,
       topicLabel: formMessages.fields.topic,
       topicOptions: Object.entries(formMessages.topicOptions).map(
@@ -75,7 +84,7 @@ export function getKonsultacjaLayout(messages: Messages, locale: Locale) {
       ),
       notesLabel: formMessages.fields.notes,
       notesPlaceholder: formMessages.placeholders.notes,
-      submitLabel: formMessages.submit,
+      submitLabel: requestSlotLabel[locale],
       footnote: formMessages.footnote,
       footnoteLink: {
         label: formMessages.footnoteLink,

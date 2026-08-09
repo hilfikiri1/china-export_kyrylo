@@ -2,17 +2,33 @@ import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 import {
   forwardLeadToWebhook,
+  type LeadAttachment,
   type LeadPayload,
 } from "@/lib/lead-delivery/forward-lead";
-import { INTERNAL_PROJECT_STATUSES, PORTAL_STAGES } from "@/lib/portal/constants";
-import {
-  createPortalProject,
-  isNotionPortalConfigured,
-} from "@/lib/portal/notion";
 
 const rateLimitStore = new Map<string, { count: number; resetAt: number }>();
 const RATE_LIMIT_MAX = 5;
 const RATE_LIMIT_WINDOW_MS = 15 * 60 * 1000;
+const MAX_ATTACHMENTS = 3;
+const MAX_ATTACHMENTS_TOTAL_BYTES = 3_500_000;
+
+const ALLOWED_ATTACHMENT_EXTENSIONS = new Set([
+  "jpg",
+  "jpeg",
+  "png",
+  "webp",
+  "pdf",
+  "doc",
+  "docx",
+  "xls",
+  "xlsx",
+]);
+
+const BUDGET_LABELS: Record<string, string> = {
+  "5k-10k": "5 000–10 000 USD",
+  "10k-20k": "10 000–20 000 USD",
+  "20k+": "20 000+ USD",
+};
 
 function checkRateLimit(ip: string): boolean {
   const now = Date.now();
@@ -43,69 +59,54 @@ function str(value: unknown, maxLen: number): string {
   return value.trim().slice(0, maxLen);
 }
 
-const ALLOWED_LOCALES = new Set(["pl", "uk", "ru", "de", "zh"]);
+const ALLOWED_LOCALES = new Set(["pl", "en", "uk", "ru", "de", "zh"]);
 const ALLOWED_FORM_TYPES = new Set(["contact", "consultation"]);
 
-const TOPIC_LABELS: Record<string, string> = {
-  sourcing: "Wyszukiwanie producenta",
-  audit: "Weryfikacja / audyt fabryki",
-  qc: "Kontrola jakości",
-  oem: "Private Label / OEM",
-  consolidation: "Konsolidacja",
-  freight: "Transport i odprawa",
-  full: "Kompleksowa obsługa importu",
-  other: "Inne",
-  logistics: "Logistyka i transport",
-};
-
-function oneLine(value: string) {
-  return value.replace(/\s+/g, " ").trim();
+function attachmentExtension(name: string) {
+  return name.toLowerCase().split(".").pop() ?? "";
 }
 
-function projectNameFromLead(payload: LeadPayload) {
-  const topic = TOPIC_LABELS[payload.topic] || payload.topic;
-  return (
-    oneLine(payload.description) ||
-    oneLine(topic) ||
-    `Zapytanie WWW — ${oneLine(payload.name)}`
-  ).slice(0, 200);
+function isAllowedAttachment(file: File) {
+  return ALLOWED_ATTACHMENT_EXTENSIONS.has(attachmentExtension(file.name));
 }
 
-function projectDescriptionFromLead(payload: LeadPayload) {
-  const topic = TOPIC_LABELS[payload.topic] || payload.topic;
-  return [
-    topic ? `Usługa: ${topic}` : "",
-    payload.description ? `Opis: ${payload.description}` : "",
-    `Źródło: formularz WWW (${payload.formType}, ${payload.language.toUpperCase()})`,
-    payload.pageUrl ? `Strona: ${payload.pageUrl}` : "",
-  ]
-    .filter(Boolean)
-    .join("\n")
-    .slice(0, 2_000);
-}
+async function parseIncomingRequest(request: NextRequest) {
+  const contentType = request.headers.get("content-type") ?? "";
 
-async function createProjectFromWebsiteLead(
-  payload: LeadPayload,
-  kommoId?: number,
-) {
-  if (!isNotionPortalConfigured()) {
-    console.warn("[contact-api] Notion portal is not configured; project creation skipped");
-    return false;
+  if (contentType.toLowerCase().includes("multipart/form-data")) {
+    const formData = await request.formData();
+    const body: Record<string, unknown> = {};
+    const textKeys = [
+      "formType",
+      "language",
+      "pageUrl",
+      "name",
+      "company",
+      "email",
+      "phone",
+      "topic",
+      "product",
+      "quantity",
+      "budget",
+      "destination",
+      "deadline",
+      "description",
+      "_hp",
+    ];
+    for (const key of textKeys) {
+      const value = formData.get(key);
+      if (typeof value === "string") body[key] = value;
+    }
+    const consent = formData.get("consent");
+    body.consent = consent === "true" || consent === "on";
+    const attachments = formData
+      .getAll("attachments")
+      .filter((value): value is File => value instanceof File && value.size > 0);
+    return { body, attachments };
   }
 
-  await createPortalProject({
-    name: projectNameFromLead(payload),
-    company: payload.company || undefined,
-    contactName: payload.name || undefined,
-    email: payload.email || undefined,
-    phone: payload.phone || undefined,
-    description: projectDescriptionFromLead(payload),
-    kommoId,
-    internalStatus: INTERNAL_PROJECT_STATUSES[0],
-    currentStage: PORTAL_STAGES[0],
-    managerName: "Buy & Bring Solutions",
-  });
-  return true;
+  const body = (await request.json()) as Record<string, unknown>;
+  return { body, attachments: [] as File[] };
 }
 
 export async function POST(request: NextRequest) {
@@ -115,21 +116,37 @@ export async function POST(request: NextRequest) {
   }
 
   let body: Record<string, unknown>;
+  let files: File[];
   try {
-    body = (await request.json()) as Record<string, unknown>;
+    ({ body, attachments: files } = await parseIncomingRequest(request));
   } catch {
     return NextResponse.json({ error: "invalid_body" }, { status: 400 });
   }
 
-  // Honeypot
   if (body._hp) return NextResponse.json({ success: true });
 
-  // Allowlist extraction with max lengths — extra fields are silently ignored
+  if (files.length > MAX_ATTACHMENTS) {
+    return NextResponse.json({ error: "too_many_attachments" }, { status: 422 });
+  }
+  const totalAttachmentBytes = files.reduce((sum, file) => sum + file.size, 0);
+  if (totalAttachmentBytes > MAX_ATTACHMENTS_TOTAL_BYTES) {
+    return NextResponse.json({ error: "attachments_too_large" }, { status: 413 });
+  }
+  if (files.some((file) => !isAllowedAttachment(file))) {
+    return NextResponse.json({ error: "unsupported_attachment" }, { status: 422 });
+  }
+
   const name = str(body.name, 200);
   const email = str(body.email, 254);
   const phone = str(body.phone, 30);
   const company = str(body.company, 200);
   const topic = str(body.topic, 100);
+  const product = str(body.product, 300);
+  const quantity = str(body.quantity, 200);
+  const rawBudget = str(body.budget, 30);
+  const budget = BUDGET_LABELS[rawBudget] ?? "";
+  const destination = str(body.destination, 300);
+  const deadline = str(body.deadline, 200);
   const description = str(body.description, 3000);
   const rawLanguage = str(body.language, 5);
   const language = ALLOWED_LOCALES.has(rawLanguage) ? rawLanguage : "pl";
@@ -142,6 +159,7 @@ export async function POST(request: NextRequest) {
   if (!name) missing.push("name");
   if (!email || !isValidEmail(email)) missing.push("email");
   if (!consent) missing.push("consent");
+  if (formType === "contact" && !budget) missing.push("budget");
 
   if (missing.length > 0) {
     return NextResponse.json({ error: "validation", fields: missing }, { status: 422 });
@@ -152,7 +170,6 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "service_unavailable" }, { status: 503 });
   }
 
-  // Explicit allowlist payload — no spread of request body
   const payload: LeadPayload = {
     language,
     pageUrl,
@@ -163,30 +180,37 @@ export async function POST(request: NextRequest) {
     email,
     phone,
     topic,
+    product,
+    quantity,
+    budget,
+    destination,
+    deadline,
     description,
   };
 
-  let leadId: number | undefined;
+  let attachments: LeadAttachment[] = [];
   try {
-    const result = await forwardLeadToWebhook(payload);
+    attachments = await Promise.all(
+      files.map(async (file) => ({
+        name: file.name.slice(0, 180),
+        type: file.type || "application/octet-stream",
+        bytes: await file.arrayBuffer(),
+      })),
+    );
+  } catch (error) {
+    console.error("[contact-api] Could not read attachments", error);
+    return NextResponse.json({ error: "attachment_read_failed" }, { status: 400 });
+  }
+
+  try {
+    const result = await forwardLeadToWebhook(payload, attachments);
     if (!result.ok) {
       console.error("[contact-api] Webhook responded with", result.status);
       return NextResponse.json({ error: "webhook_failed" }, { status: 502 });
     }
-    leadId = result.leadId;
+    return NextResponse.json({ success: true, leadId: result.leadId });
   } catch (err) {
     console.error("[contact-api] Webhook request error", err);
     return NextResponse.json({ error: "webhook_failed" }, { status: 502 });
   }
-
-  let projectCreated = false;
-  try {
-    projectCreated = await createProjectFromWebsiteLead(payload, leadId);
-  } catch (err) {
-    // Kommo / Telegram delivery has already succeeded. A transient Notion
-    // failure must not make the customer resubmit and create a duplicate lead.
-    console.error("[contact-api] Notion project creation failed", err);
-  }
-
-  return NextResponse.json({ success: true, projectCreated });
 }
